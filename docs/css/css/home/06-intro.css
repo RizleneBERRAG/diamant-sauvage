@@ -1,0 +1,14 @@
+/* =========================
+   INTRO
+========================= */
+
+.luxury-intro {
+    background: var(--cream);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: clamp(38px, 6vw, 76px);
+    align-items: start;
+}

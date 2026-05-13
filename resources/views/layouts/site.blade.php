@@ -8,26 +8,37 @@
 
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     @stack('styles')
+
+    <link rel="stylesheet" href="{{ asset('css/mobile-menu-fix.css') }}">
 </head>
 
 <body>
 <header class="site-header">
     <div class="container header-inner">
-        <a href="{{ route('home') }}" class="logo">
+        <a href="{{ route('home') }}" class="logo" aria-label="Retour à l’accueil">
             <img src="{{ asset('images/logo-diamant-sauvage.png') }}" alt="Chatterie du Diamant Sauvage">
         </a>
 
-        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
+        >
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <nav class="main-nav">
+        <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
             <a href="{{ route('home') }}">Accueil</a>
 
             <div class="nav-dropdown">
-                <span>Le Bengal</span>
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Le Bengal
+                </button>
+
                 <div class="dropdown-menu">
                     <a href="{{ route('bengal.origines') }}">Origines, morphologie, robe</a>
                     <a href="{{ route('bengal.besoins') }}">Besoins & alimentation</a>
@@ -38,7 +49,10 @@
             </div>
 
             <div class="nav-dropdown">
-                <span>Nos chats</span>
+                <button class="nav-dropdown-trigger" type="button" aria-expanded="false">
+                    Nos chats
+                </button>
+
                 <div class="dropdown-menu">
                     <a href="{{ route('chats.index') }}">Tous nos chats</a>
                     <a href="{{ route('chats.femelles') }}">Nos femelles</a>
@@ -52,6 +66,8 @@
         </nav>
     </div>
 </header>
+
+<div class="menu-backdrop" aria-hidden="true"></div>
 
 <main>
     @yield('content')
@@ -90,6 +106,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const toggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('.main-nav');
+        const backdrop = document.querySelector('.menu-backdrop');
 
         if (!toggle || !nav) {
             return;
@@ -99,39 +116,46 @@
             nav.classList.add('is-open');
             toggle.classList.add('is-active');
             toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', 'Fermer le menu');
             document.body.classList.add('menu-open');
+
+            if (backdrop) {
+                backdrop.classList.add('is-visible');
+            }
         };
 
         const closeMenu = () => {
             nav.classList.remove('is-open');
             toggle.classList.remove('is-active');
             toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Ouvrir le menu');
             document.body.classList.remove('menu-open');
-        };
 
-        const toggleMenu = () => {
-            if (nav.classList.contains('is-open')) {
-                closeMenu();
-            } else {
-                openMenu();
+            if (backdrop) {
+                backdrop.classList.remove('is-visible');
             }
         };
 
         toggle.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            toggleMenu();
+
+            if (nav.classList.contains('is-open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
 
         nav.querySelectorAll('a').forEach((link) => {
             link.addEventListener('click', closeMenu);
         });
 
-        document.addEventListener('click', (event) => {
-            if (!nav.classList.contains('is-open')) {
-                return;
-            }
+        if (backdrop) {
+            backdrop.addEventListener('click', closeMenu);
+        }
 
+        document.addEventListener('click', (event) => {
             const clickedInsideMenu = event.target.closest('.main-nav');
             const clickedToggle = event.target.closest('.menu-toggle');
 
@@ -142,6 +166,12 @@
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 980) {
                 closeMenu();
             }
         });

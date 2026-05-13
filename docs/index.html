@@ -8,136 +8,7 @@
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home/home.css">
-
-    <style>
-        @media (max-width: 980px) {
-            .menu-toggle {
-                position: relative;
-                z-index: 100000;
-                display: flex !important;
-                width: 44px;
-                height: 44px;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 5px;
-                padding: 0;
-                border: 1px solid rgba(224, 201, 130, .38);
-                border-radius: 12px;
-                background: rgba(255, 255, 255, .03);
-                cursor: pointer;
-            }
-
-            .menu-toggle span {
-                display: block;
-                width: 18px;
-                height: 2px;
-                margin: 0;
-                border-radius: 999px;
-                background: var(--gold-soft);
-                transition: transform .25s ease, opacity .25s ease;
-            }
-
-            .menu-toggle.is-active span:nth-child(1) {
-                transform: translateY(7px) rotate(45deg);
-            }
-
-            .menu-toggle.is-active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.is-active span:nth-child(3) {
-                transform: translateY(-7px) rotate(-45deg);
-            }
-
-            .main-nav {
-                position: fixed !important;
-                top: 94px !important;
-                left: 0 !important;
-                right: 0 !important;
-                z-index: 99999 !important;
-                display: none !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 18px !important;
-                padding: 26px 24px 30px !important;
-                background: rgba(8, 7, 6, .98) !important;
-                border-top: 1px solid rgba(224, 201, 130, .12) !important;
-                border-bottom: 1px solid rgba(224, 201, 130, .18) !important;
-                box-shadow: 0 28px 80px rgba(0, 0, 0, .45) !important;
-            }
-
-            .main-nav.is-open {
-                display: flex !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                transform: none !important;
-            }
-
-            .main-nav a,
-            .main-nav .nav-dropdown > span,
-            .main-nav .nav-dropdown-trigger {
-                width: 100% !important;
-                color: var(--cream) !important;
-                font-size: 16px !important;
-                font-weight: 700 !important;
-                background: transparent;
-                border: 0;
-                padding: 0;
-                text-align: left;
-                font-family: inherit;
-                cursor: pointer;
-            }
-
-            .nav-dropdown {
-                width: 100% !important;
-                padding: 0 !important;
-            }
-
-            .dropdown-menu {
-                position: static !important;
-                width: 100% !important;
-                margin-top: 12px !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                transform: none !important;
-                box-shadow: none !important;
-            }
-
-            .menu-backdrop {
-                position: fixed;
-                inset: 0;
-                z-index: 9990;
-                background: rgba(0, 0, 0, .45);
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                transition: .25s ease;
-            }
-
-            .menu-backdrop.is-visible {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-            }
-
-            body.menu-open {
-                overflow: hidden;
-            }
-        }
-
-        @media (max-width: 760px) {
-            .main-nav {
-                top: 84px !important;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .main-nav {
-                top: 78px !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/mobile-menu-fix.css">
 </head>
 
 <body>
@@ -168,11 +39,11 @@
                 </button>
 
                 <div class="dropdown-menu">
-                    <a href="#bengal">Origines, morphologie, robe</a>
-                    <a href="#bengal">Besoins & alimentation</a>
-                    <a href="#bengal">Santé</a>
-                    <a href="#bengal">Reproduction</a>
-                    <a href="#contact-demo">Préparer son arrivée</a>
+                    <a href="le-bengal/origines-morphologie-robe">Origines, morphologie, robe</a>
+                    <a href="le-bengal/besoins-et-alimentation">Besoins & alimentation</a>
+                    <a href="le-bengal/sante">Santé</a>
+                    <a href="le-bengal/reproduction">Reproduction</a>
+                    <a href="le-bengal/preparer-son-arrivee">Préparer son arrivée</a>
                 </div>
             </div>
 
@@ -182,15 +53,15 @@
                 </button>
 
                 <div class="dropdown-menu">
-                    <a href="#chatons">Tous nos chats</a>
-                    <a href="#navigation">Nos femelles</a>
-                    <a href="#navigation">Nos mâles</a>
-                    <a href="#chatons">Chats disponibles</a>
+                    <a href="nos-chats">Tous nos chats</a>
+                    <a href="nos-chats/nos-femelles">Nos femelles</a>
+                    <a href="nos-chats/nos-males">Nos mâles</a>
+                    <a href="nos-chats/chats-disponibles">Chats disponibles</a>
                 </div>
             </div>
 
-            <a href="#chatterie">La chatterie</a>
-            <a href="#contact-demo" class="nav-contact">Contact</a>
+            <a href="la-chatterie">La chatterie</a>
+            <a href="contact" class="nav-contact">Contact</a>
         </nav>
     </div>
 </header>
@@ -218,11 +89,11 @@
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#chatons" class="btn btn-gold magnetic-btn">
+                    <a href="nos-chats/chats-disponibles" class="btn btn-gold magnetic-btn">
                         Découvrir les chatons
                     </a>
 
-                    <a href="#chatterie" class="btn btn-glass magnetic-btn">
+                    <a href="la-chatterie" class="btn btn-glass magnetic-btn">
                         L’univers de la chatterie
                     </a>
                 </div>
@@ -271,6 +142,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="image-ribbon">
         <div class="ribbon-track">
@@ -372,7 +244,7 @@
         </div>
     </section>
 
-    <section class="luxury-intro" id="chatterie">
+    <section class="luxury-intro">
         <div class="container intro-grid">
             <div class="reveal-up">
                 <span class="section-label">La chatterie</span>
@@ -393,19 +265,18 @@
         </div>
     </section>
 
-    <section class="kitten-showcase" id="chatons">
+    <section class="kitten-showcase">
         <div class="container">
             <div class="section-heading section-heading-center reveal-up">
                 <span class="section-label">Chatons Bengal</span>
                 <h2>Nos chatons, élevés avec passion et douceur.</h2>
                 <p>
-                    Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère,
-                    leur évolution et toutes les informations utiles pour préparer leur arrivée.
+                    Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère, leur évolution et toutes les informations utiles pour préparer leur arrivée.
                 </p>
             </div>
 
             <div class="kitten-editorial-grid">
-                <a href="#contact-demo" class="kitten-editorial-card kitten-editorial-card-large reveal-up tilt-card">
+                <a href="nos-chats/chats-disponibles" class="kitten-editorial-card kitten-editorial-card-large reveal-up tilt-card">
                     <img src="images/home/kitten-1.jpg" alt="Chaton Bengal disponible">
 
                     <div class="kitten-editorial-overlay"></div>
@@ -414,15 +285,14 @@
                         <span class="kitten-status">Disponible</span>
                         <h3>Chatons Bengal disponibles</h3>
                         <p>
-                            Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère,
-                            leur évolution et toutes les informations utiles pour préparer leur arrivée.
+                            Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère, leur évolution et toutes les informations utiles pour préparer leur arrivée.
                         </p>
                         <strong>Voir les disponibilités</strong>
                     </div>
                 </a>
 
                 <div class="kitten-editorial-column">
-                    <a href="#contact-demo" class="kitten-editorial-card reveal-up delay-1 tilt-card">
+                    <a href="nos-chats/chats-disponibles" class="kitten-editorial-card reveal-up delay-1 tilt-card">
                         <img src="images/home/kitten-2.jpg" alt="Portées Bengal à venir">
 
                         <div class="kitten-editorial-overlay"></div>
@@ -430,13 +300,11 @@
                         <div class="kitten-editorial-content">
                             <span>Naissances</span>
                             <h3>Portées à venir</h3>
-                            <p>
-                                Suivez nos prochaines naissances, les mariages prévus et les possibilités de réservation auprès de la chatterie.
-                            </p>
+                            <p>Suivez nos prochaines naissances, les mariages prévus et les possibilités de réservation auprès de la chatterie.</p>
                         </div>
                     </a>
 
-                    <a href="#contact-demo" class="kitten-editorial-card reveal-up delay-2 tilt-card">
+                    <a href="nos-chats/chats-disponibles" class="kitten-editorial-card reveal-up delay-2 tilt-card">
                         <img src="images/home/kitten-3.jpg" alt="Évolution des chatons Bengal">
 
                         <div class="kitten-editorial-overlay"></div>
@@ -444,9 +312,7 @@
                         <div class="kitten-editorial-content">
                             <span>Suivi</span>
                             <h3>Évolution des chatons</h3>
-                            <p>
-                                De leurs premiers jours à leur départ, suivez l’évolution de nos petits Bengals à travers leurs photos, leurs découvertes et leurs progrès.
-                            </p>
+                            <p>De leurs premiers jours à leur départ, suivez l’évolution de nos petits Bengals à travers leurs photos, leurs découvertes et leurs progrès.</p>
                         </div>
                     </a>
                 </div>
@@ -454,7 +320,7 @@
         </div>
     </section>
 
-    <section class="luxury-navigation" id="navigation">
+    <section class="luxury-navigation">
         <div class="container">
             <div class="navigation-premium-head reveal-up">
                 <span class="section-label">Navigation premium</span>
@@ -466,7 +332,7 @@
             </div>
 
             <div class="premium-nav-layout">
-                <a href="#chatterie" class="premium-nav-card premium-nav-card-large reveal-up tilt-card">
+                <a href="la-chatterie" class="premium-nav-card premium-nav-card-large reveal-up tilt-card">
                     <img src="images/home/gallery-1.jpg" alt="La chatterie du Diamant Sauvage">
 
                     <div class="premium-nav-overlay"></div>
@@ -482,7 +348,7 @@
                 </a>
 
                 <div class="premium-nav-grid">
-                    <a href="#navigation" class="premium-nav-card reveal-up delay-1 tilt-card">
+                    <a href="nos-chats/nos-femelles" class="premium-nav-card reveal-up delay-1 tilt-card">
                         <img src="images/home/gallery-2.jpg" alt="Femelles Bengal">
 
                         <div class="premium-nav-overlay"></div>
@@ -495,7 +361,7 @@
                         </div>
                     </a>
 
-                    <a href="#navigation" class="premium-nav-card reveal-up delay-2 tilt-card">
+                    <a href="nos-chats/nos-males" class="premium-nav-card reveal-up delay-2 tilt-card">
                         <img src="images/home/cat-detail-1.jpg" alt="Mâles Bengal">
 
                         <div class="premium-nav-overlay"></div>
@@ -508,7 +374,7 @@
                         </div>
                     </a>
 
-                    <a href="#chatons" class="premium-nav-card premium-nav-card-gold reveal-up delay-3 tilt-card">
+                    <a href="nos-chats/chats-disponibles" class="premium-nav-card premium-nav-card-gold reveal-up delay-3 tilt-card">
                         <img src="images/home/kitten-1.jpg" alt="Chatons Bengal disponibles">
 
                         <div class="premium-nav-overlay"></div>
@@ -521,7 +387,7 @@
                         </div>
                     </a>
 
-                    <a href="#contact-demo" class="premium-nav-card premium-nav-card-dark reveal-up delay-3 tilt-card">
+                    <a href="contact" class="premium-nav-card premium-nav-card-dark reveal-up delay-3 tilt-card">
                         <img src="images/home/kitten-6.jpg" alt="Chatons Bengal disponibles">
 
                         <div class="premium-nav-overlay"></div>
@@ -538,7 +404,7 @@
         </div>
     </section>
 
-    <section class="bengal-world" id="bengal">
+    <section class="bengal-world">
         <div class="container bengal-world-grid">
             <div class="bengal-world-content reveal-up">
                 <span class="section-label">Le Bengal</span>
@@ -558,7 +424,7 @@
                     <span>Rosettes</span>
                 </div>
 
-                <a href="#bengal" class="btn btn-gold magnetic-btn">Découvrir la race</a>
+                <a href="le-bengal/origines-morphologie-robe" class="btn btn-gold magnetic-btn">Découvrir la race</a>
             </div>
 
             <div class="bengal-world-visual reveal-scale">
@@ -579,33 +445,23 @@
                 <h2>Un parcours d’adoption rassurant, clair et bienveillant.</h2>
                 <p>
                     Nous attachons une grande importance à offrir à chaque famille un accompagnement sérieux et transparent.
-                    De la première prise de contact jusqu’au départ du chaton, chaque étape est pensée pour garantir confiance,
-                    sérénité et bien-être.
+                    De la première prise de contact jusqu’au départ du chaton, chaque étape est pensée pour garantir confiance, sérénité et bien-être.
                 </p>
 
                 <div class="story-points">
                     <div>
                         <strong>Premier contact</strong>
-                        <span>
-                            Un échange simple et bienveillant pour comprendre votre projet, répondre à vos questions
-                            et vous orienter vers le chaton qui vous correspond.
-                        </span>
+                        <span>Un échange simple et bienveillant pour comprendre votre projet, répondre à vos questions et vous orienter vers le chaton qui vous correspond.</span>
                     </div>
 
                     <div>
                         <strong>Suivi & préparation</strong>
-                        <span>
-                            Nous vous informons à chaque étape : évolution du chaton, soins, socialisation,
-                            documents et conditions de départ.
-                        </span>
+                        <span>Nous vous informons à chaque étape : évolution du chaton, soins, socialisation, documents et conditions de départ.</span>
                     </div>
 
                     <div>
                         <strong>Départ & accompagnement</strong>
-                        <span>
-                            Le jour du départ, tout est préparé avec soin, et nous restons disponibles pour vous conseiller
-                            même après l’adoption.
-                        </span>
+                        <span>Le jour du départ, tout est préparé avec soin, et nous restons disponibles pour vous conseiller même après l’adoption.</span>
                     </div>
                 </div>
             </div>
@@ -618,14 +474,13 @@
         </div>
     </section>
 
-    <section class="home-gallery" id="galerie">
+    <section class="home-gallery">
         <div class="container">
             <div class="section-heading reveal-up">
                 <span class="section-label">Galerie</span>
                 <h2>Des instants précieux à découvrir en images.</h2>
                 <p>
-                    À travers chaque image, découvrez l’élégance, le regard, les robes et les attitudes uniques de nos Bengals,
-                    élevés dans un environnement doux et attentionné.
+                    À travers chaque image, découvrez l’élégance, le regard, les robes et les attitudes uniques de nos Bengals, élevés dans un environnement doux et attentionné.
                 </p>
             </div>
 
@@ -682,7 +537,7 @@
         </div>
     </section>
 
-    <section class="luxury-cta" id="contact-demo">
+    <section class="luxury-cta">
         <div class="container cta-inner reveal-up">
             <span class="section-label">Contact</span>
             <h2>Vous rêvez d’accueillir un Bengal d’exception ?</h2>
@@ -691,7 +546,7 @@
                 vous accompagner dans votre projet d’adoption avec sérieux, bienveillance et passion.
             </p>
 
-            <a href="mailto:" class="btn btn-gold magnetic-btn">Contacter la chatterie</a>
+            <a href="contact" class="btn btn-gold magnetic-btn">Contacter la chatterie</a>
         </div>
     </section>
 
@@ -701,30 +556,28 @@
     <div class="container footer-grid">
         <div>
             <img src="images/logo-diamant-sauvage.png" alt="Chatterie du Diamant Sauvage" class="footer-logo">
-            <p>
-                Élevage familial de chats Bengal, pensé autour du bien-être, de la sélection responsable et de la confiance.
-            </p>
+            <p>Élevage familial de chats Bengal, pensé autour du bien-être, de la sélection responsable et de la confiance.</p>
         </div>
 
         <div>
             <h3>Navigation</h3>
-            <a href="#chatterie">La chatterie</a>
-            <a href="#navigation">Nos femelles</a>
-            <a href="#navigation">Nos mâles</a>
-            <a href="#chatons">Chats disponibles</a>
+            <a href="la-chatterie">La chatterie</a>
+            <a href="nos-chats/nos-femelles">Nos femelles</a>
+            <a href="nos-chats/nos-males">Nos mâles</a>
+            <a href="nos-chats/chats-disponibles">Chats disponibles</a>
         </div>
 
         <div>
             <h3>Contact</h3>
             <p>Villeneuve-de-Marc</p>
             <p>06 21 59 64 19</p>
-            <a href="#contact-demo">Nous contacter</a>
+            <a href="contact">Nous contacter</a>
         </div>
     </div>
 
     <div class="footer-bottom">
         <p>© 2026 La Chatterie du Diamant Sauvage — Tous droits réservés.</p>
-        <a href="#mentions">Mentions légales</a>
+        <a href="mentions-legales">Mentions légales</a>
     </div>
 </footer>
 

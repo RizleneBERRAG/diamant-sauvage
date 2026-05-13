@@ -1,0 +1,15 @@
+.chatterie-content {
+    padding: 95px 0;
+}
+
+.chatterie-content h2 {
+    font-size: clamp(34px, 4vw, 56px);
+    margin: 0 0 18px;
+}
+
+.chatterie-content p {
+    max-width: 760px;
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 17px;
+}

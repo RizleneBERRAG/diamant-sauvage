@@ -1,0 +1,240 @@
+/* =========================
+   KITTEN SHOWCASE
+========================= */
+
+.kitten-showcase {
+    position: relative;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(200, 168, 90, .16), transparent 30%),
+        radial-gradient(circle at 12% 90%, rgba(200, 168, 90, .10), transparent 28%),
+        #fffaf0;
+}
+
+.section-heading {
+    max-width: 850px;
+    margin-bottom: 52px;
+}
+
+.section-heading-center {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-heading-center .section-label {
+    justify-content: center;
+}
+
+.section-heading-center .section-label::before {
+    display: none;
+}
+
+.kitten-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 26px;
+    min-height: 720px;
+}
+
+.kitten-editorial-column {
+    display: grid;
+    gap: 26px;
+}
+
+.kitten-editorial-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 347px;
+    border-radius: 42px;
+    border: 1px solid rgba(180, 155, 87, .32);
+    background: #15110c;
+    box-shadow: 0 28px 80px rgba(18, 16, 12, .16);
+    display: flex;
+    align-items: flex-end;
+    isolation: isolate;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.kitten-editorial-card-large {
+    min-height: 720px;
+}
+
+.kitten-editorial-card img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    filter: brightness(.86) contrast(1.04) saturate(1.02);
+    transition: transform .65s ease, filter .65s ease;
+}
+
+.kitten-editorial-card:hover {
+    border-color: rgba(224, 201, 130, .72);
+    box-shadow: 0 38px 110px rgba(18, 16, 12, .22);
+}
+
+.kitten-editorial-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(.98) contrast(1.08) saturate(1.05);
+}
+
+.kitten-editorial-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(to top, rgba(12, 9, 6, .92) 0%, rgba(12, 9, 6, .60) 34%, rgba(12, 9, 6, .12) 72%),
+        linear-gradient(135deg, rgba(200, 168, 90, .22), transparent 42%);
+    pointer-events: none;
+}
+
+.kitten-editorial-content {
+    position: relative;
+    z-index: 3;
+    padding: 34px;
+    color: white;
+    max-width: 620px;
+}
+
+.kitten-editorial-card-large .kitten-editorial-content {
+    padding: 46px;
+}
+
+.kitten-editorial-content span,
+.kitten-status {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 9px 13px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(255, 250, 240, .92);
+    color: #765425;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .16);
+}
+
+.kitten-editorial-content h3 {
+    margin: 0 0 14px;
+    font-size: clamp(30px, 3.4vw, 58px);
+    line-height: .98;
+    letter-spacing: -2px;
+}
+
+.kitten-editorial-column .kitten-editorial-content h3 {
+    font-size: clamp(26px, 2.4vw, 38px);
+}
+
+.kitten-editorial-content p {
+    max-width: 540px;
+    margin: 0;
+    color: rgba(255, 255, 255, .76);
+    line-height: 1.75;
+    font-size: 16px;
+}
+
+.kitten-editorial-content strong {
+    display: inline-flex;
+    margin-top: 22px;
+    color: var(--gold-soft);
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+.kitten-editorial-card.image-top img {
+    object-position: center top;
+}
+
+.kitten-editorial-card.image-bottom img {
+    object-position: center bottom;
+}
+
+.kitten-editorial-card.image-left img {
+    object-position: left center;
+}
+
+.kitten-editorial-card.image-right img {
+    object-position: right center;
+}
+
+.kitten-luxury-infos {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+    padding: 18px;
+    border-radius: 38px;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(224, 201, 130, .18), transparent 34%),
+        linear-gradient(135deg, #21180f 0%, #120f0b 100%);
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 30px 90px rgba(18, 16, 12, .22);
+}
+
+.kitten-luxury-infos::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(224, 201, 130, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 201, 130, .035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: .55;
+}
+
+.kitten-luxury-infos div {
+    position: relative;
+    z-index: 2;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .065);
+    border: 1px solid rgba(224, 201, 130, .18);
+    backdrop-filter: blur(12px);
+    transition: transform .28s ease, border-color .28s ease, background .28s ease;
+}
+
+.kitten-luxury-infos div:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, .09);
+    border-color: rgba(224, 201, 130, .48);
+}
+
+.kitten-luxury-infos span {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: rgba(224, 201, 130, .12);
+    border: 1px solid rgba(224, 201, 130, .28);
+    color: var(--gold-soft);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.kitten-luxury-infos strong {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 22px;
+    letter-spacing: -.6px;
+}
+
+.kitten-luxury-infos p {
+    margin: 0;
+    color: rgba(255, 255, 255, .70);
+    line-height: 1.75;
+    font-size: 15px;
+}

@@ -1,15 +1,2808 @@
-.chatterie-content {
-    padding: 95px 0;
+/* =========================
+   PAGE LA CHATTERIE
+========================= */
+
+.photo-bg {
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.chatterie-content h2 {
-    font-size: clamp(34px, 4vw, 56px);
-    margin: 0 0 18px;
+/* =========================
+   KICKER GLOBAL PAGE
+========================= */
+
+.cattery-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 900;
 }
 
-.chatterie-content p {
+.cattery-kicker::before {
+    content: "";
+    width: 42px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.cattery-kicker-dark {
+    color: var(--gold);
+}
+
+/* =========================
+   HERO VIDEO PREMIUM
+========================= */
+
+.cattery-hero-video {
+    position: relative;
+    overflow: hidden;
+
+    min-height: calc(100svh - 118px);
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+    background: #0b0907;
+    isolation: isolate;
+}
+
+.cattery-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.cattery-hero-media video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(.62) saturate(.92) contrast(1.04);
+}
+
+.cattery-hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        linear-gradient(180deg, rgba(8, 6, 5, .30) 0%, rgba(8, 6, 5, .54) 52%, rgba(8, 6, 5, .90) 100%),
+        linear-gradient(90deg, rgba(8, 6, 5, .60) 0%, rgba(8, 6, 5, .18) 50%, rgba(8, 6, 5, .60) 100%);
+    pointer-events: none;
+}
+
+.cattery-hero-video-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+        radial-gradient(circle at 50% 24%, rgba(216, 198, 142, .16), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(180, 155, 87, .10), transparent 28%),
+        radial-gradient(circle at 12% 82%, rgba(180, 155, 87, .12), transparent 30%);
+    pointer-events: none;
+}
+
+.cattery-hero-video-inner {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    min-height: calc(100svh - 118px);
+
+    padding: 54px 0 34px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 42px;
+}
+
+.cattery-hero-top-badge {
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(216, 198, 142, .22);
+
+    background: rgba(18, 14, 10, .36);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .22);
+}
+
+.cattery-hero-top-badge span {
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.cattery-hero-top-badge strong {
+    color: rgba(255, 255, 255, .88);
+    font-size: 13px;
+}
+
+.cattery-hero-main {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cattery-hero-main .cattery-kicker {
+    justify-content: center;
+}
+
+.cattery-hero-main h1 {
+    max-width: 980px;
+    margin: 20px auto 22px;
+
+    color: #fff;
+    font-size: clamp(48px, 8vw, 108px);
+    line-height: .88;
+    letter-spacing: -4.8px;
+
+    text-wrap: balance;
+}
+
+.cattery-hero-main h1 em {
+    color: var(--gold-soft);
+    font-style: normal;
+}
+
+.cattery-hero-main p {
     max-width: 760px;
-    color: var(--text);
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, .76);
+    font-size: 18px;
     line-height: 1.8;
+}
+
+.cattery-hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.cattery-hero-infos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.cattery-hero-infos article {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 136px;
+    padding: 22px;
+
+    border-radius: 24px;
+    border: 1px solid rgba(216, 198, 142, .18);
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)),
+        rgba(12, 9, 6, .42);
+
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 54px rgba(0, 0, 0, .20);
+}
+
+.cattery-hero-infos article::after {
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: -24px;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+    background: rgba(216, 198, 142, .08);
+}
+
+.cattery-hero-infos span,
+.cattery-hero-infos strong,
+.cattery-hero-infos p {
+    position: relative;
+    z-index: 2;
+}
+
+.cattery-hero-infos span {
+    display: block;
+    margin-bottom: 14px;
+
+    color: var(--gold-soft);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+}
+
+.cattery-hero-infos strong {
+    display: block;
+    margin-bottom: 8px;
+
+    color: white;
+    font-size: 18px;
+}
+
+.cattery-hero-infos p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, .66);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* =========================
+   MANIFESTO
+========================= */
+
+.cattery-manifesto {
+    padding: clamp(76px, 8vw, 112px) 0;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(180, 155, 87, .12), transparent 30%),
+        var(--cream);
+}
+
+.cattery-manifesto-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: clamp(38px, 6vw, 84px);
+    align-items: start;
+}
+
+.cattery-editorial h2,
+.cattery-section-head h2,
+.cattery-care-content h2,
+.cattery-trust-box h2,
+.cattery-final-inner h2 {
+    margin: 18px 0 0;
+
+    color: var(--dark);
+    font-size: clamp(34px, 4.6vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -2.6px;
+}
+
+.cattery-editorial-text {
+    display: grid;
+    gap: 22px;
+    padding-top: 34px;
+}
+
+.cattery-editorial-text p,
+.cattery-section-head p,
+.cattery-care-content p,
+.cattery-trust-box p,
+.cattery-final-inner p {
+    margin: 0;
+
+    color: var(--text);
     font-size: 17px;
+    line-height: 1.85;
+}
+
+/* =========================
+   SECTION HEAD
+========================= */
+
+.cattery-section-head {
+    max-width: 820px;
+    margin-bottom: 44px;
+}
+
+.cattery-section-head p {
+    margin-top: 20px;
+}
+
+.cattery-section-head-light h2,
+.cattery-section-head-light p {
+    color: white;
+}
+
+.cattery-section-head-light p {
+    color: rgba(255, 255, 255, .68);
+}
+
+/* =========================
+   PILLARS
+========================= */
+
+.cattery-pillars {
+    padding: clamp(76px, 8vw, 112px) 0;
+    background: #fffaf0;
+}
+
+.cattery-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.cattery-pillar-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 310px;
+    padding: 30px;
+
+    border-radius: 34px;
+    border: 1px solid rgba(180, 155, 87, .24);
+
+    background:
+        radial-gradient(circle at 84% 12%, rgba(180, 155, 87, .14), transparent 34%),
+        rgba(255, 255, 255, .78);
+
+    box-shadow: 0 22px 68px rgba(18, 16, 12, .08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.cattery-pillar-card::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+
+    background: linear-gradient(120deg, transparent 36%, rgba(180, 155, 87, .16), transparent 66%);
+    transform: translateX(-70%) rotate(18deg);
+
+    transition: transform .7s ease;
+}
+
+.cattery-pillar-card:hover {
+    transform: translateY(-8px);
+    background: #14100b;
+    box-shadow: 0 34px 90px rgba(18, 16, 12, .16);
+}
+
+.cattery-pillar-card:hover::after {
+    transform: translateX(70%) rotate(18deg);
+}
+
+.cattery-pillar-card span,
+.cattery-pillar-card h3,
+.cattery-pillar-card p {
+    position: relative;
+    z-index: 2;
+}
+
+.cattery-pillar-card span {
+    width: 52px;
+    height: 52px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(180, 155, 87, .14);
+
+    color: var(--gold);
+    font-weight: 900;
+}
+
+.cattery-pillar-card h3 {
+    margin: 34px 0 14px;
+
+    color: var(--dark);
+    font-size: 30px;
+    letter-spacing: -1.2px;
+}
+
+.cattery-pillar-card p {
+    margin: 0;
+
+    color: var(--text);
+    line-height: 1.75;
+}
+
+.cattery-pillar-card:hover h3 {
+    color: white;
+}
+
+.cattery-pillar-card:hover p {
+    color: rgba(255, 255, 255, .68);
+}
+
+/* =========================
+   SPACES
+========================= */
+
+.cattery-spaces {
+    padding: clamp(78px, 8vw, 118px) 0;
+
+    background:
+        radial-gradient(circle at 80% 10%, rgba(216, 198, 142, .14), transparent 34%),
+        linear-gradient(180deg, #120f0b 0%, #070605 100%);
+
+    color: white;
+}
+
+.cattery-spaces-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 22px;
+}
+
+.cattery-space-card {
+    overflow: hidden;
+
+    border-radius: 36px;
+    border: 1px solid rgba(216, 198, 142, .18);
+
+    background: rgba(255, 255, 255, .045);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .24);
+}
+
+.cattery-space-large {
+    grid-row: span 2;
+}
+
+/* =========================
+   GALERIES DES ESPACES
+========================= */
+
+.cattery-space-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 320px;
+    background: #090705;
+}
+
+.cattery-space-large .cattery-space-slider {
+    min-height: 560px;
+}
+
+.cattery-space-track {
+    height: 100%;
+    min-height: inherit;
+
+    display: flex;
+
+    transform: translateX(0);
+    transition: transform .65s cubic-bezier(.22, .8, .22, 1);
+}
+
+.cattery-space-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    min-height: inherit;
+
+    filter: brightness(.9) contrast(1.04);
+}
+
+.cattery-space-slider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+        linear-gradient(to top, rgba(8, 6, 5, .44), transparent 54%),
+        radial-gradient(circle at 18% 12%, rgba(216, 198, 142, .12), transparent 30%);
+
+    pointer-events: none;
+}
+
+.cattery-slider-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(216, 198, 142, .28);
+    border-radius: 50%;
+
+    background: rgba(10, 8, 6, .54);
+    color: var(--gold-soft);
+
+    font-size: 30px;
+    line-height: 1;
+
+    backdrop-filter: blur(12px);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, .22);
+
+    opacity: 0;
+    transform: translateY(-50%) scale(.94);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.cattery-slider-prev {
+    left: 18px;
+}
+
+.cattery-slider-next {
+    right: 18px;
+}
+
+.cattery-space-slider:hover .cattery-slider-btn {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.cattery-slider-btn:hover {
+    background: rgba(216, 198, 142, .18);
+    border-color: rgba(216, 198, 142, .46);
+}
+
+.cattery-slider-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transform: translateX(-50%);
+}
+
+.cattery-slider-dots button {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .42);
+
+    transition:
+        width .25s ease,
+        background .25s ease;
+}
+
+.cattery-slider-dots button.is-active {
+    width: 22px;
+    background: var(--gold-soft);
+}
+
+.cattery-space-content {
+    padding: 28px;
+}
+
+.cattery-space-content span {
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-space-content h3 {
+    margin: 12px 0 12px;
+
+    color: white;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -1.1px;
+}
+
+.cattery-space-content p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, .68);
+    line-height: 1.72;
+}
+
+/* =========================
+   CARE
+========================= */
+
+.cattery-care {
+    padding: clamp(76px, 8vw, 112px) 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(180, 155, 87, .12), transparent 30%),
+        #f6efe2;
+}
+
+.cattery-care-grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: clamp(40px, 6vw, 86px);
+    align-items: center;
+}
+
+.cattery-care-visual {
+    position: relative;
+}
+
+.cattery-care-photo {
+    min-height: 560px;
+
+    border-radius: 42px;
+    border: 1px solid rgba(180, 155, 87, .24);
+
+    box-shadow: 0 32px 90px rgba(18, 16, 12, .14);
+}
+
+.care-badge {
+    position: absolute;
+    right: -26px;
+    bottom: 34px;
+
+    padding: 20px 22px;
+
+    border-radius: 24px;
+    border: 1px solid rgba(216, 198, 142, .22);
+
+    background: #120f0b;
+    box-shadow: 0 24px 70px rgba(18, 16, 12, .22);
+}
+
+.care-badge strong {
+    display: block;
+
+    color: var(--gold-soft);
+    font-size: 18px;
+}
+
+.care-badge span {
+    display: block;
+    margin-top: 6px;
+
+    color: rgba(255, 255, 255, .66);
+    font-size: 13px;
+}
+
+.cattery-care-content p {
+    margin-top: 22px;
+}
+
+.care-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.care-list div {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 18px;
+
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(180, 155, 87, .25);
+}
+
+.care-list strong {
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+}
+
+.care-list span {
+    color: var(--text);
+}
+
+/* =========================
+   COLORS
+========================= */
+
+.cattery-colors {
+    padding: clamp(76px, 8vw, 108px) 0;
+    background: #fffaf0;
+}
+
+.cattery-colors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.cattery-color-card {
+    padding: 28px;
+
+    border-radius: 30px;
+    border: 1px solid rgba(180, 155, 87, .22);
+
+    background: rgba(255, 255, 255, .75);
+    box-shadow: 0 20px 60px rgba(18, 16, 12, .07);
+}
+
+.color-orb {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 24px;
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 255, 255, .34),
+        0 16px 38px rgba(18, 16, 12, .12);
+}
+
+.color-orb-snow {
+    background: linear-gradient(135deg, #fffaf0, #d9d0ba);
+}
+
+.color-orb-silver {
+    background: linear-gradient(135deg, #f3f4f6, #8e9197);
+}
+
+.color-orb-brown {
+    background: linear-gradient(135deg, #c18a42, #3b2514);
+}
+
+.cattery-color-card span {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--dark);
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -.7px;
+}
+
+.cattery-color-card p {
+    margin: 0;
+
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.cattery-gallery {
+    padding: clamp(78px, 8vw, 118px) 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(216, 198, 142, .14), transparent 34%),
+        #100d09;
+}
+
+.cattery-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 260px;
+    gap: 18px;
+}
+
+.cattery-gallery-item {
+    margin: 0;
+
+    border-radius: 32px;
+    border: 1px solid rgba(216, 198, 142, .18);
+
+    box-shadow: 0 26px 70px rgba(0, 0, 0, .25);
+}
+
+.cattery-gallery-tall {
+    grid-row: span 2;
+}
+
+.cattery-gallery-wide {
+    grid-column: span 2;
+}
+
+/* =========================
+   COMMITMENTS / CONFIANCE
+========================= */
+
+.cattery-commitments {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(78px, 8vw, 118px) 0;
+
+    background:
+        radial-gradient(circle at 16% 20%, rgba(216, 198, 142, .14), transparent 30%),
+        radial-gradient(circle at 86% 80%, rgba(180, 155, 87, .12), transparent 34%),
+        linear-gradient(180deg, #120f0b 0%, #070605 100%);
+
+    color: white;
+}
+
+.cattery-commitments-shell {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(30px, 5vw, 62px);
+
+    border-radius: 46px;
+    border: 1px solid rgba(216, 198, 142, .18);
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025)),
+        rgba(255, 255, 255, .035);
+
+    box-shadow:
+        0 34px 100px rgba(0, 0, 0, .26),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(12px);
+}
+
+.cattery-commitments-shell::before {
+    content: "";
+    position: absolute;
+    right: -160px;
+    top: -160px;
+
+    width: 360px;
+    height: 360px;
+
+    border-radius: 50%;
+    background: rgba(216, 198, 142, .10);
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.cattery-commitments-intro {
+    position: relative;
+    z-index: 2;
+
+    max-width: 820px;
+    margin-bottom: 42px;
+}
+
+.cattery-commitments-intro h2 {
+    margin: 18px 0 20px;
+
+    color: white;
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -2.8px;
+}
+
+.cattery-commitments-intro p {
+    max-width: 720px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, .68);
+    font-size: 17px;
+    line-height: 1.82;
+}
+
+.cattery-commitments-grid {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.cattery-commitments-grid article {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 238px;
+    padding: 24px;
+
+    border-radius: 28px;
+    border: 1px solid rgba(216, 198, 142, .15);
+
+    background:
+        radial-gradient(circle at 86% 14%, rgba(216, 198, 142, .10), transparent 34%),
+        rgba(255, 255, 255, .045);
+
+    transition:
+        transform .32s ease,
+        background .32s ease,
+        border-color .32s ease,
+        box-shadow .32s ease;
+}
+
+.cattery-commitments-grid article:hover {
+    transform: translateY(-6px);
+    background:
+        radial-gradient(circle at 86% 14%, rgba(216, 198, 142, .16), transparent 34%),
+        rgba(255, 255, 255, .075);
+    border-color: rgba(216, 198, 142, .30);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+}
+
+.cattery-commitments-grid article::after {
+    content: "";
+    position: absolute;
+    right: -38px;
+    bottom: -38px;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(216, 198, 142, .10);
+}
+
+.cattery-commitments-grid span {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    border-radius: 50%;
+    background: rgba(216, 198, 142, .12);
+
+    color: var(--gold-soft);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.cattery-commitments-grid h3 {
+    margin: 0 0 12px;
+
+    color: white;
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: -.7px;
+}
+
+.cattery-commitments-grid p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, .62);
+    font-size: 14.5px;
+    line-height: 1.65;
+}
+
+.cattery-certifications {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 30px;
+    padding-top: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+
+    border-top: 1px solid rgba(216, 198, 142, .16);
+}
+
+.cattery-certifications > span {
+    color: rgba(255, 255, 255, .58);
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-certifications div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cattery-certifications strong {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(216, 198, 142, .20);
+
+    background: rgba(0, 0, 0, .28);
+    color: var(--gold-soft);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .4px;
+}
+
+/* =========================
+   MOBILE COMMITMENTS
+========================= */
+
+@media (max-width: 1100px) {
+    .cattery-commitments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cattery-certifications {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cattery-certifications div {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .cattery-commitments {
+        padding: 64px 0;
+    }
+
+    .cattery-commitments-shell {
+        padding: 24px;
+        border-radius: 30px;
+    }
+
+    .cattery-commitments-intro {
+        margin-bottom: 28px;
+    }
+
+    .cattery-commitments-intro h2 {
+        font-size: clamp(31px, 9vw, 43px);
+        letter-spacing: -1.6px;
+    }
+
+    .cattery-commitments-intro p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .cattery-commitments-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .cattery-commitments-grid article {
+        min-height: auto;
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .cattery-commitments-grid span {
+        margin-bottom: 18px;
+    }
+
+    .cattery-commitments-grid h3 {
+        font-size: 20px;
+    }
+
+    .cattery-commitments-grid p {
+        font-size: 14.5px;
+    }
+
+    .cattery-certifications {
+        margin-top: 24px;
+        padding-top: 22px;
+    }
+
+    .cattery-certifications strong {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 11px;
+    }
+}
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.cattery-final-cta {
+    padding: clamp(76px, 8vw, 112px) 0;
+
+    background:
+        radial-gradient(circle at 50% 0%, rgba(216, 198, 142, .17), transparent 36%),
+        linear-gradient(180deg, #120f0b 0%, #050403 100%);
+
+    color: white;
+}
+
+.cattery-final-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cattery-final-inner .cattery-kicker {
+    justify-content: center;
+}
+
+.cattery-final-inner h2 {
+    color: white;
+}
+
+.cattery-final-inner p {
+    max-width: 760px;
+    margin: 22px auto 0;
+
+    color: rgba(255, 255, 255, .68);
+}
+
+.cattery-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.cattery-reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.cattery-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: .12s;
+}
+
+.delay-2 {
+    transition-delay: .22s;
+}
+
+.delay-3 {
+    transition-delay: .32s;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .cattery-manifesto-grid,
+    .cattery-care-grid,
+    .cattery-trust-box {
+        grid-template-columns: 1fr;
+    }
+
+    .cattery-spaces-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cattery-space-large {
+        grid-row: auto;
+    }
+
+    .cattery-pillars-grid,
+    .cattery-colors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-badges {
+        justify-content: flex-start;
+    }
+
+    .care-badge {
+        right: 24px;
+    }
+}
+
+/* =========================
+   HERO VIDEO RESPONSIVE
+========================= */
+
+@media (max-width: 980px) {
+    .cattery-hero-video {
+        min-height: calc(100svh - 84px);
+    }
+
+    .cattery-hero-video-inner {
+        min-height: calc(100svh - 84px);
+        padding: 42px 0 24px;
+        gap: 30px;
+    }
+
+    .cattery-hero-top-badge {
+        flex-direction: column;
+        gap: 4px;
+
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .cattery-hero-main h1 {
+        font-size: clamp(42px, 12vw, 78px);
+        line-height: .92;
+        letter-spacing: -3px;
+    }
+
+    .cattery-hero-main p {
+        font-size: 16px;
+        line-height: 1.72;
+    }
+
+    .cattery-hero-infos {
+        grid-template-columns: 1fr;
+    }
+
+    .cattery-hero-infos article {
+        min-height: auto;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 760px) {
+    .cattery-kicker {
+        letter-spacing: 2.1px;
+        font-size: 10.5px;
+    }
+
+    .cattery-kicker::before {
+        width: 34px;
+    }
+
+    .cattery-hero-actions,
+    .cattery-final-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cattery-hero-actions .btn,
+    .cattery-final-actions .btn {
+        width: 100%;
+    }
+
+    .cattery-editorial-text p,
+    .cattery-section-head p,
+    .cattery-care-content p,
+    .cattery-trust-box p,
+    .cattery-final-inner p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .cattery-manifesto,
+    .cattery-pillars,
+    .cattery-spaces,
+    .cattery-care,
+    .cattery-colors,
+    .cattery-gallery,
+    .cattery-trust,
+    .cattery-final-cta {
+        padding: 66px 0;
+    }
+
+    .cattery-editorial h2,
+    .cattery-section-head h2,
+    .cattery-care-content h2,
+    .cattery-trust-box h2,
+    .cattery-final-inner h2 {
+        font-size: clamp(31px, 9vw, 44px);
+        letter-spacing: -1.6px;
+    }
+
+    .cattery-editorial-text {
+        padding-top: 0;
+    }
+
+    .cattery-pillar-card {
+        min-height: auto;
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .cattery-space-card {
+        border-radius: 28px;
+    }
+
+    .cattery-space-image,
+    .cattery-space-large .cattery-space-image {
+        min-height: 300px;
+    }
+
+    .cattery-space-content {
+        padding: 24px;
+    }
+
+    .cattery-care-photo {
+        min-height: 400px;
+        border-radius: 32px;
+    }
+
+    .care-badge {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .care-list div {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .cattery-gallery-grid {
+        display: flex;
+        gap: 14px;
+
+        overflow-x: auto;
+        padding-bottom: 18px;
+
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .cattery-gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cattery-gallery-item,
+    .cattery-gallery-tall,
+    .cattery-gallery-wide {
+        flex: 0 0 calc(100vw - 54px);
+        width: calc(100vw - 54px);
+        height: 360px;
+
+        grid-row: auto;
+        grid-column: auto;
+
+        scroll-snap-align: center;
+    }
+
+    .cattery-trust-box {
+        border-radius: 30px;
+        padding: 26px;
+    }
+
+    .trust-badges span {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .cattery-hero-video {
+        min-height: calc(100svh - 78px);
+    }
+
+    .cattery-hero-video-inner {
+        min-height: calc(100svh - 78px);
+        padding: 34px 0 18px;
+    }
+
+    .cattery-hero-top-badge {
+        padding: 11px 16px;
+    }
+
+    .cattery-hero-top-badge span {
+        font-size: 9px;
+    }
+
+    .cattery-hero-top-badge strong {
+        font-size: 12px;
+    }
+
+    .cattery-hero-main h1 {
+        font-size: clamp(36px, 13vw, 54px);
+        letter-spacing: -2.2px;
+    }
+
+    .cattery-hero-main p {
+        font-size: 15px;
+    }
+
+    .cattery-hero-infos {
+        gap: 10px;
+    }
+
+    .cattery-hero-infos article {
+        padding: 16px;
+        border-radius: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-hero-main h1 {
+        font-size: 38px;
+    }
+
+    .cattery-gallery-item,
+    .cattery-gallery-tall,
+    .cattery-gallery-wide {
+        height: 320px;
+    }
+}
+
+/* =========================
+   INTERACTIONS / ACCESSIBILITÉ
+========================= */
+
+@media (hover: none) {
+    .cattery-pillar-card:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cattery-reveal {
+        transition: none;
+    }
+
+    .cattery-hero-media video {
+        animation: none;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE PREMIUM
+   Page La chatterie
+========================= */
+
+@media (max-width: 760px) {
+    /* HERO VIDÉO */
+    .cattery-hero-video {
+        min-height: auto;
+        padding: 0;
+    }
+
+    .cattery-hero-media video {
+        object-position: center center;
+        filter: brightness(.54) saturate(.92) contrast(1.05);
+    }
+
+    .cattery-hero-video-overlay {
+        background:
+            linear-gradient(180deg, rgba(8, 6, 5, .48) 0%, rgba(8, 6, 5, .66) 46%, rgba(8, 6, 5, .94) 100%),
+            linear-gradient(90deg, rgba(8, 6, 5, .50) 0%, rgba(8, 6, 5, .18) 50%, rgba(8, 6, 5, .50) 100%);
+    }
+
+    .cattery-hero-video-inner {
+        min-height: auto;
+        padding: 44px 0 28px;
+        gap: 30px;
+    }
+
+    .cattery-hero-top-badge {
+        max-width: calc(100vw - 48px);
+        padding: 11px 15px;
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .cattery-hero-top-badge span {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+    .cattery-hero-top-badge strong {
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .cattery-hero-main {
+        max-width: 100%;
+    }
+
+    .cattery-hero-main .cattery-kicker {
+        justify-content: center;
+    }
+
+    .cattery-hero-main h1 {
+        max-width: 100%;
+        margin: 18px auto 18px;
+        font-size: clamp(38px, 12.5vw, 56px);
+        line-height: .92;
+        letter-spacing: -2.4px;
+    }
+
+    .cattery-hero-main p {
+        max-width: 100%;
+        font-size: 15.5px;
+        line-height: 1.7;
+    }
+
+    .cattery-hero-actions {
+        width: 100%;
+        margin-top: 28px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .cattery-hero-actions .btn {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .cattery-hero-infos {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .cattery-hero-infos article {
+        min-height: auto;
+        padding: 16px 17px;
+        border-radius: 22px;
+    }
+
+    .cattery-hero-infos span {
+        margin-bottom: 8px;
+        font-size: 11px;
+    }
+
+    .cattery-hero-infos strong {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .cattery-hero-infos p {
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+
+    /* TITRES GÉNÉRAUX */
+    .cattery-kicker {
+        gap: 9px;
+        letter-spacing: 2px;
+        font-size: 10px;
+    }
+
+    .cattery-kicker::before {
+        width: 30px;
+    }
+
+    .cattery-editorial h2,
+    .cattery-section-head h2,
+    .cattery-care-content h2,
+    .cattery-trust-box h2,
+    .cattery-final-inner h2 {
+        font-size: clamp(31px, 9vw, 42px);
+        line-height: 1.03;
+        letter-spacing: -1.5px;
+    }
+
+    .cattery-editorial-text p,
+    .cattery-section-head p,
+    .cattery-care-content p,
+    .cattery-trust-box p,
+    .cattery-final-inner p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    /* ESPACEMENTS SECTIONS */
+    .cattery-manifesto,
+    .cattery-pillars,
+    .cattery-spaces,
+    .cattery-care,
+    .cattery-colors,
+    .cattery-gallery,
+    .cattery-trust,
+    .cattery-final-cta {
+        padding: 62px 0;
+    }
+
+    .cattery-manifesto-grid,
+    .cattery-care-grid,
+    .cattery-trust-box {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .cattery-editorial-text {
+        padding-top: 0;
+        gap: 16px;
+    }
+
+    .cattery-section-head {
+        margin-bottom: 30px;
+    }
+
+    /* CARTES PILIERS */
+    .cattery-pillars-grid,
+    .cattery-colors-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cattery-pillar-card,
+    .cattery-color-card {
+        min-height: auto;
+        padding: 22px;
+        border-radius: 26px;
+    }
+
+    .cattery-pillar-card h3 {
+        margin: 24px 0 10px;
+        font-size: 26px;
+    }
+
+    .cattery-pillar-card p,
+    .cattery-color-card p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    /* ESPACES */
+    .cattery-spaces-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cattery-space-large {
+        grid-row: auto;
+    }
+
+    .cattery-space-card {
+        border-radius: 26px;
+    }
+
+    .cattery-space-image,
+    .cattery-space-large .cattery-space-image {
+        min-height: 260px;
+    }
+
+    .cattery-space-content {
+        padding: 22px;
+    }
+
+    .cattery-space-content h3 {
+        font-size: 25px;
+        letter-spacing: -.8px;
+    }
+
+    .cattery-space-content p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    /* BIEN-ÊTRE */
+    .cattery-care-photo {
+        min-height: 340px;
+        border-radius: 28px;
+    }
+
+    .care-badge {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 16px 18px;
+        border-radius: 20px;
+    }
+
+    .care-list {
+        margin-top: 24px;
+    }
+
+    .care-list div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 14px 0;
+    }
+
+    /* COULEURS */
+    .color-orb {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 18px;
+    }
+
+    .cattery-color-card span {
+        font-size: 22px;
+    }
+
+    /* GALERIE MOBILE */
+    .cattery-gallery-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 18px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .cattery-gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cattery-gallery-item,
+    .cattery-gallery-tall,
+    .cattery-gallery-wide {
+        flex: 0 0 calc(100vw - 54px);
+        width: calc(100vw - 54px);
+        height: 330px;
+        grid-row: auto;
+        grid-column: auto;
+        scroll-snap-align: center;
+        border-radius: 26px;
+    }
+
+    /* TRUST */
+    .cattery-trust-box {
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .trust-badges {
+        justify-content: flex-start;
+        gap: 9px;
+    }
+
+    .trust-badges span {
+        padding: 11px 13px;
+        font-size: 11.5px;
+    }
+
+    /* CTA FINAL */
+    .cattery-final-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .cattery-final-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-hero-video-inner {
+        padding: 36px 0 24px;
+        gap: 26px;
+    }
+
+    .cattery-hero-main h1 {
+        font-size: 37px;
+        letter-spacing: -1.8px;
+    }
+
+    .cattery-hero-main p {
+        font-size: 14.8px;
+    }
+
+    .cattery-hero-infos article {
+        padding: 15px;
+    }
+
+    .cattery-editorial h2,
+    .cattery-section-head h2,
+    .cattery-care-content h2,
+    .cattery-trust-box h2,
+    .cattery-final-inner h2 {
+        font-size: 30px;
+    }
+
+    .cattery-space-image,
+    .cattery-space-large .cattery-space-image {
+        min-height: 230px;
+    }
+
+    .cattery-care-photo {
+        min-height: 310px;
+    }
+
+    .cattery-gallery-item,
+    .cattery-gallery-tall,
+    .cattery-gallery-wide {
+        height: 300px;
+    }
+}
+
+/* =========================
+   FIX VIDEO MOBILE / FALLBACK
+========================= */
+
+.cattery-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: var(--poster-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.cattery-hero-media video {
+    position: relative;
+    z-index: 1;
+}
+
+.cattery-hero-video.is-video-fallback .cattery-hero-media::before {
+    opacity: 1;
+}
+
+.cattery-hero-video.is-video-fallback .cattery-hero-media video {
+    opacity: 0;
+}
+
+@media (max-width: 760px) {
+    .cattery-hero-media::before {
+        opacity: 1;
+    }
+
+    .cattery-hero-media video {
+        opacity: 1;
+        transition: opacity .35s ease;
+    }
+
+    .cattery-hero-video.is-video-playing .cattery-hero-media::before {
+        opacity: 0;
+    }
+
+    .cattery-hero-video.is-video-fallback .cattery-hero-media::before {
+        opacity: 1;
+    }
+
+    .cattery-hero-video.is-video-fallback .cattery-hero-media video {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   SECTION QUI SOMMES-NOUS
+========================= */
+
+.cattery-family {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(82px, 8vw, 122px) 0;
+
+    background:
+        radial-gradient(circle at 12% 18%, rgba(180, 155, 87, .13), transparent 32%),
+        radial-gradient(circle at 88% 80%, rgba(216, 198, 142, .12), transparent 34%),
+        var(--cream);
+}
+
+.cattery-family-head {
+    max-width: 920px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.cattery-family-head .cattery-kicker {
+    justify-content: center;
+}
+
+.cattery-family-head h2 {
+    max-width: 880px;
+    margin: 18px auto 20px;
+
+    color: var(--dark);
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -2.8px;
+}
+
+.cattery-family-head p {
+    max-width: 760px;
+    margin: 0 auto;
+
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+.cattery-family-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+    gap: 0;
+
+    overflow: hidden;
+
+    border-radius: 44px;
+    border: 1px solid rgba(180, 155, 87, .24);
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(255, 250, 240, .72));
+
+    box-shadow:
+        0 34px 100px rgba(18, 16, 12, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+/* Image entière + fond flouté premium */
+.cattery-family-image {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 640px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #120f0b;
+}
+
+.cattery-family-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(22px) brightness(.58) saturate(.95);
+    transform: scale(1.08);
+    opacity: .78;
+}
+
+.cattery-family-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+        linear-gradient(to top, rgba(8, 6, 5, .72), transparent 52%),
+        radial-gradient(circle at 18% 12%, rgba(216, 198, 142, .16), transparent 30%);
+
+    pointer-events: none;
+}
+
+.cattery-family-image img {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    max-height: 640px;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+}
+
+.cattery-family-image-label {
+    position: absolute;
+    z-index: 3;
+
+    left: 26px;
+    right: 26px;
+    bottom: 26px;
+
+    padding: 20px 22px;
+
+    border-radius: 24px;
+    border: 1px solid rgba(216, 198, 142, .22);
+
+    background: rgba(12, 9, 6, .68);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 54px rgba(0, 0, 0, .22);
+}
+
+.cattery-family-image-label span {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-family-image-label strong {
+    display: block;
+
+    color: white;
+    font-size: 22px;
+    letter-spacing: -.4px;
+}
+
+.cattery-family-content {
+    padding: clamp(32px, 5vw, 62px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cattery-mini-kicker {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 18px;
+
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-family-content h3 {
+    margin: 0 0 20px;
+
+    color: var(--dark);
+    font-size: clamp(30px, 3.6vw, 52px);
+    line-height: 1.04;
+    letter-spacing: -1.9px;
+}
+
+.cattery-family-content p {
+    margin: 0;
+
+    color: var(--text);
+    font-size: 16.5px;
+    line-height: 1.85;
+}
+
+.cattery-family-values {
+    display: grid;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.cattery-family-values div {
+    position: relative;
+
+    padding: 18px 0 18px 22px;
+    border-bottom: 1px solid rgba(180, 155, 87, .24);
+}
+
+.cattery-family-values div::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 24px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 18px rgba(180, 155, 87, .55);
+}
+
+.cattery-family-values strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: var(--dark);
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.cattery-family-values span {
+    display: block;
+
+    color: var(--text);
+    font-size: 14.5px;
+    line-height: 1.65;
+}
+
+/* =========================
+   MOBILE QUI SOMMES-NOUS
+========================= */
+
+@media (max-width: 980px) {
+    .cattery-family-card {
+        grid-template-columns: 1fr;
+        border-radius: 34px;
+    }
+
+    .cattery-family-image {
+        min-height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .cattery-family-image img {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 760px) {
+    .cattery-family {
+        padding: 64px 0;
+    }
+
+    .cattery-family-head {
+        margin-bottom: 32px;
+        text-align: left;
+    }
+
+    .cattery-family-head .cattery-kicker {
+        justify-content: flex-start;
+    }
+
+    .cattery-family-head h2 {
+        font-size: clamp(31px, 9vw, 43px);
+        letter-spacing: -1.6px;
+    }
+
+    .cattery-family-head p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .cattery-family-card {
+        border-radius: 28px;
+    }
+
+    .cattery-family-image {
+        aspect-ratio: 1 / 1;
+        min-height: auto;
+    }
+
+    .cattery-family-image-label {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+
+        padding: 16px 18px;
+        border-radius: 20px;
+    }
+
+    .cattery-family-image-label span {
+        font-size: 10px;
+    }
+
+    .cattery-family-image-label strong {
+        font-size: 18px;
+    }
+
+    .cattery-family-content {
+        padding: 24px;
+    }
+
+    .cattery-family-content h3 {
+        font-size: clamp(27px, 8vw, 35px);
+        letter-spacing: -1.2px;
+    }
+
+    .cattery-family-content p {
+        font-size: 15px;
+        line-height: 1.72;
+    }
+
+    .cattery-family-values {
+        margin-top: 22px;
+    }
+
+    .cattery-family-values div {
+        padding: 15px 0 15px 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-family-image {
+        aspect-ratio: 1 / 1;
+    }
+
+    .cattery-family-content {
+        padding: 22px;
+    }
+
+    .cattery-family-content h3 {
+        font-size: 27px;
+    }
+}
+
+/* =========================
+   MOBILE QUI SOMMES-NOUS
+========================= */
+
+@media (max-width: 980px) {
+    .cattery-family-card {
+        grid-template-columns: 1fr;
+        border-radius: 34px;
+    }
+
+    .cattery-family-image {
+        min-height: 560px;
+    }
+}
+
+@media (max-width: 760px) {
+    .cattery-family {
+        padding: 64px 0;
+    }
+
+    .cattery-family-head {
+        margin-bottom: 32px;
+        text-align: left;
+    }
+
+    .cattery-family-head .cattery-kicker {
+        justify-content: flex-start;
+    }
+
+    .cattery-family-head h2 {
+        font-size: clamp(31px, 9vw, 43px);
+        letter-spacing: -1.6px;
+    }
+
+    .cattery-family-head p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .cattery-family-card {
+        border-radius: 28px;
+    }
+
+    .cattery-family-image {
+        min-height: 430px;
+        background-position: center top;
+    }
+
+    .cattery-family-image-label {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 16px 18px;
+        border-radius: 20px;
+    }
+
+    .cattery-family-image-label strong {
+        font-size: 18px;
+    }
+
+    .cattery-family-content {
+        padding: 24px;
+    }
+
+    .cattery-family-content h3 {
+        font-size: clamp(27px, 8vw, 35px);
+        letter-spacing: -1.2px;
+    }
+
+    .cattery-family-content p {
+        font-size: 15px;
+        line-height: 1.72;
+    }
+
+    .cattery-family-values {
+        margin-top: 22px;
+    }
+
+    .cattery-family-values div {
+        padding: 15px 0 15px 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-family-image {
+        min-height: 380px;
+    }
+
+    .cattery-family-content {
+        padding: 22px;
+    }
+
+    .cattery-family-content h3 {
+        font-size: 27px;
+    }
+}
+
+
+@media (max-width: 760px) {
+    .cattery-space-slider,
+    .cattery-space-large .cattery-space-slider {
+        min-height: 270px;
+    }
+
+    .cattery-slider-btn {
+        display: none;
+    }
+
+    .cattery-slider-dots {
+        bottom: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-space-slider,
+    .cattery-space-large .cattery-space-slider {
+        min-height: 235px;
+    }
+}
+
+/* =========================
+   SECTION NOTRE MISSION
+========================= */
+
+.cattery-mission {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(78px, 8vw, 116px) 0;
+
+    background:
+        radial-gradient(circle at 14% 20%, rgba(180, 155, 87, .12), transparent 32%),
+        radial-gradient(circle at 86% 78%, rgba(216, 198, 142, .12), transparent 34%),
+        #fffaf0;
+}
+
+.cattery-mission-head {
+    max-width: 860px;
+    margin: 0 auto 46px;
+    text-align: center;
+}
+
+.cattery-mission-head .cattery-kicker {
+    justify-content: center;
+}
+
+.cattery-mission-head h2 {
+    max-width: 800px;
+    margin: 18px auto 18px;
+
+    color: var(--dark);
+    font-size: clamp(34px, 5vw, 66px);
+    line-height: 1.02;
+    letter-spacing: -2.4px;
+}
+
+.cattery-mission-head p {
+    max-width: 680px;
+    margin: 0 auto;
+
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.cattery-mission-layout {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.cattery-mission-location,
+.cattery-mission-text {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 34px;
+    border: 1px solid rgba(180, 155, 87, .24);
+
+    box-shadow:
+        0 26px 80px rgba(18, 16, 12, .09),
+        inset 0 1px 0 rgba(255, 255, 255, .62);
+}
+
+.cattery-mission-location {
+    padding: clamp(28px, 4vw, 46px);
+
+    background:
+        radial-gradient(circle at 82% 18%, rgba(216, 198, 142, .18), transparent 34%),
+        linear-gradient(135deg, #17130d 0%, #080604 100%);
+
+    color: white;
+}
+
+.cattery-mission-location::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    bottom: -90px;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(216, 198, 142, .12);
+}
+
+.cattery-mission-location > span {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+    margin-bottom: 16px;
+
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-mission-location h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: white;
+    font-size: clamp(34px, 4.5vw, 58px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.cattery-mission-location p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 420px;
+    margin: 18px 0 0;
+
+    color: rgba(255, 255, 255, .68);
+    font-size: 15.5px;
+    line-height: 1.75;
+}
+
+.mission-location-tags {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-top: 30px;
+}
+
+.mission-location-tags strong {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 14px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(216, 198, 142, .22);
+
+    background: rgba(255, 255, 255, .055);
+    color: var(--gold-soft);
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .4px;
+}
+
+.cattery-mission-text {
+    padding: clamp(28px, 4vw, 46px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at 90% 12%, rgba(180, 155, 87, .10), transparent 34%),
+        rgba(255, 255, 255, .76);
+}
+
+.cattery-mission-text span {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 20px;
+
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.cattery-mission-text p {
+    max-width: 680px;
+    margin: 0;
+
+    color: var(--text);
+    font-size: 16.5px;
+    line-height: 1.85;
+}
+
+.cattery-mission-text p + p {
+    margin-top: 18px;
+}
+
+.cattery-mission-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    margin-top: 18px;
+}
+
+.cattery-mission-cards article {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 220px;
+    padding: 26px;
+
+    border-radius: 30px;
+    border: 1px solid rgba(180, 155, 87, .22);
+
+    background:
+        radial-gradient(circle at 88% 14%, rgba(180, 155, 87, .12), transparent 34%),
+        rgba(255, 255, 255, .72);
+
+    box-shadow: 0 22px 70px rgba(18, 16, 12, .07);
+
+    transition:
+        transform .32s ease,
+        background .32s ease,
+        box-shadow .32s ease;
+}
+
+.cattery-mission-cards article:hover {
+    transform: translateY(-6px);
+    background: #15110c;
+    box-shadow: 0 28px 84px rgba(18, 16, 12, .14);
+}
+
+.cattery-mission-cards article > span {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    border-radius: 50%;
+    background: rgba(180, 155, 87, .14);
+
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.cattery-mission-cards h3 {
+    margin: 0 0 12px;
+
+    color: var(--dark);
+    font-size: 23px;
+    line-height: 1.1;
+    letter-spacing: -.8px;
+}
+
+.cattery-mission-cards p {
+    margin: 0;
+
+    color: var(--text);
+    font-size: 14.8px;
+    line-height: 1.68;
+}
+
+.cattery-mission-cards article:hover h3 {
+    color: white;
+}
+
+.cattery-mission-cards article:hover p {
+    color: rgba(255, 255, 255, .66);
+}
+
+/* =========================
+   MOBILE NOTRE MISSION
+========================= */
+
+@media (max-width: 1100px) {
+    .cattery-mission-layout,
+    .cattery-mission-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .cattery-mission {
+        padding: 64px 0;
+    }
+
+    .cattery-mission-head {
+        margin-bottom: 32px;
+        text-align: left;
+    }
+
+    .cattery-mission-head .cattery-kicker {
+        justify-content: flex-start;
+    }
+
+    .cattery-mission-head h2 {
+        font-size: clamp(31px, 9vw, 43px);
+        letter-spacing: -1.5px;
+    }
+
+    .cattery-mission-head p,
+    .cattery-mission-text p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .cattery-mission-layout {
+        gap: 14px;
+    }
+
+    .cattery-mission-location,
+    .cattery-mission-text {
+        border-radius: 26px;
+    }
+
+    .cattery-mission-location,
+    .cattery-mission-text,
+    .cattery-mission-cards article {
+        padding: 22px;
+    }
+
+    .cattery-mission-location h3 {
+        font-size: 34px;
+        letter-spacing: -1.2px;
+    }
+
+    .mission-location-tags {
+        margin-top: 24px;
+    }
+
+    .cattery-mission-cards {
+        gap: 12px;
+        margin-top: 14px;
+    }
+
+    .cattery-mission-cards article {
+        min-height: auto;
+        border-radius: 24px;
+    }
+
+    .cattery-mission-cards article > span {
+        margin-bottom: 18px;
+    }
+
+    .cattery-mission-cards h3 {
+        font-size: 21px;
+    }
+
+    .cattery-mission-cards p {
+        font-size: 14.5px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-mission-head h2 {
+        font-size: 30px;
+    }
+
+    .cattery-mission-location h3 {
+        font-size: 29px;
+    }
+}
+
+/* =========================
+   HERO SIGNALS PREMIUM
+   Remplace les grands blocs numérotés
+========================= */
+
+.cattery-hero-signals {
+    width: min(100%, 980px);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+    border: 1px solid rgba(216, 198, 142, .18);
+
+    background: rgba(12, 9, 6, .38);
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.cattery-hero-signals div {
+    min-height: 76px;
+    padding: 16px 22px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    align-items: center;
+
+    background: rgba(255, 255, 255, .035);
+}
+
+.cattery-hero-signals span {
+    width: 8px;
+    height: 8px;
+
+    display: block;
+
+    border-radius: 50%;
+    background: var(--gold-soft);
+    box-shadow: 0 0 18px rgba(216, 198, 142, .58);
+}
+
+.cattery-hero-signals strong {
+    display: block;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -.2px;
+}
+
+.cattery-hero-signals p {
+    grid-column: 2;
+
+    margin: 4px 0 0;
+
+    color: rgba(255, 255, 255, .58);
+    font-size: 12.5px;
+    line-height: 1.4;
+}
+
+/* On neutralise les anciennes cartes si jamais l'ancien CSS reste */
+.cattery-hero-infos {
+    display: none !important;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .cattery-hero-signals {
+        width: 100%;
+        grid-template-columns: 1fr;
+
+        border-radius: 24px;
+    }
+
+    .cattery-hero-signals div {
+        min-height: auto;
+        padding: 15px 17px;
+    }
+
+    .cattery-hero-signals strong {
+        font-size: 15px;
+    }
+
+    .cattery-hero-signals p {
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cattery-hero-signals div {
+        padding: 14px 15px;
+    }
 }

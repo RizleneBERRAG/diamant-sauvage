@@ -84,25 +84,25 @@
 
     @php
         $ribbonImages = [
-            ['file' => 'kitten-1.jpg', 'alt' => 'Chat Bengal'],
-            ['file' => 'kitten-2.jpg', 'alt' => 'Chatons Bengal'],
-            ['file' => 'kitten-3.jpg', 'alt' => 'Jeune Bengal'],
-            ['file' => 'kitten-4.jpg', 'alt' => 'Bengal dans son espace'],
-            ['file' => 'gallery-1.jpg', 'alt' => 'Bengal'],
-            ['file' => 'gallery-2.jpg', 'alt' => 'Chat Bengal'],
-            ['file' => 'kitten-5.jpg', 'alt' => 'Chat Bengal'],
-            ['file' => 'kitten-6.jpg', 'alt' => 'Chatons Bengal'],
-            ['file' => 'kitten-7.jpg', 'alt' => 'Jeune Bengal'],
-            ['file' => 'kitten-8.jpg', 'alt' => 'Bengal dans son espace'],
-            ['file' => 'gallery-3.jpg', 'alt' => 'Bengal'],
-            ['file' => 'gallery-4.jpg', 'alt' => 'Chat Bengal'],
+            ['file' => 'kitten-1.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-top'],
+            ['file' => 'kitten-2.jpg', 'alt' => 'Chatons Bengal', 'focus' => 'focus-top'],
+            ['file' => 'kitten-3.jpg', 'alt' => 'Jeune Bengal', 'focus' => 'focus-center'],
+            ['file' => 'kitten-4.jpg', 'alt' => 'Bengal dans son espace', 'focus' => 'focus-center'],
+            ['file' => 'gallery-1.jpg', 'alt' => 'Bengal', 'focus' => 'focus-left'],
+            ['file' => 'gallery-2.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-center'],
+            ['file' => 'kitten-5.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-top'],
+            ['file' => 'kitten-6.jpg', 'alt' => 'Chatons Bengal', 'focus' => 'focus-right'],
+            ['file' => 'kitten-7.jpg', 'alt' => 'Jeune Bengal', 'focus' => 'focus-center'],
+            ['file' => 'kitten-8.jpg', 'alt' => 'Bengal dans son espace', 'focus' => 'focus-center'],
+            ['file' => 'gallery-3.jpg', 'alt' => 'Bengal', 'focus' => 'focus-center'],
+            ['file' => 'gallery-4.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-right'],
         ];
     @endphp
 
     <section class="image-ribbon">
         <div class="ribbon-track">
             @foreach(array_merge($ribbonImages, $ribbonImages) as $image)
-                <figure class="ribbon-photo smart-image">
+                <figure class="ribbon-photo smart-image {{ $image['focus'] }}">
                     <img src="{{ asset('images/home/' . $image['file']) }}" alt="{{ $image['alt'] }}">
                 </figure>
             @endforeach
@@ -136,12 +136,12 @@
                 <span class="section-label">Chatons Bengal</span>
                 <h2>Nos chatons, élevés avec passion et douceur.</h2>
                 <p>
-                    Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère, leur évolution et toutes les informations utiles pour préparer leur arrivée.
+                    Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère,
+                    leur évolution et toutes les informations utiles pour préparer leur arrivée.
                 </p>
             </div>
 
             <div class="kitten-editorial-grid">
-
                 <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card kitten-editorial-card-large reveal-up tilt-card">
                     <img src="{{ asset('images/home/kitten-1.jpg') }}" alt="Chaton Bengal disponible">
 
@@ -151,14 +151,14 @@
                         <span class="kitten-status">Disponible</span>
                         <h3>Chatons Bengal disponibles</h3>
                         <p>
-                            Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère, leur évolution et toutes les informations utiles pour préparer leur arrivée.
+                            Découvrez nos chatons actuellement proposés à l’adoption, leurs photos, leur caractère,
+                            leur évolution et toutes les informations utiles pour préparer leur arrivée.
                         </p>
                         <strong>Voir les disponibilités</strong>
                     </div>
                 </a>
 
                 <div class="kitten-editorial-column">
-
                     <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card reveal-up delay-1 tilt-card">
                         <img src="{{ asset('images/home/kitten-2.jpg') }}" alt="Portées Bengal à venir">
 
@@ -182,11 +182,8 @@
                             <p>De leurs premiers jours à leur départ, suivez l’évolution de nos petits Bengals à travers leurs photos, leurs découvertes et leurs progrès.</p>
                         </div>
                     </a>
-
                 </div>
-
             </div>
-
         </div>
     </section>
 
@@ -202,7 +199,6 @@
             </div>
 
             <div class="premium-nav-layout">
-
                 <a href="{{ route('chatterie') }}" class="premium-nav-card premium-nav-card-large reveal-up tilt-card">
                     <img src="{{ asset('images/home/gallery-1.jpg') }}" alt="La chatterie du Diamant Sauvage">
 
@@ -219,7 +215,6 @@
                 </a>
 
                 <div class="premium-nav-grid">
-
                     <a href="{{ route('chats.femelles') }}" class="premium-nav-card reveal-up delay-1 tilt-card">
                         <img src="{{ asset('images/home/gallery-2.jpg') }}" alt="Femelles Bengal">
 
@@ -270,7 +265,6 @@
                             <strong>Contacter la chatterie</strong>
                         </div>
                     </a>
-
                 </div>
             </div>
         </div>
@@ -352,7 +346,9 @@
                 <span class="section-label">Galerie</span>
                 <h2>Des instants précieux à découvrir en images.</h2>
                 <p>
-                    À travers chaque image, découvrez l’élégance, le regard, les robes et les attitudes uniques de nos Bengals, élevés dans un environnement doux et attentionné.                </p>
+                    À travers chaque image, découvrez l’élégance, le regard, les robes et les attitudes uniques de nos Bengals,
+                    élevés dans un environnement doux et attentionné.
+                </p>
             </div>
 
             <div class="gallery-masonry">
@@ -411,6 +407,58 @@
                         <p>{{ $organization['text'] }}</p>
                     </article>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="home-social-jewels">
+        <div class="container">
+            <div class="social-jewels-inner reveal-up">
+                <div class="social-jewels-text">
+                    <span class="section-label">Réseaux & contact</span>
+                    <h2>Retrouvez la chatterie en ligne.</h2>
+                    <p>
+                        Suivez nos actualités, découvrez les photos de nos Bengal et contactez-nous simplement.
+                    </p>
+                </div>
+
+                <div class="social-jewels-list">
+                    <a href="https://www.facebook.com/Elevagedudiamantsauvage" target="_blank" rel="noopener" class="social-jewel social-facebook" aria-label="Facebook">
+                        <span class="social-jewel-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.4 1.4-1.4H16V5.5c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.3v2.4H9v2.8h2.3v7h2.2Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-jewel-label">Facebook</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/chatterie_du_diamant_sauvage?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-jewel social-instagram" aria-label="Instagram">
+                        <span class="social-jewel-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9Zm9.45 1.35a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM12 7.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8Zm0 1.8A2.4 2.4 0 1 0 14.4 12 2.4 2.4 0 0 0 12 9.6Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-jewel-label">Instagram</span>
+                    </a>
+
+                    <a href="mailto:lesbengals_dudiamantsauvage@outlook.fr" class="social-jewel social-mail" aria-label="Email">
+                        <span class="social-jewel-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2v.2l8 5.3 8-5.3V8H4Zm16 8V10.4l-7.4 4.9a1 1 0 0 1-1.2 0L4 10.4V16h16Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-jewel-label">Email</span>
+                    </a>
+
+                    <a href="tel:0621596419" class="social-jewel social-phone" aria-label="Téléphone">
+                        <span class="social-jewel-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6.6 10.8a15.8 15.8 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.3a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1l-2 2.2Z"/>
+                            </svg>
+                        </span>
+                        <span class="social-jewel-label">Téléphone</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

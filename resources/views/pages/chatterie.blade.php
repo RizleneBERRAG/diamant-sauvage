@@ -395,9 +395,14 @@
         <div class="container">
             <div class="cattery-section-head cattery-reveal">
                 <span class="cattery-kicker cattery-kicker-dark">Le travail de sélection</span>
-                <h2>Des robes Bengal recherchées et travaillées avec soin.</h2>
+
+                <h2>
+                    Des robes Bengal recherchées et travaillées avec soin.
+                </h2>
+
                 <p>
-                    La chatterie travaille notamment des Bengals snow, silver et brown, avec des rosettes fermées et des looks distincts.
+                    La chatterie travaille notamment des Bengals snow, silver, brown et blue,
+                    avec des rosettes fermées, des contrastes élégants et des looks distincts.
                 </p>
             </div>
 
@@ -418,6 +423,12 @@
                     <div class="color-orb color-orb-brown"></div>
                     <span>Brown</span>
                     <p>Le Bengal sauvage par excellence, chaud, intense et expressif.</p>
+                </article>
+
+                <article class="cattery-color-card cattery-reveal delay-3">
+                    <div class="color-orb color-orb-blue"></div>
+                    <span>Blue</span>
+                    <p>Une robe douce aux reflets gris bleutés, subtile, rare et très raffinée.</p>
                 </article>
             </div>
         </div>

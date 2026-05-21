@@ -7,7 +7,7 @@ Route::get('/', fn () => view('pages.home'))->name('home');
 Route::get('/la-chatterie', fn () => view('pages.chatterie'))->name('chatterie');
 
 Route::prefix('le-bengal')->name('bengal.')->group(function () {
-    Route::get('/origines-morphologie-robe', fn () => view('pages.bengal.origines'))->name('origines');
+    Route::get('/origines-morphologie-robe', fn () => view('pages.bengal.origines-morphologie-robe'))->name('origines');
     Route::get('/besoins-et-alimentation', fn () => view('pages.bengal.besoins'))->name('besoins');
     Route::get('/sante', fn () => view('pages.bengal.sante'))->name('sante');
     Route::get('/reproduction', fn () => view('pages.bengal.reproduction'))->name('reproduction');

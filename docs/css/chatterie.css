@@ -1,4 +1,4 @@
-/* =========================
+﻿/* =========================
    PAGE LA CHATTERIE
 ========================= */
 
@@ -1677,7 +1677,7 @@
 }
 
 /* =========================
-   INTERACTIONS / ACCESSIBILITÉ
+   INTERACTIONS / ACCESSIBILITÃ‰
 ========================= */
 
 @media (hover: none) {
@@ -1702,7 +1702,7 @@
 ========================= */
 
 @media (max-width: 760px) {
-    /* HERO VIDÉO */
+    /* HERO VIDÃ‰O */
     .cattery-hero-video {
         min-height: auto;
         padding: 0;
@@ -1805,7 +1805,7 @@
         line-height: 1.5;
     }
 
-    /* TITRES GÉNÉRAUX */
+    /* TITRES GÃ‰NÃ‰RAUX */
     .cattery-kicker {
         gap: 9px;
         letter-spacing: 2px;
@@ -1921,7 +1921,7 @@
         line-height: 1.65;
     }
 
-    /* BIEN-ÊTRE */
+    /* BIEN-ÃŠTRE */
     .cattery-care-photo {
         min-height: 340px;
         border-radius: 28px;
@@ -2171,7 +2171,7 @@
         inset 0 1px 0 rgba(255, 255, 255, .72);
 }
 
-/* Image entière + fond flouté premium */
+/* Image entiÃ¨re + fond floutÃ© premium */
 .cattery-family-image {
     position: relative;
     overflow: hidden;
@@ -2845,7 +2845,7 @@
 
 /* =========================
    HERO SIGNALS PREMIUM
-   Remplace les grands blocs numérotés
+   Remplace les grands blocs numÃ©rotÃ©s
 ========================= */
 
 .cattery-hero-signals {
@@ -2947,7 +2947,7 @@
 
 /* =========================
    GLOBAL IMAGE FOCUS - CHATTERIE
-   À coller tout en bas de public/css/chatterie.css
+   Ã€ coller tout en bas de public/css/chatterie.css
 ========================= */
 
 .focus-center {
@@ -3080,4 +3080,5 @@ video.focus-body-left,
 video.focus-body-right {
     object-position: var(--img-pos, center center) !important;
 }
+
 

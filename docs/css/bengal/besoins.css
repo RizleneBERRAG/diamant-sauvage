@@ -1,4 +1,4 @@
-/* =========================
+﻿/* =========================
    BESOINS & ALIMENTATION
    Page Bengal premium
 ========================= */
@@ -714,7 +714,7 @@
 }
 
 .food-details[open] summary::after {
-    content: "–";
+    content: "â€“";
 }
 
 .food-detail-content {
@@ -1198,3 +1198,4 @@
         display: none !important;
     }
 }
+

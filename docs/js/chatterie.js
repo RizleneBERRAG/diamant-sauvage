@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     const revealItems = document.querySelectorAll('.cattery-reveal');
 
     if (revealItems.length) {
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.type = 'button';
-            dot.setAttribute('aria-label', `Voir l’image ${index + 1}`);
+            dot.setAttribute('aria-label', `Voir lâ€™image ${index + 1}`);
 
             if (index === 0) {
                 dot.classList.add('is-active');
@@ -229,3 +229,4 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     });
 });
+

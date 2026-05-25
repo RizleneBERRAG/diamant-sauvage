@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================
        Reveal au scroll
@@ -212,3 +212,4 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoSlider();
     }
 });
+

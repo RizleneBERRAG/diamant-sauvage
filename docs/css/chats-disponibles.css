@@ -1,4 +1,4 @@
-.available-hero {
+﻿.available-hero {
     position: relative;
     overflow: hidden;
     padding: 95px 0 115px;
@@ -428,3 +428,4 @@
         border-radius: 30px;
     }
 }
+

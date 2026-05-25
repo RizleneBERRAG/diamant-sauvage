@@ -1,4 +1,4 @@
-/* =========================
+﻿/* =========================
    NAVIGATION PREMIUM
 ========================= */
 
@@ -271,7 +271,7 @@
     --img-pos: 70% 44%;
 }
 
-/* Compatibilité avec tes classes déjà utilisées */
+/* CompatibilitÃ© avec tes classes dÃ©jÃ  utilisÃ©es */
 .premium-nav-card.focus-face-top,
 .premium-nav-card.focus-top-face {
     --img-pos: center 12%;
@@ -322,7 +322,7 @@
 /* =========================
    MOBILE
    Version clean premium :
-   image naturelle + cartouche doré transparent
+   image naturelle + cartouche dorÃ© transparent
 ========================= */
 
 @media (max-width: 860px) {
@@ -544,3 +544,4 @@
         font-size: 12px;
     }
 }
+

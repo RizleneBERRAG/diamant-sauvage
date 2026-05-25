@@ -1,4 +1,4 @@
-const filterButtons = document.querySelectorAll('.filter-btn');
+﻿const filterButtons = document.querySelectorAll('.filter-btn');
 const kittenCards = document.querySelectorAll('.kitten-card');
 
 filterButtons.forEach((button) => {
@@ -19,3 +19,4 @@ filterButtons.forEach((button) => {
         });
     });
 });
+

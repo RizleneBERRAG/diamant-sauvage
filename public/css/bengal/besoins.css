@@ -1,0 +1,1200 @@
+/* =========================
+   BESOINS & ALIMENTATION
+   Page Bengal premium
+========================= */
+
+.bengal-needs-label,
+.bengal-needs-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--gold, #c8a85a);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.bengal-needs-label::before,
+.bengal-needs-kicker::before {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.72;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.bengal-needs-hero {
+    position: relative;
+    min-height: 88vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #0f0c08;
+    color: #fff;
+}
+
+.bengal-needs-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center 28%;
+    transform: scale(1.04);
+    filter: brightness(0.62) contrast(1.08) saturate(1.05);
+}
+
+.bengal-needs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 72% 20%, rgba(224, 201, 130, 0.22), transparent 30%),
+        linear-gradient(90deg, rgba(8, 6, 4, 0.94) 0%, rgba(8, 6, 4, 0.70) 42%, rgba(8, 6, 4, 0.30) 100%),
+        linear-gradient(to top, rgba(8, 6, 4, 0.92), transparent 42%);
+}
+
+.bengal-needs-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) 420px;
+    gap: 70px;
+    align-items: center;
+    padding: 120px 0 95px;
+}
+
+.bengal-needs-hero-content {
+    max-width: 850px;
+}
+
+.bengal-needs-hero h1 {
+    margin: 24px 0 26px;
+    color: #fff;
+    font-size: clamp(52px, 7vw, 112px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+}
+
+.bengal-needs-hero h1 em {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+}
+
+.bengal-needs-hero p {
+    max-width: 710px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.85;
+}
+
+.bengal-needs-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.bengal-needs-hero-card {
+    padding: 30px;
+    border-radius: 34px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.035)),
+        rgba(12, 9, 6, 0.62);
+    border: 1px solid rgba(224, 201, 130, 0.28);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.bengal-needs-hero-card > span {
+    display: inline-flex;
+    margin-bottom: 22px;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.bengal-needs-hero-card div {
+    padding: 22px 0;
+    border-top: 1px solid rgba(224, 201, 130, 0.18);
+}
+
+.bengal-needs-hero-card strong {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+}
+
+.bengal-needs-hero-card p {
+    margin-top: 7px;
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.bengal-needs-intro {
+    position: relative;
+    padding: 110px 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(200, 168, 90, 0.10), transparent 32%),
+        var(--cream, #f5efe3);
+}
+
+.bengal-needs-intro-grid,
+.bengal-food-grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.bengal-needs-intro-content h2,
+.bengal-food-content h2,
+.bengal-needs-section-head h2,
+.bengal-needs-final h2 {
+    margin: 18px 0 24px;
+    color: var(--ink, #17130d);
+    font-size: clamp(38px, 4.4vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -2.8px;
+}
+
+.bengal-needs-intro-content p,
+.bengal-food-content p,
+.bengal-needs-section-head p,
+.bengal-needs-final p {
+    color: rgba(28, 23, 15, 0.72);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.bengal-needs-intro-visual,
+.bengal-food-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 42px;
+    min-height: 520px;
+    box-shadow: 0 34px 90px rgba(24, 18, 10, 0.16);
+    border: 1px solid rgba(200, 168, 90, 0.24);
+    background: #120e09;
+}
+
+.bengal-needs-intro-visual img,
+.bengal-food-visual img {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    filter: contrast(1.04) saturate(1.04);
+}
+
+/* =========================
+   NEED CARDS
+   Version plus compacte premium
+========================= */
+
+.bengal-needs-essentials {
+    padding: 82px 0 92px;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(200, 168, 90, 0.08), transparent 30%),
+        #fbf7ef;
+}
+
+.bengal-needs-section-head {
+    max-width: 780px;
+    margin-bottom: 34px;
+}
+
+.bengal-needs-essentials .bengal-needs-section-head h2 {
+    max-width: 720px;
+    font-size: clamp(34px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -2.2px;
+}
+
+.bengal-needs-essentials .bengal-needs-section-head p {
+    max-width: 680px;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.needs-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.need-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 190px;
+    padding: 24px 24px 22px;
+    border-radius: 26px;
+
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, 0.13), transparent 34%),
+        rgba(255, 250, 241, 0.82);
+
+    border: 1px solid rgba(200, 168, 90, 0.18);
+
+    box-shadow:
+        0 16px 42px rgba(27, 21, 11, 0.065),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
+
+    transition:
+        transform 0.32s ease,
+        box-shadow 0.32s ease,
+        border-color 0.32s ease,
+        background 0.32s ease;
+}
+
+.need-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 168, 90, 0.38);
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, 0.18), transparent 34%),
+        rgba(255, 252, 246, 0.94);
+    box-shadow:
+        0 24px 58px rgba(27, 21, 11, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.need-card span {
+    display: inline-flex;
+    margin-bottom: 30px;
+    color: rgba(151, 105, 35, 0.78);
+    font-size: 10px;
+    letter-spacing: 2.2px;
+    font-weight: 900;
+}
+
+.need-card h3 {
+    margin: 0 0 10px;
+    color: #17130d;
+    font-size: 22px;
+    line-height: 1.05;
+    letter-spacing: -0.8px;
+}
+
+.need-card p {
+    margin: 0;
+    color: rgba(28, 23, 15, 0.64);
+    line-height: 1.55;
+    font-size: 13.5px;
+}
+
+.need-card-highlight {
+    background:
+        radial-gradient(circle at 82% 10%, rgba(224, 201, 130, 0.20), transparent 34%),
+        linear-gradient(145deg, #20180f, #090806);
+
+    border-color: rgba(224, 201, 130, 0.28);
+
+    box-shadow:
+        0 22px 58px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.need-card-highlight:hover {
+    background:
+        radial-gradient(circle at 82% 10%, rgba(224, 201, 130, 0.25), transparent 34%),
+        linear-gradient(145deg, #251b10, #080705);
+    border-color: rgba(224, 201, 130, 0.42);
+}
+
+.need-card-highlight h3,
+.need-card-highlight span {
+    color: var(--gold-soft, #e8d7a1);
+}
+
+.need-card-highlight p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Tablette */
+@media (max-width: 1100px) {
+    .needs-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .need-card {
+        min-height: 180px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .bengal-needs-essentials {
+        padding: 68px 0 74px;
+    }
+
+    .bengal-needs-section-head {
+        margin-bottom: 28px;
+    }
+
+    .bengal-needs-essentials .bengal-needs-section-head h2 {
+        font-size: clamp(32px, 10vw, 46px);
+        letter-spacing: -1.6px;
+    }
+
+    .needs-card-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .need-card {
+        min-height: unset;
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .need-card span {
+        margin-bottom: 20px;
+    }
+
+    .need-card h3 {
+        font-size: 22px;
+    }
+
+    .need-card p {
+        font-size: 13.5px;
+        line-height: 1.55;
+    }
+}
+
+/* =========================
+   FOOD EDITORIAL
+========================= */
+
+.bengal-food-editorial {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 12% 15%, rgba(224, 201, 130, 0.11), transparent 34%),
+        #17140d;
+    color: #fff;
+}
+
+.bengal-food-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.bengal-food-content h2 {
+    color: #fff;
+}
+
+.bengal-food-content p {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.food-note {
+    margin-top: 32px;
+    padding: 26px;
+    border-radius: 26px;
+    background: rgba(224, 201, 130, 0.12);
+    border: 1px solid rgba(224, 201, 130, 0.24);
+}
+
+.food-note strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gold-soft, #e8d7a1);
+    font-size: 17px;
+}
+
+.food-note p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* =========================
+   FOOD RULES
+========================= */
+
+.bengal-food-rules {
+    padding: 105px 0;
+    background: var(--cream, #f5efe3);
+}
+
+.food-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.food-rules-grid article {
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(200, 168, 90, 0.22);
+    box-shadow: 0 18px 44px rgba(31, 24, 12, 0.08);
+}
+
+.food-rules-grid span {
+    display: inline-flex;
+    margin-bottom: 22px;
+    color: var(--gold, #c8a85a);
+}
+
+.food-rules-grid h3 {
+    margin: 0 0 10px;
+    color: #17130d;
+    font-size: 22px;
+}
+
+.food-rules-grid p {
+    margin: 0;
+    color: rgba(28, 23, 15, 0.68);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.bengal-food-warning {
+    margin-top: 34px;
+    padding: 34px;
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(200, 168, 90, 0.15), rgba(255, 255, 255, 0.70));
+    border: 1px solid rgba(200, 168, 90, 0.26);
+}
+
+.bengal-food-warning p {
+    margin: 0;
+    max-width: 1050px;
+    color: rgba(28, 23, 15, 0.76);
+    line-height: 1.85;
+    font-size: 16px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.bengal-products-section {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 80% 0%, rgba(224, 201, 130, 0.14), transparent 36%),
+        linear-gradient(180deg, #15120c 0%, #080705 100%);
+    color: #fff;
+}
+
+.section-head-light h2 {
+    color: #fff;
+}
+
+.section-head-light p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.food-products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+.food-product-card {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+    border-radius: 36px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+        rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(224, 201, 130, 0.22);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.26);
+}
+
+.food-product-featured {
+    border-color: rgba(224, 201, 130, 0.46);
+    background:
+        radial-gradient(circle at 92% 0%, rgba(224, 201, 130, 0.18), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+}
+
+.food-product-top {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 38px;
+    align-items: center;
+}
+
+/* =========================
+   IMAGES CROQUETTES
+   Remplace les anciens .food-pack-mock
+========================= */
+
+.food-pack-image {
+    position: relative;
+    min-height: 320px;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+    border: 1px solid rgba(224, 201, 130, 0.24);
+
+    background:
+        radial-gradient(circle at 50% 12%, rgba(224, 201, 130, 0.18), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.food-pack-image::before {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 18px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.28);
+    filter: blur(12px);
+    opacity: 0.82;
+    pointer-events: none;
+}
+
+.food-pack-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.10), transparent 38%),
+        radial-gradient(circle at 50% 100%, rgba(224, 201, 130, 0.16), transparent 48%);
+}
+
+.food-pack-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+    max-height: 290px;
+
+    display: block;
+    object-fit: contain;
+    object-position: center;
+
+    filter:
+        drop-shadow(0 22px 28px rgba(0, 0, 0, 0.34))
+        contrast(1.03)
+        saturate(1.04);
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.food-product-card:hover .food-pack-image img {
+    transform: translateY(-5px) scale(1.035);
+    filter:
+        drop-shadow(0 28px 34px rgba(0, 0, 0, 0.40))
+        contrast(1.04)
+        saturate(1.06);
+}
+
+.food-pack-light {
+    background:
+        radial-gradient(circle at 50% 10%, rgba(255, 241, 194, 0.22), transparent 46%),
+        linear-gradient(145deg, rgba(199, 178, 130, 0.28), rgba(74, 62, 38, 0.22));
+}
+
+.food-pack-dark {
+    background:
+        radial-gradient(circle at 50% 10%, rgba(224, 201, 130, 0.22), transparent 46%),
+        linear-gradient(145deg, rgba(44, 36, 25, 0.82), rgba(8, 7, 5, 0.92));
+}
+
+.food-pack-sand {
+    background:
+        radial-gradient(circle at 50% 10%, rgba(255, 241, 194, 0.20), transparent 46%),
+        linear-gradient(145deg, rgba(207, 190, 149, 0.30), rgba(92, 72, 38, 0.24));
+}
+
+.food-product-tag {
+    display: inline-flex;
+    margin-bottom: 14px;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.food-product-card h3 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: clamp(30px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -2.2px;
+}
+
+.food-product-card p {
+    max-width: 900px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.food-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 30px 0;
+}
+
+.food-stats div {
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(224, 201, 130, 0.10);
+    border: 1px solid rgba(224, 201, 130, 0.18);
+}
+
+.food-stats strong {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+
+.food-stats span {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 800;
+}
+
+.food-details {
+    border-top: 1px solid rgba(224, 201, 130, 0.18);
+    padding-top: 22px;
+}
+
+.food-details summary {
+    cursor: pointer;
+    color: var(--gold-soft, #e8d7a1);
+    font-weight: 900;
+    letter-spacing: 0.2px;
+    list-style: none;
+}
+
+.food-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.food-details summary::after {
+    content: "+";
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+.food-details[open] summary::after {
+    content: "–";
+}
+
+.food-detail-content {
+    margin-top: 24px;
+    padding: 28px;
+    border-radius: 26px;
+    background: rgba(0, 0, 0, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.food-detail-content h4 {
+    margin: 24px 0 10px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.food-detail-content h4:first-child {
+    margin-top: 0;
+}
+
+.food-detail-content ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 28px;
+    margin: 12px 0 0;
+    padding-left: 18px;
+}
+
+.food-detail-content li,
+.food-detail-content p {
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.75;
+    font-size: 14px;
+}
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.bengal-needs-final {
+    padding: 110px 0;
+    background:
+        linear-gradient(135deg, rgba(15, 12, 8, 0.88), rgba(15, 12, 8, 0.74)),
+        url("../../images/home/gallery-14.jpg") center / cover;
+    color: #fff;
+}
+
+.bengal-needs-final-box {
+    max-width: 980px;
+    padding: 54px;
+    border-radius: 42px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04)),
+        rgba(8, 6, 4, 0.58);
+    border: 1px solid rgba(224, 201, 130, 0.28);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.bengal-needs-final h2 {
+    color: #fff;
+}
+
+.bengal-needs-final p {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.bengal-needs-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .bengal-needs-hero-inner,
+    .bengal-needs-intro-grid,
+    .bengal-food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bengal-needs-hero-card {
+        max-width: 680px;
+    }
+
+    .needs-card-grid,
+    .food-rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-product-top {
+        grid-template-columns: 210px 1fr;
+    }
+
+    .food-pack-image {
+        min-height: 280px;
+    }
+
+    .food-pack-image img {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 760px) {
+    .bengal-needs-hero {
+        min-height: auto;
+    }
+
+    .bengal-needs-hero-bg {
+        background-position: center;
+    }
+
+    .bengal-needs-hero-inner {
+        padding: 105px 0 70px;
+        gap: 34px;
+    }
+
+    .bengal-needs-hero h1 {
+        font-size: clamp(46px, 14vw, 66px);
+        letter-spacing: -2.8px;
+    }
+
+    .bengal-needs-hero p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .bengal-needs-hero-card {
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .bengal-needs-intro,
+    .bengal-needs-essentials,
+    .bengal-food-editorial,
+    .bengal-food-rules,
+    .bengal-products-section,
+    .bengal-needs-final {
+        padding: 76px 0;
+    }
+
+    .bengal-needs-intro-content h2,
+    .bengal-food-content h2,
+    .bengal-needs-section-head h2,
+    .bengal-needs-final h2 {
+        font-size: clamp(34px, 11vw, 50px);
+        letter-spacing: -1.8px;
+    }
+
+    .bengal-needs-intro-visual,
+    .bengal-food-visual {
+        min-height: unset;
+        border-radius: 30px;
+    }
+
+    .bengal-needs-intro-visual img,
+    .bengal-food-visual img {
+        min-height: unset;
+        height: auto;
+    }
+
+    .needs-card-grid,
+    .food-rules-grid,
+    .food-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .need-card {
+        min-height: unset;
+    }
+
+    .food-product-card {
+        padding: 24px;
+        border-radius: 30px;
+    }
+
+    .food-product-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .food-pack-image {
+        min-height: 260px;
+        padding: 16px;
+        border-radius: 26px;
+    }
+
+    .food-pack-image img {
+        max-height: 235px;
+    }
+
+    .food-detail-content {
+        padding: 22px;
+    }
+
+    .food-detail-content ul {
+        grid-template-columns: 1fr;
+    }
+
+    .bengal-needs-final-box {
+        padding: 34px 26px;
+        border-radius: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+    .bengal-needs-hero-actions,
+    .bengal-needs-final-actions {
+        flex-direction: column;
+    }
+
+    .bengal-needs-hero-actions .btn,
+    .bengal-needs-final-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .food-product-card h3 {
+        font-size: 31px;
+    }
+
+    .food-pack-image {
+        min-height: 235px;
+        padding: 14px;
+    }
+
+    .food-pack-image img {
+        max-height: 210px;
+    }
+}
+
+/* =========================
+   NEED CARDS SLIDER PREMIUM
+========================= */
+
+.bengal-needs-essentials {
+    padding: 86px 0 96px !important;
+    overflow: hidden !important;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(200, 168, 90, 0.08), transparent 30%),
+        #fbf7ef !important;
+}
+
+.bengal-needs-essentials .bengal-needs-section-head {
+    max-width: 760px !important;
+    margin-bottom: 36px !important;
+}
+
+.bengal-needs-essentials .bengal-needs-section-head h2 {
+    max-width: 720px !important;
+    font-size: clamp(34px, 4vw, 58px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -2.2px !important;
+}
+
+.bengal-needs-essentials .bengal-needs-section-head p {
+    max-width: 660px !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+}
+
+.needs-slider {
+    position: relative !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 10px 0 14px !important;
+}
+
+.needs-slider::before,
+.needs-slider::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 120px !important;
+    z-index: 3 !important;
+    pointer-events: none !important;
+}
+
+.needs-slider::before {
+    left: 0 !important;
+    background: linear-gradient(90deg, #fbf7ef 0%, rgba(251, 247, 239, 0) 100%) !important;
+}
+
+.needs-slider::after {
+    right: 0 !important;
+    background: linear-gradient(270deg, #fbf7ef 0%, rgba(251, 247, 239, 0) 100%) !important;
+}
+
+.needs-card-grid.needs-track {
+    display: flex !important;
+    grid-template-columns: none !important;
+    width: max-content !important;
+    gap: 18px !important;
+    animation: needsPremiumSlider 38s linear infinite !important;
+    will-change: transform !important;
+}
+
+.needs-slider:hover .needs-track {
+    animation-play-state: paused !important;
+}
+
+.need-card {
+    flex: 0 0 clamp(260px, 23vw, 330px) !important;
+    width: clamp(260px, 23vw, 330px) !important;
+    min-height: 205px !important;
+
+    position: relative !important;
+    overflow: hidden !important;
+
+    padding: 24px 24px 22px !important;
+    border-radius: 28px !important;
+
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, 0.13), transparent 34%),
+        rgba(255, 250, 241, 0.86) !important;
+
+    border: 1px solid rgba(200, 168, 90, 0.18) !important;
+
+    box-shadow:
+        0 16px 42px rgba(27, 21, 11, 0.065),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+
+    transition:
+        transform 0.32s ease,
+        box-shadow 0.32s ease,
+        border-color 0.32s ease,
+        background 0.32s ease !important;
+}
+
+.need-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(200, 168, 90, 0.40) !important;
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, 0.18), transparent 34%),
+        rgba(255, 252, 246, 0.96) !important;
+    box-shadow:
+        0 24px 58px rgba(27, 21, 11, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78) !important;
+}
+
+.need-card span {
+    display: inline-flex !important;
+    margin-bottom: 30px !important;
+    color: rgba(151, 105, 35, 0.78) !important;
+    font-size: 10px !important;
+    letter-spacing: 2.2px !important;
+    font-weight: 900 !important;
+}
+
+.need-card h3 {
+    margin: 0 0 10px !important;
+    color: #17130d !important;
+    font-size: 22px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.8px !important;
+}
+
+.need-card p {
+    margin: 0 !important;
+    color: rgba(28, 23, 15, 0.64) !important;
+    line-height: 1.55 !important;
+    font-size: 13.5px !important;
+}
+
+.need-card-highlight {
+    background:
+        radial-gradient(circle at 82% 10%, rgba(224, 201, 130, 0.20), transparent 34%),
+        linear-gradient(145deg, #20180f, #090806) !important;
+
+    border-color: rgba(224, 201, 130, 0.28) !important;
+
+    box-shadow:
+        0 22px 58px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.need-card-highlight:hover {
+    background:
+        radial-gradient(circle at 82% 10%, rgba(224, 201, 130, 0.25), transparent 34%),
+        linear-gradient(145deg, #251b10, #080705) !important;
+    border-color: rgba(224, 201, 130, 0.42) !important;
+}
+
+.need-card-highlight h3,
+.need-card-highlight span {
+    color: var(--gold-soft, #e8d7a1) !important;
+}
+
+.need-card-highlight p {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+@keyframes needsPremiumSlider {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================
+   RESPONSIVE SLIDER
+========================= */
+
+@media (max-width: 760px) {
+    .bengal-needs-essentials {
+        padding: 68px 0 74px !important;
+    }
+
+    .needs-slider {
+        overflow: hidden !important;
+        margin-left: -17px !important;
+        margin-right: -17px !important;
+        padding-left: 17px !important;
+    }
+
+    .needs-slider::before,
+    .needs-slider::after {
+        width: 52px !important;
+    }
+
+    .needs-card-grid.needs-track {
+        gap: 14px !important;
+        animation-duration: 32s !important;
+    }
+
+    .need-card {
+        flex-basis: 265px !important;
+        width: 265px !important;
+        min-height: 190px !important;
+        padding: 22px !important;
+        border-radius: 24px !important;
+    }
+
+    .need-card span {
+        margin-bottom: 22px !important;
+    }
+
+    .need-card h3 {
+        font-size: 21px !important;
+    }
+
+    .need-card p {
+        font-size: 13px !important;
+        line-height: 1.52 !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .need-card {
+        flex-basis: 245px !important;
+        width: 245px !important;
+        min-height: 185px !important;
+    }
+
+    .needs-card-grid.needs-track {
+        animation-duration: 30s !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .needs-card-grid.needs-track {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .needs-slider {
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+    }
+
+    .needs-slider::-webkit-scrollbar {
+        display: none !important;
+    }
+}

@@ -45,7 +45,7 @@
 
             <div class="hero-visual reveal-scale">
                 <div class="main-cat-card tilt-card">
-                    <div class="cat-image photo-bg" style="--img: url('{{ asset('images/home/hero-bengal.jpg') }}')">
+                    <div class="cat-image photo-bg focus-face" style="--img: url('{{ asset('images/home/hero-bengal.jpg') }}')">
                         <span>Diamant Sauvage</span>
 
                         <div class="hero-info-strip">
@@ -84,18 +84,66 @@
 
     @php
         $ribbonImages = [
-            ['file' => 'kitten-1.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-top'],
-            ['file' => 'kitten-2.jpg', 'alt' => 'Chatons Bengal', 'focus' => 'focus-top'],
-            ['file' => 'kitten-3.jpg', 'alt' => 'Jeune Bengal', 'focus' => 'focus-center'],
-            ['file' => 'kitten-4.jpg', 'alt' => 'Bengal dans son espace', 'focus' => 'focus-center'],
-            ['file' => 'gallery-1.jpg', 'alt' => 'Bengal', 'focus' => 'focus-left'],
-            ['file' => 'gallery-2.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-center'],
-            ['file' => 'kitten-5.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-top'],
-            ['file' => 'kitten-6.jpg', 'alt' => 'Chatons Bengal', 'focus' => 'focus-right'],
-            ['file' => 'kitten-7.jpg', 'alt' => 'Jeune Bengal', 'focus' => 'focus-center'],
-            ['file' => 'kitten-8.jpg', 'alt' => 'Bengal dans son espace', 'focus' => 'focus-center'],
-            ['file' => 'gallery-3.jpg', 'alt' => 'Bengal', 'focus' => 'focus-center'],
-            ['file' => 'gallery-4.jpg', 'alt' => 'Chat Bengal', 'focus' => 'focus-right'],
+            [
+                'file' => 'kitten11.jpg',
+                'alt' => 'Chat Bengal',
+                'focus' => 'focus-bottom-face-left',
+            ],
+            [
+                'file' => 'kitten-12.jpg',
+                'alt' => 'Chatons Bengal',
+                'focus' => 'focus-top-face',
+            ],
+            [
+                'file' => 'kitten-13.jpg',
+                'alt' => 'Jeune Bengal',
+                'focus' => 'focus-face-bottom',
+            ],
+            [
+                'file' => 'kitten-14.jpg',
+                'alt' => 'Bengal dans son espace',
+                'focus' => 'focus-body',
+            ],
+            [
+                'file' => 'gallery-11.jpg',
+                'alt' => 'Bengal',
+                'focus' => 'focus-body-left',
+            ],
+            [
+                'file' => 'gallery-12.jpg',
+                'alt' => 'Chat Bengal',
+                'focus' => 'focus-bottom',
+            ],
+            [
+                'file' => 'kitten-15.jpg',
+                'alt' => 'Chat Bengal',
+                'focus' => 'focus-face-top',
+            ],
+            [
+                'file' => 'kitten-16.jpg',
+                'alt' => 'Chatons Bengal',
+                'focus' => 'focus-body-right',
+            ],
+            [
+                'file' => 'kitten-7.jpg',
+                'alt' => 'Jeune Bengal',
+                'focus' => 'focus-face',
+            ],
+            [
+                'file' => 'kitten-8.jpg',
+                'alt' => 'Bengal dans son espace',
+                'focus' => 'focus-body',
+            ],
+            [
+                'file' => 'gallery-13.jpg',
+                'alt' => 'Bengal',
+                'focus' => 'focus-body-bottom-right',
+            ],
+            [
+                'file' => 'gallery-14.jpg',
+                'alt' => 'Chat Bengal',
+                'focus' => 'focus-top-face-right',
+            ],
         ];
     @endphp
 
@@ -142,7 +190,7 @@
             </div>
 
             <div class="kitten-editorial-grid">
-                <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card kitten-editorial-card-large reveal-up tilt-card">
+                <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card kitten-editorial-card-large reveal-up tilt-card focus-face">
                     <img src="{{ asset('images/home/kitten-1.jpg') }}" alt="Chaton Bengal disponible">
 
                     <div class="kitten-editorial-overlay"></div>
@@ -159,7 +207,7 @@
                 </a>
 
                 <div class="kitten-editorial-column">
-                    <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card reveal-up delay-1 tilt-card">
+                    <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card reveal-up delay-1 tilt-card focus-top">
                         <img src="{{ asset('images/home/kitten-2.jpg') }}" alt="Portées Bengal à venir">
 
                         <div class="kitten-editorial-overlay"></div>
@@ -171,7 +219,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card reveal-up delay-2 tilt-card">
+                    <a href="{{ route('chats.disponibles') }}" class="kitten-editorial-card reveal-up delay-2 tilt-card focus-bottom">
                         <img src="{{ asset('images/home/kitten-3.jpg') }}" alt="Évolution des chatons Bengal">
 
                         <div class="kitten-editorial-overlay"></div>
@@ -190,7 +238,7 @@
     <section class="luxury-navigation">
         <div class="container">
             <div class="navigation-premium-head reveal-up">
-                <span class="section-label">Navigation premium</span>
+                <span class="section-label">Notre univers</span>
                 <h2>Explorez l’univers du Diamant Sauvage.</h2>
                 <p>
                     Chaque espace du site a été pensé pour guider les familles avec élégance :
@@ -199,7 +247,7 @@
             </div>
 
             <div class="premium-nav-layout">
-                <a href="{{ route('chatterie') }}" class="premium-nav-card premium-nav-card-large reveal-up tilt-card">
+                <a href="{{ route('chatterie') }}" class="premium-nav-card premium-nav-card-large reveal-up tilt-card focus-body">
                     <img src="{{ asset('images/home/gallery-1.jpg') }}" alt="La chatterie du Diamant Sauvage">
 
                     <div class="premium-nav-overlay"></div>
@@ -215,7 +263,7 @@
                 </a>
 
                 <div class="premium-nav-grid">
-                    <a href="{{ route('chats.femelles') }}" class="premium-nav-card reveal-up delay-1 tilt-card">
+                    <a href="{{ route('chats.femelles') }}" class="premium-nav-card reveal-up delay-1 tilt-card focus-face-left">
                         <img src="{{ asset('images/home/gallery-2.jpg') }}" alt="Femelles Bengal">
 
                         <div class="premium-nav-overlay"></div>
@@ -228,7 +276,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('chats.males') }}" class="premium-nav-card reveal-up delay-2 tilt-card">
+                    <a href="{{ route('chats.males') }}" class="premium-nav-card reveal-up delay-2 tilt-card focus-face">
                         <img src="{{ asset('images/home/cat-detail-1.jpg') }}" alt="Mâles Bengal">
 
                         <div class="premium-nav-overlay"></div>
@@ -241,7 +289,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('chats.disponibles') }}" class="premium-nav-card premium-nav-card-gold reveal-up delay-3 tilt-card">
+                    <a href="{{ route('chats.disponibles') }}" class="premium-nav-card premium-nav-card-gold reveal-up delay-3 tilt-card focus-face">
                         <img src="{{ asset('images/home/kitten-1.jpg') }}" alt="Chatons Bengal disponibles">
 
                         <div class="premium-nav-overlay"></div>
@@ -254,8 +302,9 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('contact') }}" class="premium-nav-card premium-nav-card-dark reveal-up delay-3 tilt-card">
+                    <a href="{{ route('contact') }}" class="premium-nav-card premium-nav-card-dark reveal-up delay-3 tilt-card focus-body-right">
                         <img src="{{ asset('images/home/kitten-6.jpg') }}" alt="Chatons Bengal disponibles">
+
                         <div class="premium-nav-overlay"></div>
 
                         <div class="premium-nav-content">
@@ -294,7 +343,7 @@
             </div>
 
             <div class="bengal-world-visual reveal-scale">
-                <div class="bengal-detail-card photo-bg" style="--img: url('{{ asset('images/home/cat-detail-1.jpg') }}')">
+                <div class="bengal-detail-card photo-bg focus-face" style="--img: url('{{ asset('images/home/cat-detail-1.jpg') }}')">
                     <div>
                         <strong>Beauté sauvage</strong>
                         <span>Contraste, robe et élégance naturelle</span>
@@ -333,9 +382,9 @@
             </div>
 
             <div class="story-gallery reveal-scale">
-                <div class="story-img story-img-large photo-bg" style="--img: url('{{ asset('images/home/gallery-3.jpg') }}')"></div>
-                <div class="story-img photo-bg" style="--img: url('{{ asset('images/home/gallery-4.jpg') }}')"></div>
-                <div class="story-img photo-bg" style="--img: url('{{ asset('images/home/gallery-5.jpg') }}')"></div>
+                <div class="story-img story-img-large photo-bg focus-face" style="--img: url('{{ asset('images/home/gallery-3.jpg') }}')"></div>
+                <div class="story-img photo-bg focus-body" style="--img: url('{{ asset('images/home/gallery-4.jpg') }}')"></div>
+                <div class="story-img photo-bg focus-face-right" style="--img: url('{{ asset('images/home/gallery-5.jpg') }}')"></div>
             </div>
         </div>
     </section>
@@ -352,12 +401,12 @@
             </div>
 
             <div class="gallery-masonry">
-                <div class="gallery-photo gallery-photo-tall photo-bg reveal-up" style="--img: url('{{ asset('images/home/gallery-1.jpg') }}')"></div>
-                <div class="gallery-photo photo-bg reveal-up delay-1" style="--img: url('{{ asset('images/home/gallery-2.jpg') }}')"></div>
-                <div class="gallery-photo photo-bg reveal-up delay-2" style="--img: url('{{ asset('images/home/gallery-3.jpg') }}')"></div>
-                <div class="gallery-photo gallery-photo-wide photo-bg reveal-up delay-3" style="--img: url('{{ asset('images/home/gallery-4.jpg') }}')"></div>
-                <div class="gallery-photo photo-bg reveal-up" style="--img: url('{{ asset('images/home/gallery-6.jpg') }}')"></div>
-                <div class="gallery-photo photo-bg reveal-up delay-1" style="--img: url('{{ asset('images/home/kitten-6.jpg') }}')"></div>
+                <div class="gallery-photo gallery-photo-tall photo-bg reveal-up focus-face" style="--img: url('{{ asset('images/home/gallery-1.jpg') }}')"></div>
+                <div class="gallery-photo photo-bg reveal-up delay-1 focus-face-left" style="--img: url('{{ asset('images/home/gallery-2.jpg') }}')"></div>
+                <div class="gallery-photo photo-bg reveal-up delay-2 focus-center" style="--img: url('{{ asset('images/home/gallery-3.jpg') }}')"></div>
+                <div class="gallery-photo gallery-photo-wide photo-bg reveal-up delay-3 focus-face" style="--img: url('{{ asset('images/home/gallery-4.jpg') }}')"></div>
+                <div class="gallery-photo photo-bg reveal-up focus-face-right" style="--img: url('{{ asset('images/home/gallery-6.jpg') }}')"></div>
+                <div class="gallery-photo photo-bg reveal-up delay-1 focus-face-bottom" style="--img: url('{{ asset('images/home/kitten-6.jpg') }}')"></div>
             </div>
         </div>
     </section>

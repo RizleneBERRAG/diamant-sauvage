@@ -10,12 +10,12 @@
 @section('content')
 
     <section
-        class="cattery-hero-video"
+        class="cattery-hero-video focus-center"
         style="--poster-img: url('{{ asset('images/chatterie/chatterie-hero-poster.jpg') }}')"
     >
         <div class="cattery-hero-media">
             <video
-                class="js-cattery-hero-video"
+                class="js-cattery-hero-video focus-center"
                 autoplay
                 muted
                 loop
@@ -95,7 +95,7 @@
             </div>
 
             <div class="cattery-family-card cattery-reveal delay-1">
-                <div class="cattery-family-image" style="--img: url('{{ asset('images/chatterie/famille-chatterie.jpg') }}')">
+                <div class="cattery-family-image focus-body" style="--img: url('{{ asset('images/chatterie/famille-chatterie.jpg') }}')">
                     <img src="{{ asset('images/chatterie/famille-chatterie.jpg') }}" alt="Famille de la Chatterie du Diamant Sauvage avec leurs Bengals">
 
                     <div class="cattery-family-image-label">
@@ -274,9 +274,9 @@
                 <article class="cattery-space-card cattery-space-large cattery-reveal">
                     <div class="cattery-space-slider" data-cattery-slider>
                         <div class="cattery-space-track">
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/adultes-1.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/adultes-2.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/adultes-3.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body" style="--img: url('{{ asset('images/chatterie/espaces/adultes-1.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-center" style="--img: url('{{ asset('images/chatterie/espaces/adultes-2.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body-right" style="--img: url('{{ asset('images/chatterie/espaces/adultes-3.jpg') }}')"></div>
                         </div>
 
                         <button class="cattery-slider-btn cattery-slider-prev" type="button" aria-label="Image précédente">‹</button>
@@ -298,10 +298,10 @@
                 <article class="cattery-space-card cattery-reveal delay-1">
                     <div class="cattery-space-slider" data-cattery-slider>
                         <div class="cattery-space-track">
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/volieres-1.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/volieres-2.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/volieres-3.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/volieres-4.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-center" style="--img: url('{{ asset('images/chatterie/espaces/volieres-1.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body" style="--img: url('{{ asset('images/chatterie/espaces/volieres-2.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-left" style="--img: url('{{ asset('images/chatterie/espaces/volieres-3.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-right" style="--img: url('{{ asset('images/chatterie/espaces/volieres-4.jpg') }}')"></div>
 
                         </div>
 
@@ -323,14 +323,14 @@
                 <article class="cattery-space-card cattery-reveal delay-2">
                     <div class="cattery-space-slider" data-cattery-slider>
                         <div class="cattery-space-track">
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-1.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-2.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-3.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-4.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-5.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-6.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-7.jpg') }}')"></div>
-                            <div class="cattery-space-slide photo-bg" style="--img: url('{{ asset('images/chatterie/espaces/maternite-8.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body" style="--img: url('{{ asset('images/chatterie/espaces/maternite-1.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-face" style="--img: url('{{ asset('images/chatterie/espaces/maternite-2.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-center" style="--img: url('{{ asset('images/chatterie/espaces/maternite-3.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body-left" style="--img: url('{{ asset('images/chatterie/espaces/maternite-4.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-body-right" style="--img: url('{{ asset('images/chatterie/espaces/maternite-5.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-top" style="--img: url('{{ asset('images/chatterie/espaces/maternite-6.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-face-left" style="--img: url('{{ asset('images/chatterie/espaces/maternite-7.jpg') }}')"></div>
+                            <div class="cattery-space-slide photo-bg focus-bottom-right" style="--img: url('{{ asset('images/chatterie/espaces/maternite-8.jpg') }}')"></div>
                         </div>
 
                         <button class="cattery-slider-btn cattery-slider-prev" type="button" aria-label="Image précédente">‹</button>
@@ -354,7 +354,7 @@
     <section class="cattery-care">
         <div class="container cattery-care-grid">
             <div class="cattery-care-visual cattery-reveal">
-                <div class="cattery-care-photo photo-bg" style="--img: url('{{ asset('images/chatterie/bien-etre.jpg') }}')"></div>
+                <div class="cattery-care-photo photo-bg focus-body" style="--img: url('{{ asset('images/chatterie/bien-etre.jpg') }}')"></div>
                 <div class="care-badge">
                     <strong>Suivi quotidien</strong>
                     <span>Confort · sécurité · attention</span>
@@ -445,10 +445,10 @@
             </div>
 
             <div class="cattery-gallery-grid">
-                <figure class="cattery-gallery-item cattery-gallery-tall photo-bg cattery-reveal" style="--img: url('{{ asset('images/chatterie/gallery-3.jpg') }}')"></figure>
-                <figure class="cattery-gallery-item photo-bg cattery-reveal delay-1" style="--img: url('{{ asset('images/chatterie/gallery-2.jpg') }}')"></figure>
-                <figure class="cattery-gallery-item photo-bg cattery-reveal delay-2" style="--img: url('{{ asset('images/chatterie/gallery-1.jpg') }}')"></figure>
-                <figure class="cattery-gallery-item cattery-gallery-wide photo-bg cattery-reveal delay-3" style="--img: url('{{ asset('images/chatterie/gallery-4.jpg') }}')"></figure>
+                <figure class="cattery-gallery-item cattery-gallery-tall photo-bg cattery-reveal focus-face" style="--img: url('{{ asset('images/chatterie/gallery-3.jpg') }}')"></figure>
+                <figure class="cattery-gallery-item photo-bg cattery-reveal delay-1 focus-center" style="--img: url('{{ asset('images/chatterie/gallery-2.jpg') }}')"></figure>
+                <figure class="cattery-gallery-item photo-bg cattery-reveal delay-2 focus-face" style="--img: url('{{ asset('images/chatterie/gallery-1.jpg') }}')"></figure>
+                <figure class="cattery-gallery-item cattery-gallery-wide photo-bg cattery-reveal delay-3 focus-body-top" style="--img: url('{{ asset('images/chatterie/gallery-4.jpg') }}')"></figure>
             </div>
         </div>
     </section>

@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.ds-menu-toggle');
     const nav = document.querySelector('.ds-nav');
     const dropdowns = document.querySelectorAll('.ds-nav-dropdown');
@@ -97,4 +97,3 @@
         }
     });
 });
-

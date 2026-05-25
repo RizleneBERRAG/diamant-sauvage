@@ -1,5 +1,5 @@
-﻿/* =========================
-   HEADER ISOLÃ‰
+/* =========================
+   HEADER ISOLÉ
 ========================= */
 
 .ds-header {
@@ -243,13 +243,13 @@
 }
 
 /* =========================
-   MENU MOBILE PLEIN Ã‰CRAN
-   Style conservÃ©
+   MENU MOBILE PLEIN ÉCRAN
+   Style conservé
 ========================= */
 
 /* =========================
-   MENU MOBILE PLEIN Ã‰CRAN
-   Style conservÃ© + plein Ã©cran rÃ©el
+   MENU MOBILE PLEIN ÉCRAN
+   Style conservé + plein écran réel
 ========================= */
 
 @media (max-width: 980px) {
@@ -388,7 +388,7 @@
     }
 
     .ds-nav-dropdown.is-open .ds-nav-trigger::after {
-        content: "â€“";
+        content: "–";
     }
 
     .ds-dropdown-menu,
@@ -530,7 +530,7 @@
 }
 
 /* =========================
-   PETITS TÃ‰LÃ‰PHONES
+   PETITS TÉLÉPHONES
 ========================= */
 
 @media (max-width: 560px) {
@@ -559,7 +559,7 @@
 }
 
 /* =========================
-   ACCESSIBILITÃ‰
+   ACCESSIBILITÉ
 ========================= */
 
 @media (hover: none) {
@@ -582,4 +582,3 @@
         transition-duration: .01ms;
     }
 }
-

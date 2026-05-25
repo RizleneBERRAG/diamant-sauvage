@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    IMAGE RIBBON PREMIUM
 ========================= */
 
@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-/* DÃ©gradÃ©s sur les cÃ´tÃ©s pour un effet fondu premium */
+/* Dégradés sur les côtés pour un effet fondu premium */
 .image-ribbon::before,
 .image-ribbon::after {
     content: "";
@@ -74,7 +74,7 @@
     display: none !important;
 }
 
-/* Image bien cadrÃ©e */
+/* Image bien cadrée */
 .image-ribbon .smart-image img,
 .image-ribbon .smart-image.is-cover img,
 .image-ribbon .smart-image.is-contain img {
@@ -117,7 +117,7 @@
 
 /* =========================
    CADRAGES PAR IMAGE
-   Ã  utiliser dans home.blade.php
+   à utiliser dans home.blade.php
 ========================= */
 
 /* Cadrage standard */
@@ -125,27 +125,27 @@
     object-position: center center !important;
 }
 
-/* Quand la tÃªte du chat est trop haute ou coupÃ©e */
+/* Quand la tête du chat est trop haute ou coupée */
 .image-ribbon .focus-top img {
     object-position: center 24% !important;
 }
 
-/* Quand le sujet est plutÃ´t en bas */
+/* Quand le sujet est plutôt en bas */
 .image-ribbon .focus-bottom img {
     object-position: center 74% !important;
 }
 
-/* Quand le chat est Ã  gauche, mais sans coller lâ€™image au bord */
+/* Quand le chat est à gauche, mais sans coller l’image au bord */
 .image-ribbon .focus-left img {
     object-position: 34% center !important;
 }
 
-/* Quand le chat est Ã  droite, mais sans cadrage trop violent */
+/* Quand le chat est à droite, mais sans cadrage trop violent */
 .image-ribbon .focus-right img {
     object-position: 66% center !important;
 }
 
-/* Cadrages plus prÃ©cis */
+/* Cadrages plus précis */
 .image-ribbon .focus-left-top img {
     object-position: 34% 24% !important;
 }
@@ -162,12 +162,12 @@
     object-position: 66% 72% !important;
 }
 
-/* TrÃ¨s utile pour les portraits verticaux de chatons */
+/* Très utile pour les portraits verticaux de chatons */
 .image-ribbon .focus-face img {
     object-position: center 18% !important;
 }
 
-/* TrÃ¨s utile quand le chat est entier et quâ€™on veut garder le corps visible */
+/* Très utile quand le chat est entier et qu’on veut garder le corps visible */
 .image-ribbon .focus-body img {
     object-position: center 44% !important;
 }
@@ -322,7 +322,7 @@ img.focus-body-right {
     object-position: var(--img-pos) !important;
 }
 
-/* Quand la classe focus est mise sur le parent dâ€™une image */
+/* Quand la classe focus est mise sur le parent d’une image */
 .focus-center img,
 .focus-top img,
 .focus-bottom img,
@@ -341,7 +341,7 @@ img.focus-body-right {
     object-position: var(--img-pos) !important;
 }
 
-/* Quand lâ€™image est en background avec .photo-bg */
+/* Quand l’image est en background avec .photo-bg */
 .photo-bg.focus-center,
 .photo-bg.focus-top,
 .photo-bg.focus-bottom,
@@ -359,4 +359,3 @@ img.focus-body-right {
 .photo-bg.focus-body-right {
     background-position: var(--img-pos) !important;
 }
-

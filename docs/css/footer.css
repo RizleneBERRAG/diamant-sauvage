@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    FOOTER PREMIUM GLOBAL
 ========================= */
 
@@ -391,7 +391,7 @@
 .footer-drawer-content a::after,
 .footer-accordion-content a::after,
 .footer-contact-card a::after {
-    content: "â€º" !important;
+    content: "›" !important;
     position: absolute !important;
     right: 14px !important;
     top: 50% !important;
@@ -785,7 +785,7 @@
 }
 
 /* =========================
-   PETITS TÃ‰LÃ‰PHONES
+   PETITS TÉLÉPHONES
 ========================= */
 
 @media (max-width: 390px) {
@@ -855,4 +855,3 @@
         transform: none !important;
     }
 }
-

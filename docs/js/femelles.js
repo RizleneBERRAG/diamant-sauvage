@@ -1,4 +1,4 @@
-﻿const femaleModal = document.getElementById('femaleModal');
+const femaleModal = document.getElementById('femaleModal');
 const femaleButtons = document.querySelectorAll('.female-more');
 
 const modalName = document.getElementById('modalName');
@@ -40,4 +40,3 @@ document.addEventListener('keydown', (event) => {
         document.body.style.overflow = '';
     }
 });
-

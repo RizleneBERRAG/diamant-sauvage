@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    MENU MOBILE LUXE
    Chatterie du Diamant Sauvage
 ========================= */
@@ -190,7 +190,7 @@ body.menu-open {
     }
 
     .main-nav > a::after {
-        content: "â—†";
+        content: "◆";
         color: rgba(216, 198, 142, .62);
         font-size: 8px;
         margin-left: 12px;
@@ -342,7 +342,7 @@ body.menu-open {
     }
 
     .nav-contact::after {
-        content: "â—†" !important;
+        content: "◆" !important;
         color: rgba(18, 16, 12, .75) !important;
     }
 
@@ -409,4 +409,3 @@ body.menu-open {
         letter-spacing: 2px !important;
     }
 }
-

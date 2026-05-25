@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    CONTACT PAGE
 ========================= */
 
@@ -228,7 +228,7 @@
 }
 
 /* =========================
-   CONTACT OPTIONS SIMPLIFIÃ‰
+   CONTACT OPTIONS SIMPLIFIÉ
 ========================= */
 
 .contact-options {
@@ -563,7 +563,7 @@
 }
 
 .guidance-card li::before {
-    content: "â—†";
+    content: "◆";
     position: absolute;
     left: 0;
     top: 1px;
@@ -1136,7 +1136,7 @@
 }
 
 /* =========================
-   PETITS TÃ‰LÃ‰PHONES
+   PETITS TÉLÉPHONES
 ========================= */
 
 @media (max-width: 430px) {
@@ -1197,7 +1197,7 @@
 }
 
 /* =========================
-   TOUCH / ACCESSIBILITÃ‰
+   TOUCH / ACCESSIBILITÉ
 ========================= */
 
 @media (hover: none) {
@@ -1215,4 +1215,3 @@
         transition: none;
     }
 }
-

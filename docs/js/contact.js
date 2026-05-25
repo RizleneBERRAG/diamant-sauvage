@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     /* =========================
        ANIMATION AU SCROLL
     ========================= */
@@ -48,7 +48,7 @@
     });
 
     /* =========================
-       FORMULAIRE â€” FOCUS PREMIUM
+       FORMULAIRE — FOCUS PREMIUM
     ========================= */
 
     const formFields = document.querySelectorAll(
@@ -72,7 +72,7 @@
     });
 
     /* =========================
-       EFFET ICÃ”NES CONTACT MOBILE
+       EFFET ICÔNES CONTACT MOBILE
     ========================= */
 
     const contactIcons = document.querySelectorAll('.contact-link-icon');
@@ -89,4 +89,3 @@
         });
     });
 });
-

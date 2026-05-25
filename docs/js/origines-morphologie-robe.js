@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const reveals = document.querySelectorAll('.bengal-reveal');
 
     if (!reveals.length) {
@@ -20,4 +20,3 @@
         observer.observe(element);
     });
 });
-

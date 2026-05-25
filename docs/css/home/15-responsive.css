@@ -1,6 +1,6 @@
-﻿/* =========================
+/* =========================
    RESPONSIVE TABLETTE
-   Home uniquement â€” pas de header/menu ici
+   Home uniquement — pas de header/menu ici
 ========================= */
 
 @media (max-width: 1200px) {
@@ -525,7 +525,7 @@
 }
 
 /* =========================
-   PETITS TÃ‰LÃ‰PHONES
+   PETITS TÉLÉPHONES
 ========================= */
 
 @media (max-width: 560px) {
@@ -773,7 +773,7 @@
 }
 
 /* =========================
-   TOUCH / ACCESSIBILITÃ‰
+   TOUCH / ACCESSIBILITÉ
 ========================= */
 
 @media (hover: none) {
@@ -803,4 +803,3 @@
         transition-duration: .01ms;
     }
 }
-

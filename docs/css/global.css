@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --dark: #211d15;
     --black: #12100c;
     --gold: #b49b57;
@@ -158,7 +158,7 @@ button {
 }
 
 /* =========================
-   ACCESSIBILITÃ‰
+   ACCESSIBILITÉ
 ========================= */
 
 @media (hover: none) {
@@ -177,4 +177,3 @@ button {
         transition-duration: .01ms;
     }
 }
-

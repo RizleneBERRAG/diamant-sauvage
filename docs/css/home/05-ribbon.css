@@ -4,42 +4,45 @@
 
 .image-ribbon {
     position: relative;
-    padding: 26px 0;
+    padding: 30px 0;
     background:
-        radial-gradient(circle at 50% 0%, rgba(200, 168, 90, .12), transparent 30%),
-        #0f0c08;
-    border-top: 1px solid rgba(224, 201, 130, .22);
-    border-bottom: 1px solid rgba(224, 201, 130, .16);
+        radial-gradient(circle at 50% 0%, rgba(224, 201, 130, 0.14), transparent 34%),
+        linear-gradient(180deg, #11100b 0%, #080705 100%);
+    border-top: 1px solid rgba(224, 201, 130, 0.22);
+    border-bottom: 1px solid rgba(224, 201, 130, 0.16);
     overflow: hidden;
 }
 
+/* Dégradés sur les côtés pour un effet fondu premium */
 .image-ribbon::before,
 .image-ribbon::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 150px;
-    z-index: 4;
+    width: clamp(70px, 10vw, 180px);
+    z-index: 5;
     pointer-events: none;
 }
 
 .image-ribbon::before {
     left: 0;
-    background: linear-gradient(90deg, #0f0c08, transparent);
+    background: linear-gradient(90deg, #090806 0%, rgba(9, 8, 6, 0.82) 35%, transparent 100%);
 }
 
 .image-ribbon::after {
     right: 0;
-    background: linear-gradient(270deg, #0f0c08, transparent);
+    background: linear-gradient(270deg, #090806 0%, rgba(9, 8, 6, 0.82) 35%, transparent 100%);
 }
 
+/* Track automatique */
 .ribbon-track {
     display: flex;
+    align-items: center;
     width: max-content;
     max-width: none;
-    gap: 24px;
-    animation: imageMarquee 48s linear infinite;
+    gap: 28px;
+    animation: imageMarquee 52s linear infinite;
     will-change: transform;
 }
 
@@ -47,86 +50,129 @@
     animation-play-state: paused;
 }
 
+/* Carte image */
 .ribbon-photo {
     position: relative;
-    flex: 0 0 320px;
-    width: 320px;
-    height: 190px;
+    flex: 0 0 clamp(280px, 23vw, 420px);
+    width: clamp(280px, 23vw, 420px);
+    height: clamp(165px, 12.8vw, 220px);
     margin: 0;
     overflow: hidden;
 
     border-radius: 30px;
-    border: 1px solid rgba(224, 201, 130, .26);
+    border: 1px solid rgba(224, 201, 130, 0.24);
 
     background: #14100b;
 
     box-shadow:
-        0 18px 44px rgba(0, 0, 0, .28),
-        inset 0 1px 0 rgba(255,255,255,.06);
+        0 22px 54px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Force les images du ruban à remplir le cadre */
+/* Neutralise les styles globaux smart-image */
 .image-ribbon .smart-image::before {
     display: none !important;
 }
 
+/* Image bien cadrée */
 .image-ribbon .smart-image img,
 .image-ribbon .smart-image.is-cover img,
 .image-ribbon .smart-image.is-contain img {
     width: 100% !important;
     height: 100% !important;
     padding: 0 !important;
-    object-fit: cover !important;
     display: block !important;
-    transform: none;
+
+    object-fit: cover !important;
+    object-position: center center;
+
+    transform: scale(1.025);
+    filter: saturate(1.04) contrast(1.04) brightness(0.98);
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease,
+        object-position 0.4s ease;
 }
 
-/* Positions pour garder la tête visible selon la photo */
-.image-ribbon .focus-center img {
-    object-position: center center !important;
-}
-
-.image-ribbon .focus-top img {
-    object-position: center top !important;
-}
-
-.image-ribbon .focus-bottom img {
-    object-position: center bottom !important;
-}
-
-.image-ribbon .focus-left img {
-    object-position: left center !important;
-}
-
-.image-ribbon .focus-right img {
-    object-position: right center !important;
-}
-
-.image-ribbon .focus-left-top img {
-    object-position: left top !important;
-}
-
-.image-ribbon .focus-right-top img {
-    object-position: right top !important;
-}
-
+/* Voile premium sur les photos */
 .ribbon-photo::after {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 2;
     border-radius: inherit;
-    background:
-        linear-gradient(180deg, transparent 52%, rgba(0,0,0,.16)),
-        radial-gradient(circle at 50% 0%, rgba(224,201,130,.10), transparent 46%);
     pointer-events: none;
+
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.20) 100%),
+        radial-gradient(circle at 50% 0%, rgba(224, 201, 130, 0.13), transparent 48%);
 }
 
+/* Hover doux */
 .ribbon-photo:hover img {
-    transform: scale(1.045) !important;
-    filter: brightness(1.04) contrast(1.05);
+    transform: scale(1.075);
+    filter: saturate(1.08) contrast(1.07) brightness(1.03);
 }
 
+/* =========================
+   CADRAGES PAR IMAGE
+   à utiliser dans home.blade.php
+========================= */
+
+/* Cadrage standard */
+.image-ribbon .focus-center img {
+    object-position: center center !important;
+}
+
+/* Quand la tête du chat est trop haute ou coupée */
+.image-ribbon .focus-top img {
+    object-position: center 24% !important;
+}
+
+/* Quand le sujet est plutôt en bas */
+.image-ribbon .focus-bottom img {
+    object-position: center 74% !important;
+}
+
+/* Quand le chat est à gauche, mais sans coller l’image au bord */
+.image-ribbon .focus-left img {
+    object-position: 34% center !important;
+}
+
+/* Quand le chat est à droite, mais sans cadrage trop violent */
+.image-ribbon .focus-right img {
+    object-position: 66% center !important;
+}
+
+/* Cadrages plus précis */
+.image-ribbon .focus-left-top img {
+    object-position: 34% 24% !important;
+}
+
+.image-ribbon .focus-right-top img {
+    object-position: 66% 24% !important;
+}
+
+.image-ribbon .focus-left-bottom img {
+    object-position: 34% 72% !important;
+}
+
+.image-ribbon .focus-right-bottom img {
+    object-position: 66% 72% !important;
+}
+
+/* Très utile pour les portraits verticaux de chatons */
+.image-ribbon .focus-face img {
+    object-position: center 18% !important;
+}
+
+/* Très utile quand le chat est entier et qu’on veut garder le corps visible */
+.image-ribbon .focus-body img {
+    object-position: center 44% !important;
+}
+
+/* Animation */
 @keyframes imageMarquee {
     from {
         transform: translateX(0);
@@ -143,31 +189,173 @@
 
 @media (max-width: 760px) {
     .image-ribbon {
-        padding: 20px 0;
+        padding: 22px 0;
     }
 
     .image-ribbon::before,
     .image-ribbon::after {
-        width: 60px;
+        width: 72px;
     }
 
     .ribbon-track {
-        gap: 16px;
+        gap: 18px;
         animation-duration: 42s;
     }
 
     .ribbon-photo {
-        flex-basis: 230px;
-        width: 230px;
+        flex-basis: 240px;
+        width: 240px;
         height: 150px;
         border-radius: 22px;
+    }
+
+    .image-ribbon .smart-image img,
+    .image-ribbon .smart-image.is-cover img,
+    .image-ribbon .smart-image.is-contain img {
+        transform: scale(1.02);
+    }
+
+    .ribbon-photo:hover img {
+        transform: scale(1.045);
     }
 }
 
 @media (max-width: 420px) {
     .ribbon-photo {
-        flex-basis: 205px;
-        width: 205px;
-        height: 136px;
+        flex-basis: 215px;
+        width: 215px;
+        height: 138px;
+        border-radius: 20px;
     }
+
+    .ribbon-track {
+        gap: 14px;
+    }
+}
+
+
+/* =========================
+   GLOBAL HOME IMAGE FOCUS
+   Utilisable sur toutes les images de la home
+   Fonctionne avec :
+   - les <img>
+   - les parents qui contiennent un <img>
+   - les blocs .photo-bg
+========================= */
+
+.focus-center {
+    --img-pos: center center;
+}
+
+.focus-top {
+    --img-pos: center 22%;
+}
+
+.focus-bottom {
+    --img-pos: center 78%;
+}
+
+.focus-left {
+    --img-pos: 28% center;
+}
+
+.focus-right {
+    --img-pos: 72% center;
+}
+
+.focus-top-left {
+    --img-pos: 28% 22%;
+}
+
+.focus-top-right {
+    --img-pos: 72% 22%;
+}
+
+.focus-bottom-left {
+    --img-pos: 28% 78%;
+}
+
+.focus-bottom-right {
+    --img-pos: 72% 78%;
+}
+
+.focus-face {
+    --img-pos: center 16%;
+}
+
+.focus-face-left {
+    --img-pos: 30% 16%;
+}
+
+.focus-face-right {
+    --img-pos: 70% 16%;
+}
+
+.focus-body {
+    --img-pos: center 44%;
+}
+
+.focus-body-left {
+    --img-pos: 30% 44%;
+}
+
+.focus-body-right {
+    --img-pos: 70% 44%;
+}
+
+/* Quand la classe focus est mise directement sur une image */
+img.focus-center,
+img.focus-top,
+img.focus-bottom,
+img.focus-left,
+img.focus-right,
+img.focus-top-left,
+img.focus-top-right,
+img.focus-bottom-left,
+img.focus-bottom-right,
+img.focus-face,
+img.focus-face-left,
+img.focus-face-right,
+img.focus-body,
+img.focus-body-left,
+img.focus-body-right {
+    object-position: var(--img-pos) !important;
+}
+
+/* Quand la classe focus est mise sur le parent d’une image */
+.focus-center img,
+.focus-top img,
+.focus-bottom img,
+.focus-left img,
+.focus-right img,
+.focus-top-left img,
+.focus-top-right img,
+.focus-bottom-left img,
+.focus-bottom-right img,
+.focus-face img,
+.focus-face-left img,
+.focus-face-right img,
+.focus-body img,
+.focus-body-left img,
+.focus-body-right img {
+    object-position: var(--img-pos) !important;
+}
+
+/* Quand l’image est en background avec .photo-bg */
+.photo-bg.focus-center,
+.photo-bg.focus-top,
+.photo-bg.focus-bottom,
+.photo-bg.focus-left,
+.photo-bg.focus-right,
+.photo-bg.focus-top-left,
+.photo-bg.focus-top-right,
+.photo-bg.focus-bottom-left,
+.photo-bg.focus-bottom-right,
+.photo-bg.focus-face,
+.photo-bg.focus-face-left,
+.photo-bg.focus-face-right,
+.photo-bg.focus-body,
+.photo-bg.focus-body-left,
+.photo-bg.focus-body-right {
+    background-position: var(--img-pos) !important;
 }

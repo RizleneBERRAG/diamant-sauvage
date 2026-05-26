@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santé du Bengal | Chatterie du Diamant Sauvage</title>
-    <meta name="description" content="Suivi vétérinaire, prévention, maladies génétiques, tests ADN et engagement santé pour les Bengal de la Chatterie du Diamant Sauvage.">
+    <meta name="description" content="Informations santé du Bengal : suivi vétérinaire, prévention, transit sensible, FIV, FeLV, PK-Def, PRA-b, HCM et PKD.">
 
     <link rel="stylesheet" href="/diamant-sauvage/css/global.css">
         <link rel="stylesheet" href="/diamant-sauvage/css/bengal/sante.css">
@@ -70,392 +70,673 @@
 
 <main>
     
-    <section class="sante-hero">
-        <div class="container sante-hero-grid">
-            <div class="sante-hero-content">
-                <span class="sante-eyebrow">Santé du Bengal</span>
+    <section class="health-hero">
+        <div class="container health-hero-grid">
+            <div class="health-hero-content">
+                <span class="health-eyebrow">Santé du Bengal</span>
 
                 <h1>
-                    Prévenir avec sérieux,
-                    <span>élever avec confiance.</span>
+                    Prévenir,
+                    <span>surveiller, protéger.</span>
                 </h1>
 
                 <p>
-                    La santé du Bengal se construit avec un suivi vétérinaire régulier, une prévention adaptée,
-                    une attention particulière au transit et une sélection responsable des reproducteurs.
+                    La santé du Bengal repose sur une sélection sérieuse, un suivi vétérinaire régulier,
+                    une prévention adaptée et une attention particulière à son transit, son confort
+                    et ses tests génétiques.
                 </p>
 
-                <div class="sante-hero-actions">
-                    <a href="/diamant-sauvage/contact" class="btn btn-gold">Poser une question</a>
-                    <a href="#dossier-sante" class="btn btn-glass">Voir le dossier santé</a>
+                <div class="health-hero-actions">
+                    <a href="#health-dossier" class="btn btn-gold">Ouvrir le dossier santé</a>
+                    <a href="#maladies" class="btn btn-glass">Voir les points de vigilance</a>
                 </div>
             </div>
 
-            <div class="sante-hero-visual">
-                <figure class="sante-portrait-card">
-                    <img src="/diamant-sauvage/images\le-bengal\sante/cat-detail-1.jpg" alt="Bengal de la Chatterie du Diamant Sauvage">
+            <div class="health-hero-stage">
+                <figure class="health-hero-photo">
+                    <img src="/diamant-sauvage/images/le-bengal/sante/cat-detail-1.jpg" alt="Bengal en suivi santé">
                 </figure>
 
-                <div class="sante-health-card">
-                    <div class="sante-health-card-head">
-                        <span>Carnet santé</span>
-                        <strong>Bengal LOOF</strong>
-                    </div>
-
-                    <div class="sante-health-card-lines">
-                        <div>
-                            <small>Suivi</small>
-                            <b>Visite annuelle</b>
-                        </div>
-
-                        <div>
-                            <small>Prévention</small>
-                            <b>Vaccins & antiparasitaires</b>
-                        </div>
-
-                        <div>
-                            <small>Sélection</small>
-                            <b>Tests ADN reproducteurs</b>
-                        </div>
-                    </div>
+                <div class="health-scan-card">
+                    <span>Carnet santé</span>
+                    <strong>Bengal LOOF suivi avec attention</strong>
+                    <p>Vaccins · prévention · tests ADN · observation</p>
                 </div>
 
-                <div class="sante-hero-seal">
-                    <strong>Suivi</strong>
-                    <span>responsable</span>
+                <div class="health-floating-status">
+                    <span>Statut</span>
+                    <strong>Prévention responsable</strong>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="sante-keyword-ribbon" aria-label="Points clés santé">
-        <div class="sante-keyword-track">
-            <span>Suivi vétérinaire</span>
-            <span>Vaccination</span>
-            <span>Dépistage</span>
-            <span>Tests ADN</span>
-            <span>Transit sensible</span>
-            <span>Prévention</span>
-            <span>Sélection responsable</span>
-            <span>Bien-être</span>
-            <span>Vie intérieure</span>
-            <span>Reproducteurs suivis</span>
+    <section class="health-console" id="health-dossier">
+        <div class="container">
+            <div class="health-dashboard">
+                <div class="health-dashboard-intro">
+                    <span class="health-label">Dossier santé interactif</span>
 
-            <span aria-hidden="true">Suivi vétérinaire</span>
-            <span aria-hidden="true">Vaccination</span>
-            <span aria-hidden="true">Dépistage</span>
-            <span aria-hidden="true">Tests ADN</span>
-            <span aria-hidden="true">Transit sensible</span>
-            <span aria-hidden="true">Prévention</span>
-            <span aria-hidden="true">Sélection responsable</span>
-            <span aria-hidden="true">Bien-être</span>
-            <span aria-hidden="true">Vie intérieure</span>
-            <span aria-hidden="true">Reproducteurs suivis</span>
+                    <h2>Un carnet santé clair, suivi avec attention.</h2>
+
+                    <p>
+                        Sélectionnez un point de suivi pour comprendre ce qui compte vraiment :
+                        visite vétérinaire, transit sensible, antiparasitaires et tests ADN.
+                    </p>
+
+                    <div class="health-dashboard-menu">
+                        <button type="button" class="is-active" data-health-dash="veto">
+                            Vétérinaire
+                        </button>
+
+                        <button type="button" data-health-dash="transit">
+                            Transit sensible
+                        </button>
+
+                        <button type="button" data-health-dash="prevention">
+                            Prévention
+                        </button>
+
+                        <button type="button" data-health-dash="adn">
+                            Tests ADN
+                        </button>
+                    </div>
+                </div>
+
+                <article class="health-medical-screen">
+                    <div class="health-medical-top">
+                        <span id="healthDashKicker">Suivi 01</span>
+                        <small>Carnet Bengal LOOF</small>
+                    </div>
+
+                    <h3 id="healthDashTitle">Visite annuelle</h3>
+
+                    <p id="healthDashText">
+                        Une visite annuelle chez le vétérinaire est nécessaire pour le rappel des vaccins
+                        et le contrôle général de la bonne santé du chat.
+                    </p>
+
+                    <div class="health-medical-focus">
+                        <span id="healthDashFocusTitle">À surveiller</span>
+                        <strong id="healthDashFocusText">
+                            Poids, appétit, transit, comportement et état général.
+                        </strong>
+                    </div>
+
+                    <div class="health-medical-bottom">
+                        <div>
+                            <span>Rythme</span>
+                            <strong id="healthDashRhythm">Annuel</strong>
+                        </div>
+
+                        <div>
+                            <span>Niveau</span>
+                            <strong id="healthDashLevel">Essentiel</strong>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <section class="sante-record-section" id="dossier-sante">
+    <section class="health-vigilance" id="maladies">
         <div class="container">
-            <div class="sante-record-heading">
-                <span class="sante-label">Dossier santé</span>
-                <h2>Les points essentiels à surveiller, sans noyer la lecture.</h2>
+            <div class="health-section-head">
+                <span class="health-label">Points de vigilance</span>
+
+                <h2>Les maladies à connaître chez le Bengal.</h2>
+
                 <p>
-                    Une page santé doit être claire, rassurante et utile. Ici, chaque point est présenté comme une fiche
-                    de suivi, pour comprendre rapidement ce qui compte vraiment dans la santé d’un Bengal.
+                    Cette partie permet de comprendre les grands sujets santé de la race :
+                    virus félins, maladies génétiques et suivi cardiaque ou rénal.
                 </p>
             </div>
 
-            <div class="sante-record-grid">
-                <article class="sante-record-main">
-                    <span class="record-number">01</span>
+            <div class="health-disease-layout">
+                <div class="health-disease-list">
+                    <button type="button" class="health-disease-card is-active" data-disease="fiv">
+                        <span>01</span>
+                        <strong>FIV / FeLV</strong>
+                        <small>Virus félins et prévention</small>
+                    </button>
 
-                    <div>
-                        <small>Suivi vétérinaire</small>
-                        <h3>Une visite annuelle reste indispensable.</h3>
-                        <p>
-                            Elle permet de réaliser les rappels de vaccins, de contrôler l’état général du chat et
-                            d’adapter les traitements nécessaires selon son âge, son mode de vie et son environnement.
+                    <button type="button" class="health-disease-card" data-disease="pkdef">
+                        <span>02</span>
+                        <strong>PK-Def</strong>
+                        <small>Maladie héréditaire</small>
+                    </button>
+
+                    <button type="button" class="health-disease-card" data-disease="pra">
+                        <span>03</span>
+                        <strong>PRA-b</strong>
+                        <small>Vision et dépistage ADN</small>
+                    </button>
+
+                    <button type="button" class="health-disease-card" data-disease="hcm">
+                        <span>04</span>
+                        <strong>HCM / PKD</strong>
+                        <small>Cœur, reins et échographies</small>
+                    </button>
+                </div>
+
+                <article class="health-disease-screen">
+                    <div class="health-screen-top">
+                        <span id="diseaseKicker">Virus félins</span>
+                        <strong id="diseaseTitle">FIV / FeLV</strong>
+                    </div>
+
+                    <p id="diseaseText">
+                        Le FIV se transmet principalement par morsure et peut rester en sommeil pendant des années.
+                        Le FeLV se transmet par les sécrétions comme la salive, l’urine, les matières fécales,
+                        l’allaitement ou la gestation.
+                    </p>
+
+                    <div class="health-screen-warning">
+                        <span id="diseaseWarningTitle">Prévention</span>
+                        <p id="diseaseWarningText">
+                            Pour le FeLV, vaccination, dépistage et prévention sont les meilleures protections.
+                            Pour le FIV, il n’existe pas de vaccin : la prévention reste essentielle.
                         </p>
                     </div>
-                </article>
 
-                <article class="sante-record-small">
-                    <span>02</span>
-                    <h3>Vaccins</h3>
-                    <p>Les rappels protègent le chat et suivent un rythme défini avec le vétérinaire.</p>
-                </article>
-
-                <article class="sante-record-small">
-                    <span>03</span>
-                    <h3>Antiparasitaires</h3>
-                    <p>Interne ou externe, le traitement doit toujours être adapté au profil du chat.</p>
-                </article>
-
-                <article class="sante-record-small">
-                    <span>04</span>
-                    <h3>Observation</h3>
-                    <p>Appétit, transit, énergie et comportement sont de bons indicateurs du quotidien.</p>
+                    <div class="health-screen-tags" id="diseaseTags">
+                        <small>Dépistage</small>
+                        <small>Prévention</small>
+                        <small>Vaccination FeLV</small>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="sante-transit-editorial">
-        <div class="container sante-transit-grid">
-            <div class="sante-transit-copy">
-                <span class="sante-label">Transit sensible</span>
-
-                <h2>Le Bengal peut avoir une digestion délicate.</h2>
-
-                <p>
-                    Le stress, une transition alimentaire trop rapide, un changement d’environnement ou certains déséquilibres
-                    peuvent perturber sa flore intestinale.
-                </p>
-
-                <p>
-                    En cas de besoin, des probiotiques ou des solutions adaptées peuvent soutenir le confort digestif.
-                    Les traitements comme Panacur, Milbemax ou tout autre vermifuge doivent toujours être utilisés
-                    selon les conseils du vétérinaire.
-                </p>
-
-                <div class="sante-soft-tags">
-                    <span>Transition douce</span>
-                    <span>Routine stable</span>
-                    <span>Conseil vétérinaire</span>
-                </div>
-            </div>
-
-            <figure class="sante-transit-image">
-                <img src="/diamant-sauvage/images\le-bengal\sante/gallery-13.jpg" alt="Bengal calme et attentif">
-            </figure>
-        </div>
-    </section>
-
-    <section class="sante-surveillance" id="maladies">
-        <div class="container">
-            <div class="surveillance-head">
-                <span class="sante-label">Surveillance santé</span>
+    <section class="health-adn-experience">
+        <div class="container health-adn-grid">
+            <div class="health-adn-visual">
+                <span class="health-label">Tests ADN</span>
 
                 <h2>
-                    Les maladies importantes à connaître chez le Bengal.
+                    Lire un test ADN,
+                    <span>protéger la lignée.</span>
                 </h2>
 
                 <p>
-                    Une présentation claire, sérieuse et rassurante des principaux points de vigilance.
-                    L’objectif n’est pas d’inquiéter, mais de comprendre pourquoi le dépistage,
-                    la prévention et la sélection des reproducteurs sont essentiels.
-                </p>
-            </div>
-
-            <div class="surveillance-ledger">
-                <article class="surveillance-row">
-                    <div class="surveillance-index">01</div>
-
-                    <div class="surveillance-main">
-                        <span>Maladies virales</span>
-                        <h3>FIV / FeLV</h3>
-                        <p>
-                            Le FIV se transmet principalement par morsure et peut rester silencieux pendant plusieurs années.
-                            Le FeLV, aussi appelé leucose féline, se transmet par les sécrétions comme la salive,
-                            l’urine, les matières fécales, l’allaitement ou la gestation.
-                        </p>
-                    </div>
-
-                    <div class="surveillance-side">
-                        <strong>Prévention</strong>
-                        <p>Dépistage, vigilance sanitaire et vaccination pour le FeLV.</p>
-                    </div>
-                </article>
-
-                <article class="surveillance-row">
-                    <div class="surveillance-index">02</div>
-
-                    <div class="surveillance-main">
-                        <span>Maladie héréditaire</span>
-                        <h3>PK-Def</h3>
-                        <p>
-                            La carence en pyruvate kinase peut provoquer une destruction précoce des globules rouges
-                            et entraîner une anémie plus ou moins importante selon les chats.
-                        </p>
-                    </div>
-
-                    <div class="surveillance-side">
-                        <strong>Lecture ADN</strong>
-                        <div class="surveillance-tags">
-                            <small>N/N indemne</small>
-                            <small>N/K porteur sain</small>
-                            <small>K/K atteint</small>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="surveillance-row">
-                    <div class="surveillance-index">03</div>
-
-                    <div class="surveillance-main">
-                        <span>Vision</span>
-                        <h3>PRA-b</h3>
-                        <p>
-                            La PRA-b correspond à une dégénérescence progressive des photorécepteurs rétiniens.
-                            Elle peut provoquer une perte de vision nocturne, puis diurne, jusqu’à la cécité totale.
-                        </p>
-                    </div>
-
-                    <div class="surveillance-side">
-                        <strong>Lecture ADN</strong>
-                        <div class="surveillance-tags">
-                            <small>N/N indemne</small>
-                            <small>N/PRA porteur</small>
-                            <small>PRA/PRA atteint</small>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="surveillance-row">
-                    <div class="surveillance-index">04</div>
-
-                    <div class="surveillance-main">
-                        <span>Cardiaque & rénal</span>
-                        <h3>HCM / PKD</h3>
-                        <p>
-                            La HCM touche le muscle cardiaque, tandis que la PKD se caractérise par le développement
-                            de kystes, notamment sur les reins et parfois le foie. Ces maladies étant évolutives,
-                            un suivi régulier reste important.
-                        </p>
-                    </div>
-
-                    <div class="surveillance-side">
-                        <strong>Suivi conseillé</strong>
-                        <p>Contrôles vétérinaires réguliers et échographies selon les recommandations.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="sante-genetic-lab" id="genetique">
-        <div class="container sante-genetic-layout">
-            <div class="sante-genetic-copy">
-                <span class="sante-label">Tests ADN</span>
-
-                <h2>Le test ADN donne une information précieuse pour toute la vie du chat.</h2>
-
-                <p>
-                    Pour certaines maladies héréditaires comme le PK-Def ou la PRA-b, le test ADN permet de connaître
-                    le statut du chat. Ce test ne se réalise qu’une seule fois dans la vie de l’animal.
+                    Les tests génétiques permettent d’identifier les chats indemnes, porteurs sains
+                    ou atteints, afin d’éviter les mariages à risque et préserver la santé des futures portées.
                 </p>
 
-                <p>
-                    Un porteur sain n’est pas malade, mais peut transmettre la mutation à une partie de sa descendance.
-                    Les mariages doivent donc être réfléchis avec des reproducteurs compatibles.
-                </p>
-            </div>
-
-            <div class="sante-lab-card">
-                <div class="lab-row lab-head">
-                    <span>Statut</span>
-                    <span>Interprétation</span>
-                </div>
-
-                <div class="lab-row">
-                    <strong>N/N</strong>
-                    <span>Indemne et non porteur</span>
-                </div>
-
-                <div class="lab-row">
-                    <strong>N/K ou N/PRA</strong>
-                    <span>Porteur sain, à marier avec un chat indemne</span>
-                </div>
-
-                <div class="lab-row">
-                    <strong>K/K ou PRA/PRA</strong>
-                    <span>Chat atteint par la maladie concernée</span>
+                <div class="health-adn-bars" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="sante-care-section">
-        <div class="container sante-care-grid">
-            <figure class="sante-care-image">
-                <img src="/diamant-sauvage/images\le-bengal\sante/kitten-8.jpg" alt="Jeune Bengal">
-            </figure>
-
-            <div class="sante-care-copy">
-                <span class="sante-label">Cadre de vie</span>
-
-                <h2>Un environnement stable participe aussi à sa santé.</h2>
-
-                <p>
-                    Un chat avec de bons gènes, un suivi régulier et un environnement adapté limite davantage certains risques.
-                    Une vie en intérieur, une routine stable et une observation attentive peuvent améliorer son confort
-                    et sa qualité de vie.
-                </p>
-
-                <div class="sante-care-points">
-                    <div>
-                        <strong>Vie intérieure</strong>
-                        <span>Moins de risques extérieurs</span>
-                    </div>
-
-                    <div>
-                        <strong>Routine</strong>
-                        <span>Moins de stress au quotidien</span>
-                    </div>
-
-                    <div>
-                        <strong>Observation</strong>
-                        <span>Réagir rapidement aux changements</span>
-                    </div>
+            <div class="health-adn-panel">
+                <div class="health-adn-tabs">
+                    <button type="button" class="is-active" data-adn-choice="clear">N/N</button>
+                    <button type="button" data-adn-choice="carrier">Porteur sain</button>
+                    <button type="button" data-adn-choice="affected">Atteint</button>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="sante-serment" id="engagement">
-        <div class="container">
-            <div class="serment-card">
-                <div class="serment-content">
-                    <span class="sante-label">Notre engagement</span>
-
-                    <h2>
-                        Élever avec sérieux, sélectionner avec conscience.
-                    </h2>
-
-                    <p>
-                        À la Chatterie du Diamant Sauvage, la santé fait partie d’une démarche globale :
-                        connaître les lignées, observer les chats, respecter leur rythme et accompagner chaque adoption
-                        avec transparence.
+                <article class="health-adn-result">
+                    <span id="healthAdnCode">N/N</span>
+                    <h3 id="healthAdnTitle">Indemne</h3>
+                    <p id="healthAdnText">
+                        Le chat n’est pas atteint et n’est pas porteur de la mutation.
                     </p>
 
-                    <div class="serment-actions">
-                        <a href="/diamant-sauvage/contact" class="btn btn-gold">Échanger avec nous</a>
-                        <a href="/diamant-sauvage/nos-chats/chats-disponibles" class="btn btn-outline-light">Voir les chatons</a>
+                    <div class="health-adn-note">
+                        <small>Lecture</small>
+                        <strong id="healthAdnAdvice">
+                            Résultat rassurant pour la sélection et la transmission.
+                        </strong>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="health-followup">
+        <div class="container">
+            <div class="health-followup-head">
+                <span class="health-label">Suivi au quotidien</span>
+
+                <h2>Une routine santé discrète, mais essentielle.</h2>
+
+                <p>
+                    La prévention ne doit pas ressembler à une liste froide. Elle se construit avec
+                    des réflexes simples, réguliers et adaptés au rythme de vie du Bengal.
+                </p>
+            </div>
+
+            <div class="health-followup-board">
+                <div class="health-followup-screen">
+                    <span id="healthFollowKicker">Suivi 01</span>
+                    <h3 id="healthFollowTitle">Visite vétérinaire</h3>
+                    <p id="healthFollowText">
+                        Une visite annuelle permet de contrôler l’état général, le poids,
+                        les vaccins et les changements éventuels de comportement.
+                    </p>
+
+                    <div class="health-followup-meta">
+                        <div>
+                            <small>Rythme</small>
+                            <strong id="healthFollowRhythm">Annuel</strong>
+                        </div>
+
+                        <div>
+                            <small>Priorité</small>
+                            <strong id="healthFollowLevel">Essentielle</strong>
+                        </div>
                     </div>
                 </div>
 
-                <div class="serment-values">
-                    <div>
-                        <small>01</small>
-                        <strong>Suivi</strong>
-                        <span>Une attention régulière portée à l’état général de nos chats.</span>
-                    </div>
+                <div class="health-followup-nav">
+                    <button type="button" class="is-active" data-followup="veto">
+                        <span>01</span>
+                        <strong>Visite vétérinaire</strong>
+                    </button>
 
-                    <div>
-                        <small>02</small>
-                        <strong>Sélection</strong>
-                        <span>Des reproducteurs choisis avec sérieux et responsabilité.</span>
-                    </div>
+                    <button type="button" data-followup="vaccins">
+                        <span>02</span>
+                        <strong>Vaccins</strong>
+                    </button>
 
-                    <div>
-                        <small>03</small>
-                        <strong>Confiance</strong>
-                        <span>Une adoption accompagnée avec clarté, douceur et disponibilité.</span>
-                    </div>
+                    <button type="button" data-followup="parasites">
+                        <span>03</span>
+                        <strong>Antiparasitaires</strong>
+                    </button>
+
+                    <button type="button" data-followup="transit">
+                        <span>04</span>
+                        <strong>Transit</strong>
+                    </button>
+
+                    <button type="button" data-followup="observation">
+                        <span>05</span>
+                        <strong>Observation</strong>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="health-transit">
+        <div class="container health-transit-card">
+            <figure>
+                <img src="/diamant-sauvage/images/le-bengal/sante/gallery-13.jpg" alt="Bengal calme et observé">
+            </figure>
+
+            <div>
+                <span class="health-label">Transit sensible</span>
+
+                <h2>Le stress peut perturber son équilibre digestif.</h2>
+
+                <p>
+                    Le Bengal peut être sensible du transit. Le stress, les changements alimentaires ou d’autres critères
+                    peuvent perturber sa flore intestinale. Des probiotiques ou des combinés adaptés peuvent être proposés
+                    avec l’avis du vétérinaire.
+                </p>
+
+                <div class="health-transit-tips">
+                    <span>Transitions lentes</span>
+                    <span>Observation</span>
+                    <span>Conseil vétérinaire</span>
+                    <span>Stabilité alimentaire</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="health-final">
+        <div class="container health-final-card">
+            <div>
+                <span class="health-label">Engagement santé</span>
+
+                <h2>Des chats sélectionnés avec soin pour leur santé, leur beauté et leur caractère.</h2>
+
+                <p>
+                    La Chatterie du Diamant Sauvage accorde une attention particulière au suivi,
+                    aux tests, à la prévention et au bien-être général de ses Bengals.
+                </p>
+
+                <div class="health-final-actions">
+                    <a href="/diamant-sauvage/contact" class="btn btn-gold">Poser une question</a>
+                    <a href="/diamant-sauvage/nos-chats/chats-disponibles" class="btn btn-outline-light">Voir les chatons</a>
+                </div>
+            </div>
+
+            <figure>
+                <img src="/diamant-sauvage/images/le-bengal/sante/kitten-8.jpg" alt="Chaton Bengal en bonne santé">
+            </figure>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dashData = {
+                veto: {
+                    kicker: "Suivi 01",
+                    title: "Visite annuelle",
+                    text: "Une visite annuelle chez le vétérinaire est nécessaire pour le rappel des vaccins et le contrôle général de la bonne santé du chat.",
+                    focusTitle: "À surveiller",
+                    focusText: "Poids, appétit, transit, comportement et état général.",
+                    rhythm: "Annuel",
+                    level: "Essentiel"
+                },
+                transit: {
+                    kicker: "Suivi 02",
+                    title: "Transit sensible",
+                    text: "Le Bengal peut être sensible du transit. Le stress, les changements alimentaires ou certaines situations peuvent perturber sa flore intestinale.",
+                    focusTitle: "Réflexe",
+                    focusText: "Observer les selles, l’appétit et éviter les transitions brutales.",
+                    rhythm: "Régulier",
+                    level: "Important"
+                },
+                prevention: {
+                    kicker: "Suivi 03",
+                    title: "Protection anti-parasites",
+                    text: "Un traitement interne et externe peut être proposé par le vétérinaire selon l’âge, le mode de vie et les besoins du chat.",
+                    focusTitle: "À adapter",
+                    focusText: "Le type de traitement et la fréquence doivent être définis avec le vétérinaire.",
+                    rhythm: "Adapté",
+                    level: "Préventif"
+                },
+                adn: {
+                    kicker: "Suivi 04",
+                    title: "Tests ADN",
+                    text: "Les tests génétiques permettent d’identifier les chats indemnes, porteurs sains ou atteints avant toute reproduction.",
+                    focusTitle: "Sélection",
+                    focusText: "Éviter les mariages à risque et protéger les futures portées.",
+                    rhythm: "Une fois",
+                    level: "Lignée"
+                }
+            };
+
+            const dashButtons = document.querySelectorAll('[data-health-dash]');
+            const dashKicker = document.getElementById('healthDashKicker');
+            const dashTitle = document.getElementById('healthDashTitle');
+            const dashText = document.getElementById('healthDashText');
+            const dashFocusTitle = document.getElementById('healthDashFocusTitle');
+            const dashFocusText = document.getElementById('healthDashFocusText');
+            const dashRhythm = document.getElementById('healthDashRhythm');
+            const dashLevel = document.getElementById('healthDashLevel');
+
+            dashButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = dashData[button.dataset.healthDash];
+
+                    if (!item) return;
+
+                    dashButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    dashKicker.textContent = item.kicker;
+                    dashTitle.textContent = item.title;
+                    dashText.textContent = item.text;
+                    dashFocusTitle.textContent = item.focusTitle;
+                    dashFocusText.textContent = item.focusText;
+                    dashRhythm.textContent = item.rhythm;
+                    dashLevel.textContent = item.level;
+                });
+            });
+
+            const diseaseData = {
+                fiv: {
+                    kicker: "Virus félins",
+                    title: "FIV / FeLV",
+                    text: "Le FIV se transmet principalement par morsure et peut rester en sommeil pendant des années. Le FeLV se transmet par les sécrétions comme la salive, l’urine, les matières fécales, l’allaitement ou la gestation.",
+                    warningTitle: "Prévention",
+                    warningText: "Pour le FeLV, vaccination, dépistage et prévention sont les meilleures protections. Pour le FIV, il n’existe pas de vaccin : la prévention reste essentielle.",
+                    tags: ["Dépistage", "Prévention", "Vaccination FeLV"]
+                },
+                pkdef: {
+                    kicker: "Maladie héréditaire",
+                    title: "PK-Def",
+                    text: "La carence en pyruvate kinase provoque une destruction précoce des globules rouges, pouvant mener à une anémie plus ou moins grave selon les chats.",
+                    warningTitle: "Test ADN",
+                    warningText: "Chaque reproducteur doit être testé une fois dans sa vie afin d’éviter les mariages à risque.",
+                    tags: ["N/N indemne", "N/K porteur sain", "K/K atteint"]
+                },
+                pra: {
+                    kicker: "Vision",
+                    title: "PRA-b",
+                    text: "La PRA-b est une dégénérescence progressive des photorécepteurs rétiniens, avec une perte de vision nocturne puis diurne pouvant aller jusqu’à la cécité.",
+                    warningTitle: "Sélection",
+                    warningText: "Le test ADN permet d’identifier les chats indemnes, porteurs sains ou atteints avant reproduction.",
+                    tags: ["N/N indemne", "N/PRA porteur", "PRA/PRA atteint"]
+                },
+                hcm: {
+                    kicker: "Cardiaque & rénal",
+                    title: "HCM / PKD",
+                    text: "La cardiomyopathie hypertrophique est une maladie du muscle cardiaque. La PKD correspond au développement de kystes, notamment sur les reins et le foie.",
+                    warningTitle: "Suivi régulier",
+                    warningText: "Ces problèmes pouvant évoluer, des échographies régulières permettent un meilleur suivi.",
+                    tags: ["Échographie", "Cœur", "Reins"]
+                }
+            };
+
+            const diseaseButtons = document.querySelectorAll('.health-disease-card');
+            const diseaseKicker = document.getElementById('diseaseKicker');
+            const diseaseTitle = document.getElementById('diseaseTitle');
+            const diseaseText = document.getElementById('diseaseText');
+            const diseaseWarningTitle = document.getElementById('diseaseWarningTitle');
+            const diseaseWarningText = document.getElementById('diseaseWarningText');
+            const diseaseTags = document.getElementById('diseaseTags');
+
+            diseaseButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = diseaseData[button.dataset.disease];
+
+                    if (!item) return;
+
+                    diseaseButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    diseaseKicker.textContent = item.kicker;
+                    diseaseTitle.textContent = item.title;
+                    diseaseText.textContent = item.text;
+                    diseaseWarningTitle.textContent = item.warningTitle;
+                    diseaseWarningText.textContent = item.warningText;
+
+                    diseaseTags.innerHTML = '';
+
+                    item.tags.forEach((tag) => {
+                        const small = document.createElement('small');
+                        small.textContent = tag;
+                        diseaseTags.appendChild(small);
+                    });
+                });
+            });
+
+            const labData = {
+                clear: {
+                    code: "N/N",
+                    title: "Indemne",
+                    text: "Le chat n’est pas atteint et n’est pas porteur de la mutation."
+                },
+                carrier: {
+                    code: "N/K ou N/PRA",
+                    title: "Porteur sain",
+                    text: "Le chat n’est pas malade, mais il peut transmettre statistiquement la mutation à une partie de ses descendants."
+                },
+                affected: {
+                    code: "K/K ou PRA/PRA",
+                    title: "Atteint",
+                    text: "Le chat est concerné par la maladie génétique et ne doit pas être intégré dans un mariage à risque."
+                }
+            };
+
+            const labButtons = document.querySelectorAll('[data-genotype]');
+            const labCode = document.getElementById('healthLabCode');
+            const labTitle = document.getElementById('healthLabTitle');
+            const labText = document.getElementById('healthLabText');
+
+            labButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = labData[button.dataset.genotype];
+
+                    if (!item) return;
+
+                    labButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    labCode.textContent = item.code;
+                    labTitle.textContent = item.title;
+                    labText.textContent = item.text;
+                });
+            });
+
+            const routineData = {
+                veto: {
+                    kicker: "Routine 01",
+                    title: "Visite vétérinaire",
+                    text: "Une visite annuelle permet de contrôler l’état général, les vaccins, le poids et les éventuels changements de comportement."
+                },
+                vaccins: {
+                    kicker: "Routine 02",
+                    title: "Vaccins",
+                    text: "Les rappels de vaccins permettent de maintenir une protection adaptée au chat et à son mode de vie."
+                },
+                parasites: {
+                    kicker: "Routine 03",
+                    title: "Protection anti-parasites",
+                    text: "La prévention interne et externe doit être choisie avec le vétérinaire selon le profil du chat."
+                },
+                transit: {
+                    kicker: "Routine 04",
+                    title: "Transit sensible",
+                    text: "Le transit du Bengal peut réagir au stress ou aux changements. L’observation régulière est essentielle."
+                },
+                observation: {
+                    kicker: "Routine 05",
+                    title: "Observation quotidienne",
+                    text: "Un changement d’appétit, de comportement, d’énergie ou de propreté peut être un signal à surveiller."
+                }
+            };
+
+            const routineButtons = document.querySelectorAll('[data-routine]');
+            const routineKicker = document.getElementById('healthRoutineKicker');
+            const routineTitle = document.getElementById('healthRoutineTitle');
+            const routineText = document.getElementById('healthRoutineText');
+
+            routineButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = routineData[button.dataset.routine];
+
+                    if (!item) return;
+
+                    routineButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    routineKicker.textContent = item.kicker;
+                    routineTitle.textContent = item.title;
+                    routineText.textContent = item.text;
+                });
+            });
+
+            const adnData = {
+                clear: {
+                    code: "N/N",
+                    title: "Indemne",
+                    text: "Le chat n’est pas atteint et n’est pas porteur de la mutation.",
+                    advice: "Résultat rassurant pour la sélection et la transmission."
+                },
+                carrier: {
+                    code: "N/K ou N/PRA",
+                    title: "Porteur sain",
+                    text: "Le chat n’est pas malade, mais il peut transmettre la mutation à une partie de ses descendants.",
+                    advice: "Mariage possible uniquement avec un chat indemne."
+                },
+                affected: {
+                    code: "K/K ou PRA/PRA",
+                    title: "Atteint",
+                    text: "Le chat est concerné par la maladie génétique.",
+                    advice: "Résultat à prendre en compte avec sérieux dans la sélection."
+                }
+            };
+
+            const adnButtons = document.querySelectorAll('[data-adn-choice]');
+            const adnCode = document.getElementById('healthAdnCode');
+            const adnTitle = document.getElementById('healthAdnTitle');
+            const adnText = document.getElementById('healthAdnText');
+            const adnAdvice = document.getElementById('healthAdnAdvice');
+
+            adnButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = adnData[button.dataset.adnChoice];
+                    if (!item) return;
+
+                    adnButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    adnCode.textContent = item.code;
+                    adnTitle.textContent = item.title;
+                    adnText.textContent = item.text;
+                    adnAdvice.textContent = item.advice;
+                });
+            });
+
+            const followupData = {
+                veto: {
+                    kicker: "Suivi 01",
+                    title: "Visite vétérinaire",
+                    text: "Une visite annuelle permet de contrôler l’état général, le poids, les vaccins et les changements éventuels de comportement.",
+                    rhythm: "Annuel",
+                    level: "Essentielle"
+                },
+                vaccins: {
+                    kicker: "Suivi 02",
+                    title: "Vaccins",
+                    text: "Les rappels permettent de maintenir une protection adaptée selon l’âge, le mode de vie et les conseils du vétérinaire.",
+                    rhythm: "À jour",
+                    level: "Préventive"
+                },
+                parasites: {
+                    kicker: "Suivi 03",
+                    title: "Antiparasitaires",
+                    text: "Les traitements internes et externes doivent être adaptés au chat, à son environnement et à son rythme de vie.",
+                    rhythm: "Adapté",
+                    level: "Régulière"
+                },
+                transit: {
+                    kicker: "Suivi 04",
+                    title: "Transit sensible",
+                    text: "Le Bengal peut réagir au stress ou aux changements alimentaires. Une observation régulière aide à repérer les déséquilibres.",
+                    rhythm: "Souvent",
+                    level: "Importante"
+                },
+                observation: {
+                    kicker: "Suivi 05",
+                    title: "Observation quotidienne",
+                    text: "Un changement d’appétit, d’énergie, de propreté ou de comportement peut être un signal à surveiller.",
+                    rhythm: "Chaque jour",
+                    level: "Discrète"
+                }
+            };
+
+            const followupButtons = document.querySelectorAll('[data-followup]');
+            const followKicker = document.getElementById('healthFollowKicker');
+            const followTitle = document.getElementById('healthFollowTitle');
+            const followText = document.getElementById('healthFollowText');
+            const followRhythm = document.getElementById('healthFollowRhythm');
+            const followLevel = document.getElementById('healthFollowLevel');
+
+            followupButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const item = followupData[button.dataset.followup];
+                    if (!item) return;
+
+                    followupButtons.forEach(btn => btn.classList.remove('is-active'));
+                    button.classList.add('is-active');
+
+                    followKicker.textContent = item.kicker;
+                    followTitle.textContent = item.title;
+                    followText.textContent = item.text;
+                    followRhythm.textContent = item.rhythm;
+                    followLevel.textContent = item.level;
+                });
+            });
+        });
+    </script>
 
 </main>
 

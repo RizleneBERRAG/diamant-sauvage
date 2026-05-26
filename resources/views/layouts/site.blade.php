@@ -136,7 +136,7 @@
             </summary>
 
             <nav class="footer-drawer-content" aria-label="Navigation principale">
-                <a href="{{ route('home') }}">Accueil</a>
+                <a href="{{ url('/') }}">Accueil</a>
                 <a href="{{ route('chatterie') }}">La chatterie</a>
                 <a href="{{ route('contact') }}">Nous contacter</a>
             </nav>

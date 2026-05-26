@@ -1,6 +1,6 @@
 <header class="ds-header">
     <div class="ds-header-container">
-        <a href="{{ route('home') }}" class="ds-logo" aria-label="Retour à l’accueil">
+        <a href="{{ url('/') }}" class="ds-logo" aria-label="Retour à l’accueil">
             <img src="{{ asset('images/logo-diamant-sauvage.png') }}" alt="Chatterie du Diamant Sauvage">
         </a>
 
@@ -17,7 +17,7 @@
         </button>
 
         <nav class="ds-nav" id="dsMainNav" aria-label="Navigation principale">
-            <a href="{{ route('home') }}">Accueil</a>
+            <a href="{{ url('/') }}">Accueil</a>
 
             <div class="ds-nav-dropdown">
                 <button class="ds-nav-trigger" type="button" aria-expanded="false">

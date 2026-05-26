@@ -1,0 +1,1225 @@
+/* =========================
+   PAGE ARRIVÉE BENGAL
+   Version interactive premium
+========================= */
+
+.arrival-label,
+.arrival-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold, #c8a85a);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.arrival-label::before,
+.arrival-eyebrow::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: currentColor;
+    opacity: .72;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.arrival-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 94vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background:
+        radial-gradient(circle at 78% 12%, rgba(224, 201, 130, .16), transparent 34%),
+        radial-gradient(circle at 8% 92%, rgba(224, 201, 130, .08), transparent 32%),
+        linear-gradient(135deg, #0f0c08 0%, #17100a 48%, #070604 100%);
+}
+
+.arrival-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(224, 201, 130, .030) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 201, 130, .020) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.arrival-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, .98fr) minmax(430px, .78fr);
+    gap: 78px;
+    align-items: center;
+    padding: 130px 0 110px;
+}
+
+.arrival-hero h1 {
+    margin: 24px 0 26px;
+    color: #fff;
+    font-size: clamp(54px, 7vw, 112px);
+    line-height: .88;
+    letter-spacing: -5px;
+}
+
+.arrival-hero h1 span {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+}
+
+.arrival-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, .76);
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.85;
+}
+
+.arrival-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.arrival-hero-stage {
+    position: relative;
+    min-height: 660px;
+}
+
+.arrival-hero-photo {
+    position: absolute;
+    inset: 26px 0 72px 40px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 58px;
+    background: #090705;
+    border: 1px solid rgba(224, 201, 130, .28);
+    box-shadow:
+        0 38px 120px rgba(0, 0, 0, .44),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.arrival-hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, rgba(8, 6, 4, .62), transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(224, 201, 130, .15), transparent 38%);
+    pointer-events: none;
+}
+
+.arrival-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(.92) contrast(1.06) saturate(1.04);
+}
+
+.arrival-floating-card,
+.arrival-floating-note {
+    position: absolute;
+    z-index: 4;
+    border: 1px solid rgba(224, 201, 130, .28);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .045)),
+        rgba(10, 8, 5, .72);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .36);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.arrival-floating-card {
+    width: 220px;
+    padding: 20px;
+    border-radius: 28px;
+}
+
+.arrival-card-transport {
+    left: -18px;
+    top: 70px;
+}
+
+.arrival-card-calm {
+    right: -22px;
+    bottom: 245px;
+}
+
+.arrival-floating-card span,
+.arrival-floating-note span {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.arrival-floating-card strong {
+    display: block;
+    color: #fff;
+    font-size: 23px;
+    letter-spacing: -.8px;
+}
+
+.arrival-floating-card small {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, .64);
+    line-height: 1.5;
+}
+
+.arrival-floating-note {
+    left: 50%;
+    bottom: 34px;
+    width: min(520px, 86%);
+    padding: 26px 30px;
+    border-radius: 30px;
+    transform: translateX(-50%);
+}
+
+.arrival-floating-note strong {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+/* =========================
+   CAPSULES
+========================= */
+
+.arrival-capsules {
+    padding: 24px 0;
+    background: linear-gradient(180deg, #14110c 0%, #0d0b08 100%);
+    border-top: 1px solid rgba(224, 201, 130, .12);
+    border-bottom: 1px solid rgba(224, 201, 130, .12);
+}
+
+.arrival-capsules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.arrival-capsules-grid article {
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .035);
+    border: 1px solid rgba(224, 201, 130, .12);
+}
+
+.arrival-capsules-grid span {
+    display: block;
+    margin-bottom: 14px;
+    color: rgba(224, 201, 130, .72);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.arrival-capsules-grid strong {
+    color: rgba(255, 255, 255, .86);
+    font-size: 17px;
+}
+
+/* =========================
+   COCON INTERACTIF
+========================= */
+
+.arrival-cocon {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 84% 10%, rgba(200, 168, 90, .10), transparent 34%),
+        var(--cream, #f5efe3);
+}
+
+.arrival-cocon-layout {
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.arrival-cocon-intro {
+    position: sticky;
+    top: 120px;
+}
+
+.arrival-cocon-intro h2,
+.arrival-section-head h2,
+.arrival-scenarios h2,
+.arrival-checklist h2,
+.arrival-final-card h2 {
+    margin: 18px 0 24px;
+    color: var(--ink, #17130d);
+    font-size: clamp(40px, 4.8vw, 78px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.arrival-cocon-intro p,
+.arrival-section-head p,
+.arrival-scenarios p,
+.arrival-checklist p,
+.arrival-final-card p {
+    color: rgba(28, 23, 15, .72);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.arrival-cocon-board {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.arrival-room-visual {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    border-radius: 42px;
+    background: #100c08;
+    border: 1px solid rgba(200, 168, 90, .22);
+    box-shadow: 0 28px 80px rgba(31, 24, 12, .16);
+}
+
+.arrival-room-visual figure {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+}
+
+.arrival-room-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(.78) contrast(1.06) saturate(1.03);
+}
+
+.arrival-room-marker {
+    position: absolute;
+    z-index: 3;
+    border: 1px solid rgba(224, 201, 130, .22);
+    background: rgba(12, 9, 6, .68);
+    color: rgba(255, 255, 255, .78);
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 900;
+    cursor: pointer;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+.arrival-room-marker:hover,
+.arrival-room-marker.is-active {
+    transform: translateY(-3px);
+    background: rgba(224, 201, 130, .92);
+    color: #17130d;
+    border-color: rgba(224, 201, 130, .72);
+}
+
+.arrival-room-marker:nth-of-type(1) {
+    left: 8%;
+    bottom: 10%;
+}
+
+.arrival-room-marker:nth-of-type(2) {
+    right: 8%;
+    top: 12%;
+}
+
+.arrival-room-marker:nth-of-type(3) {
+    left: 12%;
+    top: 20%;
+}
+
+.arrival-room-marker:nth-of-type(4) {
+    right: 10%;
+    bottom: 20%;
+}
+
+.arrival-room-marker:nth-of-type(5) {
+    left: 38%;
+    top: 48%;
+}
+
+.arrival-live-panel {
+    padding: 30px;
+    border-radius: 42px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .12), transparent 36%),
+        linear-gradient(145deg, #17110b 0%, #080604 100%);
+    border: 1px solid rgba(224, 201, 130, .24);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 28px 80px rgba(31, 24, 12, .18);
+}
+
+.arrival-live-panel > span {
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.arrival-live-panel h3 {
+    margin: 22px 0 16px;
+    color: #fff;
+    font-size: clamp(34px, 3.8vw, 58px);
+    line-height: .94;
+    letter-spacing: -2px;
+}
+
+.arrival-live-panel p {
+    color: rgba(255, 255, 255, .72);
+    line-height: 1.75;
+}
+
+.arrival-live-tip {
+    margin-top: 28px;
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(224, 201, 130, .10);
+    border: 1px solid rgba(224, 201, 130, .16);
+}
+
+.arrival-live-tip strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.arrival-live-tip small {
+    color: rgba(255, 255, 255, .66);
+    line-height: 1.55;
+}
+
+/* =========================
+   PREMIÈRES 72H
+========================= */
+
+.arrival-hours {
+    padding: 120px 0;
+    background: #fbf7ef;
+}
+
+.arrival-section-head {
+    max-width: 900px;
+    margin-bottom: 54px;
+}
+
+.arrival-hours-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.arrival-hour-card {
+    min-height: 330px;
+    padding: 28px;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, .14), transparent 34%),
+        rgba(255, 250, 241, .84);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 18px 48px rgba(25, 18, 10, .08);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.arrival-hour-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(200, 168, 90, .32);
+    box-shadow: 0 28px 76px rgba(25, 18, 10, .13);
+}
+
+.arrival-hour-card span {
+    display: inline-flex;
+    margin-bottom: 70px;
+    color: rgba(151, 105, 35, .82);
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.arrival-hour-card h3 {
+    margin: 0 0 14px;
+    color: #17130d;
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.arrival-hour-card p {
+    margin: 0;
+    color: rgba(28, 23, 15, .66);
+    line-height: 1.7;
+}
+
+.arrival-hour-card.is-dark,
+.arrival-hour-card.is-gold {
+    background:
+        radial-gradient(circle at 88% 8%, rgba(224, 201, 130, .18), transparent 34%),
+        linear-gradient(145deg, #21180f, #090806);
+    border-color: rgba(224, 201, 130, .28);
+}
+
+.arrival-hour-card.is-dark h3,
+.arrival-hour-card.is-dark span,
+.arrival-hour-card.is-gold h3,
+.arrival-hour-card.is-gold span {
+    color: var(--gold-soft, #e8d7a1);
+}
+
+.arrival-hour-card.is-dark p,
+.arrival-hour-card.is-gold p {
+    color: rgba(255, 255, 255, .72);
+}
+
+/* =========================
+   SCÉNARIOS
+========================= */
+
+.arrival-scenarios {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(224, 201, 130, .12), transparent 34%),
+        #17140d;
+    color: #fff;
+}
+
+.arrival-scenarios-layout {
+    display: grid;
+    grid-template-columns: .82fr 1.18fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.arrival-scenarios h2,
+.arrival-scenarios .arrival-label {
+    color: #fff;
+}
+
+.arrival-scenarios p {
+    color: rgba(255, 255, 255, .74);
+}
+
+.arrival-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.arrival-tab {
+    border: 1px solid rgba(224, 201, 130, .20);
+    background: rgba(255, 255, 255, .045);
+    color: rgba(255, 255, 255, .78);
+    padding: 13px 17px;
+    border-radius: 999px;
+    font-weight: 900;
+    cursor: pointer;
+    transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease,
+        border-color .22s ease;
+}
+
+.arrival-tab:hover {
+    transform: translateY(-2px);
+    border-color: rgba(224, 201, 130, .34);
+}
+
+.arrival-tab.is-active {
+    background: var(--gold-soft, #e8d7a1);
+    color: #17130d;
+    border-color: var(--gold-soft, #e8d7a1);
+}
+
+.arrival-scenario-panel {
+    position: relative;
+    min-height: 430px;
+}
+
+.arrival-scenario {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+    padding: 38px;
+    border-radius: 42px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .12), transparent 36%),
+        rgba(255, 255, 255, .055);
+    border: 1px solid rgba(224, 201, 130, .20);
+    transition: opacity .28s ease, transform .28s ease;
+}
+
+.arrival-scenario.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.arrival-scenario span {
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.arrival-scenario h3 {
+    margin: 34px 0 18px;
+    color: #fff;
+    font-size: clamp(38px, 4.5vw, 70px);
+    line-height: .94;
+    letter-spacing: -2.6px;
+}
+
+.arrival-scenario p {
+    max-width: 720px;
+}
+
+.arrival-scenario div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 28px;
+}
+
+.arrival-scenario small {
+    padding: 9px 12px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, .76);
+    background: rgba(224, 201, 130, .10);
+    border: 1px solid rgba(224, 201, 130, .14);
+}
+
+/* =========================
+   TRANSITION ALIMENTAIRE
+========================= */
+
+.arrival-transition {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(200, 168, 90, .10), transparent 34%),
+        var(--cream, #f5efe3);
+}
+
+.arrival-transition-layout {
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.arrival-transition-card {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+    border-radius: 38px;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(224, 201, 130, .18), transparent 38%),
+        linear-gradient(145deg, #21180f, #090806);
+    border: 1px solid rgba(224, 201, 130, .28);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 430px;
+}
+
+.arrival-transition-card::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    bottom: -90px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(224, 201, 130, .08);
+    filter: blur(4px);
+}
+
+.arrival-transition-card span {
+    position: relative;
+    z-index: 2;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.arrival-transition-card strong {
+    position: relative;
+    z-index: 2;
+    display: block;
+    max-width: 430px;
+    margin: 34px 0 18px;
+    color: #fff;
+    font-size: clamp(34px, 3.4vw, 56px);
+    line-height: .96;
+    letter-spacing: -2px;
+}
+
+.arrival-transition-card p {
+    position: relative;
+    z-index: 2;
+    max-width: 430px;
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+    line-height: 1.75;
+}
+
+.arrival-transition-path {
+    display: grid;
+    gap: 16px;
+}
+
+.arrival-transition-path article {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 22px;
+    row-gap: 8px;
+    align-items: start;
+    padding: 26px;
+    border-radius: 30px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .88), rgba(255, 250, 241, .72));
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 16px 44px rgba(31, 24, 12, .07);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.arrival-transition-path article:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200, 168, 90, .34);
+    box-shadow: 0 24px 64px rgba(31, 24, 12, .11);
+}
+
+.arrival-transition-path span {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: #17130d;
+    color: var(--gold-soft, #e8d7a1);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.arrival-transition-path h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    color: #17130d;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.arrival-transition-path p {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 620px;
+    margin: 0;
+    color: rgba(28, 23, 15, .66);
+    line-height: 1.65;
+}
+
+/* =========================
+   CHECKLIST INTERACTIVE
+========================= */
+
+.arrival-checklist {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .10), transparent 34%),
+        linear-gradient(180deg, #fbf7ef 0%, #f2eadc 100%);
+}
+
+.arrival-checklist-layout {
+    display: grid;
+    grid-template-columns: .82fr 1.18fr;
+    gap: 54px;
+    align-items: start;
+}
+
+.arrival-checklist-intro {
+    position: sticky;
+    top: 120px;
+}
+
+.arrival-progress {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .62);
+    border: 1px solid rgba(200, 168, 90, .18);
+}
+
+.arrival-progress-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 14px;
+}
+
+.arrival-progress-top strong {
+    color: #17130d;
+}
+
+.arrival-progress-top span {
+    color: rgba(151, 105, 35, .92);
+    font-weight: 900;
+}
+
+.arrival-progress-bar {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(200, 168, 90, .14);
+}
+
+.arrival-progress-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #c8a85a, #e8d7a1);
+    transition: width .28s ease;
+}
+
+.arrival-check-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.arrival-check-items button {
+    position: relative;
+    min-height: 74px;
+    padding: 18px 18px 18px 54px;
+    border-radius: 22px;
+    border: 1px solid rgba(200, 168, 90, .18);
+    background: rgba(255, 250, 241, .84);
+    color: rgba(34, 27, 18, .76);
+    text-align: left;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+}
+
+.arrival-check-items button::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    width: 18px;
+    height: 18px;
+    border-radius: 7px;
+    border: 1px solid rgba(151, 105, 35, .42);
+}
+
+.arrival-check-items button:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 168, 90, .34);
+}
+
+.arrival-check-items button.is-checked {
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .16), transparent 36%),
+        linear-gradient(145deg, #15100a 0%, #080604 100%);
+    color: #fff;
+    border-color: rgba(224, 201, 130, .24);
+}
+
+.arrival-check-items button.is-checked::before {
+    background: var(--gold-soft, #e8d7a1);
+    box-shadow: inset 0 0 0 5px #15100a;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.arrival-final {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(224, 201, 130, .12), transparent 34%),
+        #11100b;
+    color: #fff;
+}
+
+.arrival-final-card {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 54px;
+    align-items: center;
+    padding: 54px;
+    border-radius: 46px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025)),
+        rgba(255, 255, 255, .035);
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, .26);
+}
+
+.arrival-final-card h2,
+.arrival-final-card .arrival-label {
+    color: #fff;
+}
+
+.arrival-final-card p {
+    color: rgba(255, 255, 255, .75);
+}
+
+.arrival-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.arrival-final-card figure {
+    margin: 0;
+    min-height: 460px;
+    overflow: hidden;
+    border-radius: 36px;
+    border: 1px solid rgba(224, 201, 130, .22);
+}
+
+.arrival-final-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE TABLETTE
+========================= */
+
+@media (max-width: 1200px) {
+    .arrival-cocon-layout,
+    .arrival-scenarios-layout,
+    .arrival-transition-layout,
+    .arrival-checklist-layout,
+    .arrival-final-card {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-cocon-intro,
+    .arrival-checklist-intro {
+        position: relative;
+        top: auto;
+    }
+
+    .arrival-cocon-board {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-transition-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 1100px) {
+    .arrival-hero {
+        min-height: auto;
+    }
+
+    .arrival-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-hero-stage {
+        width: min(680px, 100%);
+        margin: 0 auto;
+    }
+
+    .arrival-capsules-grid,
+    .arrival-hours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 760px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .arrival-label,
+    .arrival-eyebrow {
+        gap: 9px;
+        font-size: 9.5px;
+        letter-spacing: 1.7px;
+    }
+
+    .arrival-label::before,
+    .arrival-eyebrow::before {
+        width: 26px;
+    }
+
+    .arrival-hero-grid {
+        gap: 42px;
+        padding: 92px 0 62px;
+    }
+
+    .arrival-hero h1 {
+        margin: 18px 0 20px;
+        font-size: clamp(42px, 14vw, 64px);
+        line-height: .9;
+        letter-spacing: -2.8px;
+    }
+
+    .arrival-hero p {
+        font-size: 14.7px;
+        line-height: 1.75;
+    }
+
+    .arrival-hero-actions,
+    .arrival-final-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 11px;
+        margin-top: 28px;
+    }
+
+    .arrival-hero-actions .btn,
+    .arrival-final-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .arrival-hero-stage {
+        min-height: auto;
+        width: 100%;
+        display: grid;
+        gap: 12px;
+    }
+
+    .arrival-hero-photo,
+    .arrival-floating-card,
+    .arrival-floating-note {
+        position: relative;
+        inset: auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        transform: none;
+    }
+
+    .arrival-hero-photo {
+        height: auto;
+        aspect-ratio: 4 / 4.6;
+        border-radius: 30px;
+    }
+
+    .arrival-floating-card {
+        display: none;
+    }
+
+    .arrival-floating-note {
+        margin: -50px auto 0;
+        width: calc(100% - 18px);
+        border-radius: 24px;
+        padding: 20px;
+    }
+
+    .arrival-floating-note strong {
+        font-size: 22px;
+    }
+
+    .arrival-capsules,
+    .arrival-cocon,
+    .arrival-hours,
+    .arrival-scenarios,
+    .arrival-transition,
+    .arrival-checklist,
+    .arrival-final {
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+
+    .arrival-capsules-grid,
+    .arrival-hours-grid,
+    .arrival-check-items {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-cocon-intro h2,
+    .arrival-section-head h2,
+    .arrival-scenarios h2,
+    .arrival-checklist h2,
+    .arrival-final-card h2 {
+        margin: 14px 0 18px;
+        font-size: clamp(33px, 10.8vw, 48px);
+        line-height: .98;
+        letter-spacing: -1.7px;
+    }
+
+    .arrival-cocon-intro p,
+    .arrival-section-head p,
+    .arrival-scenarios p,
+    .arrival-checklist p,
+    .arrival-final-card p {
+        font-size: 14.7px;
+        line-height: 1.75;
+    }
+
+    .arrival-room-visual {
+        min-height: 460px;
+        border-radius: 28px;
+    }
+
+    .arrival-room-marker {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    .arrival-live-panel,
+    .arrival-hour-card,
+    .arrival-scenario,
+    .arrival-transition-card,
+    .arrival-transition-path article,
+    .arrival-progress,
+    .arrival-final-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .arrival-hour-card {
+        min-height: unset;
+    }
+
+    .arrival-hour-card span {
+        margin-bottom: 34px;
+    }
+
+    .arrival-scenario-panel {
+        min-height: 520px;
+    }
+
+    .arrival-transition-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-transition-card {
+        min-height: auto;
+    }
+
+    .arrival-transition-card strong {
+        font-size: clamp(32px, 10vw, 46px);
+    }
+
+    .arrival-transition-path article {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 14px;
+    }
+
+    .arrival-transition-path span,
+    .arrival-transition-path h3,
+    .arrival-transition-path p {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .arrival-final-card figure {
+        min-height: unset;
+        border-radius: 30px;
+    }
+
+    .arrival-final-card img {
+        min-height: unset;
+        height: auto;
+        aspect-ratio: 4 / 3.5;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 430px) {
+    .arrival-hero-grid {
+        padding-top: 84px;
+    }
+
+    .arrival-hero h1 {
+        font-size: clamp(39px, 14.5vw, 56px);
+    }
+
+    .arrival-capsules,
+    .arrival-cocon,
+    .arrival-hours,
+    .arrival-scenarios,
+    .arrival-transition,
+    .arrival-checklist,
+    .arrival-final {
+        padding-top: 58px;
+        padding-bottom: 58px;
+    }
+
+    .arrival-hero-photo {
+        aspect-ratio: 4 / 4.9;
+    }
+
+    .arrival-scenario-panel {
+        min-height: 590px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .arrival-room-marker,
+    .arrival-hour-card,
+    .arrival-tab,
+    .arrival-scenario,
+    .arrival-transition-path article,
+    .arrival-check-items button,
+    .arrival-progress-bar span {
+        transition: none;
+    }
+}

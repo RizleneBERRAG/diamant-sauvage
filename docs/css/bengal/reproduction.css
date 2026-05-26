@@ -1,0 +1,1382 @@
+/* =========================
+   PAGE REPRODUCTION BENGAL
+   Univers : naissance, maternité, sevrage
+========================= */
+
+.repro-label,
+.repro-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold, #c8a85a);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.repro-label::before,
+.repro-eyebrow::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: currentColor;
+    opacity: .72;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.repro-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 94vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background:
+        radial-gradient(circle at 88% 12%, rgba(224, 201, 130, .14), transparent 34%),
+        radial-gradient(circle at 12% 90%, rgba(224, 201, 130, .08), transparent 32%),
+        linear-gradient(135deg, #0f0c08 0%, #17100a 50%, #070604 100%);
+}
+
+.repro-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(224, 201, 130, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 201, 130, .02) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.repro-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, .92fr) minmax(420px, .78fr);
+    gap: 78px;
+    align-items: center;
+    padding: 130px 0 110px;
+}
+
+.repro-hero-content {
+    max-width: 900px;
+}
+
+.repro-hero h1 {
+    margin: 24px 0 26px;
+    color: #fff;
+    font-size: clamp(54px, 7.2vw, 118px);
+    line-height: .88;
+    letter-spacing: -5.2px;
+}
+
+.repro-hero h1 span {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+}
+
+.repro-hero p {
+    max-width: 730px;
+    margin: 0;
+    color: rgba(255, 255, 255, .76);
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.85;
+}
+
+.repro-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+/* =========================
+   HERO GALLERY
+========================= */
+
+.repro-hero-gallery {
+    position: relative;
+    min-height: 650px;
+}
+
+.repro-photo {
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+    background: #0b0805;
+    border: 1px solid rgba(224, 201, 130, .28);
+    box-shadow:
+        0 38px 110px rgba(0, 0, 0, .42),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.repro-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(.92) contrast(1.06) saturate(1.05);
+}
+
+.repro-photo-main {
+    inset: 38px 0 80px 68px;
+    border-radius: 52px;
+    transform: rotate(2deg);
+}
+
+.repro-photo-main img {
+    object-position: center;
+}
+
+.repro-photo-small {
+    width: 210px;
+    height: 255px;
+    border-radius: 34px;
+}
+
+.repro-photo-one {
+    left: 0;
+    top: 0;
+    transform: rotate(-5deg);
+}
+
+.repro-photo-two {
+    right: 28px;
+    bottom: 0;
+    transform: rotate(-3deg);
+}
+
+.repro-birth-card {
+    position: absolute;
+    left: 34px;
+    bottom: 56px;
+    width: min(360px, 88%);
+    padding: 24px;
+    border-radius: 30px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .045)),
+        rgba(10, 8, 5, .72);
+    border: 1px solid rgba(224, 201, 130, .30);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .38);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.repro-birth-card span {
+    display: inline-flex;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.repro-birth-card strong {
+    display: block;
+    margin-top: 8px;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+/* =========================
+   JOURNEY PREMIUM
+========================= */
+
+.repro-journey {
+    position: relative;
+    overflow: hidden;
+    padding: 86px 0;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(224, 201, 130, .12), transparent 32%),
+        linear-gradient(180deg, #14110c 0%, #080705 100%);
+    color: #fff;
+    border-top: 1px solid rgba(224, 201, 130, .12);
+    border-bottom: 1px solid rgba(224, 201, 130, .12);
+}
+
+.repro-journey::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(224, 201, 130, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 201, 130, .018) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.repro-journey .container {
+    position: relative;
+    z-index: 2;
+}
+
+.repro-journey-head {
+    max-width: 860px;
+    margin-bottom: 40px;
+}
+
+.repro-journey-head .repro-label {
+    color: var(--gold-soft, #e8d7a1);
+}
+
+.repro-journey-head h2 {
+    margin: 18px 0 0;
+    color: #fff;
+    font-size: clamp(38px, 4.6vw, 76px);
+    line-height: .94;
+    letter-spacing: -3px;
+}
+
+.repro-journey-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.repro-journey-card {
+    position: relative;
+    min-height: 310px;
+    padding: 28px;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .10), transparent 38%),
+        rgba(255, 255, 255, .045);
+    border: 1px solid rgba(224, 201, 130, .16);
+    box-shadow: 0 24px 68px rgba(0, 0, 0, .20);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.repro-journey-card.is-large {
+    background:
+        radial-gradient(circle at 82% 8%, rgba(224, 201, 130, .18), transparent 38%),
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025));
+    border-color: rgba(224, 201, 130, .25);
+}
+
+.repro-journey-card > span {
+    color: rgba(224, 201, 130, .72);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.repro-journey-card h3 {
+    margin: 36px 0 14px;
+    color: #fff;
+    font-size: clamp(34px, 3.4vw, 56px);
+    line-height: .92;
+    letter-spacing: -2px;
+}
+
+.repro-journey-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, .68);
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+.repro-journey-card div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 26px;
+}
+
+.repro-journey-card small {
+    padding: 8px 11px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, .74);
+    background: rgba(224, 201, 130, .10);
+    border: 1px solid rgba(224, 201, 130, .14);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* =========================
+   COMMON HEADINGS
+========================= */
+
+.repro-section-head {
+    max-width: 920px;
+    margin-bottom: 54px;
+}
+
+.repro-section-head h2,
+.repro-gestation-content h2,
+.repro-mother-content h2,
+.repro-learning-intro h2,
+.repro-depart-content h2,
+.repro-final-card h2 {
+    margin: 18px 0 24px;
+    color: var(--ink, #17130d);
+    font-size: clamp(38px, 4.6vw, 76px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.repro-section-head p,
+.repro-gestation-content p,
+.repro-mother-content p,
+.repro-learning-intro p,
+.repro-depart-content p,
+.repro-final-card p {
+    color: rgba(28, 23, 15, .72);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+/* =========================
+   CYCLE
+========================= */
+
+.repro-cycle {
+    padding: 112px 0;
+    background:
+        radial-gradient(circle at 82% 10%, rgba(200, 168, 90, .10), transparent 34%),
+        var(--cream, #f5efe3);
+}
+
+.repro-orbit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.repro-orbit-card {
+    min-height: 280px;
+    padding: 28px;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 88% 8%, rgba(200, 168, 90, .14), transparent 34%),
+        rgba(255, 250, 241, .84);
+    border: 1px solid rgba(200, 168, 90, .20);
+    box-shadow: 0 18px 48px rgba(25, 18, 10, .08);
+}
+
+.repro-orbit-card span {
+    display: inline-flex;
+    margin-bottom: 48px;
+    color: rgba(151, 105, 35, .82);
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.repro-orbit-card strong {
+    display: block;
+    color: #17130d;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.repro-orbit-card p {
+    margin: 14px 0 0;
+    color: rgba(28, 23, 15, .66);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.repro-orbit-card-dark {
+    background:
+        radial-gradient(circle at 88% 8%, rgba(224, 201, 130, .18), transparent 34%),
+        linear-gradient(145deg, #21180f, #090806);
+    border-color: rgba(224, 201, 130, .30);
+}
+
+.repro-orbit-card-dark strong,
+.repro-orbit-card-dark span {
+    color: var(--gold-soft, #e8d7a1);
+}
+
+.repro-orbit-card-dark p {
+    color: rgba(255, 255, 255, .70);
+}
+
+.repro-orbit-card-gold {
+    background:
+        radial-gradient(circle at 88% 8%, rgba(255, 255, 255, .34), transparent 34%),
+        linear-gradient(145deg, rgba(200, 168, 90, .32), rgba(255, 250, 241, .78));
+}
+
+/* =========================
+   GESTATION
+========================= */
+
+.repro-gestation {
+    padding: 120px 0;
+    background: var(--cream, #f5efe3);
+}
+
+.repro-gestation-shell {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 44px;
+    align-items: stretch;
+    padding: 44px;
+    border-radius: 38px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(200, 168, 90, .10), transparent 35%),
+        linear-gradient(135deg, rgba(255, 255, 255, .82), rgba(255, 255, 255, .55));
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 24px 70px rgba(21, 17, 12, .08);
+}
+
+.repro-gestation-content h2 {
+    color: #14110d;
+    font-size: clamp(44px, 5vw, 88px);
+    line-height: .92;
+    letter-spacing: -3px;
+    max-width: 640px;
+}
+
+.repro-gestation-content p {
+    max-width: 620px;
+    color: rgba(34, 27, 18, .72);
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+.repro-gestation-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.repro-stat-card {
+    padding: 34px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 76% 18%, rgba(224, 201, 130, .16), transparent 35%),
+        linear-gradient(145deg, #120e09 0%, #080604 100%);
+    border: 1px solid rgba(224, 201, 130, .16);
+    box-shadow: 0 20px 52px rgba(0, 0, 0, .20);
+}
+
+.repro-stat-card strong {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    font-size: clamp(60px, 5vw, 82px);
+    line-height: .9;
+    letter-spacing: -2px;
+}
+
+.repro-stat-card p {
+    margin: 14px 0 0;
+    color: rgba(255, 255, 255, .80);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* =========================
+   MOTHER SECTION
+========================= */
+
+.repro-mother {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 16% 12%, rgba(224, 201, 130, .12), transparent 34%),
+        #17140d;
+    color: #fff;
+}
+
+.repro-mother-grid {
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    gap: 68px;
+    align-items: center;
+}
+
+.repro-mother-image {
+    margin: 0;
+    min-height: 540px;
+    overflow: hidden;
+    border-radius: 44px;
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, .28);
+}
+
+.repro-mother-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 540px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.repro-mother-content h2,
+.repro-mother-content .repro-label {
+    color: #fff;
+}
+
+.repro-mother-content p {
+    color: rgba(255, 255, 255, .74);
+}
+
+.repro-mother-lessons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.repro-mother-lessons span {
+    padding: 10px 14px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, .74);
+    background: rgba(224, 201, 130, .10);
+    border: 1px solid rgba(224, 201, 130, .18);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================
+   LEARNING
+========================= */
+
+.repro-learning {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(200, 168, 90, .10), transparent 30%),
+        #f7f1e6;
+}
+
+.repro-learning-layout {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 44px;
+    align-items: start;
+}
+
+.repro-learning-intro {
+    position: sticky;
+    top: 120px;
+    padding-right: 20px;
+}
+
+.repro-learning-intro h2 {
+    color: #14110d;
+    font-size: clamp(42px, 4.8vw, 78px);
+    line-height: .95;
+    letter-spacing: -2.6px;
+}
+
+.repro-learning-intro p {
+    color: rgba(34, 27, 18, .70);
+    font-size: 17px;
+    line-height: 1.85;
+    max-width: 540px;
+}
+
+.repro-learning-steps {
+    display: grid;
+    gap: 16px;
+}
+
+.repro-learning-step {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 22px;
+    align-items: start;
+    padding: 22px 24px;
+    border-radius: 26px;
+    background: rgba(255, 252, 247, .78);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 14px 36px rgba(20, 16, 10, .06);
+}
+
+.repro-learning-step span {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #18130d, #0a0805);
+    border: 1px solid rgba(224, 201, 130, .18);
+    color: var(--gold-soft, #e8d7a1);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.repro-learning-step h3 {
+    margin: 4px 0 10px;
+    color: #14110d;
+    font-size: 31px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.repro-learning-step p {
+    margin: 0;
+    color: rgba(34, 27, 18, .68);
+    font-size: 15.5px;
+    line-height: 1.75;
+    max-width: 640px;
+}
+
+/* =========================
+   DEPART
+========================= */
+
+.repro-depart {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 82% 8%, rgba(224, 201, 130, .11), transparent 28%),
+        linear-gradient(180deg, #14110c 0%, #080705 100%);
+    color: #fff;
+}
+
+.repro-depart-shell {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 44px;
+    align-items: center;
+}
+
+.repro-depart-window {
+    padding: 34px 30px;
+    border-radius: 34px;
+    background:
+        radial-gradient(circle at 50% 12%, rgba(224, 201, 130, .18), transparent 45%),
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+    border: 1px solid rgba(224, 201, 130, .20);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, .24);
+    text-align: center;
+}
+
+.repro-depart-window small {
+    display: inline-block;
+    color: rgba(224, 201, 130, .84);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.repro-depart-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.repro-depart-range strong {
+    color: var(--gold-soft, #e8d7a1);
+    font-size: 90px;
+    line-height: .9;
+    letter-spacing: -3px;
+    font-weight: 700;
+}
+
+.repro-depart-range span {
+    color: rgba(255, 255, 255, .62);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.repro-depart-window > p {
+    margin: 14px 0 0;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.repro-depart-note {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(224, 201, 130, .14);
+    color: rgba(255, 255, 255, .72);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.repro-depart-content h2,
+.repro-depart-content .repro-label {
+    color: #fff;
+}
+
+.repro-depart-content h2 {
+    font-size: clamp(44px, 5vw, 82px);
+    line-height: .92;
+    letter-spacing: -3px;
+    max-width: 760px;
+}
+
+.repro-depart-content p {
+    color: rgba(255, 255, 255, .75);
+    font-size: 17px;
+    line-height: 1.85;
+    max-width: 860px;
+}
+
+.repro-ready-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.repro-ready-grid article {
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(224, 201, 130, .14);
+}
+
+.repro-ready-grid strong {
+    display: block;
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.repro-ready-grid span {
+    color: rgba(255, 255, 255, .68);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================
+   PRICING LUXE
+========================= */
+
+.repro-pricing-luxe {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .10), transparent 34%),
+        linear-gradient(180deg, #fbf7ef 0%, #f2eadc 100%);
+}
+
+.repro-pricing-luxe::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(200, 168, 90, .040) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 168, 90, .030) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.repro-pricing-luxe .container {
+    position: relative;
+    z-index: 2;
+}
+
+.repro-pricing-layout {
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+    gap: 54px;
+    align-items: start;
+}
+
+.repro-pricing-intro {
+    position: sticky;
+    top: 120px;
+}
+
+.repro-pricing-intro h2 {
+    margin: 18px 0 24px;
+    color: #14110d;
+    font-size: clamp(42px, 5vw, 82px);
+    line-height: .92;
+    letter-spacing: -3.4px;
+}
+
+.repro-pricing-intro p {
+    max-width: 540px;
+    margin: 0;
+    color: rgba(34, 27, 18, .70);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.repro-pricing-panel {
+    display: grid;
+    gap: 18px;
+}
+
+.repro-price-line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 34px;
+    align-items: center;
+    padding: 30px;
+    border-radius: 34px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .88), rgba(255, 250, 241, .68));
+    border: 1px solid rgba(200, 168, 90, .20);
+    box-shadow:
+        0 20px 58px rgba(31, 24, 12, .08),
+        inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.repro-price-line span,
+.repro-included-luxe > span {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: rgba(151, 105, 35, .84);
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-size: 10.5px;
+    font-weight: 900;
+}
+
+.repro-price-line h3 {
+    margin: 0 0 10px;
+    color: #14110d;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -1.1px;
+}
+
+.repro-price-line p {
+    max-width: 520px;
+    margin: 0;
+    color: rgba(34, 27, 18, .66);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.repro-price-line strong {
+    white-space: nowrap;
+    color: #14110d;
+    font-size: clamp(42px, 4.8vw, 74px);
+    line-height: .92;
+    letter-spacing: -3px;
+    text-align: right;
+}
+
+.repro-price-line strong small {
+    font-size: .38em;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.repro-price-line.is-dark {
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .16), transparent 36%),
+        linear-gradient(145deg, #15100a 0%, #080604 100%);
+    border-color: rgba(224, 201, 130, .24);
+}
+
+.repro-price-line.is-dark h3,
+.repro-price-line.is-dark strong,
+.repro-price-line.is-dark span {
+    color: var(--gold-soft, #e8d7a1);
+}
+
+.repro-price-line.is-dark p {
+    color: rgba(255, 255, 255, .72);
+}
+
+.repro-included-luxe {
+    padding: 30px;
+    border-radius: 34px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .84), rgba(255, 250, 241, .66));
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow:
+        0 20px 58px rgba(31, 24, 12, .08),
+        inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.repro-included-luxe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.repro-included-luxe-grid div {
+    position: relative;
+    padding: 15px 16px 15px 38px;
+    border-radius: 18px;
+    color: rgba(34, 27, 18, .74);
+    background: rgba(200, 168, 90, .08);
+    border: 1px solid rgba(200, 168, 90, .14);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.repro-included-luxe-grid div::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 21px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(151, 105, 35, .72);
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.repro-final {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(224, 201, 130, .12), transparent 34%),
+        #11100b;
+    color: #fff;
+}
+
+.repro-final-card {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 54px;
+    align-items: center;
+    padding: 54px;
+    border-radius: 46px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025)),
+        rgba(255, 255, 255, .035);
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, .26);
+}
+
+.repro-final-card h2,
+.repro-final-card .repro-label {
+    color: #fff;
+}
+
+.repro-final-card p {
+    color: rgba(255, 255, 255, .75);
+}
+
+.repro-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.repro-final-card figure {
+    margin: 0;
+    min-height: 460px;
+    overflow: hidden;
+    border-radius: 36px;
+    border: 1px solid rgba(224, 201, 130, .22);
+}
+
+.repro-final-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE TABLETTE
+========================= */
+
+@media (max-width: 1200px) {
+    .repro-journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .repro-learning-layout,
+    .repro-gestation-shell,
+    .repro-depart-shell,
+    .repro-pricing-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .repro-learning-intro,
+    .repro-pricing-intro {
+        position: relative;
+        top: auto;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .repro-hero {
+        min-height: auto;
+    }
+
+    .repro-hero-grid,
+    .repro-mother-grid,
+    .repro-final-card {
+        grid-template-columns: 1fr;
+    }
+
+    .repro-hero-gallery {
+        width: min(680px, 100%);
+        margin: 0 auto;
+    }
+
+    .repro-orbit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .repro-gestation-stats,
+    .repro-ready-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repro-price-line {
+        grid-template-columns: 1fr;
+    }
+
+    .repro-price-line strong {
+        text-align: left;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 760px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .repro-label,
+    .repro-eyebrow {
+        gap: 9px;
+        font-size: 9.5px;
+        letter-spacing: 1.7px;
+    }
+
+    .repro-label::before,
+    .repro-eyebrow::before {
+        width: 26px;
+    }
+
+    .repro-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding: 92px 0 62px;
+    }
+
+    .repro-hero h1 {
+        margin: 18px 0 20px;
+        font-size: clamp(42px, 14vw, 64px);
+        line-height: .9;
+        letter-spacing: -2.8px;
+    }
+
+    .repro-hero p {
+        font-size: 14.7px;
+        line-height: 1.75;
+    }
+
+    .repro-hero-actions,
+    .repro-final-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 11px;
+        margin-top: 28px;
+    }
+
+    .repro-hero-actions .btn,
+    .repro-final-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .repro-hero-gallery {
+        min-height: auto;
+        display: grid;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .repro-photo,
+    .repro-photo-main,
+    .repro-photo-small,
+    .repro-photo-one,
+    .repro-photo-two {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        transform: none;
+        border-radius: 30px;
+    }
+
+    .repro-photo-main {
+        aspect-ratio: 4 / 4.4;
+    }
+
+    .repro-photo-small {
+        display: none;
+    }
+
+    .repro-birth-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: calc(100% - 18px);
+        margin: -52px auto 0;
+        padding: 20px;
+        border-radius: 24px;
+        z-index: 4;
+    }
+
+    .repro-birth-card strong {
+        font-size: 22px;
+    }
+
+    .repro-journey,
+    .repro-cycle,
+    .repro-gestation,
+    .repro-mother,
+    .repro-learning,
+    .repro-depart,
+    .repro-pricing-luxe,
+    .repro-final {
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+
+    .repro-journey-head h2,
+    .repro-pricing-intro h2,
+    .repro-section-head h2,
+    .repro-gestation-content h2,
+    .repro-mother-content h2,
+    .repro-learning-intro h2,
+    .repro-depart-content h2,
+    .repro-final-card h2 {
+        margin: 14px 0 18px;
+        font-size: clamp(33px, 10.8vw, 48px);
+        line-height: .98;
+        letter-spacing: -1.7px;
+    }
+
+    .repro-pricing-intro p,
+    .repro-section-head p,
+    .repro-gestation-content p,
+    .repro-mother-content p,
+    .repro-learning-intro p,
+    .repro-depart-content p,
+    .repro-final-card p {
+        font-size: 14.7px;
+        line-height: 1.75;
+    }
+
+    .repro-journey-grid,
+    .repro-orbit-grid,
+    .repro-gestation-stats,
+    .repro-ready-grid,
+    .repro-included-luxe-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .repro-journey-card,
+    .repro-orbit-card,
+    .repro-gestation-shell,
+    .repro-stat-card,
+    .repro-learning-step,
+    .repro-depart-window,
+    .repro-price-line,
+    .repro-included-luxe,
+    .repro-final-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .repro-journey-card {
+        min-height: unset;
+    }
+
+    .repro-journey-card h3 {
+        margin-top: 26px;
+        font-size: 34px;
+    }
+
+    .repro-orbit-card {
+        min-height: unset;
+    }
+
+    .repro-orbit-card span {
+        margin-bottom: 22px;
+    }
+
+    .repro-stat-card strong {
+        font-size: 56px;
+    }
+
+    .repro-mother-grid {
+        gap: 32px;
+    }
+
+    .repro-mother-content {
+        order: -1;
+    }
+
+    .repro-mother-image,
+    .repro-final-card figure {
+        min-height: unset;
+        border-radius: 30px;
+    }
+
+    .repro-mother-image img,
+    .repro-final-card img {
+        min-height: unset;
+        height: auto;
+        aspect-ratio: 4 / 3.3;
+        object-fit: cover;
+    }
+
+    .repro-mother-lessons {
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .repro-mother-lessons span {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .repro-learning-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .repro-learning-step {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .repro-learning-step span {
+        width: 58px;
+        height: 58px;
+    }
+
+    .repro-learning-step h3 {
+        font-size: 24px;
+    }
+
+    .repro-depart-shell {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .repro-depart-range strong {
+        font-size: 62px;
+    }
+
+    .repro-ready-grid article {
+        padding: 17px;
+        border-radius: 18px;
+    }
+
+    .repro-price-line {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .repro-price-line h3 {
+        font-size: 25px;
+    }
+
+    .repro-price-line strong {
+        text-align: left;
+        white-space: normal;
+        font-size: clamp(38px, 12vw, 54px);
+        letter-spacing: -2px;
+    }
+
+    .repro-included-luxe-grid div {
+        padding: 13px 14px 13px 34px;
+        font-size: 13.5px;
+        border-radius: 15px;
+    }
+
+    .repro-included-luxe-grid div::before {
+        left: 14px;
+        top: 19px;
+    }
+}
+
+@media (max-width: 430px) {
+    .repro-hero-grid {
+        padding-top: 84px;
+    }
+
+    .repro-hero h1 {
+        font-size: clamp(39px, 14.5vw, 56px);
+    }
+
+    .repro-journey,
+    .repro-cycle,
+    .repro-gestation,
+    .repro-mother,
+    .repro-learning,
+    .repro-depart,
+    .repro-pricing-luxe,
+    .repro-final {
+        padding-top: 58px;
+        padding-bottom: 58px;
+    }
+
+    .repro-journey-head h2,
+    .repro-pricing-intro h2,
+    .repro-section-head h2,
+    .repro-gestation-content h2,
+    .repro-mother-content h2,
+    .repro-learning-intro h2,
+    .repro-depart-content h2,
+    .repro-final-card h2 {
+        font-size: clamp(30px, 11vw, 42px);
+    }
+
+    .repro-photo-main {
+        aspect-ratio: 4 / 4.8;
+    }
+
+    .repro-birth-card {
+        width: calc(100% - 12px);
+        margin-top: -46px;
+    }
+
+    .repro-mother-image img,
+    .repro-final-card img {
+        aspect-ratio: 4 / 3.7;
+    }
+
+    .repro-price-line strong {
+        font-size: 42px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .repro-photo,
+    .repro-journey-card,
+    .repro-orbit-card,
+    .repro-learning-step,
+    .repro-price-line {
+        transition: none;
+    }
+}

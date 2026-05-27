@@ -1,269 +1,368 @@
 @extends('layouts.site')
 
 @section('title', 'Nos femelles Bengal | Chatterie du Diamant Sauvage')
-@section('description', 'Découvrez les femelles Bengal de la Chatterie du Diamant Sauvage : lignées, robes, caractère, tests santé et présentation.')
+@section('description', 'Découvrez les femelles Bengal de la Chatterie du Diamant Sauvage : robes, lignées, tests de santé, LOOF et informations détaillées.')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/femelles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/chats/chats.css') }}">
 @endpush
 
 @section('content')
 
-    <section class="females-hero">
-        <div class="container females-hero-grid">
-            <div>
-                <span class="kicker">Nos femelles</span>
-                <h1>Des femelles Bengal sélectionnées avec exigence et passion.</h1>
+    @php
+        $allCats = collect(config('chats.cats', []))
+            ->where('visibility', 'visible')
+            ->values();
+
+        $cats = $allCats->where('category', 'female')->values();
+        $males = $allCats->where('category', 'male')->values();
+        $females = $cats;
+        $featured = $cats->where('featured', true)->take(3)->values();
+
+        $statusClasses = [
+            'available' => 'is-available',
+            'reserved' => 'is-reserved',
+            'adoption_pending' => 'is-pending',
+            'not_available' => 'is-not-available',
+            'to_define' => 'is-to-define',
+        ];
+
+        $statusText = [
+            'available' => 'Disponible',
+            'reserved' => 'Réservé',
+            'adoption_pending' => 'En cours d’adoption',
+            'not_available' => 'Non disponible',
+            'to_define' => 'À définir',
+        ];
+
+        $placeholderImages = [
+            'images/home/kitten-12.jpg',
+            'images/home/gallery-11.jpg',
+            'images/home/kitten-13.jpg',
+            'images/home/gallery-12.jpg',
+            'images/home/kitten-14.jpg',
+            'images/home/gallery-13.jpg',
+        ];
+
+        $catImage = function ($cat, $loopIndex = 0) use ($placeholderImages) {
+            if (!empty($cat['gallery']) && !empty($cat['gallery'][0])) {
+                return asset($cat['gallery'][0]);
+            }
+
+            return asset($placeholderImages[$loopIndex % count($placeholderImages)]);
+        };
+
+        $catAgeLabel = function ($birthDate) {
+            if (empty($birthDate) || $birthDate === 'À compléter') {
+                return 'Âge à compléter';
+            }
+
+            try {
+                $birth = \Carbon\Carbon::parse($birthDate)->startOfDay();
+                $now = \Carbon\Carbon::now()->startOfDay();
+
+                if ($birth->greaterThan($now)) {
+                    return 'À naître';
+                }
+
+                $years = (int) floor($birth->diffInYears($now));
+                $months = (int) floor($birth->copy()->addYears($years)->diffInMonths($now));
+
+                if ($years >= 1 && $months > 0) {
+                    return $years . ' an' . ($years > 1 ? 's' : '') . ' et ' . $months . ' mois';
+                }
+
+                if ($years >= 1) {
+                    return $years . ' an' . ($years > 1 ? 's' : '');
+                }
+
+                $monthsOnly = (int) floor($birth->diffInMonths($now));
+
+                return max(1, $monthsOnly) . ' mois';
+            } catch (\Exception $e) {
+                return 'Âge à compléter';
+            }
+        };
+
+        $catPriceLabel = function ($cat) {
+            $mode = $cat['price_mode'] ?? 'hidden';
+
+            if ($mode === 'fixed' && !empty($cat['price'])) {
+                return number_format((float) $cat['price'], 0, ',', ' ') . ' €';
+            }
+
+            if ($mode === 'on_request') {
+                return 'Prix sur demande';
+            }
+
+            return null;
+        };
+    @endphp
+
+    <section class="cats-hero">
+        <div class="container cats-hero-grid">
+            <div class="cats-hero-content">
+                <span class="cats-kicker">Femelles Bengal</span>
+
+                <h1>
+                    Nos femelles,
+                    <em>élégantes et précieuses.</em>
+                </h1>
+
                 <p>
-                    Chaque femelle de la chatterie est choisie pour sa beauté, son équilibre,
-                    son tempérament et son rôle dans un programme d’élevage responsable.
+                    Découvrez les femelles de la chatterie : leurs robes, leurs lignées,
+                    leur suivi santé et les informations essentielles pour mieux les connaître.
                 </p>
 
-                <div class="hero-actions">
-                    <a href="#femelles" class="btn btn-gold">Découvrir nos femelles</a>
-                    <a href="{{ route('chats.disponibles') }}" class="btn btn-outline">Voir les chatons</a>
+                <div class="cats-hero-actions">
+                    <a href="#cats-list" class="btn btn-gold">Voir les femelles</a>
+                    <a href="{{ route('contact') }}" class="btn btn-glass">Demander une information</a>
                 </div>
             </div>
 
-            <div class="hero-female-card">
-                <div class="hero-female-photo">
-                    <span>Photo femelle Bengal</span>
+            <div class="cats-hero-panel">
+                <div class="cats-hero-card">
+                    <span>Femelles suivies</span>
+                    <strong>{{ $females->count() }}</strong>
+                    <p>fiches femelles préparées pour la chatterie</p>
                 </div>
 
-                <div class="hero-floating-card">
-                    <strong>Beauté · Santé · Caractère</strong>
-                    <p>Une présentation claire pour comprendre chaque lignée.</p>
+                <div class="cats-hero-mini-grid">
+                    <div>
+                        <span>Total chats</span>
+                        <strong>{{ $allCats->count() }}</strong>
+                    </div>
+
+                    <div>
+                        <span>Mâles</span>
+                        <strong>{{ $males->count() }}</strong>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="female-intro">
-        <div class="container female-intro-grid">
-            <div>
-                <span class="section-label">Sélection</span>
-                <h2>Des profils présentés avec clarté, élégance et transparence.</h2>
-            </div>
-
-            <div class="female-intro-text">
-                <p>
-                    Cette page permet de mettre en valeur chaque femelle avec ses informations essentielles :
-                    robe, pedigree, tests, caractère, photos et rôle dans la chatterie.
-                </p>
-                <p>
-                    L’objectif est d’aider les familles à mieux comprendre le sérieux du travail d’élevage,
-                    tout en offrant une expérience visuelle plus moderne et rassurante.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="female-trust">
-        <div class="container trust-grid">
-            <div class="trust-item">
-                <span>01</span>
-                <strong>LOOF</strong>
-                <p>Des informations claires sur l’inscription et les lignées.</p>
-            </div>
-
-            <div class="trust-item">
-                <span>02</span>
-                <strong>Tests santé</strong>
-                <p>Une mise en avant propre des tests et suivis importants.</p>
-            </div>
-
-            <div class="trust-item">
-                <span>03</span>
-                <strong>Caractère</strong>
-                <p>Une présentation humaine du tempérament de chaque femelle.</p>
-            </div>
-
-            <div class="trust-item">
-                <span>04</span>
-                <strong>Photos</strong>
-                <p>Une galerie élégante pour valoriser la beauté des Bengal.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="female-list" id="femelles">
+    <section class="cats-tabs-section">
         <div class="container">
-            <div class="list-heading">
-                <div>
-                    <span class="section-label">Femelles de la chatterie</span>
-                    <h2>Nos reines Bengal</h2>
-                </div>
+            <div class="cats-tabs">
+                <a href="{{ route('chats.index') }}">
+                    Tous nos chats
+                    <span>{{ $allCats->count() }}</span>
+                </a>
 
-                <p>
-                    Les informations ci-dessous sont des exemples de présentation. Elles seront ensuite
-                    remplacées par les vraies femelles, leurs photos et leurs détails.
-                </p>
-            </div>
+                <a href="{{ route('chats.femelles') }}" class="is-active">
+                    Nos femelles
+                    <span>{{ $females->count() }}</span>
+                </a>
 
-            <div class="female-grid">
-
-                <article class="female-card"
-                         data-name="Uma"
-                         data-robe="Brown spotted tabby"
-                         data-status="Femelle reproductrice"
-                         data-tests="PK-def, PRA-b, FIV/FELV"
-                         data-character="Douce, observatrice et très proche de l’humain"
-                         data-description="Uma est une femelle élégante, équilibrée et très expressive. Elle représente parfaitement l’esprit de la chatterie : beauté, douceur et présence.">
-
-                    <div class="female-photo female-photo-1">
-                        <span class="female-chip">Reproductrice</span>
-                    </div>
-
-                    <div class="female-content">
-                        <div class="female-top">
-                            <h3>Uma</h3>
-                            <span>Brown spotted</span>
-                        </div>
-
-                        <p>
-                            Une femelle élégante, proche de l’humain, avec un tempérament doux
-                            et une très belle expression Bengal.
-                        </p>
-
-                        <div class="female-tags">
-                            <span>LOOF</span>
-                            <span>Testée</span>
-                            <span>Douce</span>
-                        </div>
-
-                        <button type="button" class="female-more">Voir la fiche</button>
-                    </div>
-                </article>
-
-                <article class="female-card"
-                         data-name="Athéna"
-                         data-robe="Seal tabby mink"
-                         data-status="Femelle reproductrice"
-                         data-tests="PK-def, PRA-b, FIV/FELV"
-                         data-character="Curieuse, câline et très sociable"
-                         data-description="Athéna est une femelle au regard intense, avec une présence douce et un caractère très attachant. Elle aime participer à la vie de la maison.">
-
-                    <div class="female-photo female-photo-2">
-                        <span class="female-chip">Reproductrice</span>
-                    </div>
-
-                    <div class="female-content">
-                        <div class="female-top">
-                            <h3>Athéna</h3>
-                            <span>Seal mink</span>
-                        </div>
-
-                        <p>
-                            Une femelle lumineuse, curieuse et très sociable, habituée au quotidien
-                            familial et au contact humain.
-                        </p>
-
-                        <div class="female-tags">
-                            <span>LOOF</span>
-                            <span>Sociable</span>
-                            <span>Mink</span>
-                        </div>
-
-                        <button type="button" class="female-more">Voir la fiche</button>
-                    </div>
-                </article>
-
-                <article class="female-card"
-                         data-name="Nala"
-                         data-robe="Black silver spotted"
-                         data-status="Femelle en observation"
-                         data-tests="Tests à compléter"
-                         data-character="Joueuse, vive et très expressive"
-                         data-description="Nala est une jeune femelle pleine d’énergie, avec un très beau contraste et un caractère joueur. Elle est présentée ici comme exemple de fiche évolutive.">
-
-                    <div class="female-photo female-photo-3">
-                        <span class="female-chip female-chip-soft">En observation</span>
-                    </div>
-
-                    <div class="female-content">
-                        <div class="female-top">
-                            <h3>Nala</h3>
-                            <span>Silver spotted</span>
-                        </div>
-
-                        <p>
-                            Une jeune femelle vive, joueuse et expressive, avec une très belle présence
-                            et un contraste marqué.
-                        </p>
-
-                        <div class="female-tags">
-                            <span>Silver</span>
-                            <span>Joueuse</span>
-                            <span>Évolutive</span>
-                        </div>
-
-                        <button type="button" class="female-more">Voir la fiche</button>
-                    </div>
-                </article>
-
+                <a href="{{ route('chats.males') }}">
+                    Nos mâles
+                    <span>{{ $males->count() }}</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="female-focus">
-        <div class="container focus-box">
-            <div>
-                <span class="section-label">Présentation premium</span>
-                <h2>Une fiche claire pour chaque femelle.</h2>
-                <p>
-                    Chaque profil pourra contenir une galerie photo, les informations de santé,
-                    le pedigree, la robe, le caractère, les portées associées et les liens vers les chatons.
-                </p>
+    <section class="cats-board" id="cats-list">
+        <div class="container">
+            <div class="cats-board-head">
+                <div>
+                    <span class="cats-kicker">Nos femelles</span>
+
+                    <h2>Une présentation claire de chaque femelle.</h2>
+
+                    <p>
+                        Chaque fiche regroupe les informations essentielles : identité, robe, naissance,
+                        LOOF, parents, tests et suivi santé.
+                    </p>
+                </div>
             </div>
 
-            <div class="focus-list">
-                <div><span></span> Galerie photos élégante</div>
-                <div><span></span> Tests santé visibles</div>
-                <div><span></span> Description du caractère</div>
-                <div><span></span> Portées associées</div>
+            <div class="cats-grid">
+                @foreach($cats as $cat)
+                    @php
+                        $statusClass = $statusClasses[$cat['availability']] ?? 'is-to-define';
+                        $displayStatus = $cat['availability_label'] ?? ($statusText[$cat['availability']] ?? 'À définir');
+                        $priceLabel = $catPriceLabel($cat);
+                        $ageLabel = $catAgeLabel($cat['birth_date'] ?? null);
+                    @endphp
+
+                    <article class="cat-listing-card" data-cat-card data-cat-category="{{ $cat['category'] }}" data-cat-open="{{ $cat['slug'] }}">
+                        <div class="cat-card-image">
+                            <img src="{{ $catImage($cat, $loop->index) }}" alt="{{ $cat['name'] }}">
+                            <span class="cat-status {{ $statusClass }}">{{ $displayStatus }}</span>
+
+                            @if($priceLabel)
+                                <strong class="cat-price">{{ $priceLabel }}</strong>
+                            @endif
+                        </div>
+
+                        <div class="cat-card-content">
+                            <div class="cat-card-title-row">
+                                <div>
+                                    <h3>{{ $cat['short_name'] ?? $cat['name'] }}</h3>
+                                    <p>{{ $cat['name'] }}</p>
+                                </div>
+
+                                <span>{{ $cat['sex'] }}</span>
+                            </div>
+
+                            <div class="cat-card-quick">
+                                <div>
+                                    <small>Naissance</small>
+                                    <strong>{{ $cat['birth_label'] }}</strong>
+                                </div>
+
+                                <div>
+                                    <small>Âge</small>
+                                    <strong>{{ $ageLabel }}</strong>
+                                </div>
+                            </div>
+
+                            <p class="cat-card-description">{{ $cat['highlight'] }}</p>
+
+                            <div class="cat-card-tags">
+                                <span>{{ $cat['coat'] }}</span>
+                                <span>Yeux {{ strtolower($cat['eyes']) }}</span>
+                            </div>
+                        </div>
+
+                        <div class="cat-card-hover">
+                            <div>
+                                <span>LOOF</span>
+                                <strong>{{ $cat['loof'] }}</strong>
+                            </div>
+
+                            <div>
+                                <span>I-CAD</span>
+                                <strong>{{ $cat['icad'] }}</strong>
+                            </div>
+
+                            <div>
+                                <span>Tests</span>
+                                <strong>FIV/FELV : {{ $cat['health']['fiv_felv'] ?? 'À compléter' }}</strong>
+                            </div>
+
+                            <button type="button">Voir tous les détails</button>
+                        </div>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <div class="female-modal" id="femaleModal" aria-hidden="true">
-        <div class="female-modal-overlay" data-close="true"></div>
+    <div class="cat-modal" id="catModal" aria-hidden="true">
+        <div class="cat-modal-backdrop" data-cat-close></div>
 
-        <div class="female-modal-panel">
-            <button type="button" class="modal-close" data-close="true">×</button>
+        <div class="cat-modal-panel" role="dialog" aria-modal="true" aria-labelledby="catModalTitle">
+            <button type="button" class="cat-modal-close" data-cat-close aria-label="Fermer la fiche">×</button>
 
-            <span class="modal-kicker">Fiche femelle</span>
-            <h2 id="modalName">Nom</h2>
+            @foreach($cats as $cat)
+                @php
+                    $statusClass = $statusClasses[$cat['availability']] ?? 'is-to-define';
+                    $displayStatus = $cat['availability_label'] ?? ($statusText[$cat['availability']] ?? 'À définir');
+                    $priceLabel = $catPriceLabel($cat);
+                    $ageLabel = $catAgeLabel($cat['birth_date'] ?? null);
+                @endphp
 
-            <div class="modal-info-grid">
-                <div>
-                    <span>Robe</span>
-                    <strong id="modalRobe">-</strong>
-                </div>
+                <article class="cat-modal-content" data-cat-modal-content="{{ $cat['slug'] }}">
+                    <figure>
+                        <img src="{{ $catImage($cat, $loop->index) }}" alt="{{ $cat['name'] }}">
+                    </figure>
 
-                <div>
-                    <span>Statut</span>
-                    <strong id="modalStatus">-</strong>
-                </div>
+                    <div class="cat-modal-info">
+                        <span class="cat-status {{ $statusClass }}">{{ $displayStatus }}</span>
 
-                <div>
-                    <span>Tests</span>
-                    <strong id="modalTests">-</strong>
-                </div>
+                        <h3 id="catModalTitle">{{ $cat['name'] }}</h3>
 
-                <div>
-                    <span>Caractère</span>
-                    <strong id="modalCharacter">-</strong>
-                </div>
-            </div>
+                        <p>{{ $cat['description'] }}</p>
 
-            <p id="modalDescription"></p>
+                        <div class="cat-modal-price">
+                            <span>Prix</span>
+                            <strong>{{ $priceLabel ?: 'Non affiché' }}</strong>
+                        </div>
 
-            <a href="{{ route('contact') }}" class="btn btn-gold">Demander plus d’informations</a>
+                        <div class="cat-modal-grid">
+                            <div><small>Sexe</small><strong>{{ $cat['sex'] }}</strong></div>
+                            <div><small>Naissance</small><strong>{{ $cat['birth_label'] }}</strong></div>
+                            <div><small>Âge</small><strong>{{ $ageLabel }}</strong></div>
+                            <div><small>Robe</small><strong>{{ $cat['coat'] }}</strong></div>
+                            <div><small>Yeux</small><strong>{{ $cat['eyes'] }}</strong></div>
+                            <div><small>LOOF</small><strong>{{ $cat['loof'] }}</strong></div>
+                            <div><small>I-CAD</small><strong>{{ $cat['icad'] }}</strong></div>
+                        </div>
+
+                        <div class="cat-modal-family">
+                            <div>
+                                <span>Père</span>
+                                <strong>{{ $cat['parents']['father'] ?? 'À compléter' }}</strong>
+                            </div>
+
+                            <div>
+                                <span>Mère</span>
+                                <strong>{{ $cat['parents']['mother'] ?? 'À compléter' }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="cat-modal-health">
+                            <h4>Suivi santé</h4>
+                            <div><span>HCM</span><strong>{{ $cat['health']['hcm'] ?? 'À compléter' }}</strong></div>
+                            <div><span>PKD</span><strong>{{ $cat['health']['pkd'] ?? 'À compléter' }}</strong></div>
+                            <div><span>FIV/FELV</span><strong>{{ $cat['health']['fiv_felv'] ?? 'À compléter' }}</strong></div>
+                            <div><span>PRA-b</span><strong>{{ $cat['health']['pra_b'] ?? 'À compléter' }}</strong></div>
+                            <div><span>PKDef</span><strong>{{ $cat['health']['pkdef'] ?? 'À compléter' }}</strong></div>
+
+                            @if(!empty($cat['health']['parents_tests']))
+                                <div><span>Parents</span><strong>{{ $cat['health']['parents_tests'] }}</strong></div>
+                            @endif
+                        </div>
+
+                        <a href="{{ route('contact') }}" class="btn btn-gold">Demander des informations</a>
+                    </div>
+                </article>
+            @endforeach
         </div>
     </div>
 
-@endsection
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('catModal');
+            const openButtons = document.querySelectorAll('[data-cat-open]');
+            const closeButtons = document.querySelectorAll('[data-cat-close]');
+            const modalContents = document.querySelectorAll('[data-cat-modal-content]');
 
-@push('scripts')
-    <script src="{{ asset('js/femelles.js') }}"></script>
-@endpush
+            function openModal(slug) {
+                modalContents.forEach((content) => {
+                    content.classList.toggle('is-active', content.dataset.catModalContent === slug);
+                });
+
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+            }
+
+            openButtons.forEach((element) => {
+                element.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openModal(element.dataset.catOpen);
+                });
+            });
+
+            closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+@endsection

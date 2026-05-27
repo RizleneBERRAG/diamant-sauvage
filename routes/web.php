@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatPageController;
+use App\Http\Controllers\Admin\CatController;
 
 Route::get('/', fn () => view('pages.home'))->name('home');
 
@@ -15,11 +17,28 @@ Route::prefix('le-bengal')->name('bengal.')->group(function () {
 });
 
 Route::prefix('nos-chats')->name('chats.')->group(function () {
-    Route::get('/', fn () => view('pages.chats.index'))->name('index');
-    Route::get('/nos-femelles', fn () => view('pages.chats.femelles'))->name('femelles');
-    Route::get('/nos-males', fn () => view('pages.chats.males'))->name('males');
-    Route::get('/chats-disponibles', fn () => view('pages.chats.disponibles'))->name('disponibles');
+    Route::get('/', [ChatPageController::class, 'index'])->name('index');
+    Route::get('/nos-femelles', [ChatPageController::class, 'femelles'])->name('femelles');
+    Route::get('/nos-males', [ChatPageController::class, 'males'])->name('males');
+
+    Route::get('/chats-disponibles', [ChatPageController::class, 'index'])->name('disponibles');
 });
 
 Route::get('/contact', fn () => view('pages.contact'))->name('contact');
 Route::get('/mentions-legales', fn () => view('pages.mentions-legales'))->name('mentions');
+
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/chats', [CatController::class, 'index'])->name('chats.index');
+    Route::get('/chats/create', [CatController::class, 'create'])->name('chats.create');
+    Route::post('/chats', [CatController::class, 'store'])->name('chats.store');
+
+    Route::get('/chats/{cat}/edit', [CatController::class, 'edit'])->name('chats.edit');
+    Route::put('/chats/{cat}', [CatController::class, 'update'])->name('chats.update');
+    Route::delete('/chats/{cat}', [CatController::class, 'destroy'])->name('chats.destroy');
+
+    Route::patch('/chats/{cat}/images/reorder', [CatController::class, 'reorderImages'])->name('chats.images.reorder');
+    Route::delete('/cat-images/{image}', [CatController::class, 'destroyImage'])->name('cat-images.destroy');
+    Route::patch('/cat-images/{image}/main', [CatController::class, 'setMainImage'])->name('cat-images.main');
+});

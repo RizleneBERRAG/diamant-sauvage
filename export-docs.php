@@ -1,6 +1,7 @@
 <?php
 
 $base = 'http://127.0.0.1:8000';
+$githubBase = '/diamant-sauvage';
 
 $pages = [
     '/' => 'docs/index.html',
@@ -18,22 +19,23 @@ $pages = [
     '/nos-chats/nos-femelles' => 'docs/nos-chats/nos-femelles/index.html',
     '/nos-chats/nos-males' => 'docs/nos-chats/nos-males/index.html',
     '/nos-chats/chats-disponibles' => 'docs/nos-chats/chats-disponibles/index.html',
+    '/nos-chats/mariages-a-venir' => 'docs/nos-chats/mariages-a-venir/index.html',
 ];
 
 foreach ($pages as $route => $output) {
-    $html = file_get_contents($base . $route);
+    $html = @file_get_contents($base . $route);
 
     if ($html === false) {
         echo "Erreur sur : $route\n";
         continue;
     }
 
-    $html = str_replace('http://127.0.0.1:8000', '/diamant-sauvage', $html);
-    $html = str_replace('http://localhost:8000', '/diamant-sauvage', $html);
+    $html = str_replace('http://127.0.0.1:8000', $githubBase, $html);
+    $html = str_replace('http://localhost:8000', $githubBase, $html);
 
-    $html = preg_replace('#(href|src|poster|action)="/(?!diamant-sauvage/)#', '$1="/diamant-sauvage/', $html);
-    $html = preg_replace("#url\('/(?!diamant-sauvage/)#", "url('/diamant-sauvage/", $html);
-    $html = preg_replace('#url\("/(?!diamant-sauvage/)#', 'url("/diamant-sauvage/', $html);
+    $html = preg_replace('#(href|src|poster|action)="/(?!diamant-sauvage/)#', '$1="' . $githubBase . '/', $html);
+    $html = preg_replace("#url\('/(?!diamant-sauvage/)#", "url('" . $githubBase . "/", $html);
+    $html = preg_replace('#url\("/(?!diamant-sauvage/)#', 'url("' . $githubBase . '/', $html);
 
     $dir = dirname($output);
 
@@ -78,6 +80,10 @@ copyDirectory('public/images', 'docs/images');
 
 if (is_dir('public/videos')) {
     copyDirectory('public/videos', 'docs/videos');
+}
+
+if (is_dir('public/storage')) {
+    copyDirectory('public/storage', 'docs/storage');
 }
 
 file_put_contents('docs/.nojekyll', '');

@@ -1,23 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* =========================
+       FEUILLE CSS AVIS — CHARGEMENT SÛR
+    ========================= */
+
+    if (!document.querySelector('link[href*="contact-reviews.css"]')) {
+        const githubPagesBase = window.location.pathname.startsWith('/diamant-sauvage') ? '/diamant-sauvage' : '';
+        const reviewStylesheet = document.createElement('link');
+
+        reviewStylesheet.rel = 'stylesheet';
+        reviewStylesheet.href = `${githubPagesBase}/css/contact-reviews.css`;
+        document.head.appendChild(reviewStylesheet);
+    }
+
+    /* =========================
        ANIMATION AU SCROLL
     ========================= */
 
     const revealItems = document.querySelectorAll('.contact-reveal');
 
     if (revealItems.length) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.14
             });
-        }, {
-            threshold: 0.14
-        });
 
-        revealItems.forEach((item) => observer.observe(item));
+            revealItems.forEach((item) => observer.observe(item));
+        } else {
+            revealItems.forEach((item) => item.classList.add('is-visible'));
+        }
     }
 
     /* =========================
@@ -72,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================
-       EFFET ICÔNES CONTACT MOBILE
+       ICÔNES CONTACT — MOBILE
     ========================= */
 
     const contactIcons = document.querySelectorAll('.contact-link-icon');
@@ -87,5 +104,81 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('is-touched');
             }, 220);
         });
+    });
+
+    /* =========================
+       AVIS GOOGLE — MODAL PREMIUM
+    ========================= */
+
+    const reviewModal = document.getElementById('reviewModal');
+    const reviewModalAvatar = document.getElementById('reviewModalAvatar');
+    const reviewModalName = document.getElementById('reviewModalName');
+    const reviewModalDate = document.getElementById('reviewModalDate');
+    const reviewModalStars = document.getElementById('reviewModalStars');
+    const reviewModalText = document.getElementById('reviewModalText');
+
+    const getStars = (rating) => {
+        const score = Math.max(0, Math.min(5, Number(rating) || 5));
+        let stars = '';
+
+        for (let i = 1; i <= 5; i++) {
+            stars += i <= score ? '★' : '☆';
+        }
+
+        return stars;
+    };
+
+    const openReviewModal = (button) => {
+        if (
+            !reviewModal ||
+            !reviewModalAvatar ||
+            !reviewModalName ||
+            !reviewModalDate ||
+            !reviewModalStars ||
+            !reviewModalText
+        ) {
+            return;
+        }
+
+        const name = button.dataset.name || 'Avis Google';
+        const date = button.dataset.date || '';
+        const rating = button.dataset.rating || 5;
+        const text = button.dataset.text || '';
+
+        reviewModalAvatar.textContent = name.charAt(0).toUpperCase();
+        reviewModalName.textContent = name;
+        reviewModalDate.textContent = date;
+        reviewModalStars.textContent = getStars(rating);
+        reviewModalText.textContent = text;
+
+        reviewModal.classList.add('is-open');
+        reviewModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    };
+
+    const closeReviewModal = () => {
+        if (!reviewModal) {
+            return;
+        }
+
+        reviewModal.classList.remove('is-open');
+        reviewModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    };
+
+    document.querySelectorAll('.static-review-open').forEach((button) => {
+        button.addEventListener('click', () => {
+            openReviewModal(button);
+        });
+    });
+
+    document.querySelectorAll('[data-review-close]').forEach((button) => {
+        button.addEventListener('click', closeReviewModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && reviewModal?.classList.contains('is-open')) {
+            closeReviewModal();
+        }
     });
 });

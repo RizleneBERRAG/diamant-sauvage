@@ -1,0 +1,628 @@
+.kiara-tribute {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    overflow: hidden;
+    background: #030201;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.8s ease,
+        transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.kiara-tribute.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.kiara-tribute.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(100%);
+}
+
+body.kiara-tribute-open {
+    overflow: hidden;
+}
+
+/* PHOTOS PLEIN ÉCRAN */
+
+.kiara-tribute__slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.kiara-tribute__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(1.06);
+    filter: brightness(0.98) contrast(1.03) saturate(1.06);
+    transition:
+        opacity 1.4s ease,
+        transform 7s ease;
+}
+
+.kiara-tribute__image.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* VOILE LUXE */
+
+.kiara-tribute__shade {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.84) 0%,
+            rgba(0, 0, 0, 0.68) 30%,
+            rgba(0, 0, 0, 0.34) 55%,
+            rgba(0, 0, 0, 0.58) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.64) 0%,
+            rgba(0, 0, 0, 0.18) 42%,
+            rgba(0, 0, 0, 0.12) 100%
+        );
+}
+
+/* CADRE DORÉ */
+
+.kiara-tribute__gold {
+    position: absolute;
+    inset: 24px;
+    z-index: 3;
+    border: 1px solid rgba(232, 190, 83, 0.42);
+    pointer-events: none;
+    box-shadow:
+        inset 0 0 70px rgba(232, 190, 83, 0.04),
+        0 0 70px rgba(0, 0, 0, 0.42);
+}
+
+.kiara-tribute__gold::before {
+    content: "";
+    position: absolute;
+    left: 7%;
+    top: 14%;
+    width: 520px;
+    height: 520px;
+    opacity: 0.14;
+    background:
+        radial-gradient(circle, rgba(246, 209, 115, 0.42) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(246, 209, 115, 0.18) 0 1px, transparent 2px);
+    background-size: 42px 42px, 73px 73px;
+    transform: rotate(-10deg);
+}
+
+.kiara-tribute__gold::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.035) 0,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px,
+            transparent 10px
+        );
+}
+
+/* BOUTON FERMER */
+
+.kiara-tribute__close {
+    position: absolute;
+    top: 46px;
+    right: 50px;
+    z-index: 12;
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(232, 190, 83, 0.62);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+    color: #f4d27a;
+    font-size: 2.35rem;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.kiara-tribute__close:hover {
+    transform: rotate(90deg);
+    background: rgba(232, 190, 83, 0.14);
+}
+
+/* CONTENU PRINCIPAL */
+
+.kiara-tribute__content {
+    position: relative;
+    z-index: 8;
+    min-height: 100dvh;
+    width: min(620px, 90vw);
+    padding: 5.5vh 0 9vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff8e8;
+    transform: translateY(-16px);
+}
+
+/* LOGO / MARQUE */
+
+.kiara-tribute__brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.kiara-tribute__logo-wrap {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border: 1px solid rgba(232, 190, 83, 0.55);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, rgba(232, 190, 83, 0.10), rgba(0, 0, 0, 0.22));
+    box-shadow:
+        0 0 42px rgba(232, 190, 83, 0.13),
+        inset 0 0 28px rgba(232, 190, 83, 0.05);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.kiara-tribute__logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.kiara-tribute__brand-text strong {
+    display: block;
+    color: #e8be53;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.kiara-tribute__brand-text span {
+    display: block;
+    margin-top: 8px;
+    color: #e8be53;
+    font-size: 0.7rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+}
+
+/* TEXTE */
+
+.kiara-tribute__kicker {
+    margin: 0 0 12px;
+    color: #f1d483;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.kiara-tribute__content h1 {
+    margin: 0;
+    color: #fff7df;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4.4rem, 7.6vw, 7.5rem);
+    line-height: 0.86;
+    font-weight: 700;
+    text-shadow:
+        0 0 34px rgba(255, 247, 223, 0.1),
+        0 10px 50px rgba(0, 0, 0, 0.75);
+}
+
+.kiara-tribute__subtitle {
+    margin: 12px 0 0;
+    color: #f4d27a;
+    font-family: "Segoe Script", "Brush Script MT", cursive;
+    font-size: clamp(2rem, 3.3vw, 3.3rem);
+    line-height: 1.02;
+    text-shadow: 0 0 28px rgba(244, 210, 122, 0.18);
+}
+
+.kiara-tribute__line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: min(360px, 86%);
+    margin: 22px 0 20px;
+    color: #e8be53;
+}
+
+.kiara-tribute__line span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232, 190, 83, 0.86), transparent);
+}
+
+.kiara-tribute__line i {
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.kiara-tribute__text,
+.kiara-tribute__quote {
+    margin: 0;
+    max-width: 590px;
+    color: rgba(255, 248, 232, 0.9);
+    font-size: 0.98rem;
+    line-height: 1.74;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.74);
+}
+
+.kiara-tribute__quote {
+    margin-top: 14px;
+    color: rgba(255, 248, 232, 0.74);
+    font-style: italic;
+}
+
+.kiara-tribute__dates {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    color: #efd487;
+    font-size: 0.82rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.kiara-tribute__dates i {
+    color: #d8ad45;
+    font-style: normal;
+}
+
+/* ACTIONS */
+
+.kiara-tribute__actions {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+.kiara-tribute__enter {
+    min-width: 292px;
+    padding: 16px 28px;
+    border: 1px solid rgba(232, 190, 83, 0.88);
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, rgba(232, 190, 83, 0.14), rgba(232, 190, 83, 0.03)),
+        rgba(0, 0, 0, 0.44);
+    color: #f4d27a;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.82rem;
+    cursor: pointer;
+    box-shadow:
+        0 0 30px rgba(232, 190, 83, 0.1),
+        inset 0 0 28px rgba(232, 190, 83, 0.06);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.kiara-tribute__enter span {
+    margin-left: 14px;
+}
+
+.kiara-tribute__enter:hover {
+    transform: translateY(-2px);
+    background:
+        linear-gradient(135deg, rgba(232, 190, 83, 0.22), rgba(232, 190, 83, 0.07)),
+        rgba(0, 0, 0, 0.44);
+}
+
+.kiara-tribute__remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 248, 232, 0.62);
+    font-size: 0.8rem;
+    padding-left: 8px;
+}
+
+.kiara-tribute__remember input {
+    accent-color: #d4af37;
+}
+
+/* INDICATION GLISSER */
+
+.kiara-tribute__scroll {
+    position: absolute;
+    right: 8vw;
+    bottom: 52px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 248, 232, 0.58);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.kiara-tribute__scroll i {
+    width: 22px;
+    height: 34px;
+    border: 1px solid rgba(232, 190, 83, 0.42);
+    border-radius: 999px;
+    position: relative;
+}
+
+.kiara-tribute__scroll i::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f4d27a;
+    transform: translateX(-50%);
+    animation: kiara-scroll-dot 1.4s ease-in-out infinite;
+}
+
+@keyframes kiara-scroll-dot {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 14px);
+        opacity: 0;
+    }
+}
+
+/* ADAPTATION ÉCRANS BAS */
+
+@media (max-height: 820px) and (min-width: 901px) {
+    .kiara-tribute__content {
+        padding-top: 4vh;
+        padding-bottom: 7vh;
+        transform: translateY(-10px);
+    }
+
+    .kiara-tribute__brand {
+        margin-bottom: 22px;
+    }
+
+    .kiara-tribute__logo-wrap {
+        width: 64px;
+        height: 64px;
+        flex-basis: 64px;
+        padding: 9px;
+    }
+
+    .kiara-tribute__content h1 {
+        font-size: clamp(4rem, 6.8vw, 6.7rem);
+    }
+
+    .kiara-tribute__subtitle {
+        font-size: clamp(1.9rem, 3vw, 3rem);
+    }
+
+    .kiara-tribute__line {
+        margin: 18px 0 17px;
+    }
+
+    .kiara-tribute__text,
+    .kiara-tribute__quote {
+        font-size: 0.92rem;
+        line-height: 1.62;
+    }
+
+    .kiara-tribute__quote {
+        margin-top: 10px;
+    }
+
+    .kiara-tribute__dates {
+        margin-top: 12px;
+    }
+
+    .kiara-tribute__actions {
+        margin-top: 15px;
+    }
+
+    .kiara-tribute__enter {
+        padding: 14px 26px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .kiara-tribute {
+        padding: 0;
+    }
+
+    .kiara-tribute__image {
+        object-position: center;
+        filter: brightness(0.9) contrast(1.04) saturate(1.06);
+    }
+
+    .kiara-tribute__shade {
+        background:
+            linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.84) 0%,
+                rgba(0, 0, 0, 0.66) 36%,
+                rgba(0, 0, 0, 0.36) 66%,
+                rgba(0, 0, 0, 0.18) 100%
+            );
+    }
+
+    .kiara-tribute__gold {
+        inset: 12px;
+        border-color: rgba(232, 190, 83, 0.36);
+    }
+
+    .kiara-tribute__gold::before {
+        left: -12%;
+        top: 12%;
+        width: 320px;
+        height: 320px;
+        opacity: 0.12;
+    }
+
+    .kiara-tribute__close {
+        top: 26px;
+        right: 26px;
+        width: 46px;
+        height: 46px;
+        font-size: 2rem;
+        background: rgba(0, 0, 0, 0.46);
+    }
+
+    .kiara-tribute__content {
+        width: auto;
+        min-height: 100dvh;
+        padding: 7vh 24px 14vh;
+        justify-content: flex-end;
+        transform: none;
+    }
+
+    .kiara-tribute__brand {
+        position: absolute;
+        top: 34px;
+        left: 24px;
+        right: 86px;
+        margin-bottom: 0;
+        gap: 12px;
+    }
+
+    .kiara-tribute__logo-wrap {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+        padding: 7px;
+    }
+
+    .kiara-tribute__logo-wrap img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kiara-tribute__brand-text strong {
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+    }
+
+    .kiara-tribute__brand-text span {
+        margin-top: 5px;
+        font-size: 0.58rem;
+        letter-spacing: 0.23em;
+    }
+
+    .kiara-tribute__kicker {
+        font-size: 0.68rem;
+        line-height: 1.6;
+        letter-spacing: 0.18em;
+        margin-bottom: 10px;
+    }
+
+    .kiara-tribute__content h1 {
+        font-size: clamp(4rem, 21vw, 6rem);
+        line-height: 0.86;
+    }
+
+    .kiara-tribute__subtitle {
+        font-size: clamp(2rem, 10.5vw, 3rem);
+        line-height: 1;
+        max-width: 320px;
+    }
+
+    .kiara-tribute__line {
+        width: min(330px, 100%);
+        margin: 22px 0 20px;
+    }
+
+    .kiara-tribute__text,
+    .kiara-tribute__quote {
+        font-size: 0.9rem;
+        line-height: 1.68;
+        max-width: 100%;
+    }
+
+    .kiara-tribute__quote {
+        margin-top: 12px;
+    }
+
+    .kiara-tribute__dates {
+        margin-top: 18px;
+        gap: 11px;
+        font-size: 0.74rem;
+        letter-spacing: 0.07em;
+    }
+
+    .kiara-tribute__actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        margin-top: 22px;
+    }
+
+    .kiara-tribute__enter {
+        width: 100%;
+        min-width: 0;
+        padding: 16px 22px;
+        font-size: 0.76rem;
+        text-align: center;
+    }
+
+    .kiara-tribute__remember {
+        justify-content: center;
+        font-size: 0.78rem;
+        padding-left: 0;
+    }
+
+    .kiara-tribute__scroll {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 18px;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.56rem;
+        letter-spacing: 0.07em;
+        padding: 0 22px;
+        text-align: center;
+    }
+
+    .kiara-tribute__scroll i {
+        width: 22px;
+        height: 34px;
+        flex: 0 0 22px;
+    }
+}

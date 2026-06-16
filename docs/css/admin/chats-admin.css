@@ -338,6 +338,7 @@ button {
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center center !important;
 }
 
 .admin-status {
@@ -742,7 +743,7 @@ button {
 }
 
 /* =========================
-   GESTION GALERIE EXISTANTE
+   GALERIE EXISTANTE
 ========================= */
 
 .admin-photo-manager {
@@ -759,7 +760,7 @@ button {
 }
 
 .admin-gallery-head h3 {
-    margin: 10px 0 10px;
+    margin: 10px 0;
     font-size: clamp(34px, 3.5vw, 56px);
     line-height: .92;
     letter-spacing: -2px;
@@ -779,6 +780,10 @@ button {
     gap: 22px;
 }
 
+/* =========================
+   APERÇU PHOTO PRINCIPALE
+========================= */
+
 .admin-cover-preview {
     position: relative;
     display: grid;
@@ -786,6 +791,7 @@ button {
     gap: 24px;
     align-items: stretch;
     padding: 18px;
+    overflow: hidden;
     border-radius: 32px;
     color: #fff;
     background:
@@ -793,7 +799,6 @@ button {
         linear-gradient(145deg, #17130d 0%, #090805 100%);
     border: 1px solid rgba(224, 201, 130, .26);
     box-shadow: 0 24px 70px rgba(31, 24, 12, .16);
-    overflow: hidden;
 }
 
 .admin-cover-preview::after {
@@ -827,9 +832,10 @@ button {
 .admin-cover-preview figure {
     position: relative;
     z-index: 2;
+    min-height: 270px;
+    max-height: 430px;
     margin: 0;
     overflow: hidden;
-    min-height: 270px;
     border-radius: 24px;
     background: #000;
     border: 1px solid rgba(224, 201, 130, .22);
@@ -840,6 +846,7 @@ button {
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center center !important;
     filter: brightness(.92) contrast(1.04);
 }
 
@@ -852,11 +859,15 @@ button {
 .admin-cover-preview strong {
     align-self: end;
     display: block;
+    max-width: 100%;
     margin-top: auto;
+    overflow: hidden;
     color: #fff;
-    font-size: clamp(30px, 3vw, 48px);
+    font-size: clamp(22px, 2vw, 32px);
     line-height: .95;
-    letter-spacing: -1.8px;
+    letter-spacing: -1.4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .admin-cover-preview p {
@@ -867,6 +878,10 @@ button {
     line-height: 1.7;
 }
 
+/* =========================
+   LISTE PHOTOS
+========================= */
+
 .admin-photo-list {
     display: grid;
     gap: 12px;
@@ -874,7 +889,7 @@ button {
 
 .admin-photo-row {
     display: grid;
-    grid-template-columns: 48px 92px minmax(0, 1fr) auto;
+    grid-template-columns: 78px 92px minmax(0, 1fr) auto;
     gap: 14px;
     align-items: center;
     padding: 12px;
@@ -902,19 +917,7 @@ button {
     border-color: rgba(151, 105, 35, .38);
 }
 
-.admin-photo-row-rank {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
-    color: #17130d;
-    background: #e8d7a1;
-    font-size: 13px;
-    font-weight: 900;
-}
-
-.admin-photo-row figure {
+.admin-photo-thumb {
     width: 92px;
     height: 74px;
     margin: 0;
@@ -922,13 +925,26 @@ button {
     border-radius: 17px;
     background: #11100b;
     border: 1px solid rgba(200, 168, 90, .20);
+    cursor: zoom-in;
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease;
 }
 
+.admin-photo-thumb:hover {
+    transform: translateY(-2px);
+    border-color: rgba(151, 105, 35, .42);
+    box-shadow: 0 14px 32px rgba(31, 24, 12, .14);
+}
+
+.admin-photo-thumb img,
 .admin-photo-row img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center center !important;
 }
 
 .admin-photo-row-info {
@@ -937,12 +953,12 @@ button {
 
 .admin-photo-row-info strong {
     display: block;
+    overflow: hidden;
     color: #17130d;
     font-size: 15px;
     line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .admin-photo-role {
@@ -1018,6 +1034,303 @@ button {
 }
 
 /* =========================
+   POSITION DIRECTE PHOTO
+========================= */
+
+.admin-photo-rank-editor {
+    width: 74px;
+    height: 54px;
+    display: grid !important;
+    place-items: center;
+    gap: 2px;
+    padding: 6px;
+    margin: 0 !important;
+    border-radius: 999px;
+    background: #e8d7a1;
+    border: 1px solid rgba(151, 105, 35, .18);
+    box-shadow: 0 12px 28px rgba(151, 105, 35, .10);
+}
+
+.admin-photo-rank-editor span {
+    color: rgba(23, 19, 13, .74);
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-size: 8px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.admin-photo-rank-editor input {
+    width: 46px;
+    height: 24px;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    text-align: center;
+    color: #17130d;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.admin-photo-rank-editor input::-webkit-outer-spin-button,
+.admin-photo-rank-editor input::-webkit-inner-spin-button {
+    margin: 0;
+    opacity: 1;
+}
+
+.admin-photo-rank-editor:focus-within {
+    background: #f1e1aa;
+    box-shadow:
+        0 14px 34px rgba(151, 105, 35, .16),
+        0 0 0 4px rgba(200, 168, 90, .12);
+}
+
+/* =========================
+   RECADRAGE / REPOSITION PHOTO
+========================= */
+
+.admin-crop-details {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: rgba(255, 250, 241, .78);
+    border: 1px solid rgba(200, 168, 90, .14);
+}
+
+.admin-crop-details summary {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    color: #17130d;
+    background: rgba(232, 215, 161, .38);
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.admin-crop-form {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 22px;
+    padding: 16px;
+    align-items: center;
+}
+
+.admin-crop-preview {
+    width: 100%;
+    max-width: 360px;
+    height: 430px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #11100b;
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 18px 42px rgba(31, 24, 12, .10);
+}
+
+.admin-crop-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center center !important;
+}
+
+.admin-crop-controls {
+    display: grid;
+    gap: 14px;
+}
+
+.admin-crop-controls label {
+    display: grid;
+    gap: 7px;
+}
+
+.admin-crop-controls span {
+    color: rgba(151, 105, 35, .92);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.admin-crop-controls input[type="range"] {
+    width: 100%;
+    accent-color: #c8a85a;
+}
+
+.admin-crop-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.admin-crop-buttons button,
+.admin-crop-controls button {
+    width: fit-content;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    color: #17130d;
+    background: #e8d7a1;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* =========================
+   LIGHTBOX PHOTO
+========================= */
+
+body.admin-lightbox-open {
+    overflow: hidden;
+}
+
+.admin-photo-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+}
+
+.admin-photo-lightbox.is-open {
+    display: flex;
+}
+
+.admin-photo-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 75% 10%, rgba(224, 201, 130, .16), transparent 34%),
+        rgba(5, 4, 3, .82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.admin-photo-lightbox-panel {
+    position: relative;
+    z-index: 2;
+    width: min(980px, calc(100vw - 56px));
+    max-height: calc(100vh - 56px);
+    display: grid;
+    gap: 16px;
+    padding: 18px;
+    border-radius: 34px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .14), transparent 36%),
+        linear-gradient(145deg, #17130d, #070604);
+    border: 1px solid rgba(224, 201, 130, .26);
+    box-shadow: 0 44px 140px rgba(0, 0, 0, .55);
+    animation: adminPhotoPreviewIn .22s ease both;
+}
+
+.admin-photo-lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(224, 201, 130, .24);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(0, 0, 0, .78);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        transform .18s ease,
+        background .18s ease;
+}
+
+.admin-photo-lightbox-close:hover {
+    transform: scale(1.06);
+    background: #000;
+}
+
+.admin-photo-lightbox-media {
+    position: relative;
+    overflow: hidden;
+    height: min(680px, calc(100vh - 190px));
+    border-radius: 26px;
+    background: #000;
+    border: 1px solid rgba(224, 201, 130, .20);
+}
+
+.admin-photo-lightbox-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, rgba(7, 6, 4, .16), transparent 42%),
+        radial-gradient(circle at 82% 0%, rgba(224, 201, 130, .10), transparent 34%);
+    pointer-events: none;
+}
+
+.admin-photo-lightbox-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.admin-photo-lightbox-caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px 2px;
+}
+
+.admin-photo-lightbox-caption span {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    color: #17130d;
+    background: #e8d7a1;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.admin-photo-lightbox-caption strong {
+    min-width: 0;
+    overflow: hidden;
+    color: #fff;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@keyframes adminPhotoPreviewIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
@@ -1028,7 +1341,7 @@ button {
     }
 
     .admin-photo-row {
-        grid-template-columns: 44px 86px minmax(0, 1fr);
+        grid-template-columns: 78px 86px minmax(0, 1fr);
     }
 
     .admin-photo-row-actions {
@@ -1038,8 +1351,13 @@ button {
 }
 
 @media (max-width: 1180px) {
-    .admin-form-grid {
+    .admin-form-grid,
+    .admin-crop-form {
         grid-template-columns: 1fr;
+    }
+
+    .admin-crop-preview {
+        max-width: 420px;
     }
 }
 
@@ -1058,19 +1376,14 @@ button {
 
     .admin-hero,
     .admin-form-hero,
-    .admin-panel-head {
+    .admin-panel-head,
+    .admin-cover-preview {
         grid-template-columns: 1fr;
     }
 
     .admin-primary-btn,
     .admin-secondary-btn {
         width: fit-content;
-    }
-}
-
-@media (max-width: 900px) {
-    .admin-cover-preview {
-        grid-template-columns: 1fr;
     }
 
     .admin-cover-preview figure {
@@ -1094,15 +1407,18 @@ button {
     }
 
     .admin-fields-grid,
-    .admin-preview-images {
+    .admin-preview-images,
+    .admin-stats,
+    .admin-cat-grid,
+    .admin-cat-meta {
         grid-template-columns: 1fr;
     }
 
     .admin-photo-row {
-        grid-template-columns: 42px 82px 1fr;
+        grid-template-columns: 78px 82px 1fr;
     }
 
-    .admin-photo-row figure {
+    .admin-photo-thumb {
         width: 82px;
         height: 70px;
     }
@@ -1140,18 +1456,47 @@ button {
         font-size: 30px;
     }
 
+    .admin-crop-preview {
+        max-width: none;
+        height: 380px;
+    }
+
+    .admin-crop-buttons,
+    .admin-crop-controls button,
+    .admin-crop-buttons button {
+        width: 100%;
+    }
+
     .admin-save-order-btn {
         max-width: none;
+    }
+
+    .admin-photo-lightbox {
+        padding: 14px;
+    }
+
+    .admin-photo-lightbox-panel {
+        width: 100%;
+        max-height: calc(100vh - 28px);
+        padding: 12px;
+        border-radius: 26px;
+    }
+
+    .admin-photo-lightbox-media {
+        height: min(620px, calc(100vh - 160px));
+        border-radius: 20px;
+    }
+
+    .admin-photo-lightbox-close {
+        top: 14px;
+        right: 14px;
+        width: 42px;
+        height: 42px;
+        font-size: 26px;
     }
 }
 
 @media (max-width: 680px) {
-    .admin-stats,
-    .admin-cat-grid,
-    .admin-cat-meta {
-        grid-template-columns: 1fr;
-    }
-
     .admin-cat-title,
     .admin-cat-actions {
         display: grid;
@@ -1168,17 +1513,317 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .admin-photo-row-rank {
-        width: fit-content;
-        padding: 0 14px;
+    .admin-photo-rank-editor {
+        width: 100%;
+        border-radius: 18px;
     }
 
-    .admin-photo-row figure {
+    .admin-photo-thumb {
         width: 100%;
         height: 180px;
     }
 
     .admin-photo-row-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-crop-preview {
+        height: 320px;
+    }
+}
+
+
+/* =========================================================
+   ADMIN CROQUETTES
+========================================================= */
+
+.admin-croquettes-list {
+    display: grid;
+    gap: 22px;
+}
+
+.admin-croquette-card {
+    padding: 24px;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .10), transparent 34%),
+        rgba(255, 250, 241, .82);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 18px 52px rgba(31, 24, 12, .07);
+}
+
+.admin-croquette-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 18px;
+}
+
+.admin-croquette-tag {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: rgba(151, 105, 35, .92);
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.admin-croquette-card h3 {
+    margin: 0;
+    color: #17130d;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: .95;
+    letter-spacing: -1.8px;
+}
+
+.admin-croquette-card p {
+    max-width: 760px;
+    margin: 12px 0 0;
+    color: rgba(28, 23, 15, .62);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.admin-croquette-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.admin-croquette-status span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.admin-croquette-status .is-visible {
+    color: #17130d;
+    background: #dbe8c1;
+}
+
+.admin-croquette-status .is-hidden {
+    color: rgba(28, 23, 15, .58);
+    background: rgba(28, 23, 15, .08);
+}
+
+.admin-croquette-status .is-featured {
+    color: #17130d;
+    background: #e8d7a1;
+}
+
+.admin-croquette-preview {
+    width: 140px;
+    height: 170px;
+    display: grid;
+    place-items: center;
+    margin: 0 0 22px;
+    overflow: hidden;
+    border-radius: 24px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .68), rgba(255, 250, 241, .48));
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 14px 38px rgba(31, 24, 12, .06);
+}
+
+.admin-croquette-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+    display: block;
+}
+
+.admin-delete-form {
+    margin-top: 14px;
+}
+
+.admin-delete-form button {
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 999px;
+    color: #fff;
+    background: #7a241c;
+    border: 1px solid rgba(120, 40, 30, .20);
+    font-weight: 900;
+}
+
+@media (max-width: 900px) {
+    .admin-croquette-head {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-croquette-status {
+        justify-content: flex-start;
+    }
+}
+
+
+/* =========================
+   ADMIN PEDIGREE
+========================= */
+
+.admin-pedigree-current {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(200, 168, 90, .08);
+    border: 1px solid rgba(200, 168, 90, .14);
+}
+
+.admin-pedigree-current strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #17130d;
+    font-size: 18px;
+}
+
+.admin-pedigree-current a {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    padding: 0 16px;
+    border-radius: 999px;
+    color: #e8d7a1;
+    background: #17130d;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.admin-parent-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.admin-parent-preview-grid > div {
+    padding: 14px;
+    border-radius: 22px;
+    background: rgba(255, 250, 241, .78);
+    border: 1px solid rgba(200, 168, 90, .16);
+}
+
+.admin-parent-preview-grid img {
+    width: 100%;
+    height: 220px;
+    display: block;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 760px) {
+    .admin-parent-preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   ADMIN MARIAGES
+========================================================= */
+
+.admin-mating-list {
+    display: grid;
+    gap: 18px;
+}
+
+.admin-mating-card {
+    padding: 24px;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .10), transparent 34%),
+        rgba(255, 250, 241, .82);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 18px 52px rgba(31, 24, 12, .07);
+}
+
+.admin-mating-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: start;
+}
+
+.admin-mating-status {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: rgba(151, 105, 35, .92);
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.admin-mating-card h3 {
+    margin: 0;
+    color: #17130d;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: .95;
+    letter-spacing: -1.8px;
+}
+
+.admin-mating-card p {
+    margin: 12px 0 0;
+    color: rgba(28, 23, 15, .62);
+    line-height: 1.7;
+}
+
+.admin-mating-badge {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.admin-mating-badge.is-visible {
+    color: #17130d;
+    background: #dbe8c1;
+}
+
+.admin-mating-badge.is-hidden {
+    color: rgba(28, 23, 15, .58);
+    background: rgba(28, 23, 15, .08);
+}
+
+.admin-mating-edit {
+    margin-top: 18px;
+}
+
+.admin-mating-edit summary {
+    width: fit-content;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 18px;
+    border-radius: 999px;
+    color: #e8d7a1;
+    background: #17130d;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.admin-mating-edit .admin-cat-form {
+    margin-top: 22px;
+}
+
+@media (max-width: 760px) {
+    .admin-mating-head {
         grid-template-columns: 1fr;
     }
 }

@@ -1,24 +1,28 @@
+/* =========================================================
+   CONTACT PAGE — Chatterie du Diamant Sauvage
+   CSS propre, corrigé, sans doublons
+========================================================= */
+
+body.modal-open {
+    overflow: hidden;
+}
+
 /* =========================
-   CONTACT PAGE
+   HERO
 ========================= */
 
 .contact-hero {
     position: relative;
     overflow: hidden;
     padding: clamp(82px, 9vw, 130px) 0;
+    color: white;
     background:
         linear-gradient(rgba(224, 201, 130, .035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(224, 201, 130, .03) 1px, transparent 1px),
         radial-gradient(circle at 74% 30%, rgba(216, 198, 142, .22), transparent 30%),
         radial-gradient(circle at 10% 84%, rgba(180, 155, 87, .14), transparent 28%),
         linear-gradient(135deg, #16120c 0%, #0b0906 58%, #070605 100%);
-    background-size:
-        46px 46px,
-        46px 46px,
-        auto,
-        auto,
-        auto;
-    color: white;
+    background-size: 46px 46px, 46px 46px, auto, auto, auto;
 }
 
 .contact-hero-orb {
@@ -70,7 +74,7 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    color: var(--gold-soft);
+    color: var(--gold-soft, #e8d7a1);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 12px;
@@ -81,16 +85,17 @@
     content: "";
     width: 42px;
     height: 1px;
-    background: var(--gold);
+    background: var(--gold, #c8a85a);
 }
 
 .contact-kicker-dark {
-    color: var(--gold);
+    color: var(--gold, #c8a85a);
 }
 
 .contact-hero-content h1 {
     max-width: 760px;
     margin: 22px 0;
+    color: white;
     font-size: clamp(52px, 7vw, 112px);
     line-height: .88;
     letter-spacing: -5px;
@@ -98,7 +103,7 @@
 
 .contact-hero-content h1 em {
     display: block;
-    color: var(--gold-soft);
+    color: var(--gold-soft, #e8d7a1);
     font-style: normal;
 }
 
@@ -118,9 +123,9 @@
 }
 
 .btn-outline-light {
-    border: 1px solid rgba(216, 198, 142, .46);
-    color: var(--gold-soft);
+    color: var(--gold-soft, #e8d7a1);
     background: rgba(255, 255, 255, .045);
+    border: 1px solid rgba(216, 198, 142, .46);
     backdrop-filter: blur(12px);
 }
 
@@ -166,7 +171,7 @@
     z-index: 2;
     display: inline-flex;
     margin-bottom: 18px;
-    color: var(--gold-soft);
+    color: var(--gold-soft, #e8d7a1);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 11px;
@@ -216,8 +221,8 @@
     display: grid;
     place-items: center;
     border-radius: 50%;
+    color: var(--gold-soft, #e8d7a1);
     background: rgba(216, 198, 142, .12);
-    color: var(--gold-soft);
     font-size: 12px;
     letter-spacing: 1px;
 }
@@ -228,7 +233,7 @@
 }
 
 /* =========================
-   CONTACT OPTIONS SIMPLIFIÉ
+   CONTACT OPTIONS
 ========================= */
 
 .contact-options {
@@ -252,25 +257,25 @@
 .contact-form-panel h2,
 .map-content h2 {
     margin: 18px 0 0;
+    color: var(--dark, #17130d);
     font-size: clamp(34px, 4vw, 62px);
     line-height: 1.02;
     letter-spacing: -2.4px;
-    color: var(--dark);
 }
 
 .contact-section-head p,
 .contact-form-panel p,
 .map-content p {
     margin-top: 20px;
-    color: var(--text);
+    color: var(--text, rgba(28, 23, 15, .72));
     font-size: 17px;
     line-height: 1.82;
 }
 
 .contact-section-head p {
+    max-width: 760px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 760px;
 }
 
 .contact-link-icons {
@@ -282,33 +287,26 @@
 }
 
 .contact-link-icon {
-    --brand: var(--gold-soft);
+    --brand: var(--gold-soft, #e8d7a1);
     --brand-soft: rgba(216, 198, 142, .14);
     --brand-shadow: rgba(216, 198, 142, .26);
 
     position: relative;
     width: 78px;
     height: 78px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-    border: 1px solid rgba(180, 155, 87, .18);
-
-    background:
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,.8), rgba(255,255,255,.35)),
-        rgba(255,255,255,.55);
-
     color: #6c5d37;
-
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .35)),
+        rgba(255, 255, 255, .55);
+    border: 1px solid rgba(180, 155, 87, .18);
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.7),
+        inset 0 1px 0 rgba(255, 255, 255, .7),
         0 14px 34px rgba(18, 16, 12, .08);
-
     backdrop-filter: blur(12px);
-
     transition:
         transform .28s ease,
         border-color .28s ease,
@@ -335,8 +333,8 @@
     transform: translateX(-50%) translateY(6px);
     padding: 7px 12px;
     border-radius: 999px;
+    color: var(--cream, #fffaf0);
     background: rgba(18, 16, 12, .92);
-    color: var(--cream);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: .3px;
@@ -345,29 +343,32 @@
     visibility: hidden;
     pointer-events: none;
     transition: .25s ease;
-    box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .18);
 }
 
-.contact-link-icon:hover {
+.contact-link-icon:hover,
+.contact-link-icon.is-touched {
     transform: translateY(-6px) scale(1.05);
     color: var(--brand);
-    border-color: color-mix(in srgb, var(--brand) 58%, transparent);
+    border-color: var(--brand);
     background:
         radial-gradient(circle at 50% 20%, var(--brand-soft), transparent 48%),
-        rgba(255,255,255,.70);
+        rgba(255, 255, 255, .70);
     box-shadow:
-        0 0 0 1px rgba(255,255,255,.5) inset,
+        0 0 0 1px rgba(255, 255, 255, .5) inset,
         0 0 28px var(--brand-shadow),
         0 18px 42px rgba(18, 16, 12, .14);
 }
 
-.contact-link-icon:hover svg {
+.contact-link-icon:hover svg,
+.contact-link-icon.is-touched svg {
     transform: scale(1.08);
     fill: var(--brand);
     filter: drop-shadow(0 0 10px var(--brand-shadow));
 }
 
-.contact-link-icon:hover::after {
+.contact-link-icon:hover::after,
+.contact-link-icon.is-touched::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -391,23 +392,377 @@
     --brand-shadow: rgba(228, 64, 95, .34);
 }
 
-.contact-link-instagram:hover {
+.contact-link-instagram:hover,
+.contact-link-instagram.is-touched {
     background:
-        linear-gradient(135deg, rgba(245,133,41,.18), rgba(221,42,123,.16), rgba(81,91,212,.12)),
-        rgba(255,255,255,.72);
+        linear-gradient(135deg, rgba(245, 133, 41, .18), rgba(221, 42, 123, .16), rgba(81, 91, 212, .12)),
+        rgba(255, 255, 255, .72);
 }
 
-.contact-link-instagram:hover svg {
+.contact-link-instagram:hover svg,
+.contact-link-instagram.is-touched svg {
     fill: #ffffff;
     filter:
-        drop-shadow(0 0 8px rgba(245,133,41,.32))
-        drop-shadow(0 0 11px rgba(221,42,123,.28));
+        drop-shadow(0 0 8px rgba(245, 133, 41, .32))
+        drop-shadow(0 0 11px rgba(221, 42, 123, .28));
 }
 
 .contact-link-facebook {
     --brand: #1877F2;
     --brand-soft: rgba(24, 119, 242, .18);
     --brand-shadow: rgba(24, 119, 242, .34);
+}
+
+/* =========================
+   AVIS GOOGLE PREMIUM
+========================= */
+
+.contact-static-reviews {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(200, 168, 90, .12), transparent 34%),
+        radial-gradient(circle at 88% 92%, rgba(200, 168, 90, .08), transparent 34%),
+        linear-gradient(180deg, #fbf7ef 0%, #f2eadc 100%);
+}
+
+.contact-static-reviews::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(151, 105, 35, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(151, 105, 35, .018) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .42;
+    pointer-events: none;
+}
+
+.contact-static-reviews .container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-reviews-head {
+    max-width: 880px;
+    margin-bottom: 46px;
+}
+
+.contact-reviews-head h2 {
+    margin: 18px 0 22px;
+    color: #17130d;
+    font-size: clamp(42px, 5vw, 78px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.contact-reviews-head p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(28, 23, 15, .68);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.static-reviews-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.static-reviews-summary {
+    position: relative;
+    overflow: hidden;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px;
+    border-radius: 38px;
+    color: white;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(224, 201, 130, .20), transparent 36%),
+        linear-gradient(145deg, #17130d 0%, #080705 100%);
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 28px 80px rgba(31, 24, 12, .18);
+}
+
+.static-reviews-summary::after {
+    content: "G";
+    position: absolute;
+    right: -18px;
+    bottom: -34px;
+    color: rgba(224, 201, 130, .08);
+    font-size: 180px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.static-reviews-summary span {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.static-reviews-summary strong {
+    display: block;
+    margin: 14px 0 10px;
+    color: white;
+    font-size: clamp(52px, 6vw, 86px);
+    line-height: .9;
+    letter-spacing: -3px;
+}
+
+.static-reviews-summary p {
+    max-width: 260px;
+    margin: 0;
+    color: rgba(255, 255, 255, .68);
+    line-height: 1.65;
+}
+
+.static-reviews-summary a {
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 34px;
+    padding: 0 18px;
+    border-radius: 999px;
+    color: #17130d;
+    background: var(--gold-soft, #e8d7a1);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.static-reviews-summary a small {
+    font-size: 14px;
+}
+
+.static-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.static-review-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .12), transparent 34%),
+        rgba(255, 250, 241, .88);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 20px 56px rgba(31, 24, 12, .08);
+}
+
+.static-review-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.static-review-avatar {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: #e8d7a1;
+    background:
+        radial-gradient(circle at 70% 10%, rgba(224, 201, 130, .18), transparent 36%),
+        #17130d;
+    border: 1px solid rgba(200, 168, 90, .22);
+    font-weight: 900;
+}
+
+.static-review-top strong {
+    display: block;
+    color: #17130d;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.static-review-top span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(151, 105, 35, .86);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.static-review-stars {
+    margin-bottom: 16px;
+    color: #c8a85a;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.static-review-excerpt {
+    margin: 0;
+    color: rgba(28, 23, 15, .68);
+    font-size: 14px;
+    line-height: 1.75;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.static-review-open {
+    width: fit-content;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 999px;
+    color: #17130d;
+    background: #e8d7a1;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(151, 105, 35, .12);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.static-review-open:hover {
+    transform: translateY(-2px);
+    background: #ddc985;
+    box-shadow: 0 16px 34px rgba(151, 105, 35, .18);
+}
+
+/* =========================
+   MODAL AVIS
+========================= */
+
+.review-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.review-modal.is-open {
+    display: flex;
+}
+
+.review-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 70% 20%, rgba(224, 201, 130, .14), transparent 32%),
+        rgba(5, 4, 3, .76);
+    backdrop-filter: blur(10px);
+}
+
+.review-modal-panel {
+    position: relative;
+    z-index: 2;
+    width: min(720px, 100%);
+    max-height: min(760px, calc(100vh - 48px));
+    overflow-y: auto;
+    padding: 34px;
+    border-radius: 34px;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .12), transparent 34%),
+        linear-gradient(135deg, #fffaf0 0%, #f3eadb 100%);
+    border: 1px solid rgba(200, 168, 90, .26);
+    box-shadow: 0 40px 130px rgba(0, 0, 0, .42);
+}
+
+.review-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    color: white;
+    background: #17130d;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.review-modal-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-right: 48px;
+}
+
+.review-modal-avatar {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: #e8d7a1;
+    background:
+        radial-gradient(circle at 70% 10%, rgba(224, 201, 130, .18), transparent 36%),
+        #17130d;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.review-modal-top h3 {
+    margin: 0;
+    color: #17130d;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1;
+    letter-spacing: -1.4px;
+}
+
+.review-modal-top span {
+    display: block;
+    margin-top: 7px;
+    color: rgba(151, 105, 35, .86);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.review-modal-stars {
+    margin: 26px 0 18px;
+    color: #c8a85a;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.review-modal-panel p {
+    margin: 0;
+    color: rgba(28, 23, 15, .72);
+    font-size: 16px;
+    line-height: 1.9;
 }
 
 /* =========================
@@ -464,14 +819,17 @@
 .luxury-contact-form textarea,
 .luxury-contact-form select {
     width: 100%;
-    border: 1px solid rgba(180, 155, 87, .25);
-    border-radius: 20px;
-    background: rgba(255, 250, 240, .75);
-    color: var(--dark);
     padding: 17px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(180, 155, 87, .25);
+    background: rgba(255, 250, 240, .75);
+    color: var(--dark, #17130d);
     font-size: 15px;
     outline: none;
-    transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
 .luxury-contact-form textarea {
@@ -506,16 +864,16 @@
 .contact-form-bottom p {
     max-width: 420px;
     margin: 0;
-    color: var(--text);
+    color: var(--text, rgba(28, 23, 15, .72));
     font-size: 14px;
     line-height: 1.6;
 }
 
 .contact-guidance {
-    display: grid;
-    gap: 18px;
     position: sticky;
     top: 140px;
+    display: grid;
+    gap: 18px;
 }
 
 .guidance-card {
@@ -527,11 +885,11 @@
 }
 
 .guidance-card-dark {
+    color: white;
     background:
         radial-gradient(circle at 80% 10%, rgba(216, 198, 142, .20), transparent 34%),
         #120f0b;
     border-color: rgba(216, 198, 142, .22);
-    color: white;
 }
 
 .guidance-card h3 {
@@ -558,7 +916,7 @@
 .guidance-card li {
     position: relative;
     padding-left: 22px;
-    color: var(--text);
+    color: var(--text, rgba(28, 23, 15, .72));
     line-height: 1.6;
 }
 
@@ -567,7 +925,7 @@
     position: absolute;
     left: 0;
     top: 1px;
-    color: var(--gold);
+    color: var(--gold, #c8a85a);
     font-size: 10px;
 }
 
@@ -579,7 +937,7 @@
     padding: clamp(76px, 8vw, 112px) 0;
     background:
         radial-gradient(circle at 82% 20%, rgba(180, 155, 87, .16), transparent 30%),
-        var(--cream);
+        var(--cream, #fffaf0);
 }
 
 .contact-map-grid {
@@ -604,14 +962,14 @@
 }
 
 .map-info-list strong {
-    color: var(--dark);
+    color: var(--dark, #17130d);
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.6px;
 }
 
 .map-info-list span {
-    color: var(--text);
+    color: var(--text, rgba(28, 23, 15, .72));
     text-align: right;
 }
 
@@ -649,17 +1007,17 @@
     z-index: 2;
     padding: 18px 20px;
     border-radius: 22px;
+    color: white;
     background: rgba(12, 9, 6, .78);
     border: 1px solid rgba(216, 198, 142, .22);
     backdrop-filter: blur(16px);
-    color: white;
     box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
 }
 
 .map-floating-label span {
     display: block;
     margin-bottom: 6px;
-    color: var(--gold-soft);
+    color: var(--gold-soft, #e8d7a1);
     font-size: 11px;
     font-weight: 900;
     text-transform: uppercase;
@@ -677,7 +1035,9 @@
 .contact-reveal {
     opacity: 0;
     transform: translateY(34px);
-    transition: opacity .8s ease, transform .8s ease;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .contact-reveal.is-visible {
@@ -700,6 +1060,20 @@
 /* =========================
    RESPONSIVE TABLETTE
 ========================= */
+
+@media (max-width: 1200px) {
+    .static-reviews-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .static-reviews-summary {
+        min-height: auto;
+    }
+
+    .static-reviews-grid {
+        grid-template-columns: repeat(3, minmax(240px, 1fr));
+    }
+}
 
 @media (max-width: 1100px) {
     .contact-hero-grid,
@@ -727,13 +1101,24 @@
     }
 }
 
+@media (max-width: 900px) {
+    .static-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .static-review-card {
+        min-height: auto;
+    }
+}
+
 /* =========================
-   RESPONSIVE MOBILE PREMIUM
+   RESPONSIVE MOBILE
 ========================= */
 
 @media (max-width: 760px) {
     .contact-hero,
     .contact-options,
+    .contact-static-reviews,
     .contact-main,
     .contact-map-section {
         overflow: hidden;
@@ -767,7 +1152,6 @@
     }
 
     .contact-hero-grid {
-        display: grid;
         grid-template-columns: 1fr;
         gap: 28px;
     }
@@ -792,9 +1176,9 @@
 
     .contact-hero-content p {
         max-width: 100%;
+        color: rgba(255, 255, 255, .74);
         font-size: 15.5px;
         line-height: 1.75;
-        color: rgba(255, 255, 255, .74);
     }
 
     .contact-hero-actions {
@@ -804,7 +1188,9 @@
         margin-top: 28px;
     }
 
-    .contact-hero-actions .btn {
+    .contact-hero-actions .btn,
+    .contact-form-bottom .btn,
+    .map-content .btn {
         width: 100%;
         min-height: 52px;
     }
@@ -861,18 +1247,13 @@
         font-size: 13.8px;
     }
 
-    /* =========================
-       CONTACT OPTIONS MOBILE
-    ========================= */
-
-    .contact-options {
+    .contact-options,
+    .contact-static-reviews {
         padding: 58px 0 68px;
-        background:
-            radial-gradient(circle at 20% 0%, rgba(180, 155, 87, .12), transparent 34%),
-            linear-gradient(180deg, #f8f3e8 0%, #f4eee1 100%);
     }
 
-    .contact-section-head {
+    .contact-section-head,
+    .contact-reviews-head {
         max-width: 100%;
         text-align: left;
     }
@@ -883,7 +1264,8 @@
 
     .contact-section-head h2,
     .contact-form-panel h2,
-    .map-content h2 {
+    .map-content h2,
+    .contact-reviews-head h2 {
         margin-top: 16px;
         font-size: clamp(30px, 9vw, 42px);
         line-height: 1.04;
@@ -892,7 +1274,8 @@
 
     .contact-section-head p,
     .contact-form-panel p,
-    .map-content p {
+    .map-content p,
+    .contact-reviews-head p {
         margin-top: 16px;
         font-size: 15px;
         line-height: 1.72;
@@ -909,15 +1292,9 @@
         width: 100%;
         height: auto;
         min-height: 82px;
-        border-radius: 24px;
         flex-direction: column;
         gap: 8px;
-        background:
-            radial-gradient(circle at 30% 20%, rgba(255,255,255,.75), rgba(255,255,255,.36)),
-            rgba(255,255,255,.56);
-        box-shadow:
-            inset 0 1px 0 rgba(255,255,255,.7),
-            0 14px 34px rgba(18, 16, 12, .07);
+        border-radius: 24px;
     }
 
     .contact-link-icon svg {
@@ -942,30 +1319,32 @@
     }
 
     .contact-link-icon:hover,
-    .contact-link-icon:active {
+    .contact-link-icon:active,
+    .contact-link-icon.is-touched {
         transform: none;
         color: var(--brand);
-        border-color: color-mix(in srgb, var(--brand) 45%, transparent);
-        box-shadow:
-            0 0 22px var(--brand-shadow),
-            0 14px 34px rgba(18, 16, 12, .10);
     }
 
     .contact-link-icon:hover::after,
-    .contact-link-icon:active::after {
+    .contact-link-icon:active::after,
+    .contact-link-icon.is-touched::after {
         transform: none;
         color: var(--brand);
     }
 
-    /* =========================
-       FORMULAIRE MOBILE
-    ========================= */
+    .static-reviews-summary,
+    .review-modal-panel {
+        padding: 26px;
+        border-radius: 28px;
+    }
 
-    .contact-main {
+    .review-modal {
+        padding: 14px;
+    }
+
+    .contact-main,
+    .contact-map-section {
         padding: 60px 0;
-        background:
-            radial-gradient(circle at 80% 8%, rgba(180, 155, 87, .12), transparent 32%),
-            linear-gradient(135deg, #fffaf0 0%, #f3eadb 100%);
     }
 
     .contact-main-grid {
@@ -1003,10 +1382,10 @@
     .luxury-contact-form textarea,
     .luxury-contact-form select {
         min-height: 52px;
-        border-radius: 17px;
         padding: 15px 16px;
-        font-size: 15px;
+        border-radius: 17px;
         background: rgba(255, 250, 240, .88);
+        font-size: 15px;
     }
 
     .luxury-contact-form textarea {
@@ -1023,11 +1402,6 @@
     .contact-form-bottom p {
         max-width: 100%;
         font-size: 13.5px;
-    }
-
-    .contact-form-bottom .btn {
-        width: 100%;
-        min-height: 54px;
     }
 
     .contact-guidance {
@@ -1053,17 +1427,6 @@
 
     .guidance-card ul {
         gap: 10px;
-    }
-
-    /* =========================
-       CARTE MOBILE
-    ========================= */
-
-    .contact-map-section {
-        padding: 60px 0 66px;
-        background:
-            radial-gradient(circle at 80% 0%, rgba(180, 155, 87, .14), transparent 34%),
-            var(--cream);
     }
 
     .contact-map-grid {
@@ -1093,11 +1456,6 @@
         font-size: 14.5px;
     }
 
-    .map-content .btn {
-        width: 100%;
-        min-height: 52px;
-    }
-
     .luxury-map-card {
         padding: 9px;
         border-radius: 28px;
@@ -1125,10 +1483,6 @@
     .map-floating-label strong {
         font-size: 16px;
     }
-
-    /* =========================
-       ANIMATIONS MOBILE
-    ========================= */
 
     .contact-reveal {
         transform: translateY(24px);
@@ -1210,7 +1564,10 @@
 @media (prefers-reduced-motion: reduce) {
     .contact-reveal,
     .contact-hero-orb,
-    .contact-signature-card::after {
+    .contact-signature-card::after,
+    .static-review-open,
+    .review-modal-backdrop,
+    .review-modal-panel {
         animation: none;
         transition: none;
     }

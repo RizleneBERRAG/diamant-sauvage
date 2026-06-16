@@ -177,3 +177,23 @@ button {
         transition-duration: .01ms;
     }
 }
+
+
+/* À placer dans votre feuille globale */
+.sparkle-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    background-image:
+        radial-gradient(circle, rgba(245, 198, 92, 0.12) 1px, transparent 2px);
+    background-size: 5px 5px;
+    opacity: 0.04;
+    animation: sparkle-motion 20s linear infinite;
+}
+
+@keyframes sparkle-motion {
+    from { background-position: 0 0; }
+    to   { background-position: -600px 400px; }
+}

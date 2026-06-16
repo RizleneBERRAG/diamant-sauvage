@@ -34,9 +34,11 @@ foreach ($pages as $route => $output) {
     $html = str_replace('http://127.0.0.1:8000', $githubBase, $html);
     $html = str_replace('http://localhost:8000', $githubBase, $html);
 
-    $html = preg_replace('#(href|src|poster|action)="/(?!diamant-sauvage/)#', '$1="' . $githubBase . '/', $html);
-    $html = preg_replace("#url\('/(?!diamant-sauvage/)#", "url('" . $githubBase . "/", $html);
-    $html = preg_replace('#url\("/(?!diamant-sauvage/)#', 'url("' . $githubBase . '/', $html);
+    // Préfixe les chemins absolus pour GitHub Pages, sans doubler /diamant-sauvage
+    // Corrige notamment href="/diamant-sauvage" qui ne doit pas devenir /diamant-sauvage/diamant-sauvage.
+    $html = preg_replace('#(href|src|poster|action)="/(?!diamant-sauvage(?:/|"))#', '$1="' . $githubBase . '/', $html);
+    $html = preg_replace("#url\('/(?!diamant-sauvage(?:/|'))#", "url('" . $githubBase . "/", $html);
+    $html = preg_replace('#url\("/(?!diamant-sauvage(?:/|"))#', 'url("' . $githubBase . '/', $html);
 
     $dir = dirname($output);
 
@@ -78,15 +80,5 @@ function copyDirectory($source, $destination) {
 copyDirectory('public/css', 'docs/css');
 copyDirectory('public/js', 'docs/js');
 copyDirectory('public/images', 'docs/images');
-
-if (is_dir('public/videos')) {
-    copyDirectory('public/videos', 'docs/videos');
-}
-
-if (is_dir('public/storage')) {
-    copyDirectory('public/storage', 'docs/storage');
-}
-
-file_put_contents('docs/.nojekyll', '');
 
 echo "Export terminé.\n";

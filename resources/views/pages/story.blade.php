@@ -5,6 +5,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/histoire-chatterie.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/histoire-founders.css') }}">
 @endpush
 
 @section('content')

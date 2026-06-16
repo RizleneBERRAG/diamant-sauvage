@@ -72,7 +72,9 @@
         <div class="container">
             <div class="contact-section-head contact-reveal">
                 <span class="contact-kicker contact-kicker-dark">Choisir le bon canal</span>
+
                 <h2>Un contact simple, direct et agréable.</h2>
+
                 <p>
                     Pour une demande d’adoption, le formulaire reste le plus pratique.
                     Pour une question rapide, vous pouvez aussi contacter la chatterie directement.
@@ -92,13 +94,13 @@
                     </svg>
                 </a>
 
-                <a href="https://www.instagram.com/TON-LIEN-INSTAGRAM" target="_blank" rel="noopener" class="contact-link-icon contact-link-instagram" aria-label="Instagram" data-label="Instagram">
+                <a href="https://www.instagram.com/chatterie_du_diamant_sauvage" target="_blank" rel="noopener" class="contact-link-icon contact-link-instagram" aria-label="Instagram" data-label="Instagram">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9ZM12 7.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8Zm0 1.8A2.4 2.4 0 1 0 14.4 12 2.4 2.4 0 0 0 12 9.6Zm4.95-3.45a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Z"/>
                     </svg>
                 </a>
 
-                <a href="https://www.facebook.com/TON-LIEN-FACEBOOK" target="_blank" rel="noopener" class="contact-link-icon contact-link-facebook" aria-label="Facebook" data-label="Facebook">
+                <a href="https://www.facebook.com/Elevagedudiamantsauvage" target="_blank" rel="noopener" class="contact-link-icon contact-link-facebook" aria-label="Facebook" data-label="Facebook">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.4 1.4-1.4H16V5.5c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.3v2.4H9v2.8h2.3v7h2.2Z"/>
                     </svg>
@@ -106,6 +108,126 @@
             </div>
         </div>
     </section>
+
+    @php
+        $googleReviews = [
+            [
+                'name' => 'Valerie Pionchon',
+                'date' => 'Il y a 3 semaines',
+                'rating' => 5,
+                'text' => "Nous avons adopté nos deux petites merveilles à la chatterie du Diamant Sauvage, un chaton et une « retraitée » de 5 ans. Dès le premier contact avec l’éleveuse, nous avons senti une femme très agréable, professionnelle, soucieuse du bien-être des animaux et aimant son travail. Nous avons eu beaucoup d’échanges avec elle tout au long du processus d’adoption. Toujours disponible pour répondre à nos questions, nous envoyer des photos et des vidéos. Les chats sont arrivés chez nous sociabilisés, propres, câlins, curieux… des amours. Nous recommandons l’élevage du Diamant Sauvage les yeux fermés. Un grand merci pour votre disponibilité et votre professionnalisme.",
+            ],
+            [
+                'name' => 'Claire K',
+                'date' => 'Il y a 1 mois',
+                'rating' => 5,
+                'text' => "J’ai réservé deux chatons et elle m’a contactée spontanément avant de venir les chercher pour me signaler un problème de santé sérieux concernant l’un d’eux. Des soucis de développement peuvent arriver chez n’importe quel éleveur — ce qui compte, c’est la manière dont ils sont gérés, et j’ai apprécié son honnêteté.",
+            ],
+            [
+                'name' => 'Florian Bonnet',
+                'date' => 'Il y a 1 mois',
+                'rating' => 5,
+                'text' => "Vraiment une superbe chatterie, avec quelqu’un de très passionné et très carré. Nous sommes venus de Marseille et nous avons tout géré à distance jusqu’au jour où nous sommes venus récupérer le chaton. Tout s’est bien déroulé et nous recommandons vraiment cette chatterie.",
+            ],
+        ];
+    @endphp
+
+    <section class="contact-static-reviews">
+        <div class="container">
+            <div class="contact-reviews-head contact-reveal">
+                <span class="contact-kicker contact-kicker-dark">Avis Google</span>
+
+                <h2>Les derniers retours des familles.</h2>
+
+                <p>
+                    Quelques avis récents laissés par les familles ayant échangé avec la chatterie.
+                    Des retours précieux qui reflètent l’accompagnement, la confiance et le sérieux apportés à chaque adoption.
+                </p>
+            </div>
+
+            <div class="static-reviews-layout contact-reveal delay-1">
+                <aside class="static-reviews-summary">
+                    <span>Note Google</span>
+
+                    <strong>5,0/5</strong>
+
+                    <p>
+                        Avis récents issus de la fiche Google de la chatterie.
+                    </p>
+
+                    <a
+                        href="https://www.google.com/search?q=Chatterie+du+Diamant+Sauvage+avis"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Voir les avis Google
+                        <small>↗</small>
+                    </a>
+                </aside>
+
+                <div class="static-reviews-grid">
+                    @foreach($googleReviews as $review)
+                        <article class="static-review-card">
+                            <div class="static-review-top">
+                                <div class="static-review-avatar">
+                                    {{ mb_substr($review['name'], 0, 1) }}
+                                </div>
+
+                                <div>
+                                    <strong>{{ $review['name'] }}</strong>
+                                    <span>{{ $review['date'] }}</span>
+                                </div>
+                            </div>
+
+                            <div class="static-review-stars" aria-label="{{ $review['rating'] }} étoiles sur 5">
+                                @for($i = 1; $i <= 5; $i++)
+                                    {{ $i <= $review['rating'] ? '★' : '☆' }}
+                                @endfor
+                            </div>
+
+                            <p class="static-review-excerpt">
+                                {{ $review['text'] }}
+                            </p>
+
+                            <button
+                                type="button"
+                                class="static-review-open"
+                                data-name="{{ e($review['name']) }}"
+                                data-date="{{ e($review['date']) }}"
+                                data-rating="{{ $review['rating'] }}"
+                                data-text="{{ e($review['text']) }}"
+                            >
+                                Lire l’avis complet
+                            </button>
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="review-modal" id="reviewModal" aria-hidden="true">
+        <div class="review-modal-backdrop" data-review-close></div>
+
+        <div class="review-modal-panel" role="dialog" aria-modal="true" aria-labelledby="reviewModalName">
+            <button type="button" class="review-modal-close" data-review-close aria-label="Fermer l’avis">
+                ×
+            </button>
+
+            <div class="review-modal-top">
+                <div class="review-modal-avatar" id="reviewModalAvatar">A</div>
+
+                <div>
+                    <h3 id="reviewModalName">Avis Google</h3>
+                    <span id="reviewModalDate">Date</span>
+                </div>
+            </div>
+
+            <div class="review-modal-stars" id="reviewModalStars">★★★★★</div>
+
+            <p id="reviewModalText"></p>
+        </div>
+    </div>
 
     <section class="contact-main" id="message">
         <div class="container contact-main-grid">
@@ -171,7 +293,9 @@
             <aside class="contact-guidance contact-reveal delay-1">
                 <div class="guidance-card guidance-card-dark">
                     <span>Conseil</span>
+
                     <h3>Un bon premier message reste simple.</h3>
+
                     <p>
                         Inutile d’écrire trop long : présentez qui vous êtes, votre lieu de vie,
                         votre disponibilité et le type de chaton recherché.
@@ -180,6 +304,7 @@
 
                 <div class="guidance-card">
                     <span>À préciser</span>
+
                     <ul>
                         <li>Maison ou appartement</li>
                         <li>Présence d’autres animaux</li>
@@ -241,7 +366,7 @@
                 </div>
 
                 <div class="map-floating-label">
-                    <span>Chatterie du Diamant sauvage</span>
+                    <span>Chatterie du Diamant Sauvage</span>
                     <strong>Villeneuve-de-Marc</strong>
                 </div>
             </div>
@@ -251,53 +376,5 @@
 @endsection
 
 @push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealItems = document.querySelectorAll('.contact-reveal');
-
-            if (revealItems.length) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.14
-                });
-
-                revealItems.forEach((item) => observer.observe(item));
-            }
-
-            document.querySelectorAll('.contact-scroll').forEach((link) => {
-                link.addEventListener('click', (event) => {
-                    const target = document.querySelector(link.getAttribute('href'));
-
-                    if (!target) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                });
-            });
-
-            const formFields = document.querySelectorAll('.luxury-contact-form input, .luxury-contact-form textarea, .luxury-contact-form select');
-
-            formFields.forEach((field) => {
-                field.addEventListener('focus', () => {
-                    field.closest('label')?.classList.add('is-focused');
-                });
-
-                field.addEventListener('blur', () => {
-                    field.closest('label')?.classList.remove('is-focused');
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/contact.js') }}"></script>
 @endpush

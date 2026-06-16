@@ -6,6 +6,7 @@ $githubBase = '/diamant-sauvage';
 $pages = [
     '/' => 'docs/index.html',
     '/la-chatterie' => 'docs/la-chatterie/index.html',
+    '/notre-histoire' => 'docs/notre-histoire/index.html',
     '/contact' => 'docs/contact/index.html',
     '/mentions-legales' => 'docs/mentions-legales/index.html',
 

@@ -6,10 +6,13 @@ use App\Http\Controllers\Admin\CatController;
 use App\Http\Controllers\Admin\CroquetteController;
 use App\Models\Mating;
 use App\Http\Controllers\Admin\MatingController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', fn () => view('pages.home'))->name('home');
 
 Route::get('/la-chatterie', fn () => view('pages.chatterie'))->name('chatterie');
+
+Route::get('/notre-histoire', fn () => view('pages.story'))->name('histoire');
 
 Route::prefix('le-bengal')->name('bengal.')->group(function () {
     Route::get('/origines-morphologie-robe', fn () => view('pages.bengal.origines-morphologie-robe'))->name('origines');
@@ -35,6 +38,7 @@ Route::prefix('nos-chats')->name('chats.')->group(function () {
 });
 
 Route::get('/contact', fn () => view('pages.contact'))->name('contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/mentions-legales', fn () => view('pages.mentions-legales'))->name('mentions');
 
 /*

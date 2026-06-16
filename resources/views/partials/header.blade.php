@@ -18,7 +18,7 @@
 
         <nav class="ds-nav" id="dsMainNav" aria-label="Navigation principale">
             <a href="{{ url('/') }}">Accueil</a>
-
+            <a href="{{ route('histoire') }}">Notre histoire</a>
             <div class="ds-nav-dropdown">
                 <button class="ds-nav-trigger" type="button" aria-expanded="false">
                     Le Bengal

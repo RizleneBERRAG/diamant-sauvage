@@ -241,41 +241,91 @@
                     votre expérience avec les chats et ce que vous recherchez.
                 </p>
 
-                <form class="luxury-contact-form" action="#" method="POST">
+                @if(session('success'))
+                    <div class="contact-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="contact-errors">
+                        <strong>Merci de corriger les informations suivantes :</strong>
+
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form class="luxury-contact-form" action="{{ route('contact.send') }}" method="POST">
                     @csrf
+
+                    <input type="text" name="website" autocomplete="off" tabindex="-1" style="display:none">
 
                     <div class="form-row">
                         <label>
                             <span>Votre nom</span>
-                            <input type="text" name="name" placeholder="Nom et prénom">
+                            <input
+                                type="text"
+                                name="name"
+                                value="{{ old('name') }}"
+                                placeholder="Nom et prénom"
+                                required
+                            >
                         </label>
 
                         <label>
                             <span>Votre email</span>
-                            <input type="email" name="email" placeholder="votre@email.fr">
+                            <input
+                                type="email"
+                                name="email"
+                                value="{{ old('email') }}"
+                                placeholder="votre@email.fr"
+                                required
+                            >
                         </label>
                     </div>
 
                     <div class="form-row">
                         <label>
                             <span>Téléphone</span>
-                            <input type="tel" name="phone" placeholder="06 00 00 00 00">
+                            <input
+                                type="tel"
+                                name="phone"
+                                value="{{ old('phone') }}"
+                                placeholder="06 00 00 00 00"
+                            >
                         </label>
 
                         <label>
                             <span>Votre préférence</span>
                             <select name="preference">
-                                <option value="">À préciser</option>
-                                <option value="femelle">Femelle</option>
-                                <option value="male">Mâle</option>
-                                <option value="indifferent">Ouvert aux deux</option>
+                                <option value="" @selected(old('preference') === null || old('preference') === '')>
+                                    À préciser
+                                </option>
+                                <option value="Femelle" @selected(old('preference') === 'Femelle')>
+                                    Femelle
+                                </option>
+                                <option value="Mâle" @selected(old('preference') === 'Mâle')>
+                                    Mâle
+                                </option>
+                                <option value="Ouvert aux deux" @selected(old('preference') === 'Ouvert aux deux')>
+                                    Ouvert aux deux
+                                </option>
                             </select>
                         </label>
                     </div>
 
                     <label>
                         <span>Votre projet</span>
-                        <textarea name="message" rows="6" placeholder="Parlez brièvement de votre cadre de vie, de votre recherche et de ce qui vous attire chez le Bengal."></textarea>
+                        <textarea
+                            name="message"
+                            rows="6"
+                            placeholder="Parlez brièvement de votre cadre de vie, de votre recherche et de ce qui vous attire chez le Bengal."
+                            required
+                        >{{ old('message') }}</textarea>
                     </label>
 
                     <div class="contact-form-bottom">

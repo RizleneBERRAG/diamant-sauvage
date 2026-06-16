@@ -142,8 +142,10 @@
 
             <nav class="footer-drawer-content" aria-label="Navigation principale">
                 <a href="{{ url('/') }}">Accueil</a>
+                <a href="{{ route('histoire') }}">Notre histoire</a>
                 <a href="{{ route('chatterie') }}">La chatterie</a>
                 <a href="{{ route('contact') }}">Nous contacter</a>
+
             </nav>
 
             <div class="footer-contact-card">

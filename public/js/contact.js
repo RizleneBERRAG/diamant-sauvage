@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================= */
 
     if (!document.querySelector('link[href*="contact-reviews.css"]')) {
+        const githubPagesBase = window.location.pathname.startsWith('/diamant-sauvage') ? '/diamant-sauvage' : '';
         const reviewStylesheet = document.createElement('link');
+
         reviewStylesheet.rel = 'stylesheet';
-        reviewStylesheet.href = '/css/contact-reviews.css';
+        reviewStylesheet.href = `${githubPagesBase}/css/contact-reviews.css`;
         document.head.appendChild(reviewStylesheet);
     }
 

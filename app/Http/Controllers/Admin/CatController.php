@@ -46,6 +46,8 @@ class CatController extends Controller
             $data['price'] = null;
         }
 
+        $data = $this->handlePedigreeFiles($request, $data);
+
         $cat = Cat::create($data);
 
         $this->storeImages($request, $cat);
@@ -73,6 +75,8 @@ class CatController extends Controller
             $data['price'] = null;
         }
 
+        $data = $this->handlePedigreeFiles($request, $data, $cat);
+
         $cat->update($data);
 
         $this->storeImages($request, $cat);
@@ -86,6 +90,18 @@ class CatController extends Controller
     {
         foreach ($cat->images as $image) {
             Storage::disk('public')->delete($image->path);
+        }
+
+        if ($cat->pedigree_pdf) {
+            Storage::disk('public')->delete($cat->pedigree_pdf);
+        }
+
+        if ($cat->father_photo) {
+            Storage::disk('public')->delete($cat->father_photo);
+        }
+
+        if ($cat->mother_photo) {
+            Storage::disk('public')->delete($cat->mother_photo);
         }
 
         $cat->delete();
@@ -148,6 +164,16 @@ class CatController extends Controller
             'father_name' => ['nullable', 'string', 'max:255'],
             'mother_name' => ['nullable', 'string', 'max:255'],
 
+            'pedigree_note' => ['nullable', 'string'],
+            'pedigree_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:8192'],
+            'father_photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:8192'],
+            'mother_photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:8192'],
+
+            'remove_pedigree_pdf' => ['nullable', 'boolean'],
+            'remove_father_photo' => ['nullable', 'boolean'],
+            'remove_mother_photo' => ['nullable', 'boolean'],
+
+
             'health_hcm' => ['nullable', 'string', 'max:255'],
             'health_pkd' => ['nullable', 'string', 'max:255'],
             'health_fiv_felv' => ['nullable', 'string', 'max:255'],
@@ -182,6 +208,62 @@ class CatController extends Controller
                 'sort_order' => $currentMaxOrder + $index + 1,
             ]);
         }
+    }
+
+    private function handlePedigreeFiles(Request $request, array $data, ?Cat $cat = null): array
+    {
+        unset(
+            $data['remove_pedigree_pdf'],
+            $data['remove_father_photo'],
+            $data['remove_mother_photo']
+        );
+
+        if ($cat && $request->boolean('remove_pedigree_pdf') && $cat->pedigree_pdf) {
+            Storage::disk('public')->delete($cat->pedigree_pdf);
+            $data['pedigree_pdf'] = null;
+        }
+
+        if ($cat && $request->boolean('remove_father_photo') && $cat->father_photo) {
+            Storage::disk('public')->delete($cat->father_photo);
+            $data['father_photo'] = null;
+        }
+
+        if ($cat && $request->boolean('remove_mother_photo') && $cat->mother_photo) {
+            Storage::disk('public')->delete($cat->mother_photo);
+            $data['mother_photo'] = null;
+        }
+
+        if ($request->hasFile('pedigree_pdf')) {
+            if ($cat && $cat->pedigree_pdf) {
+                Storage::disk('public')->delete($cat->pedigree_pdf);
+            }
+
+            $data['pedigree_pdf'] = $request->file('pedigree_pdf')->store('pedigrees', 'public');
+        } elseif (!$cat) {
+            unset($data['pedigree_pdf']);
+        }
+
+        if ($request->hasFile('father_photo')) {
+            if ($cat && $cat->father_photo) {
+                Storage::disk('public')->delete($cat->father_photo);
+            }
+
+            $data['father_photo'] = $request->file('father_photo')->store('pedigrees/parents', 'public');
+        } elseif (!$cat) {
+            unset($data['father_photo']);
+        }
+
+        if ($request->hasFile('mother_photo')) {
+            if ($cat && $cat->mother_photo) {
+                Storage::disk('public')->delete($cat->mother_photo);
+            }
+
+            $data['mother_photo'] = $request->file('mother_photo')->store('pedigrees/parents', 'public');
+        } elseif (!$cat) {
+            unset($data['mother_photo']);
+        }
+
+        return $data;
     }
 
     private function uniqueSlug(string $name, ?int $ignoreId = null): string
@@ -219,5 +301,18 @@ class CatController extends Controller
         }
 
         return back()->with('success', 'L’ordre des photos a bien été enregistré.');
+    }
+
+    public function updateImageCrop(Request $request, CatImage $image)
+    {
+        $data = $request->validate([
+            'position_x' => ['required', 'numeric', 'min:-100', 'max:200'],
+            'position_y' => ['required', 'numeric', 'min:-100', 'max:200'],
+            'zoom' => ['required', 'numeric', 'min:0.5', 'max:5'],
+        ]);
+
+        $image->update($data);
+
+        return back()->with('success', 'Le cadrage de la photo a bien été enregistré.');
     }
 }

@@ -118,6 +118,77 @@
                     <h2>LOOF, I-CAD et parents</h2>
                 </div>
 
+                <div class="admin-form-card">
+                    <div class="admin-form-card-head">
+                        <span class="admin-kicker">Origines</span>
+                        <h2>Pedigree & parents</h2>
+                    </div>
+
+                    <label class="admin-full-field">
+                        <span>Mention pedigree</span>
+                        <textarea
+                            name="pedigree_note"
+                            rows="3"
+                            placeholder="Issue du mariage de Pardusdei Uroboros et Pardusdei Talullah."
+                        >{{ old('pedigree_note', $cat->pedigree_note) }}</textarea>
+                    </label>
+
+                    <label class="admin-full-field">
+                        <span>PDF du pedigree</span>
+                        <input type="file" name="pedigree_pdf" accept="application/pdf">
+                    </label>
+
+                    @if($cat->pedigree_pdf)
+                        <div class="admin-pedigree-current">
+                            <strong>Pedigree actuel</strong>
+                            <a href="{{ asset('storage/' . $cat->pedigree_pdf) }}" target="_blank">
+                                Voir le PDF
+                            </a>
+
+                            <label class="admin-checkbox">
+                                <input type="checkbox" name="remove_pedigree_pdf" value="1">
+                                <span>Supprimer le PDF actuel</span>
+                            </label>
+                        </div>
+                    @endif
+
+                    <div class="admin-fields-grid">
+                        <label>
+                            <span>Photo du père</span>
+                            <input type="file" name="father_photo" accept="image/jpeg,image/png,image/webp">
+                        </label>
+
+                        <label>
+                            <span>Photo de la mère</span>
+                            <input type="file" name="mother_photo" accept="image/jpeg,image/png,image/webp">
+                        </label>
+                    </div>
+
+                    @if($cat->father_photo || $cat->mother_photo)
+                        <div class="admin-parent-preview-grid">
+                            @if($cat->father_photo)
+                                <div>
+                                    <img src="{{ asset('storage/' . $cat->father_photo) }}" alt="Photo du père">
+                                    <label class="admin-checkbox">
+                                        <input type="checkbox" name="remove_father_photo" value="1">
+                                        <span>Supprimer la photo du père</span>
+                                    </label>
+                                </div>
+                            @endif
+
+                            @if($cat->mother_photo)
+                                <div>
+                                    <img src="{{ asset('storage/' . $cat->mother_photo) }}" alt="Photo de la mère">
+                                    <label class="admin-checkbox">
+                                        <input type="checkbox" name="remove_mother_photo" value="1">
+                                        <span>Supprimer la photo de la mère</span>
+                                    </label>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+                </div>
+
                 <div class="admin-fields-grid">
                     <label>
                         <span>I-CAD</span>
@@ -273,14 +344,17 @@
                 <h3>Choisir la photo principale</h3>
 
                 <p>
-                    La photo de couverture est celle qui apparaît en premier sur le site.
-                    Réorganisez les photos facilement avec les boutons, puis enregistrez.
+                    Modifiez directement le numéro pour déplacer une photo, utilisez les boutons si besoin,
+                    cliquez sur la miniature pour l’aperçu grand format, puis enregistrez l’ordre.
                 </p>
             </div>
 
             <div class="admin-gallery-layout">
                 @php
                     $coverImage = $cat->images->first();
+                    $coverPositionX = $coverImage->position_x ?? 50;
+                    $coverPositionY = $coverImage->position_y ?? 50;
+                    $coverZoom = $coverImage->zoom ?? 1;
                 @endphp
 
                 <aside class="admin-cover-preview" id="coverPreview">
@@ -291,6 +365,10 @@
                             src="{{ asset('storage/' . $coverImage->path) }}"
                             alt="{{ $coverImage->alt ?: $cat->name }}"
                             id="coverPreviewImage"
+                            style="
+                                object-position: {{ $coverPositionX }}% {{ $coverPositionY }}%;
+                                transform: scale({{ $coverZoom }});
+                            "
                         >
                     </figure>
 
@@ -305,22 +383,48 @@
 
                 <div class="admin-photo-list" id="photoList">
                     @foreach($cat->images as $image)
+                        @php
+                            $positionX = $image->position_x ?? 50;
+                            $positionY = $image->position_y ?? 50;
+                            $zoom = $image->zoom ?? 1;
+                            $imageName = $image->original_name ?: 'Photo ' . $loop->iteration;
+                        @endphp
+
                         <article
                             class="admin-photo-row"
                             data-image-id="{{ $image->id }}"
                             data-image-src="{{ asset('storage/' . $image->path) }}"
-                            data-image-name="{{ $image->original_name ?: 'Photo ' . $loop->iteration }}"
+                            data-image-name="{{ $imageName }}"
+                            data-crop-x="{{ $positionX }}"
+                            data-crop-y="{{ $positionY }}"
+                            data-crop-zoom="{{ $zoom }}"
                         >
-                            <div class="admin-photo-row-rank">
-                                {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
-                            </div>
+                            <label class="admin-photo-rank-editor">
+                                <span>Photo</span>
 
-                            <figure>
-                                <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->alt ?: $cat->name }}">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    value="{{ $loop->iteration }}"
+                                    data-photo-position
+                                    aria-label="Modifier la position de la photo {{ $loop->iteration }}"
+                                >
+                            </label>
+
+                            <figure class="admin-photo-thumb" data-photo-preview>
+                                <img
+                                    src="{{ asset('storage/' . $image->path) }}"
+                                    alt="{{ $image->alt ?: $cat->name }}"
+                                    style="
+                                        object-position: {{ $positionX }}% {{ $positionY }}%;
+                                        transform: scale({{ $zoom }});
+                                    "
+                                >
                             </figure>
 
                             <div class="admin-photo-row-info">
-                                <strong>{{ $image->original_name ?: 'Photo ' . $loop->iteration }}</strong>
+                                <strong>{{ $imageName }}</strong>
+
                                 <span class="admin-photo-role">
                                     {{ $loop->first || $image->is_main ? 'Photo principale' : 'Photo secondaire' }}
                                 </span>
@@ -334,9 +438,84 @@
                                 <form action="{{ route('admin.cat-images.destroy', $image) }}" method="POST" onsubmit="return confirm('Supprimer cette photo ?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="is-danger">Supprimer</button>
+
+                                    <button type="submit" class="is-danger">
+                                        Supprimer
+                                    </button>
                                 </form>
                             </div>
+
+                            <details class="admin-crop-details">
+                                <summary>Recadrer / replacer</summary>
+
+                                <form action="{{ route('admin.cat-images.crop', $image) }}" method="POST" class="admin-crop-form" data-crop-form>
+                                    @csrf
+                                    @method('PATCH')
+
+                                    <div class="admin-crop-preview">
+                                        <img
+                                            src="{{ asset('storage/' . $image->path) }}"
+                                            alt="{{ $image->alt ?: $cat->name }}"
+                                            style="
+                                                object-position: {{ $positionX }}% {{ $positionY }}%;
+                                                transform: scale({{ $zoom }});
+                                            "
+                                            data-crop-preview
+                                        >
+                                    </div>
+
+                                    <div class="admin-crop-controls">
+                                        <label>
+                                            <span>Horizontal</span>
+                                            <input
+                                                type="range"
+                                                name="position_x"
+                                                min="-100"
+                                                max="200"
+                                                step="1"
+                                                value="{{ $positionX }}"
+                                                data-crop-x
+                                            >
+                                        </label>
+
+                                        <label>
+                                            <span>Vertical</span>
+                                            <input
+                                                type="range"
+                                                name="position_y"
+                                                min="-100"
+                                                max="200"
+                                                step="1"
+                                                value="{{ $positionY }}"
+                                                data-crop-y
+                                            >
+                                        </label>
+
+                                        <label>
+                                            <span>Zoom</span>
+                                            <input
+                                                type="range"
+                                                name="zoom"
+                                                min="0.5"
+                                                max="5"
+                                                step="0.01"
+                                                value="{{ $zoom }}"
+                                                data-crop-zoom
+                                            >
+                                        </label>
+
+                                        <div class="admin-crop-buttons">
+                                            <button type="button" data-crop-reset>
+                                                Réinitialiser
+                                            </button>
+
+                                            <button type="submit">
+                                                Enregistrer le cadrage
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </details>
                         </article>
                     @endforeach
                 </div>
@@ -355,6 +534,30 @@
         </div>
     </section>
 @endif
+
+<div class="admin-photo-lightbox" id="adminPhotoLightbox" aria-hidden="true">
+    <div class="admin-photo-lightbox-backdrop" data-photo-lightbox-close></div>
+
+    <div class="admin-photo-lightbox-panel">
+        <button
+            type="button"
+            class="admin-photo-lightbox-close"
+            data-photo-lightbox-close
+            aria-label="Fermer l’aperçu"
+        >
+            ×
+        </button>
+
+        <div class="admin-photo-lightbox-media">
+            <img src="" alt="" id="adminPhotoLightboxImage">
+        </div>
+
+        <div class="admin-photo-lightbox-caption">
+            <span id="adminPhotoLightboxRank">Photo</span>
+            <strong id="adminPhotoLightboxName">Aperçu</strong>
+        </div>
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -403,6 +606,20 @@
             return Array.from(photoList.querySelectorAll('[data-image-id]'));
         }
 
+        function updateCoverPreview(firstRow) {
+            if (!firstRow || !coverPreviewImage || !coverPreviewName) return;
+
+            const cropX = firstRow.dataset.cropX || '50';
+            const cropY = firstRow.dataset.cropY || '50';
+            const cropZoom = firstRow.dataset.cropZoom || '1';
+
+            coverPreviewImage.src = firstRow.dataset.imageSrc;
+            coverPreviewImage.style.objectPosition = `${cropX}% ${cropY}%`;
+            coverPreviewImage.style.transform = `scale(${cropZoom})`;
+
+            coverPreviewName.textContent = firstRow.dataset.imageName || 'Photo principale';
+        }
+
         function refreshPhotoOrder() {
             if (!photoList || !orderInputs) return;
 
@@ -417,14 +634,15 @@
                 input.value = row.dataset.imageId;
                 orderInputs.appendChild(input);
 
-                const rank = row.querySelector('.admin-photo-row-rank');
+                const rankInput = row.querySelector('[data-photo-position]');
                 const role = row.querySelector('.admin-photo-role');
                 const upButton = row.querySelector('[data-photo-action="up"]');
                 const downButton = row.querySelector('[data-photo-action="down"]');
                 const coverButton = row.querySelector('[data-photo-action="cover"]');
 
-                if (rank) {
-                    rank.textContent = String(index + 1).padStart(2, '0');
+                if (rankInput) {
+                    rankInput.value = index + 1;
+                    rankInput.max = rows.length;
                 }
 
                 row.classList.toggle('is-cover', index === 0);
@@ -446,12 +664,7 @@
                 }
             });
 
-            const firstRow = rows[0];
-
-            if (firstRow && coverPreviewImage && coverPreviewName) {
-                coverPreviewImage.src = firstRow.dataset.imageSrc;
-                coverPreviewName.textContent = firstRow.dataset.imageName || 'Photo principale';
-            }
+            updateCoverPreview(rows[0]);
         }
 
         function movePhoto(row, action) {
@@ -477,6 +690,7 @@
 
             photoList.addEventListener('click', function (event) {
                 const actionButton = event.target.closest('[data-photo-action]');
+
                 if (!actionButton) return;
 
                 const row = actionButton.closest('[data-image-id]');
@@ -488,8 +702,213 @@
             refreshPhotoOrder();
         }
 
+        function initPositionInputs() {
+            if (!photoList) return;
+
+            function moveRowToPosition(row, wantedPosition) {
+                const rows = getPhotoRows();
+
+                if (!row || rows.length === 0) return;
+
+                const total = rows.length;
+                let targetPosition = parseInt(wantedPosition, 10);
+
+                if (Number.isNaN(targetPosition)) {
+                    refreshPhotoOrder();
+                    return;
+                }
+
+                targetPosition = Math.max(1, Math.min(targetPosition, total));
+
+                const currentIndex = rows.indexOf(row);
+                const targetIndex = targetPosition - 1;
+
+                if (currentIndex === targetIndex) {
+                    refreshPhotoOrder();
+                    return;
+                }
+
+                row.remove();
+
+                const updatedRows = getPhotoRows();
+                const referenceRow = updatedRows[targetIndex] || null;
+
+                if (referenceRow) {
+                    photoList.insertBefore(row, referenceRow);
+                } else {
+                    photoList.appendChild(row);
+                }
+
+                refreshPhotoOrder();
+            }
+
+            function applyPositionInput(input) {
+                if (!input) return;
+
+                const row = input.closest('[data-image-id]');
+
+                if (!row) return;
+
+                moveRowToPosition(row, input.value);
+            }
+
+            photoList.addEventListener('change', function (event) {
+                const input = event.target.closest('[data-photo-position]');
+
+                if (!input) return;
+
+                applyPositionInput(input);
+            });
+
+            photoList.addEventListener('keydown', function (event) {
+                const input = event.target.closest('[data-photo-position]');
+
+                if (!input) return;
+
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    applyPositionInput(input);
+                    input.blur();
+                }
+            });
+
+            const reorderForm = document.getElementById('reorderForm');
+
+            if (reorderForm) {
+                reorderForm.addEventListener('submit', function () {
+                    const activeInput = document.activeElement?.closest?.('[data-photo-position]');
+
+                    if (activeInput) {
+                        applyPositionInput(activeInput);
+                    }
+
+                    refreshPhotoOrder();
+                });
+            }
+        }
+
+        function initCropForms() {
+            document.querySelectorAll('[data-crop-form]').forEach((form) => {
+                const preview = form.querySelector('[data-crop-preview]');
+                const inputX = form.querySelector('[data-crop-x]');
+                const inputY = form.querySelector('[data-crop-y]');
+                const inputZoom = form.querySelector('[data-crop-zoom]');
+                const resetButton = form.querySelector('[data-crop-reset]');
+                const row = form.closest('[data-image-id]');
+
+                function updatePreview() {
+                    if (!preview || !inputX || !inputY || !inputZoom) return;
+
+                    const x = inputX.value;
+                    const y = inputY.value;
+                    const zoom = inputZoom.value;
+
+                    preview.style.objectPosition = `${x}% ${y}%`;
+                    preview.style.transform = `scale(${zoom})`;
+
+                    if (row) {
+                        row.dataset.cropX = x;
+                        row.dataset.cropY = y;
+                        row.dataset.cropZoom = zoom;
+
+                        const rowImage = row.querySelector('.admin-photo-thumb img');
+
+                        if (rowImage) {
+                            rowImage.style.objectPosition = `${x}% ${y}%`;
+                            rowImage.style.transform = `scale(${zoom})`;
+                        }
+
+                        if (row.classList.contains('is-cover')) {
+                            updateCoverPreview(row);
+                        }
+                    }
+                }
+
+                if (resetButton) {
+                    resetButton.addEventListener('click', function () {
+                        if (inputX) inputX.value = 50;
+                        if (inputY) inputY.value = 50;
+                        if (inputZoom) inputZoom.value = 1;
+
+                        updatePreview();
+                    });
+                }
+
+                [inputX, inputY, inputZoom].forEach((input) => {
+                    if (input) {
+                        input.addEventListener('input', updatePreview);
+                    }
+                });
+
+                updatePreview();
+            });
+        }
+
+        function initPhotoLightbox() {
+            const lightbox = document.getElementById('adminPhotoLightbox');
+            const lightboxImage = document.getElementById('adminPhotoLightboxImage');
+            const lightboxRank = document.getElementById('adminPhotoLightboxRank');
+            const lightboxName = document.getElementById('adminPhotoLightboxName');
+            const closeButtons = document.querySelectorAll('[data-photo-lightbox-close]');
+
+            if (!lightbox || !lightboxImage) return;
+
+            document.querySelectorAll('[data-photo-preview]').forEach((trigger) => {
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const row = trigger.closest('[data-image-id]');
+
+                    if (!row) return;
+
+                    const img = row.querySelector('.admin-photo-thumb img');
+                    const rank = row.querySelector('[data-photo-position]');
+                    const name = row.dataset.imageName || 'Photo';
+
+                    if (!img) return;
+
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt || name;
+                    lightboxImage.style.objectPosition = img.style.objectPosition || '50% 50%';
+                    lightboxImage.style.transform = img.style.transform || 'scale(1)';
+
+                    if (lightboxRank && rank) {
+                        lightboxRank.textContent = `Photo ${String(rank.value).padStart(2, '0')}`;
+                    }
+
+                    if (lightboxName) {
+                        lightboxName.textContent = name;
+                    }
+
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('admin-lightbox-open');
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('admin-lightbox-open');
+            }
+
+            closeButtons.forEach((button) => {
+                button.addEventListener('click', closeLightbox);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        }
+
         togglePriceField();
         initPhotoList();
+        initPositionInputs();
+        initCropForms();
+        initPhotoLightbox();
 
         if (priceMode) {
             priceMode.addEventListener('change', togglePriceField);

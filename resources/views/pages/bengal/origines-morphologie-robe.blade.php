@@ -423,38 +423,69 @@
         </section>
 
         <!-- FUZZY -->
+        <!-- FUZZY -->
         <section class="bengal-fuzzy-section">
             <div class="container">
-                <div class="fuzzy-head bengal-reveal">
-                    <span class="bengal-kicker bengal-kicker-dark">Le Fuzzy</span>
 
-                    <h2>
-                        Une phase naturelle de camouflage chez le chaton Bengal.
-                    </h2>
+                <div class="fuzzy-premium-head bengal-reveal">
+                    <div>
+                        <span class="bengal-kicker">Le Fuzzy</span>
+
+                        <h2>
+                            Une phase naturelle où la robe du chaton se transforme.
+                        </h2>
+                    </div>
 
                     <p>
-                        La période de fuzzy commence généralement autour de 3 à 4 semaines et peut durer
-                        jusqu’à 5 ou 6 mois. Le pelage devient plus duveteux, les motifs semblent moins nets,
-                        puis la robe se révèle progressivement avec la croissance.
+                        Chez le Bengal, le fuzzy est une étape normale de croissance. Le pelage devient plus duveteux,
+                        les motifs paraissent moins nets, puis le contraste revient progressivement avec l’âge.
                     </p>
                 </div>
 
-                <div class="fuzzy-grid">
-                    <article class="fuzzy-card bengal-reveal">
-                        <h3>Avant</h3>
-                        <img src="{{ asset('images/le-bengal/fuzzy-avant.jpg') }}" alt="Chaton Bengal avant la période fuzzy">
+                <div class="fuzzy-premium-grid">
+                    <article class="fuzzy-premium-card bengal-reveal">
+                        <figure>
+                            <img src="{{ asset('images/le-bengal/fuzzy-avant.jpg') }}" alt="Chaton Bengal avant la période fuzzy">
+                        </figure>
+
+                        <div class="fuzzy-premium-content">
+                            <span>01</span>
+                            <h3>Avant</h3>
+                            <p>
+                                Les motifs sont déjà visibles, la robe commence à se dessiner et le contraste apparaît.
+                            </p>
+                        </div>
                     </article>
 
-                    <article class="fuzzy-card bengal-reveal delay-1">
-                        <h3>Pendant</h3>
-                        <img src="{{ asset('images/le-bengal/fuzzy-pendant.jpg') }}" alt="Chaton Bengal pendant la période fuzzy">
+                    <article class="fuzzy-premium-card fuzzy-premium-card-featured bengal-reveal delay-1">
+                        <figure>
+                            <img src="{{ asset('images/le-bengal/fuzzy-pendant.jpg') }}" alt="Chaton Bengal pendant la période fuzzy">
+                        </figure>
+
+                        <div class="fuzzy-premium-content">
+                            <span>02</span>
+                            <h3>Pendant</h3>
+                            <p>
+                                Le poil devient plus flou, plus dense, comme un voile naturel qui adoucit les motifs.
+                            </p>
+                        </div>
                     </article>
 
-                    <article class="fuzzy-card bengal-reveal delay-2">
-                        <h3>Après</h3>
-                        <img src="{{ asset('images/le-bengal/fuzzy-apres.jpg') }}" alt="Bengal après la période fuzzy">
+                    <article class="fuzzy-premium-card bengal-reveal delay-2">
+                        <figure>
+                            <img src="{{ asset('images/le-bengal/fuzzy-apres.jpg') }}" alt="Bengal après la période fuzzy">
+                        </figure>
+
+                        <div class="fuzzy-premium-content">
+                            <span>03</span>
+                            <h3>Après</h3>
+                            <p>
+                                La robe se révèle à nouveau, avec un contraste plus lisible et des motifs mieux définis.
+                            </p>
+                        </div>
                     </article>
                 </div>
+
             </div>
         </section>
 

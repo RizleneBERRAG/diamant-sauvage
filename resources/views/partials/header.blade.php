@@ -43,6 +43,7 @@
                     <a href="{{ route('chats.femelles') }}">Nos femelles</a>
                     <a href="{{ route('chats.males') }}">Nos mâles</a>
                     <a href="{{ route('chats.disponibles') }}">Chats disponibles</a>
+                    <a href="{{ route('chats.mariages') }}">Mariages à venir</a>
                 </div>
             </div>
 

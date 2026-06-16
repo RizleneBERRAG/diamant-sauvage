@@ -34,7 +34,7 @@
 
             <p>
                 Ajoutez, modifiez et organisez les fiches Bengal visibles sur le site :
-                photos, statut, prix, informations LOOF, santé et disponibilité.
+                photos, statut, prix, informations LOOF, santé, disponibilité et cadrage des visuels.
             </p>
         </div>
 
@@ -84,16 +84,41 @@
         <div class="admin-cat-grid" id="catAdminGrid">
             @forelse($cats as $cat)
                 @php
-                    $mainImage = $cat->main_image_path
-                        ? asset('storage/' . $cat->main_image_path)
+                    $mainImageModel = $cat->mainImage ?: $cat->images->first();
+
+                    $mainImage = $mainImageModel
+                        ? asset('storage/' . $mainImageModel->path)
                         : asset($placeholderImages[$loop->index % count($placeholderImages)]);
 
+                    $positionX = $mainImageModel->position_x ?? 50;
+                    $positionY = $mainImageModel->position_y ?? 50;
+                    $zoom = $mainImageModel->zoom ?? 1;
+
                     $statusClass = $statusClasses[$cat->availability] ?? 'is-to-define';
+
+                    $searchText = \Illuminate\Support\Str::lower(trim(
+                        $cat->name . ' ' .
+                        $cat->short_name . ' ' .
+                        $cat->coat . ' ' .
+                        $cat->sex . ' ' .
+                        $cat->availability_text
+                    ));
                 @endphp
 
-                <article class="admin-cat-card" data-cat-card data-search="{{ strtolower($cat->name . ' ' . $cat->short_name . ' ' . $cat->coat . ' ' . $cat->sex) }}">
+                <article
+                    class="admin-cat-card"
+                    data-cat-card
+                    data-search="{{ $searchText }}"
+                >
                     <figure>
-                        <img src="{{ $mainImage }}" alt="{{ $cat->name }}">
+                        <img
+                            src="{{ $mainImage }}"
+                            alt="{{ $cat->name }}"
+                            style="
+                            object-position: {{ $positionX }}% {{ $positionY }}%;
+                            transform: scale({{ $zoom }});
+                        "
+                        >
 
                         <span class="admin-status {{ $statusClass }}">
                         {{ $cat->availability_text }}
@@ -166,7 +191,10 @@
                 <div class="admin-empty">
                     <h3>Aucun chat enregistré</h3>
                     <p>Commencez par ajouter une première fiche Bengal.</p>
-                    <a href="{{ route('admin.chats.create') }}">Ajouter un chat</a>
+
+                    <a href="{{ route('admin.chats.create') }}">
+                        Ajouter un chat
+                    </a>
                 </div>
             @endforelse
         </div>
@@ -180,13 +208,21 @@
             const search = document.getElementById('catSearch');
             const cards = document.querySelectorAll('[data-cat-card]');
 
+            function normalizeText(value) {
+                return value
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .trim();
+            }
+
             if (!search) return;
 
             search.addEventListener('input', function () {
-                const value = search.value.toLowerCase().trim();
+                const value = normalizeText(search.value);
 
                 cards.forEach((card) => {
-                    const content = card.dataset.search || '';
+                    const content = normalizeText(card.dataset.search || '');
                     card.classList.toggle('is-filtered', !content.includes(value));
                 });
             });

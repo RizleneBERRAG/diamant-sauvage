@@ -27,10 +27,28 @@
             'images/home/gallery-13.jpg',
         ];
 
-        $catImage = function ($cat, $loopIndex = 0) use ($placeholderImages) {
-            return $cat->main_image_path
-                ? asset('storage/' . $cat->main_image_path)
+        $catMainImage = function ($cat) {
+            return $cat->mainImage ?: $cat->images->first();
+        };
+
+        $catImage = function ($cat, $loopIndex = 0) use ($placeholderImages, $catMainImage) {
+            $mainImage = $catMainImage($cat);
+
+            return $mainImage
+                ? asset('storage/' . $mainImage->path)
                 : asset($placeholderImages[$loopIndex % count($placeholderImages)]);
+        };
+
+        $imageCropStyle = function ($image) {
+            $x = $image->position_x ?? 50;
+            $y = $image->position_y ?? 50;
+            $zoom = $image->zoom ?? 1;
+
+            return "
+                object-position: {$x}% {$y}%;
+                transform-origin: {$x}% {$y}%;
+                transform: scale({$zoom});
+            ";
         };
 
         $pageLabel = match ($mode) {
@@ -125,11 +143,16 @@
                     @foreach($featured as $cat)
                         @php
                             $statusClass = $statusClasses[$cat->availability] ?? 'is-to-define';
+                            $mainImageModel = $catMainImage($cat);
                         @endphp
 
                         <article class="featured-cat-card">
                             <figure>
-                                <img src="{{ $catImage($cat, $loop->index) }}" alt="{{ $cat->name }}">
+                                <img
+                                    src="{{ $catImage($cat, $loop->index) }}"
+                                    alt="{{ $cat->name }}"
+                                    style="{{ $imageCropStyle($mainImageModel) }}"
+                                >
                             </figure>
 
                             <div class="featured-cat-content">
@@ -198,6 +221,7 @@
                 @forelse($cats as $cat)
                     @php
                         $statusClass = $statusClasses[$cat->availability] ?? 'is-to-define';
+                        $mainImageModel = $catMainImage($cat);
                     @endphp
 
                     <article
@@ -207,7 +231,11 @@
                         data-cat-open="{{ $cat->slug }}"
                     >
                         <div class="cat-card-image">
-                            <img src="{{ $catImage($cat, $loop->index) }}" alt="{{ $cat->name }}">
+                            <img
+                                src="{{ $catImage($cat, $loop->index) }}"
+                                alt="{{ $cat->name }}"
+                                style="{{ $imageCropStyle($mainImageModel) }}"
+                            >
 
                             <span class="cat-status {{ $statusClass }}">
                             {{ $cat->availability_text }}
@@ -334,16 +362,17 @@
             @foreach($cats as $cat)
                 @php
                     $statusClass = $statusClasses[$cat->availability] ?? 'is-to-define';
-                    $mainImage = $catImage($cat, $loop->index);
+                    $mainImageModel = $catMainImage($cat);
                 @endphp
 
                 <article class="cat-modal-content" data-cat-modal-content="{{ $cat->slug }}">
                     <div class="cat-modal-gallery">
                         <figure class="cat-modal-main-image">
                             <img
-                                src="{{ $mainImage }}"
+                                src="{{ $catImage($cat, $loop->index) }}"
                                 alt="{{ $cat->name }}"
                                 data-main-gallery="{{ $cat->slug }}"
+                                style="{{ $imageCropStyle($mainImageModel) }}"
                             >
                         </figure>
 
@@ -355,9 +384,16 @@
                                         class="{{ $loop->first ? 'is-active' : '' }}"
                                         data-gallery-thumb="{{ $cat->slug }}"
                                         data-gallery-src="{{ asset('storage/' . $image->path) }}"
+                                        data-gallery-x="{{ $image->position_x ?? 50 }}"
+                                        data-gallery-y="{{ $image->position_y ?? 50 }}"
+                                        data-gallery-zoom="{{ $image->zoom ?? 1 }}"
                                         aria-label="Voir la photo {{ $loop->iteration }} de {{ $cat->display_name }}"
                                     >
-                                        <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->alt ?: $cat->name }}">
+                                        <img
+                                            src="{{ asset('storage/' . $image->path) }}"
+                                            alt="{{ $image->alt ?: $cat->name }}"
+                                            style="{{ $imageCropStyle($image) }}"
+                                        >
                                     </button>
                                 @endforeach
                             </div>
@@ -428,6 +464,82 @@
                                 <strong>{{ $cat->mother_name ?: 'À compléter' }}</strong>
                             </div>
                         </div>
+
+                        @php
+                            $pedigreeMention = $cat->pedigree_note;
+
+                            if (!$pedigreeMention && ($cat->father_name || $cat->mother_name)) {
+                                $pedigreeMention = 'Issue du mariage de '
+                                    . ($cat->father_name ?: 'père à compléter')
+                                    . ' et '
+                                    . ($cat->mother_name ?: 'mère à compléter')
+                                    . '.';
+                            }
+
+                            $hasPedigreeBlock = $pedigreeMention
+                                || $cat->pedigree_pdf
+                                || $cat->father_photo
+                                || $cat->mother_photo;
+                        @endphp
+
+                        @if($hasPedigreeBlock)
+                            <section class="cat-modal-pedigree">
+                                <div class="cat-modal-pedigree-head">
+                                    <span>Origines & pedigree</span>
+                                    <h4>Une lignée présentée avec transparence.</h4>
+
+                                    @if($pedigreeMention)
+                                        <p>{{ $pedigreeMention }}</p>
+                                    @endif
+                                </div>
+
+                                @if($cat->father_photo || $cat->mother_photo || $cat->father_name || $cat->mother_name)
+                                    <div class="cat-modal-parents-showcase">
+                                        <article>
+                                            @if($cat->father_photo)
+                                                <figure>
+                                                    <img src="{{ asset('storage/' . $cat->father_photo) }}" alt="Photo du père {{ $cat->father_name }}">
+                                                </figure>
+                                            @else
+                                                <div class="cat-parent-placeholder">P</div>
+                                            @endif
+
+                                            <div>
+                                                <span>Père</span>
+                                                <strong>{{ $cat->father_name ?: 'À compléter' }}</strong>
+                                            </div>
+                                        </article>
+
+                                        <article>
+                                            @if($cat->mother_photo)
+                                                <figure>
+                                                    <img src="{{ asset('storage/' . $cat->mother_photo) }}" alt="Photo de la mère {{ $cat->mother_name }}">
+                                                </figure>
+                                            @else
+                                                <div class="cat-parent-placeholder">M</div>
+                                            @endif
+
+                                            <div>
+                                                <span>Mère</span>
+                                                <strong>{{ $cat->mother_name ?: 'À compléter' }}</strong>
+                                            </div>
+                                        </article>
+                                    </div>
+                                @endif
+
+                                @if($cat->pedigree_pdf)
+                                    <a
+                                        href="{{ asset('storage/' . $cat->pedigree_pdf) }}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="cat-pedigree-link"
+                                    >
+                                        Voir le pedigree PDF
+                                        <span>↗</span>
+                                    </a>
+                                @endif
+                            </section>
+                        @endif
 
                         <div class="cat-modal-health">
                             <h4>Suivi santé</h4>
@@ -550,11 +662,17 @@
 
                     const slug = thumb.dataset.galleryThumb;
                     const src = thumb.dataset.gallerySrc;
+                    const x = thumb.dataset.galleryX || '50';
+                    const y = thumb.dataset.galleryY || '50';
+                    const zoom = thumb.dataset.galleryZoom || '1';
                     const mainImage = document.querySelector(`[data-main-gallery="${slug}"]`);
 
                     if (!mainImage || !src) return;
 
                     mainImage.src = src;
+                    mainImage.style.objectPosition = `${x}% ${y}%`;
+                    mainImage.style.transformOrigin = `${x}% ${y}%`;
+                    mainImage.style.transform = `scale(${zoom})`;
 
                     document
                         .querySelectorAll(`[data-gallery-thumb="${slug}"]`)

@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/admin/chats-admin.css') }}">
 </head>
+
 <body class="admin-body">
 
 <aside class="admin-sidebar">
@@ -17,8 +18,23 @@
     </a>
 
     <nav class="admin-nav">
-        <a href="{{ route('admin.chats.index') }}" class="is-active">Gestion des chats</a>
-        <a href="{{ route('home') }}" target="_blank">Voir le site</a>
+        <a
+            href="{{ route('admin.chats.index') }}"
+            class="{{ request()->routeIs('admin.chats.*') || request()->routeIs('admin.cat-images.*') ? 'is-active' : '' }}"
+        >
+            Gestion des chats
+        </a>
+
+        <a
+            href="{{ route('admin.croquettes.index') }}"
+            class="{{ request()->routeIs('admin.croquettes.*') ? 'is-active' : '' }}"
+        >
+            Gestion des croquettes
+        </a>
+
+        <a href="{{ route('home') }}" target="_blank">
+            Voir le site
+        </a>
     </nav>
 </aside>
 

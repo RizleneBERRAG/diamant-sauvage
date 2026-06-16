@@ -36,6 +36,10 @@ class Cat extends Model
         'health_parents_tests',
         'featured',
         'sort_order',
+        'pedigree_note',
+        'pedigree_pdf',
+        'father_photo',
+        'mother_photo',
     ];
 
     protected $casts = [

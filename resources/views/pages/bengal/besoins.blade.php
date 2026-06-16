@@ -9,6 +9,15 @@
 
 @section('content')
 
+    @php
+        $croquetteSection = \App\Models\CroquetteSection::first();
+
+        $croquettes = \App\Models\Croquette::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+    @endphp
+
     <section class="bengal-needs-hero">
         <div class="bengal-needs-hero-bg" style="--img: url('{{ asset('images/home/cat-detail-1.jpg') }}')"></div>
         <div class="bengal-needs-hero-overlay"></div>
@@ -230,216 +239,103 @@
     <section class="bengal-products-section">
         <div class="container">
             <div class="bengal-needs-section-head section-head-light">
-                <span class="bengal-needs-label">À la chatterie</span>
-                <h2>Les 3 gammes de croquettes utilisées chez nous.</h2>
+            <span class="bengal-needs-label">
+                {{ $croquetteSection?->label ?? 'À la chatterie' }}
+            </span>
+
+                <h2>
+                    {{ $croquetteSection?->title ?? 'Les 3 gammes de croquettes utilisées chez nous.' }}
+                </h2>
+
                 <p>
-                    Pour rendre la page plus claire, chaque gamme est présentée sous forme de carte avec les informations
-                    essentielles visibles immédiatement et la composition complète accessible au clic.
+                    {{ $croquetteSection?->description ?? 'Pour rendre la page plus claire, chaque gamme est présentée sous forme de carte avec les informations essentielles visibles immédiatement et la composition complète accessible au clic.' }}
                 </p>
             </div>
 
             <div class="food-products-grid">
-                <article class="food-product-card">
-                    <div class="food-product-top">
-                        <figure class="food-pack-image food-pack-light">
-                            <img src="{{ asset('images/le-bengal/besoins/croquettes-chaton.jpg') }}" alt="Croquettes Essentiel chats actifs et chatons">
-                        </figure>
+                @foreach($croquettes as $croquette)
+                    <article class="food-product-card {{ $croquette->is_featured ? 'food-product-featured' : '' }}">
+                        <div class="food-product-top">
+                            <figure class="food-pack-image">
+                                @if($croquette->image)
+                                    <img
+                                        src="{{ asset('storage/' . $croquette->image) }}"
+                                        alt="{{ $croquette->image_alt ?: $croquette->title }}"
+                                    >
+                                @else
+                                    <img
+                                        src="{{ asset('images/le-bengal/besoins/croquettes-chaton.jpg') }}"
+                                        alt="{{ $croquette->title }}"
+                                    >
+                                @endif
+                            </figure>
 
-                        <div>
-                            <span class="food-product-tag">Chaton & femelle gestante</span>
-                            <h3>Recette Essentiel Chats Actif / Chatons</h3>
-                            <p>
-                                Une recette à base de protéines animales et de riz, sans gluten, pensée pour les chats
-                                en croissance ou à leur poids de forme.
-                            </p>
+                            <div>
+                                @if($croquette->tag)
+                                    <span class="food-product-tag">{{ $croquette->tag }}</span>
+                                @endif
+
+                                <h3>{{ $croquette->title }}</h3>
+
+                                @if($croquette->description)
+                                    <p>{{ $croquette->description }}</p>
+                                @endif
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="food-stats">
-                        <div><strong>44%</strong><span>Protéines</span></div>
-                        <div><strong>18%</strong><span>Matières grasses</span></div>
-                        <div><strong>2387</strong><span>Taurine mg/kg</span></div>
-                    </div>
+                        <div class="food-stats">
+                            @if($croquette->protein)
+                                <div>
+                                    <strong>{{ $croquette->protein }}</strong>
+                                    <span>Protéines</span>
+                                </div>
+                            @endif
 
-                    <details class="food-details">
-                        <summary>Voir la composition complète</summary>
+                            @if($croquette->fat)
+                                <div>
+                                    <strong>{{ $croquette->fat }}</strong>
+                                    <span>Matières grasses</span>
+                                </div>
+                            @endif
 
-                        <div class="food-detail-content">
-                            <h4>Composition</h4>
-                            <p>
-                                Poulet dont poulet déshydraté 20% et poulet frais 10%, porc déshydraté 28%,
-                                riz, graisse de poulet 7%, pulpe de betterave déshydratée 5%, graine de lin 1,9%,
-                                minéraux, protéines de foie de volaille hydrolysées, levure de bière séchée,
-                                huile de saumon 1%, fibre végétale, chicorée séchée, glucosamine,
-                                sulfate de chondroïtine.
-                            </p>
-
-                            <h4>Constituants analytiques</h4>
-                            <ul>
-                                <li>Protéines brutes : 44,0%</li>
-                                <li>Matières grasses brutes : 18,0%</li>
-                                <li>Cellulose brute : 2,0%</li>
-                                <li>Cendres brutes : 7%</li>
-                                <li>Calcium : 1,3%</li>
-                                <li>Phosphore : 0,9%</li>
-                                <li>Protéines animales : &gt;90%</li>
-                                <li>Oméga 3 : 0,7%</li>
-                                <li>Oméga 6 : 2,2%</li>
-                                <li>Ratio Oméga 6/3 : 3.14</li>
-                                <li>ENA : 19%</li>
-                                <li>RPC : 110g / Mcal</li>
-                                <li>RPP : 48.89</li>
-                                <li>Taurine : 2387 mg/kg</li>
-                            </ul>
-
-                            <h4>Additifs nutritionnels</h4>
-                            <p>
-                                Vitamine A 30 000 UI/kg, Vitamine D3 1500 UI/kg, Vitamine E 150 mg/kg,
-                                Iode 1,5 mg/kg, Cuivre 5 mg/kg, Zinc 50 mg/kg, Manganèse 7,5 mg/kg,
-                                Sélénium 0,15 mg/kg, Taurine 2387 mg/kg.
-                            </p>
-
-                            <h4>Additifs technologiques</h4>
-                            <p>Antioxydants naturels : extraits de tocophérols d’huiles végétales.</p>
+                            @if($croquette->taurine)
+                                <div>
+                                    <strong>{{ $croquette->taurine }}</strong>
+                                    <span>Taurine mg/kg</span>
+                                </div>
+                            @endif
                         </div>
-                    </details>
-                </article>
 
-                <article class="food-product-card food-product-featured">
-                    <div class="food-product-top">
-                        <figure class="food-pack-image food-pack-dark">
-                            <img src="{{ asset('images/le-bengal/besoins/croquettes-premium.jpg') }}" alt="Croquettes Premium sans céréales pour chat adulte sensible">
-                        </figure>
+                        <details class="food-details">
+                            <summary>Voir la composition complète</summary>
 
-                        <div>
-                            <span class="food-product-tag">Adulte sensible</span>
-                            <h3>Recette Premium sans céréales</h3>
-                            <p>
-                                Une recette sans céréales et sans légumineuses, à base de protéines animales
-                                et patate douce, très digeste.
-                            </p>
-                        </div>
-                    </div>
+                            <div class="food-detail-content">
+                                @if($croquette->composition)
+                                    <h4>Composition</h4>
+                                    <p>{{ $croquette->composition }}</p>
+                                @endif
 
-                    <div class="food-stats">
-                        <div><strong>43%</strong><span>Protéines</span></div>
-                        <div><strong>18%</strong><span>Matières grasses</span></div>
-                        <div><strong>2800</strong><span>Taurine mg/kg</span></div>
-                    </div>
+                                @if($croquette->analytical_components)
+                                    <h4>Constituants analytiques</h4>
+                                    <p>{!! nl2br(e($croquette->analytical_components)) !!}</p>
+                                @endif
 
-                    <details class="food-details">
-                        <summary>Voir la composition complète</summary>
+                                @if($croquette->nutritional_additives)
+                                    <h4>Additifs nutritionnels</h4>
+                                    <p>{!! nl2br(e($croquette->nutritional_additives)) !!}</p>
+                                @endif
 
-                        <div class="food-detail-content">
-                            <h4>Composition</h4>
-                            <p>
-                                Poulet 30% dont poulet déshydraté 20% et poulet frais 10%, porc déshydraté 28%,
-                                patate douce déshydratée, graisse de poulet 10%, pulpe de betterave déshydratée,
-                                protéines de foie de volaille hydrolysées 1,5%, minéraux 1,5%, fibres végétales,
-                                fructo-oligo-saccharides, chicorée déshydratée, sulfate de glucosamine,
-                                sulfate de chondroïtine.
-                            </p>
-
-                            <h4>Constituants analytiques</h4>
-                            <ul>
-                                <li>Protéines brutes : 43,0%</li>
-                                <li>Matières grasses brutes : 18,0%</li>
-                                <li>Cellulose brute : 2%</li>
-                                <li>Cendres brutes : 7,5%</li>
-                                <li>Calcium : 1,25%</li>
-                                <li>Phosphore : 0,9%</li>
-                                <li>Protéines animales : 96%</li>
-                                <li>Oméga 3 : 0,6%</li>
-                                <li>Oméga 6 : 2%</li>
-                                <li>Ratio Oméga 6/3 : 3.3</li>
-                                <li>ENA : 19,5%</li>
-                                <li>RPC : 108g / Mcal</li>
-                                <li>RPP : 47.8</li>
-                                <li>Taurine : 2800 mg/kg</li>
-                            </ul>
-
-                            <h4>Additifs nutritionnels</h4>
-                            <p>
-                                Vitamine A 30 000 UI/kg, Vitamine D3 1300 UI/kg, Vitamine E 300 mg/kg,
-                                Iode 1,5 mg/kg, Cuivre 5 mg/kg, Zinc 50 mg/kg, Manganèse 7,5 mg/kg,
-                                Sélénium 0,15 mg/kg, Taurine 2800 mg/kg.
-                            </p>
-
-                            <h4>Additifs technologiques</h4>
-                            <p>Antioxydants naturels : extraits de tocophérols d’huiles végétales.</p>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="food-product-card">
-                    <div class="food-product-top">
-                        <figure class="food-pack-image food-pack-sand">
-                            <img src="{{ asset('images/le-bengal/besoins/croquettes-sterilise.jpg') }}" alt="Croquettes Essentiel chat sédentaire ou stérilisé">
-                        </figure>
-
-                        <div>
-                            <span class="food-product-tag">Chats adultes stérilisés</span>
-                            <h3>Recette Essentiel Chat Sédentaire / Stérilisé</h3>
-                            <p>
-                                Une recette avec poulet frais, adaptée aux chats peu actifs, stérilisés,
-                                seniors ou sujets à l’embonpoint.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="food-stats">
-                        <div><strong>44%</strong><span>Protéines</span></div>
-                        <div><strong>14%</strong><span>Matières grasses</span></div>
-                        <div><strong>2300</strong><span>Taurine mg/kg</span></div>
-                    </div>
-
-                    <details class="food-details">
-                        <summary>Voir la composition complète</summary>
-
-                        <div class="food-detail-content">
-                            <h4>Composition</h4>
-                            <p>
-                                Poulet dont poulet déshydraté 20% et poulet frais 10%, porc déshydraté 28%,
-                                riz, fibre végétale, graisse de poulet 4%, pulpe de betterave déshydratée 5%,
-                                graine de lin 1,9%, minéraux, protéines de foie de volaille hydrolysées,
-                                levure de bière séchée, huile de saumon 1%, chicorée séchée, glucosamine,
-                                sulfate de chondroïtine.
-                            </p>
-
-                            <h4>Constituants analytiques</h4>
-                            <ul>
-                                <li>Protéines brutes : 44,0%</li>
-                                <li>Matières grasses brutes : 14,0%</li>
-                                <li>Cellulose brute : 4,9%</li>
-                                <li>Cendres brutes : 7,2%</li>
-                                <li>Calcium : 1,3%</li>
-                                <li>Phosphore : 0,9%</li>
-                                <li>Protéines animales : &gt;90%</li>
-                                <li>Oméga 3 : 0,6%</li>
-                                <li>Oméga 6 : 1,7%</li>
-                                <li>Ratio Oméga 6/3 : 2.83</li>
-                                <li>ENA : 19,9%</li>
-                                <li>RPC : 119g / Mcal</li>
-                                <li>RPP : 48.9</li>
-                                <li>Taurine : 2300 mg/kg</li>
-                            </ul>
-
-                            <h4>Additifs nutritionnels</h4>
-                            <p>
-                                Vitamine A 30 000 UI/kg, Vitamine D3 1500 UI/kg, Vitamine E 150 mg/kg,
-                                Iode 1,5 mg/kg, Cuivre 5 mg/kg, Zinc 50 mg/kg, Manganèse 7,5 mg/kg,
-                                Sélénium 0,15 mg/kg, Taurine 2300 mg/kg.
-                            </p>
-
-                            <h4>Additifs technologiques</h4>
-                            <p>Antioxydants naturels : extraits de tocophérols d’huiles végétales.</p>
-                        </div>
-                    </details>
-                </article>
+                                @if($croquette->technological_additives)
+                                    <h4>Additifs technologiques</h4>
+                                    <p>{!! nl2br(e($croquette->technological_additives)) !!}</p>
+                                @endif
+                            </div>
+                        </details>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
-
     <section class="bengal-needs-final">
         <div class="container">
             <div class="bengal-needs-final-box">

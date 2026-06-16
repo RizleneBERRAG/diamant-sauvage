@@ -10,9 +10,12 @@
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hommage-kiara.css') }}">
 </head>
 
 <body>
+
+@include('partials.hommage-kiara')
 
 @include('partials.header')
 
@@ -84,10 +87,10 @@
 
         <details class="footer-drawer" open>
             <summary>
-                <span>
-                    <small>01</small>
-                    Le Bengal
-                </span>
+                    <span>
+                        <small>01</small>
+                        Le Bengal
+                    </span>
 
                 <svg class="footer-drawer-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M7 10l5 5 5-5"/>
@@ -105,10 +108,10 @@
 
         <details class="footer-drawer" open>
             <summary>
-                <span>
-                    <small>02</small>
-                    Nos chats
-                </span>
+                    <span>
+                        <small>02</small>
+                        Nos chats
+                    </span>
 
                 <svg class="footer-drawer-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M7 10l5 5 5-5"/>
@@ -120,15 +123,16 @@
                 <a href="{{ route('chats.femelles') }}">Nos femelles</a>
                 <a href="{{ route('chats.males') }}">Nos mâles</a>
                 <a href="{{ route('chats.disponibles') }}">Chats disponibles</a>
+                <a href="{{ route('chats.mariages') }}">Mariages à venir</a>
             </nav>
         </details>
 
         <details class="footer-drawer footer-drawer-contact" open>
             <summary>
-                <span>
-                    <small>03</small>
-                    Navigation
-                </span>
+                    <span>
+                        <small>03</small>
+                        Navigation
+                    </span>
 
                 <svg class="footer-drawer-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M7 10l5 5 5-5"/>
@@ -145,7 +149,7 @@
                 <span>Contact</span>
                 <p>Villeneuve-de-Marc</p>
                 <p>06 21 59 64 19</p>
-                <a href="{{ route('contact') }}">Écrire à la chatterie</a>
+                <a href="{{ route('contact') }}" class="btn--shine">Écrire à la chatterie</a>
             </div>
         </details>
     </div>
@@ -155,8 +159,6 @@
         <a href="{{ route('mentions') }}">Mentions légales</a>
     </div>
 </footer>
-
-<script src="{{ asset('js/header.js') }}"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -182,6 +184,9 @@
         }
     });
 </script>
+
+<script src="{{ asset('js/hommage-kiara.js') }}"></script>
+<script src="{{ asset('js/header.js') }}"></script>
 
 @stack('scripts')
 

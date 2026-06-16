@@ -14,11 +14,17 @@ class CatImage extends Model
         'original_name',
         'is_main',
         'sort_order',
+        'position_x',
+        'position_y',
+        'zoom',
     ];
 
     protected $casts = [
         'is_main' => 'boolean',
         'sort_order' => 'integer',
+        'position_x' => 'integer',
+        'position_y' => 'integer',
+        'zoom' => 'decimal:2',
     ];
 
     public function cat(): BelongsTo

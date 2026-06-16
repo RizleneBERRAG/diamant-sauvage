@@ -1,0 +1,397 @@
+/* =========================================================
+   PAGE MARIAGES À VENIR
+========================================================= */
+
+.matings-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold, #c8a85a);
+    text-transform: uppercase;
+    letter-spacing: 2.7px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.matings-kicker::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: currentColor;
+}
+
+.matings-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 140px 0 105px;
+    color: white;
+    background:
+        radial-gradient(circle at 86% 12%, rgba(224, 201, 130, .18), transparent 34%),
+        radial-gradient(circle at 8% 92%, rgba(224, 201, 130, .08), transparent 34%),
+        linear-gradient(135deg, #100c08 0%, #17100a 48%, #070604 100%);
+}
+
+.matings-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(224, 201, 130, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 201, 130, .018) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: .36;
+    pointer-events: none;
+}
+
+.matings-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+    gap: clamp(34px, 6vw, 90px);
+    align-items: center;
+}
+
+.matings-hero h1 {
+    margin: 24px 0 26px;
+    color: white;
+    font-size: clamp(58px, 7vw, 112px);
+    line-height: .9;
+    letter-spacing: -5px;
+}
+
+.matings-hero h1 em {
+    display: block;
+    color: var(--gold-soft, #e8d7a1);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.matings-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, .74);
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.85;
+}
+
+.matings-hero-card {
+    padding: 34px;
+    border-radius: 38px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .035)),
+        rgba(255, 255, 255, .045);
+    border: 1px solid rgba(224, 201, 130, .24);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, .26);
+    backdrop-filter: blur(18px);
+}
+
+.matings-hero-card span {
+    color: var(--gold-soft, #e8d7a1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.matings-hero-card strong {
+    display: block;
+    margin: 14px 0 12px;
+    color: white;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.matings-section {
+    padding: 110px 0 120px;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(200, 168, 90, .10), transparent 32%),
+        linear-gradient(180deg, #fbf7ef 0%, #f2eadc 100%);
+}
+
+.matings-section-head {
+    max-width: 900px;
+    margin-bottom: 52px;
+}
+
+.matings-section-head h2 {
+    margin: 18px 0 22px;
+    color: #17130d;
+    font-size: clamp(42px, 5vw, 78px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.matings-section-head p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(28, 23, 15, .68);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.matings-grid {
+    display: grid;
+    gap: 26px;
+}
+
+.mating-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
+    gap: 34px;
+    padding: 26px;
+    border-radius: 42px;
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 168, 90, .12), transparent 34%),
+        rgba(255, 250, 241, .82);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 28px 76px rgba(31, 24, 12, .10);
+}
+
+.mating-status {
+    position: absolute;
+    z-index: 4;
+    top: 24px;
+    right: 24px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: #17130d;
+    background: #e8d7a1;
+    border: 1px solid rgba(200, 168, 90, .28);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.mating-parents {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.mating-parent {
+    overflow: hidden;
+    border-radius: 30px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, .74), rgba(255, 250, 241, .54));
+    border: 1px solid rgba(200, 168, 90, .16);
+    box-shadow: 0 16px 44px rgba(31, 24, 12, .07);
+}
+
+.mating-parent figure,
+.mating-parent-placeholder {
+    height: 260px;
+    margin: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 70% 10%, rgba(224, 201, 130, .16), transparent 36%),
+        linear-gradient(145deg, #17130d, #090805);
+}
+
+.mating-parent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(.94) contrast(1.04);
+}
+
+.mating-parent-placeholder {
+    display: grid;
+    place-items: center;
+    color: #e8d7a1;
+    font-size: 46px;
+    font-weight: 900;
+}
+
+.mating-parent span {
+    display: block;
+    padding: 16px 16px 0;
+    color: rgba(151, 105, 35, .95);
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.mating-parent strong {
+    display: block;
+    padding: 7px 16px 18px;
+    color: #17130d;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.mating-link-symbol {
+    align-self: center;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: #17130d;
+    background: #e8d7a1;
+    font-size: 26px;
+    font-weight: 500;
+    box-shadow: 0 12px 28px rgba(151, 105, 35, .15);
+}
+
+.mating-content {
+    align-self: center;
+    padding: 24px 16px 24px 0;
+}
+
+.mating-content h3 {
+    max-width: 760px;
+    margin: 0 0 14px;
+    color: #17130d;
+    font-size: clamp(36px, 4vw, 68px);
+    line-height: .95;
+    letter-spacing: -2.6px;
+}
+
+.mating-origin {
+    margin: 0;
+    color: rgba(151, 105, 35, .96);
+    font-weight: 900;
+    line-height: 1.6;
+}
+
+.mating-description {
+    margin: 16px 0 0;
+    color: rgba(28, 23, 15, .68);
+    line-height: 1.75;
+}
+
+.mating-dates {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.mating-dates div,
+.mating-colors {
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .64);
+    border: 1px solid rgba(200, 168, 90, .14);
+}
+
+.mating-dates span,
+.mating-colors span {
+    display: block;
+    color: rgba(151, 105, 35, .95);
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.mating-dates strong {
+    display: block;
+    margin-top: 7px;
+    color: #17130d;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.mating-colors {
+    margin-top: 14px;
+}
+
+.mating-colors p {
+    margin: 8px 0 0;
+    color: rgba(28, 23, 15, .70);
+    line-height: 1.7;
+}
+
+.matings-empty {
+    padding: 54px;
+    text-align: center;
+    border-radius: 34px;
+    background: rgba(255, 250, 241, .84);
+    border: 1px solid rgba(200, 168, 90, .18);
+    box-shadow: 0 22px 58px rgba(31, 24, 12, .08);
+}
+
+.matings-empty h3 {
+    margin: 0 0 10px;
+    color: #17130d;
+    font-size: 34px;
+}
+
+.matings-empty p {
+    margin: 0;
+    color: rgba(28, 23, 15, .62);
+}
+
+@media (max-width: 1100px) {
+    .matings-hero-grid,
+    .mating-card {
+        grid-template-columns: 1fr;
+    }
+
+    .mating-content {
+        padding: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .matings-hero {
+        padding: 92px 0 64px;
+    }
+
+    .matings-hero h1 {
+        font-size: clamp(42px, 13vw, 64px);
+        letter-spacing: -2.6px;
+    }
+
+    .matings-section {
+        padding: 72px 0;
+    }
+
+    .matings-section-head h2 {
+        font-size: clamp(34px, 10vw, 52px);
+        letter-spacing: -1.8px;
+    }
+
+    .mating-card {
+        padding: 16px;
+        border-radius: 30px;
+    }
+
+    .mating-status {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: fit-content;
+        margin-bottom: 16px;
+    }
+
+    .mating-parents {
+        grid-template-columns: 1fr;
+    }
+
+    .mating-link-symbol {
+        margin: -4px auto;
+    }
+
+    .mating-parent figure,
+    .mating-parent-placeholder {
+        height: 280px;
+    }
+
+    .mating-dates {
+        grid-template-columns: 1fr;
+    }
+}

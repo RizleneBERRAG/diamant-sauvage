@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* =========================
+       FEUILLE CSS AVIS — CHARGEMENT SÛR
+    ========================= */
+
+    if (!document.querySelector('link[href*="contact-reviews.css"]')) {
+        const reviewStylesheet = document.createElement('link');
+        reviewStylesheet.rel = 'stylesheet';
+        reviewStylesheet.href = '/css/contact-reviews.css';
+        document.head.appendChild(reviewStylesheet);
+    }
+
+    /* =========================
        ANIMATION AU SCROLL
     ========================= */
 

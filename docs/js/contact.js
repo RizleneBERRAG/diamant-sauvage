@@ -1,59 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    /* =========================
-       FEUILLE CSS AVIS — CHARGEMENT SÛR
-    ========================= */
-
-    if (!document.querySelector('link[href*="contact-reviews.css"]')) {
-        const githubPagesBase = window.location.pathname.startsWith('/diamant-sauvage') ? '/diamant-sauvage' : '';
-        const reviewStylesheet = document.createElement('link');
-
-        reviewStylesheet.rel = 'stylesheet';
-        reviewStylesheet.href = `${githubPagesBase}/css/contact-reviews.css`;
-        document.head.appendChild(reviewStylesheet);
-    }
-
-    /* =========================
-       ANIMATION AU SCROLL
-    ========================= */
-
+document.addEventListener('DOMContentLoaded', function () {
     const revealItems = document.querySelectorAll('.contact-reveal');
+    const scrollLinks = document.querySelectorAll('.contact-scroll[href^="#"]');
 
-    if (revealItems.length) {
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.14
+    /*
+    |--------------------------------------------------------------------------
+    | Apparitions douces
+    |--------------------------------------------------------------------------
+    */
+
+    if ('IntersectionObserver' in window && revealItems.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
             });
+        }, {
+            threshold: 0.12
+        });
 
-            revealItems.forEach((item) => observer.observe(item));
-        } else {
-            revealItems.forEach((item) => item.classList.add('is-visible'));
-        }
+        revealItems.forEach((item) => {
+            revealObserver.observe(item);
+        });
+    } else {
+        revealItems.forEach((item) => {
+            item.classList.add('is-visible');
+        });
     }
 
-    /* =========================
-       SCROLL DOUX
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | Scroll doux uniquement pour les liens d'ancrage
+    |--------------------------------------------------------------------------
+    */
 
-    document.querySelectorAll('.contact-scroll').forEach((link) => {
-        link.addEventListener('click', (event) => {
-            const href = link.getAttribute('href');
+    scrollLinks.forEach((link) => {
+        link.addEventListener('click', function (event) {
+            const targetId = link.getAttribute('href');
 
-            if (!href || !href.startsWith('#')) {
-                return;
-            }
+            if (!targetId || targetId === '#') return;
 
-            const target = document.querySelector(href);
+            const target = document.querySelector(targetId);
 
-            if (!target) {
-                return;
-            }
+            if (!target) return;
 
             event.preventDefault();
 
@@ -64,120 +54,101 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* =========================
-       FORMULAIRE — FOCUS PREMIUM
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | Effet focus sur les champs
+    |--------------------------------------------------------------------------
+    */
 
-    const formFields = document.querySelectorAll(
-        '.luxury-contact-form input, .luxury-contact-form textarea, .luxury-contact-form select'
-    );
+    document
+        .querySelectorAll('.luxury-contact-form input, .luxury-contact-form textarea, .luxury-contact-form select')
+        .forEach((field) => {
+            field.addEventListener('focus', function () {
+                const label = field.closest('label');
 
-    formFields.forEach((field) => {
-        const label = field.closest('label');
+                if (label) {
+                    label.classList.add('is-focused');
+                }
+            });
 
-        field.addEventListener('focus', () => {
-            if (label) {
-                label.classList.add('is-focused');
-            }
+            field.addEventListener('blur', function () {
+                const label = field.closest('label');
+
+                if (label) {
+                    label.classList.remove('is-focused');
+                }
+            });
         });
 
-        field.addEventListener('blur', () => {
-            if (label) {
-                label.classList.remove('is-focused');
-            }
-        });
-    });
-
-    /* =========================
-       ICÔNES CONTACT — MOBILE
-    ========================= */
-
-    const contactIcons = document.querySelectorAll('.contact-link-icon');
-
-    contactIcons.forEach((icon) => {
-        icon.addEventListener('touchstart', () => {
-            icon.classList.add('is-touched');
-        }, { passive: true });
-
-        icon.addEventListener('touchend', () => {
-            setTimeout(() => {
-                icon.classList.remove('is-touched');
-            }, 220);
-        });
-    });
-
-    /* =========================
-       AVIS GOOGLE — MODAL PREMIUM
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | Modal avis Google
+    |--------------------------------------------------------------------------
+    */
 
     const reviewModal = document.getElementById('reviewModal');
-    const reviewModalAvatar = document.getElementById('reviewModalAvatar');
-    const reviewModalName = document.getElementById('reviewModalName');
-    const reviewModalDate = document.getElementById('reviewModalDate');
-    const reviewModalStars = document.getElementById('reviewModalStars');
-    const reviewModalText = document.getElementById('reviewModalText');
+    const reviewOpenButtons = document.querySelectorAll('.static-review-open');
+    const reviewCloseButtons = document.querySelectorAll('[data-review-close]');
 
-    const getStars = (rating) => {
-        const score = Math.max(0, Math.min(5, Number(rating) || 5));
-        let stars = '';
+    const modalAvatar = document.getElementById('reviewModalAvatar');
+    const modalName = document.getElementById('reviewModalName');
+    const modalDate = document.getElementById('reviewModalDate');
+    const modalStars = document.getElementById('reviewModalStars');
+    const modalText = document.getElementById('reviewModalText');
 
-        for (let i = 1; i <= 5; i++) {
-            stars += i <= score ? '★' : '☆';
-        }
-
-        return stars;
-    };
-
-    const openReviewModal = (button) => {
-        if (
-            !reviewModal ||
-            !reviewModalAvatar ||
-            !reviewModalName ||
-            !reviewModalDate ||
-            !reviewModalStars ||
-            !reviewModalText
-        ) {
-            return;
-        }
+    function openReviewModal(button) {
+        if (!reviewModal || !button) return;
 
         const name = button.dataset.name || 'Avis Google';
         const date = button.dataset.date || '';
-        const rating = button.dataset.rating || 5;
+        const rating = parseInt(button.dataset.rating || '5', 10);
         const text = button.dataset.text || '';
 
-        reviewModalAvatar.textContent = name.charAt(0).toUpperCase();
-        reviewModalName.textContent = name;
-        reviewModalDate.textContent = date;
-        reviewModalStars.textContent = getStars(rating);
-        reviewModalText.textContent = text;
+        if (modalAvatar) {
+            modalAvatar.textContent = name.charAt(0).toUpperCase();
+        }
+
+        if (modalName) {
+            modalName.textContent = name;
+        }
+
+        if (modalDate) {
+            modalDate.textContent = date;
+        }
+
+        if (modalStars) {
+            modalStars.textContent = '★'.repeat(rating) + '☆'.repeat(Math.max(0, 5 - rating));
+        }
+
+        if (modalText) {
+            modalText.textContent = text;
+        }
 
         reviewModal.classList.add('is-open');
         reviewModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
-    };
+    }
 
-    const closeReviewModal = () => {
-        if (!reviewModal) {
-            return;
-        }
+    function closeReviewModal() {
+        if (!reviewModal) return;
 
         reviewModal.classList.remove('is-open');
         reviewModal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('modal-open');
-    };
+    }
 
-    document.querySelectorAll('.static-review-open').forEach((button) => {
-        button.addEventListener('click', () => {
+    reviewOpenButtons.forEach((button) => {
+        button.addEventListener('click', function () {
             openReviewModal(button);
         });
     });
 
-    document.querySelectorAll('[data-review-close]').forEach((button) => {
+    reviewCloseButtons.forEach((button) => {
         button.addEventListener('click', closeReviewModal);
     });
 
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && reviewModal?.classList.contains('is-open')) {
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && reviewModal && reviewModal.classList.contains('is-open')) {
             closeReviewModal();
         }
     });

@@ -383,3 +383,377 @@
         border-radius: 18px;
     }
 }
+
+
+/* =========================================================
+   KIARA HOMMAGE — MOBILE PREMIUM FINAL
+   À coller tout en bas de public/css/mobile-fixes.css
+========================================================= */
+
+@media (max-width: 900px) {
+    .kiara-tribute {
+        overflow: hidden;
+        background: #030201;
+    }
+
+    body.kiara-tribute-open {
+        overflow: hidden;
+        height: 100dvh;
+    }
+
+    .kiara-tribute__slideshow,
+    .kiara-tribute__shade,
+    .kiara-tribute__gold {
+        pointer-events: none;
+    }
+
+    .kiara-tribute__image {
+        object-fit: cover;
+        object-position: center center;
+        filter: brightness(.86) contrast(1.04) saturate(1.05);
+    }
+
+    .kiara-tribute__shade {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, .34) 0%,
+                rgba(0, 0, 0, .28) 24%,
+                rgba(0, 0, 0, .62) 56%,
+                rgba(0, 0, 0, .88) 100%
+            ),
+            linear-gradient(
+                90deg,
+                rgba(0, 0, 0, .50) 0%,
+                rgba(0, 0, 0, .18) 52%,
+                rgba(0, 0, 0, .46) 100%
+            );
+    }
+
+    .kiara-tribute__gold {
+        inset: 12px;
+        min-height: auto;
+        border-color: rgba(232, 190, 83, .34);
+        box-shadow:
+            inset 0 0 48px rgba(232, 190, 83, .035),
+            0 0 48px rgba(0, 0, 0, .38);
+    }
+
+    .kiara-tribute__gold::before {
+        left: -90px;
+        top: 90px;
+        width: 280px;
+        height: 280px;
+        opacity: .10;
+        background-size: 34px 34px, 58px 58px;
+    }
+
+    .kiara-tribute__gold::after {
+        opacity: .055;
+    }
+
+    .kiara-tribute__close {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 18px);
+        right: 20px;
+        width: 46px;
+        height: 46px;
+        z-index: 50;
+        border-color: rgba(232, 190, 83, .58);
+        background: rgba(6, 5, 3, .72);
+        color: #f4d27a;
+        font-size: 1.95rem;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, .28);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .kiara-tribute__content {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100dvh;
+        padding:
+            calc(env(safe-area-inset-top, 0px) + 90px)
+            22px
+            calc(env(safe-area-inset-bottom, 0px) + 34px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        transform: none;
+    }
+
+    .kiara-tribute__brand {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 18px);
+        left: 20px;
+        right: 78px;
+        z-index: 45;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        min-width: 0;
+    }
+
+    .kiara-tribute__logo-wrap {
+        width: 46px;
+        height: 46px;
+        flex: 0 0 46px;
+        padding: 6px;
+        border-color: rgba(232, 190, 83, .48);
+        background: rgba(0, 0, 0, .30);
+    }
+
+    .kiara-tribute__brand-text {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .kiara-tribute__brand-text strong {
+        white-space: normal;
+        color: #e8be53;
+        font-size: clamp(.78rem, 3.8vw, .98rem);
+        line-height: 1.08;
+        letter-spacing: .055em;
+    }
+
+    .kiara-tribute__brand-text span {
+        display: none;
+    }
+
+    .kiara-tribute__kicker {
+        margin: 0 0 8px;
+        color: #f1d483;
+        font-size: .58rem;
+        line-height: 1.45;
+        letter-spacing: .17em;
+    }
+
+    .kiara-tribute__content h1 {
+        margin: 0;
+        font-size: clamp(3.15rem, 15vw, 4.75rem);
+        line-height: .86;
+        letter-spacing: -.045em;
+        text-shadow:
+            0 0 26px rgba(255, 247, 223, .12),
+            0 10px 34px rgba(0, 0, 0, .72);
+    }
+
+    .kiara-tribute__subtitle {
+        max-width: 270px;
+        margin-top: 8px;
+        font-size: clamp(1.45rem, 7.6vw, 2.15rem);
+        line-height: 1.05;
+    }
+
+    .kiara-tribute__line {
+        width: min(280px, 100%);
+        margin: 14px 0 13px;
+        gap: 10px;
+    }
+
+    .kiara-tribute__text,
+    .kiara-tribute__quote {
+        max-width: 100%;
+        font-size: .80rem;
+        line-height: 1.55;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, .78);
+    }
+
+    .kiara-tribute__quote {
+        margin-top: 8px;
+        color: rgba(255, 248, 232, .72);
+    }
+
+    .kiara-tribute__dates {
+        margin-top: 12px;
+        gap: 8px;
+        font-size: .62rem;
+        line-height: 1.5;
+        letter-spacing: .075em;
+    }
+
+    .kiara-tribute__dates i {
+        font-size: .72rem;
+    }
+
+    .kiara-tribute__actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .kiara-tribute__enter {
+        width: 100%;
+        min-width: 0;
+        min-height: 50px;
+        padding: 0 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-size: .66rem;
+        line-height: 1.25;
+        letter-spacing: .135em;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .kiara-tribute__enter span {
+        margin-left: 10px;
+    }
+
+    .kiara-tribute__remember {
+        position: relative;
+        z-index: 3;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 7px 12px;
+        justify-content: center;
+        border-radius: 999px;
+        color: rgba(255, 248, 232, .68);
+        background: rgba(0, 0, 0, .22);
+        font-size: .69rem;
+        line-height: 1.2;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .kiara-tribute__remember input {
+        width: 14px;
+        height: 14px;
+        flex: 0 0 auto;
+    }
+
+    .kiara-tribute__scroll {
+        display: none;
+    }
+}
+
+/* Téléphones bas type iPhone SE / petits Android */
+@media (max-width: 900px) and (max-height: 740px) {
+    .kiara-tribute__content {
+        padding:
+            calc(env(safe-area-inset-top, 0px) + 76px)
+            20px
+            calc(env(safe-area-inset-bottom, 0px) + 24px);
+    }
+
+    .kiara-tribute__logo-wrap {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .kiara-tribute__brand-text strong {
+        font-size: .76rem;
+    }
+
+    .kiara-tribute__kicker {
+        margin-bottom: 6px;
+        font-size: .52rem;
+    }
+
+    .kiara-tribute__content h1 {
+        font-size: clamp(2.75rem, 13.5vw, 4rem);
+    }
+
+    .kiara-tribute__subtitle {
+        max-width: 240px;
+        font-size: clamp(1.25rem, 6.8vw, 1.8rem);
+    }
+
+    .kiara-tribute__line {
+        margin: 10px 0 9px;
+    }
+
+    .kiara-tribute__text,
+    .kiara-tribute__quote {
+        font-size: .72rem;
+        line-height: 1.42;
+    }
+
+    .kiara-tribute__quote {
+        margin-top: 6px;
+    }
+
+    .kiara-tribute__dates {
+        margin-top: 8px;
+        font-size: .55rem;
+    }
+
+    .kiara-tribute__actions {
+        margin-top: 10px;
+        gap: 7px;
+    }
+
+    .kiara-tribute__enter {
+        min-height: 44px;
+        font-size: .58rem;
+    }
+
+    .kiara-tribute__remember {
+        padding: 5px 10px;
+        font-size: .62rem;
+    }
+}
+
+/* Petits écrans étroits */
+@media (max-width: 430px) {
+    .kiara-tribute__gold {
+        inset: 10px;
+    }
+
+    .kiara-tribute__close {
+        right: 18px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .kiara-tribute__brand {
+        left: 18px;
+        right: 72px;
+    }
+
+    .kiara-tribute__content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .kiara-tribute__content h1 {
+        font-size: clamp(2.95rem, 14.8vw, 4.35rem);
+    }
+
+    .kiara-tribute__subtitle {
+        max-width: 250px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    .kiara-tribute__content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .kiara-tribute__content h1 {
+        font-size: 2.72rem;
+        letter-spacing: -.035em;
+    }
+
+    .kiara-tribute__subtitle {
+        font-size: 1.28rem;
+    }
+
+    .kiara-tribute__text,
+    .kiara-tribute__quote {
+        font-size: .69rem;
+    }
+
+    .kiara-tribute__dates {
+        font-size: .52rem;
+    }
+}

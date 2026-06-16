@@ -1689,3 +1689,211 @@ body.modal-open {
         justify-content: center;
     }
 }
+
+
+/* =========================================================
+   MODAL CHAT — CORRECTION MOBILE UNIQUEMENT
+========================================================= */
+
+@media (max-width: 760px) {
+    body.modal-open {
+        overflow: hidden;
+        height: 100dvh;
+    }
+
+    .cat-modal {
+        align-items: flex-end;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .cat-modal-panel {
+        width: 100%;
+        height: 94dvh;
+        max-height: 94dvh;
+        border-radius: 28px 28px 0 0;
+        overflow: hidden;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    .cat-modal-close {
+        position: fixed;
+        top: max(14px, env(safe-area-inset-top));
+        right: 14px;
+        z-index: 9999999;
+        width: 46px;
+        height: 46px;
+        font-size: 28px;
+        background: rgba(7, 6, 4, .92);
+        border: 1px solid rgba(224, 201, 130, .26);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, .28);
+    }
+
+    .cat-modal-content {
+        height: 100%;
+        max-height: 100%;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 14px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cat-modal-content.is-active {
+        display: grid;
+    }
+
+    .cat-modal-gallery {
+        display: grid;
+        gap: 10px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .cat-modal-main-image {
+        height: 330px;
+        min-height: 330px;
+        border-radius: 24px;
+    }
+
+    .cat-modal-thumbs {
+        gap: 8px;
+        padding: 8px;
+        border-radius: 18px;
+    }
+
+    .cat-modal-thumbs button {
+        flex: 0 0 62px;
+        width: 62px;
+        height: 62px;
+        border-radius: 14px;
+    }
+
+    .cat-modal-info {
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        padding: 0 0 26px;
+    }
+
+    .cat-modal-info .cat-status {
+        min-height: 34px;
+        margin-bottom: 16px;
+        padding: 0 13px;
+        font-size: 10px;
+    }
+
+    .cat-modal-info h3 {
+        margin-bottom: 14px;
+        padding-right: 48px;
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: .95;
+        letter-spacing: -2px;
+    }
+
+    .cat-modal-info > p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .cat-modal-price {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .cat-modal-price strong {
+        font-size: 24px;
+    }
+
+    .cat-modal-grid,
+    .cat-modal-family {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .cat-modal-grid div,
+    .cat-modal-family div,
+    .cat-modal-health div {
+        padding: 16px;
+        border-radius: 20px;
+        box-shadow: 0 8px 22px rgba(31, 24, 12, .04);
+    }
+
+    .cat-modal-grid small,
+    .cat-modal-family span,
+    .cat-modal-health span,
+    .cat-modal-price span {
+        font-size: 9px;
+        letter-spacing: 1.7px;
+    }
+
+    .cat-modal-grid strong,
+    .cat-modal-family strong,
+    .cat-modal-health strong {
+        margin-top: 7px;
+        font-size: 15px;
+        line-height: 1.35;
+    }
+
+    .cat-modal-family {
+        margin-top: 12px;
+    }
+
+    .cat-modal-health {
+        gap: 10px;
+        margin: 22px 0;
+    }
+
+    .cat-modal-health h4 {
+        margin: 0 0 4px;
+        font-size: 18px;
+        letter-spacing: 4px;
+    }
+
+    .cat-modal-info .btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 430px) {
+    .cat-modal-panel {
+        height: 95dvh;
+        max-height: 95dvh;
+        border-radius: 24px 24px 0 0;
+    }
+
+    .cat-modal-content {
+        padding: 12px;
+    }
+
+    .cat-modal-main-image {
+        height: 285px;
+        min-height: 285px;
+        border-radius: 20px;
+    }
+
+    .cat-modal-info h3 {
+        font-size: clamp(31px, 9.6vw, 42px);
+    }
+
+    .cat-modal-health h4 {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .cat-modal-grid div,
+    .cat-modal-family div,
+    .cat-modal-health div {
+        padding: 15px;
+        border-radius: 18px;
+    }
+}

@@ -1115,3 +1115,122 @@ body {
         aspect-ratio: 1.22 / 1;
     }
 }
+
+
+/* =========================================================
+   SECTION KIARA & LARGO — COUPLE FONDATEUR
+========================================================= */
+
+.story-founders {
+    padding: clamp(78px, 8vw, 120px) 0;
+    background:
+        radial-gradient(circle at 14% 0%, rgba(200, 168, 90, .12), transparent 34%),
+        linear-gradient(180deg, #fffaf1 0%, #f3eadc 100%);
+}
+
+.story-founders__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.story-founder-card {
+    overflow: hidden;
+    border-radius: 38px;
+    background: rgba(255, 255, 255, .72);
+    border: 1px solid rgba(200, 168, 90, .22);
+    box-shadow: 0 24px 70px rgba(31, 24, 12, .08);
+}
+
+.story-founder-card figure {
+    position: relative;
+    overflow: hidden;
+    height: 440px;
+    margin: 0;
+    background: #17130d;
+}
+
+.story-founder-card figure::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(232, 190, 83, .28);
+    border-radius: 26px;
+    pointer-events: none;
+}
+
+.story-founder-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.story-founder-card div {
+    padding: 28px;
+}
+
+.story-founder-card span {
+    color: #a06f22;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.story-founder-card h3 {
+    margin: 12px 0 14px;
+    color: #17130d;
+    font-size: 32px;
+    line-height: 1.05;
+}
+
+.story-founder-card p {
+    margin: 0;
+    color: rgba(28, 23, 15, .72);
+    font-size: 15.5px;
+    line-height: 1.75;
+}
+
+@media (max-width: 760px) {
+    .story-founders {
+        padding: 64px 0;
+    }
+
+    .story-founders .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .story-founders__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .story-founder-card {
+        border-radius: 30px;
+    }
+
+    .story-founder-card figure {
+        height: 360px;
+    }
+
+    .story-founder-card div {
+        padding: 22px;
+    }
+
+    .story-founder-card h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 430px) {
+    .story-founder-card figure {
+        height: 310px;
+    }
+
+    .story-founder-card {
+        border-radius: 26px;
+    }
+}

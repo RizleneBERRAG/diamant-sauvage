@@ -757,3 +757,61 @@
         font-size: .52rem;
     }
 }
+
+/* =========================================================
+   KIARA HOMMAGE — CADRAGE PHOTOS MOBILE
+   Corrige uniquement les images sur téléphone
+========================================================= */
+
+@media (max-width: 900px) {
+    .kiara-tribute__slideshow {
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 58vh;
+        background:
+            radial-gradient(circle at 50% 30%, rgba(232, 190, 83, .08), transparent 42%),
+            #030201;
+        overflow: hidden;
+    }
+
+    .kiara-tribute__image {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+        padding: 14px 14px 0;
+        filter: brightness(.94) contrast(1.04) saturate(1.04);
+        transform: scale(1.01);
+    }
+
+    .kiara-tribute__image.is-active {
+        transform: scale(1);
+    }
+
+    .kiara-tribute__shade {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, .10) 0%,
+                rgba(0, 0, 0, .18) 30%,
+                rgba(0, 0, 0, .66) 58%,
+                rgba(0, 0, 0, .93) 100%
+            );
+    }
+
+    .kiara-tribute__content {
+        position: relative;
+        z-index: 8;
+    }
+}
+
+@media (max-width: 430px) {
+    .kiara-tribute__slideshow {
+        height: 55vh;
+    }
+
+    .kiara-tribute__image {
+        padding: 12px 12px 0;
+    }
+}

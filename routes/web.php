@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\ChatPageController;
 use App\Http\Controllers\Admin\CatController;
 use App\Http\Controllers\Admin\CroquetteController;
@@ -43,11 +44,29 @@ Route::get('/mentions-legales', fn () => view('pages.mentions-legales'))->name('
 
 /*
 |--------------------------------------------------------------------------
+| AUTH ADMIN
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/admin/login', [AdminLoginController::class, 'show'])
+    ->middleware('guest')
+    ->name('login');
+
+Route::post('/admin/login', [AdminLoginController::class, 'login'])
+    ->middleware('guest')
+    ->name('admin.login.submit');
+
+Route::post('/admin/logout', [AdminLoginController::class, 'logout'])
+    ->middleware('auth')
+    ->name('admin.logout');
+
+/*
+|--------------------------------------------------------------------------
 | ADMIN
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', fn () => redirect()->route('admin.chats.index'))->name('index');
 
     Route::get('/chats', [CatController::class, 'index'])->name('chats.index');

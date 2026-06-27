@@ -19,6 +19,8 @@ use App\Http\Controllers\ContactController;
 
 Route::redirect('/nos-chats-disponible', '/nos-chats/chats-disponibles', 301);
 Route::redirect('/nos-chats-disponibles', '/nos-chats/chats-disponibles', 301);
+Route::redirect('/nos-chats/nos-chats-disponibles', '/nos-chats/chats-disponibles', 301);
+Route::redirect('/nos-chats/nos-chats-disponible', '/nos-chats/chats-disponibles', 301);
 Route::redirect('/chats-disponibles', '/nos-chats/chats-disponibles', 301);
 Route::redirect('/elevage-chat-bengal', '/le-bengal/origines-morphologie-robe', 301);
 Route::redirect('/nos-femelles', '/nos-chats/nos-femelles', 301);

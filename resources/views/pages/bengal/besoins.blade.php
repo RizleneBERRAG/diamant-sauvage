@@ -1,7 +1,7 @@
 @extends('layouts.site')
 
 @section('title', 'Besoins et alimentation du Bengal | Chatterie du Diamant Sauvage')
-@section('description', 'Découvrez les besoins essentiels du Bengal, son alimentation, son rythme de repas et les gammes de croquettes utilisées à la Chatterie du Diamant Sauvage.')
+@section('description', 'Découvrez les besoins essentiels du Bengal, son alimentation, son rythme de repas et les croquettes utilisées ou recommandées à la Chatterie du Diamant Sauvage.')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/bengal/besoins.css') }}">
@@ -16,6 +16,10 @@
             ->orderBy('sort_order')
             ->orderBy('id')
             ->get();
+
+        $defaultCroquetteLabel = 'À la chatterie';
+        $defaultCroquetteTitle = 'Les croquettes utilisées et recommandées chez nous.';
+        $defaultCroquetteDescription = 'Les gammes présentées ici peuvent évoluer selon l’âge, les besoins et la sensibilité de chaque chat. Elles sont affichées sous forme de cartes pour consulter facilement les informations essentielles et, lorsqu’elle est renseignée, la composition complète.';
     @endphp
 
     <section class="bengal-needs-hero">
@@ -239,21 +243,21 @@
     <section class="bengal-products-section">
         <div class="container">
             <div class="bengal-needs-section-head section-head-light">
-            <span class="bengal-needs-label">
-                {{ $croquetteSection?->label ?? 'À la chatterie' }}
-            </span>
+                <span class="bengal-needs-label">
+                    {{ $croquetteSection?->label ?: $defaultCroquetteLabel }}
+                </span>
 
                 <h2>
-                    {{ $croquetteSection?->title ?? 'Les 3 gammes de croquettes utilisées chez nous.' }}
+                    {{ $croquetteSection?->title ?: $defaultCroquetteTitle }}
                 </h2>
 
                 <p>
-                    {{ $croquetteSection?->description ?? 'Pour rendre la page plus claire, chaque gamme est présentée sous forme de carte avec les informations essentielles visibles immédiatement et la composition complète accessible au clic.' }}
+                    {{ $croquetteSection?->description ?: $defaultCroquetteDescription }}
                 </p>
             </div>
 
             <div class="food-products-grid">
-                @foreach($croquettes as $croquette)
+                @forelse($croquettes as $croquette)
                     <article class="food-product-card {{ $croquette->is_featured ? 'food-product-featured' : '' }}">
                         <div class="food-product-top">
                             <figure class="food-pack-image">
@@ -332,10 +336,24 @@
                             </div>
                         </details>
                     </article>
-                @endforeach
+                @empty
+                    <article class="food-product-card food-product-empty">
+                        <div class="food-product-top">
+                            <div>
+                                <span class="food-product-tag">Informations à venir</span>
+                                <h3>Aucune gamme affichée pour le moment.</h3>
+                                <p>
+                                    Les recommandations alimentaires peuvent être ajoutées ou masquées depuis le tableau de bord.
+                                    Lorsqu’une gamme est active, elle apparaît automatiquement dans cette section.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                @endforelse
             </div>
         </div>
     </section>
+
     <section class="bengal-needs-final">
         <div class="container">
             <div class="bengal-needs-final-box">

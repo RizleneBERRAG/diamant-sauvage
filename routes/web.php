@@ -27,7 +27,7 @@ Route::prefix('nos-chats')->name('chats.')->group(function () {
     Route::get('/', [ChatPageController::class, 'index'])->name('index');
     Route::get('/nos-femelles', [ChatPageController::class, 'femelles'])->name('femelles');
     Route::get('/nos-males', [ChatPageController::class, 'males'])->name('males');
-    Route::get('/chats-disponibles', [ChatPageController::class, 'index'])->name('disponibles');
+    Route::get('/chats-disponibles', [ChatPageController::class, 'disponibles'])->name('disponibles');
     Route::get('/mariages-a-venir', function () {
         $matings = Mating::where('is_visible', true)
             ->orderBy('sort_order')

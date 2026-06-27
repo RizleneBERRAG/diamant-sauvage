@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "rizleneb/Diamant-sauvage",
+    "name": "rizleneb/diamant-sauvage",
     "type": "project",
     "description": "Site officiel Laravel de la Chatterie du Diamant Sauvage.",
     "keywords": ["laravel", "chatterie", "bengal", "diamant-sauvage"],

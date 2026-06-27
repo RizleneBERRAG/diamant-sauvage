@@ -5,6 +5,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/bengal/besoins.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bengal/besoins-mobile.css') }}">
 @endpush
 
 @section('content')

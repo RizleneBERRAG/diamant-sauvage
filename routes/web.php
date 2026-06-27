@@ -9,6 +9,27 @@ use App\Models\Mating;
 use App\Http\Controllers\Admin\MatingController;
 use App\Http\Controllers\ContactController;
 
+/*
+|--------------------------------------------------------------------------
+| ANCIENNES URLS WORDPRESS
+|--------------------------------------------------------------------------
+| Ces redirections gardent le référencement et évitent les erreurs lorsque
+| Google affiche encore les anciennes pages de l'ancien site.
+*/
+
+Route::redirect('/nos-chats-disponible', '/nos-chats/chats-disponibles', 301);
+Route::redirect('/nos-chats-disponibles', '/nos-chats/chats-disponibles', 301);
+Route::redirect('/chats-disponibles', '/nos-chats/chats-disponibles', 301);
+Route::redirect('/elevage-chat-bengal', '/le-bengal/origines-morphologie-robe', 301);
+Route::redirect('/nos-femelles', '/nos-chats/nos-femelles', 301);
+Route::redirect('/nos-males', '/nos-chats/nos-males', 301);
+Route::redirect('/nos-mâles', '/nos-chats/nos-males', 301);
+Route::redirect('/reproduction', '/le-bengal/reproduction', 301);
+Route::redirect('/nous-contactez', '/contact', 301);
+Route::redirect('/la-chatterie-du-diamant-sauvage', '/la-chatterie', 301);
+Route::redirect('/chat-bengal', '/le-bengal/origines-morphologie-robe', 301);
+Route::redirect('/le-bengal', '/le-bengal/origines-morphologie-robe', 301);
+
 Route::get('/', fn () => view('pages.home'))->name('home');
 
 Route::get('/la-chatterie', fn () => view('pages.chatterie'))->name('chatterie');

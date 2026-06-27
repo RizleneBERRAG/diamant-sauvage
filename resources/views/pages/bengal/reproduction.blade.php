@@ -5,6 +5,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/bengal/reproduction.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bengal/reproduction-header.css') }}">
 @endpush
 
 @section('content')

@@ -9,8 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cat_images', function (Blueprint $table) {
-            $table->unsignedTinyInteger('position_x')->default(50);
-            $table->unsignedTinyInteger('position_y')->default(50);
+            $table->smallInteger('position_x')->default(50);
+            $table->smallInteger('position_y')->default(50);
             $table->decimal('zoom', 4, 2)->default(1);
         });
     }

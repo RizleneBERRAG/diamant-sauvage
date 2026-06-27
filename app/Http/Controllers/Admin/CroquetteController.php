@@ -16,8 +16,8 @@ class CroquetteController extends Controller
             ['id' => 1],
             [
                 'label' => 'À la chatterie',
-                'title' => 'Les 3 gammes de croquettes utilisées chez nous.',
-                'description' => 'Pour rendre la page plus claire, chaque gamme est présentée sous forme de carte avec les informations essentielles visibles immédiatement et la composition complète accessible au clic.',
+                'title' => 'Les croquettes utilisées et recommandées chez nous.',
+                'description' => 'Les gammes présentées ici peuvent évoluer selon l’âge, les besoins et la sensibilité de chaque chat. Elles sont affichées sous forme de cartes pour consulter facilement les informations essentielles et, lorsqu’elle est renseignée, la composition complète.',
             ]
         );
 

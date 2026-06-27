@@ -173,7 +173,6 @@ class CatController extends Controller
             'remove_father_photo' => ['nullable', 'boolean'],
             'remove_mother_photo' => ['nullable', 'boolean'],
 
-
             'health_hcm' => ['nullable', 'string', 'max:255'],
             'health_pkd' => ['nullable', 'string', 'max:255'],
             'health_fiv_felv' => ['nullable', 'string', 'max:255'],
@@ -273,9 +272,9 @@ class CatController extends Controller
         $counter = 2;
 
         while (
-        Cat::where('slug', $slug)
-            ->when($ignoreId, fn ($query) => $query->where('id', '!=', $ignoreId))
-            ->exists()
+            Cat::where('slug', $slug)
+                ->when($ignoreId, fn ($query) => $query->where('id', '!=', $ignoreId))
+                ->exists()
         ) {
             $slug = $baseSlug . '-' . $counter;
             $counter++;
@@ -306,8 +305,8 @@ class CatController extends Controller
     public function updateImageCrop(Request $request, CatImage $image)
     {
         $data = $request->validate([
-            'position_x' => ['required', 'numeric', 'min:-100', 'max:200'],
-            'position_y' => ['required', 'numeric', 'min:-100', 'max:200'],
+            'position_x' => ['required', 'integer', 'min:-100', 'max:200'],
+            'position_y' => ['required', 'integer', 'min:-100', 'max:200'],
             'zoom' => ['required', 'numeric', 'min:0.5', 'max:5'],
         ]);
 

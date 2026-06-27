@@ -42,6 +42,18 @@ class ChatPageController extends Controller
         );
     }
 
+    public function disponibles()
+    {
+        return $this->renderCatsPage(
+            mode: 'available',
+            title: 'Chats disponibles',
+            subtitle: 'prêts à rejoindre leur famille.',
+            kicker: 'Adoptions ouvertes',
+            description: 'Découvrez uniquement les Bengals actuellement disponibles à l’adoption, avec leurs informations essentielles, leurs photos et leur statut à jour.',
+            button: 'Voir les chats disponibles'
+        );
+    }
+
     private function renderCatsPage(
         string $mode,
         string $title,
@@ -58,10 +70,12 @@ class ChatPageController extends Controller
 
         $males = $allCats->where('category', 'male')->values();
         $females = $allCats->where('category', 'female')->values();
+        $availableCats = $allCats->where('availability', 'available')->values();
 
         $cats = match ($mode) {
             'female' => $females,
             'male' => $males,
+            'available' => $availableCats,
             default => $allCats,
         };
 
@@ -78,6 +92,7 @@ class ChatPageController extends Controller
             'cats',
             'males',
             'females',
+            'availableCats',
             'featured'
         ));
     }

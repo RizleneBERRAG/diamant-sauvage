@@ -1,59 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Chatterie du Diamant Sauvage
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Site officiel Laravel de la Chatterie du Diamant Sauvage.
 
-## About Laravel
+Le projet remplace l'ancien site vitrine et inclut un espace administrateur permettant de gérer les chats, les photos, les mariages à venir et la section croquettes.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel 12
+- PHP 8.2+
+- MySQL
+- Blade
+- CSS et JavaScript organisés dans `public/`
+- Vite disponible pour les assets Laravel si besoin
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fonctionnalités principales
 
-## Learning Laravel
+- Pages publiques : accueil, histoire, chatterie, Bengal, besoins, santé, reproduction, arrivée, contact, mentions légales.
+- Pages chats : tous les chats, mâles, femelles, chats disponibles, mariages à venir.
+- Administration protégée par connexion.
+- Gestion des chats : statut, visibilité, photos, photo principale, recadrage, ordre d'affichage.
+- Gestion des mariages à venir.
+- Gestion de la section croquettes.
+- Formulaire de contact avec envoi email.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Installation locale
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone <url-du-repo>
+cd diamant-sauvage
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-## Laravel Sponsors
+Configurer ensuite le fichier `.env` avec la base MySQL locale.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Puis lancer :
 
-### Premium Partners
+```bash
+php artisan migrate
+php artisan storage:link
+npm run build
+php artisan optimize:clear
+php artisan serve
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Créer le compte administrateur :
 
-## Contributing
+```bash
+php artisan admin:create email@example.com --name="Administrateur"
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Le terminal demandera le mot de passe admin de façon masquée.
 
-## Code of Conduct
+## Accès admin
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```text
+/admin
+```
 
-## Security Vulnerabilities
+L'administration est protégée par authentification.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Préparation production
 
-## License
+Avant la mise en ligne officielle :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install --no-dev --optimize-autoloader
+npm install
+npm run build
+php artisan migrate --force
+php artisan storage:link
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+Le fichier `.env` de production doit impérativement contenir :
+
+```env
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://votre-domaine.fr
+DB_CONNECTION=mysql
+FILESYSTEM_DISK=public
+MAIL_MAILER=smtp
+MAIL_CONTACT_TO=adresse-de-reception@example.com
+```
+
+## Dossier `docs/`
+
+Le dossier `docs/` a servi uniquement pour une prévisualisation temporaire via GitHub Pages.
+
+Pour le site officiel, il ne doit pas être utilisé comme source de vérité. Le vrai site est l'application Laravel servie depuis le dossier `public/`.
+
+## Commandes utiles
+
+Vider les caches Laravel :
+
+```bash
+php artisan optimize:clear
+```
+
+Recréer les caches de production :
+
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+Relancer les migrations :
+
+```bash
+php artisan migrate --force
+```
+
+Créer ou mettre à jour un admin :
+
+```bash
+php artisan admin:create email@example.com --name="Administrateur"
+```
+
+## Notes de déploiement
+
+Le domaine doit pointer vers le dossier `public/` du projet Laravel.
+
+Si l'hébergement ne permet pas de choisir `public/` comme racine web, il faut placer les fichiers Laravel hors du dossier public accessible et rediriger le domaine vers le bon point d'entrée `public/index.php`.
+
+Ne jamais envoyer en ligne :
+
+- le fichier `.env` local ;
+- le dossier `node_modules/` ;
+- le dossier `vendor/` si Composer peut être lancé sur le serveur ;
+- les caches locaux ;
+- les fichiers temporaires.

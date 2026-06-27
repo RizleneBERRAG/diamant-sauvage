@@ -1,7 +1,7 @@
 @extends('layouts.site')
 
 @section('title', $title . ' Bengal | Chatterie du Diamant Sauvage')
-@section('description', 'Découvrez les Bengals de la Chatterie du Diamant Sauvage : mâles, femelles, lignées, robes, tests de santé, LOOF et informations détaillées.')
+@section('description', 'Découvrez les Bengals de la Chatterie du Diamant Sauvage : mâles, femelles, chats disponibles, lignées, robes, tests de santé, LOOF et informations détaillées.')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/chats/chats.css') }}">
@@ -54,14 +54,24 @@
         $pageLabel = match ($mode) {
             'female' => 'Nos femelles',
             'male' => 'Nos mâles',
+            'available' => 'Chats disponibles',
             default => 'Toutes les fiches',
         };
 
         $pageHeading = match ($mode) {
             'female' => 'Une présentation claire de chaque femelle.',
             'male' => 'Des mâles présentés avec précision.',
+            'available' => 'Les Bengals actuellement ouverts à l’adoption.',
             default => 'Un espace clair pour consulter chaque chat.',
         };
+
+        $emptyTitle = $mode === 'available'
+            ? 'Aucun chat disponible pour le moment.'
+            : 'Aucune fiche visible pour le moment.';
+
+        $emptyText = $mode === 'available'
+            ? 'Les Bengals marqués comme disponibles depuis le tableau de bord apparaîtront ici automatiquement.'
+            : 'Les chats ajoutés et rendus visibles depuis le tableau de bord apparaîtront ici.';
     @endphp
 
     <section class="cats-hero">
@@ -121,6 +131,11 @@
                     Nos mâles
                     <span>{{ $males->count() }}</span>
                 </a>
+
+                <a href="{{ route('chats.disponibles') }}" class="{{ $mode === 'available' ? 'is-active' : '' }}">
+                    Disponibles
+                    <span>{{ $availableCats->count() }}</span>
+                </a>
             </nav>
         </div>
     </section>
@@ -156,9 +171,9 @@
                             </figure>
 
                             <div class="featured-cat-content">
-                            <span class="cat-status {{ $statusClass }}">
-                                {{ $cat->availability_text }}
-                            </span>
+                                <span class="cat-status {{ $statusClass }}">
+                                    {{ $cat->availability_text }}
+                                </span>
 
                                 <h3>{{ $cat->display_name }}</h3>
 
@@ -238,8 +253,8 @@
                             >
 
                             <span class="cat-status {{ $statusClass }}">
-                            {{ $cat->availability_text }}
-                        </span>
+                                {{ $cat->availability_text }}
+                            </span>
 
                             @if($cat->price_text)
                                 <strong class="cat-price">{{ $cat->price_text }}</strong>
@@ -301,8 +316,8 @@
                     </article>
                 @empty
                     <div class="cats-empty">
-                        <h3>Aucune fiche visible pour le moment.</h3>
-                        <p>Les chats ajoutés et rendus visibles depuis le tableau de bord apparaîtront ici.</p>
+                        <h3>{{ $emptyTitle }}</h3>
+                        <p>{{ $emptyText }}</p>
                     </div>
                 @endforelse
             </div>
@@ -401,9 +416,9 @@
                     </div>
 
                     <div class="cat-modal-info">
-                    <span class="cat-status {{ $statusClass }}">
-                        {{ $cat->availability_text }}
-                    </span>
+                        <span class="cat-status {{ $statusClass }}">
+                            {{ $cat->availability_text }}
+                        </span>
 
                         <h3>{{ $cat->name }}</h3>
 

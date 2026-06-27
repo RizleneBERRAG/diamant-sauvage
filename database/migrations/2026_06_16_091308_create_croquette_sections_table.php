@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('croquette_sections', function (Blueprint $table) {
             $table->id();
             $table->string('label')->default('À la chatterie');
-            $table->string('title')->default('Les 3 gammes de croquettes utilisées chez nous.');
+            $table->string('title')->default('Les croquettes utilisées et recommandées chez nous.');
             $table->text('description')->nullable();
             $table->timestamps();
         });

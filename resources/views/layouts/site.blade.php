@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header-fixed.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/hommage-kiara.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mobile-fixes.css') }}">

@@ -9,8 +9,8 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Artisan::command('admin:create {email?} {--name=Administrateur}', function (?string $email = null) {
-    $email = $email ?: $this->ask('Email admin');
+Artisan::command('admin:create {email?} {--name=Administrateur}', function () {
+    $email = $this->argument('email') ?: $this->ask('Email admin');
     $name = (string) ($this->option('name') ?: 'Administrateur');
 
     if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
